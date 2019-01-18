@@ -1,0 +1,93 @@
+<style>
+    /*
+    In this mode the css specific to the tool is included here - endeavour to use generic css wherever possible
+    */
+
+    #snowflakeCards {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        overflow-y: auto;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    .wmcard {
+        padding: 15px;
+        font-size: 0.8em;
+        background-color: var(--white)
+    }
+
+    .snowflakeCard {
+        margin-bottom: 20px;
+        width: 100%;
+        position: relative;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=0, Color=#000000)";
+        -moz-box-shadow: 0 3px 10px -3px #000000;
+        -webkit-box-shadow: 0 3px 10px -3px #000000;
+        box-shadow: 0 3px 10px -3px #000000;
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color=#000000);
+        min-height: 200px;
+    }
+
+    .snowflakeTrigger {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background: none;
+        border: 0px;
+        outline: none;
+    }
+
+    .snowflakeDelete {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        background: none;
+        border: 0px;
+        outline: none;
+    }
+
+    .snflk-title {
+        width: 100%;
+        background-color: transparent;
+        border: 0px;
+        border-bottom: 1px solid var(--c1);
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        outline: none;
+    }
+
+    .snflk-text {
+        width: 100%;
+        background-color: transparent;
+        border: 0px;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        outline: none;
+    }
+
+    .replaceCard {
+        width: 100%;
+        background-color: var(--c9);
+        color: var(--c0);
+        border: 0px;
+        font-size: 0.8em;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    #AddNewSnowflake {
+        max-width: 300px !important;
+        margin: 0 auto;
+    }
+
+    #SendToManuscript {
+        max-width: 300px !important;
+        margin: 0 auto;
+    }
+</style>
+<div id="snowflakeCards">
+</div>

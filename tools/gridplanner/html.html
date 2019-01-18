@@ -1,0 +1,199 @@
+<style>
+  /*
+    In this mode the css specific to the tool is included here - endeavour to use generic css wherever possible
+    */
+  #timelines {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  td,
+  tr,
+  th {
+    position: relative;
+  }
+
+  th:hover {
+    background-color: var(--c3)
+  }
+
+  th {
+    padding: 10px;
+  }
+
+  td {
+    vertical-align: top;
+    border: 1px dashed #ccc;
+  }
+
+  .timeline-block {
+    background-color: transparent;
+    width: 400px;
+    height: 100%;
+    padding: 10px;
+  }
+
+  .table-title {
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+    width: 100%;
+    min-width: 200px;
+    resize: none;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .grid-drag {
+    width: 100%;
+    min-height: 10px;
+  }
+
+  .grid-drag:hover {
+    width: 100%;
+    min-height: 50px;
+
+  }
+
+
+  .addnewbit {
+    position: absolute;
+    background-color: var(--c0);
+    color: var(--c3);
+    border: 1px solid var(--c3);
+    border-radius: 10px;
+    width: 50px;
+    height: 20px;
+    font-size: 12px;
+    padding: 0px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 auto;
+    bottom:5px;
+    right:5px;
+  }
+
+  .addnewbit:hover,
+  .addnewbit:focus,
+  .addnewbit:active {
+    color: var(--c0);
+    border: var(--c3);
+    background-color: var(--c3);
+    outline: none;
+  }
+
+
+  .removeme {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: var(--c0);
+    color: var(--c3);
+    border: 0px;
+    width: 20px;
+    font-size: 12px;
+    padding: 0px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .removeme:hover,
+  .removeme:focus,
+  .removeme:active {
+    color: #fff;
+    border: #fff;
+    background-color: darkred;
+    outline: none;
+  }
+
+  .helper {
+    opacity: 0.5;
+    border-left: 10px solid var(--c3);
+    min-height: 50px;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=37, Direction=0, Color=#000000)";
+    /*IE 8*/
+    -moz-box-shadow: 0 6px 37px 5px rgba(0, 0, 0, 0.4);
+    /*FF 3.5+*/
+    -webkit-box-shadow: 0 6px 37px 5px rgba(0, 0, 0, 0.4);
+    /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+    box-shadow: 0 6px 37px 5px rgba(0, 0, 0, 0.4);
+    /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=37, Direction=135, Color=#000000);
+    /*IE 5.5-7*/
+  }
+
+  .timeline-block>ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
+
+  .timeline-block>ul>li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    min-height: 60px;
+    padding: 10px;
+    cursor: move;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+
+    border-left: 10px solid var(--c0)
+  }
+
+  .timeline-block>ul>li:hover {
+    border-left: 10px solid var(--c2)
+  }
+
+  .grideditabletextarea {
+    outline: none;
+    width: 100%;
+    border: 0px;
+    background-color: transparent;
+    resize: none;
+    font-size: 0.8em;
+  }
+
+  .gridbuttons {
+    position: fixed;
+    width: 100%;
+    top: 50px;
+    left: 0px;
+    text-align: center;
+    z-index: 1024;
+  }
+
+  .gridbuttons>button {
+    display: inline;
+    width: auto;
+    cursor: pointer;
+    background-color: var(--c7);
+    color: var(--c0);
+    border: 0px;
+    height: 35px;
+    font-size: 0.8em;
+    padding: 10px;
+  }
+
+  #manage {
+    margin-top: 30px;
+  }
+</style>
+<div id="timelines">
+  <div class="gridbuttons">
+    <button id="addrow">Add New Row <i class="fa fa-fw fa-arrow-circle-right"></i></button>
+    <button id="addcol">Add New Column<i class="fa fa-fw fa-arrow-circle-down"></i></button>
+  </div>
+  <table id="manage"></table>
+</div>

@@ -1,0 +1,97 @@
+<style>
+    .pl {
+        position:relative;
+        display: block;
+        padding: 20px;
+     min-height:100%;
+     color:var(--c0);
+     background-color : var(--c9);
+    }
+    .manuscriptform label{
+        display:block;
+    }
+
+    .manuscriptform{
+        margin:20px;
+        background-color: var(--c8);
+        padding:20px;
+    }
+    .manuscriptform select{
+        display: inline-block;
+        padding:2%;
+        width:40%;
+        margin-bottom:10px;
+    }
+    .manuscriptform label{
+        display: inline-block;
+        width:50%;
+     
+    }
+    .WordCountTotal{
+        padding:20px;
+        margin:20px;
+        text-align: center;
+    }
+    #ManuscriptWordCount{
+        font-size: 2em;
+        display: block;
+    }
+
+</style>
+<div class="pl">
+    <h1 id="ManuscriptTitle">Your Project</h1>
+   <p>Welcome to Wavemaker Version 3</p>
+<h4 class="WordCountTotal">
+    Total Word Count for Manuscript
+   <strong id="ManuscriptWordCount">0</strong>
+</h4>
+<p>This is the Document section of the writing tool. Here you can create sections of text for your document.&nbsp;</p>
+
+<p>They can be easily re-arranged by dragging and dropping - You can also export from the snowflake and timeline tool and copy those into the main document as well.</p>
+
+
+<div class="manuscriptform">
+    <h5>Advanced Styling</h5>
+    <label>Alignment</label>
+<select id="manuscriptAlign">
+    <option value="left" selected >Align Left</option>
+    <option value="cen>ter">Align Center</option>
+    <option value="right">Align Right</option>
+    <option value="justify">Justify</option>
+</select>
+<label>Font size</label>
+<select id="manuscriptFontSize">
+    <option value="0.5em" >Smallest</option>
+    <option value="0.75em"  >Small</option>
+    <option value="1em" selected >Standard</option>
+    <option value="1.5em"  >Big</option>
+    <option value="2em"  >Biggest</option>
+</select>
+
+<label>Line Height</label>
+<select id="manuscriptLineHeight">
+        <option value="1.5em" selected >Standard Spacing</option>
+        <option value="2em"  >Double Spaced</option>
+        <option value="2.5em"  >2.5 Spaced</option>
+        <option value="3em"  >Triple Spaced</option>
+</select>
+<label>Paragraph indentation </label>
+<select id="manuscriptParaIndent">
+        <option value="20px" selected >Yes</option>
+        <option value="0px" >no</option>
+</select>
+<label>Paragraph Spacing</label>
+<select id="manuscriptMarginBottom">
+        <option value="20px" selected >Standard Spacing</option>
+        <option value="30px"  >Double Spaced</option>
+        <option value="40px"  >2.5 Spaced</option>
+        <option value="50px"  >Triple Spaced</option>
+</select>
+
+
+<button id="ManuscriptSetStyle" class="btn btn-block btn-primary">SAVE</button>
+
+
+</div>
+
+</div>
