@@ -1,13 +1,13 @@
-wavemaker.state = { tool: "snowflake" };
-if (!wavemaker.data) {
-  wavemaker.data = {};
+WMproject.state = { tool: "snowflake" };
+if (!WMproject.data) {
+  WMproject.data = {};
 }
-if (!wavemaker.data.snowflake) {
-  wavemaker.data.snowflake = [];
+if (!WMproject.data.snowflake) {
+  WMproject.data.snowflake = [];
 }
 savedata()
 function savedata() {
-  db.projects.update(wavemaker.id, wavemaker).then(function () {
+  db.projects.update(WMproject.id, WMproject).then(function () {
     saveWavemaker();
   });
 }
@@ -15,8 +15,8 @@ function savedata() {
 function redrawCards() {
   $("#snowflakeCards").html("");
 
-  if (wavemaker.data.snowflake.length === 0) {
-    wavemaker.data.snowflake = [{
+  if (WMproject.data.snowflake.length === 0) {
+    WMproject.data.snowflake = [{
       title: "",
       content: "",
       subcard1: { title: "", content: "" },
@@ -28,7 +28,7 @@ function redrawCards() {
 
 
 
-  $.each(wavemaker.data.snowflake, function (key, set) {
+  $.each(WMproject.data.snowflake, function (key, set) {
 
 
     showstyle = "display:none;";
@@ -82,10 +82,10 @@ function redrawCards() {
     .click(function () {
       ref = $(this).data("snowflaketoggle");
 
-      if (wavemaker.data.snowflake[ref].active == 1) {
-        wavemaker.data.snowflake[ref].active = 0;
+      if (WMproject.data.snowflake[ref].active == 1) {
+        WMproject.data.snowflake[ref].active = 0;
       } else {
-        wavemaker.data.snowflake[ref].active = 1;
+        WMproject.data.snowflake[ref].active = 1;
       }
       $("#snowflaketoggle_" + ref).slideToggle();
     });
@@ -95,7 +95,7 @@ function redrawCards() {
     .unbind()
     .click(function () {
       ref = $(this).data("snowflaketoggle");
-      wavemaker.data.snowflake.splice(ref, 1);
+      WMproject.data.snowflake.splice(ref, 1);
       savedata();
       redrawCards()
     });
@@ -119,7 +119,7 @@ $("#snowflakeCards").append(
     .click(function () {
 
 
-      indexKey = wavemaker.data.writer.findIndex(x => x.title === "Snowflake")
+      indexKey = WMproject.data.writer.findIndex(x => x.title === "Snowflake")
       console.log(indexKey);
       if (indexKey < 0) {
         console.log("Snowflake Not found");
@@ -129,7 +129,7 @@ $("#snowflakeCards").append(
           icon: "fa fa-fw fa-snowflake-o",
           title: "Snowflake",
         }
-        wavemaker.data.writer.push(newSection);
+        WMproject.data.writer.push(newSection);
         indexKey = 3;
       }
 
@@ -137,13 +137,13 @@ $("#snowflakeCards").append(
         icon: "fa fa-fw fa-share-square-o",
         title: "Exported data",
         custom: "EXPSNOW",
-        children: JSON.parse(JSON.stringify(wavemaker.data.snowflake))
+        children: JSON.parse(JSON.stringify(WMproject.data.snowflake))
       };
 
-      if (!wavemaker.data.writer[indexKey].children) {
-        wavemaker.data.writer[indexKey].children = [];
+      if (!WMproject.data.writer[indexKey].children) {
+        WMproject.data.writer[indexKey].children = [];
       }
-      wavemaker.data.writer[indexKey].children.push(newObj);
+      WMproject.data.writer[indexKey].children.push(newObj);
 
       swal("Exported!", "You will now find this data in the writer mode.", "success")
 
@@ -162,7 +162,7 @@ $("#snowflakeCards").append(
         subcard3: { title: "", content: "" },
         active: 0
       };
-      wavemaker.data.snowflake.push(newObj);
+      WMproject.data.snowflake.push(newObj);
       redrawCards();
       savedata()
     });
@@ -172,9 +172,9 @@ $("#snowflakeCards").append(
     card = $(this).data("card");
     inp = $(this).data("inp");
     if (card != "") {
-      wavemaker.data.snowflake[ref][card][inp] = $(this).val();
+      WMproject.data.snowflake[ref][card][inp] = $(this).val();
     } else {
-      wavemaker.data.snowflake[ref][inp] = $(this).val();
+      WMproject.data.snowflake[ref][inp] = $(this).val();
     }
     savedata()
   });
@@ -182,10 +182,10 @@ $("#snowflakeCards").append(
 
 $(document).off("click", ".replaceCard").on("click", ".replaceCard", function () {
   var ref = $(this).parent().parent().parent().parent().parent().data("snowflakeid");
-  var subcard1 = wavemaker.data.snowflake[ref].subcard1
-  var subcard2 = wavemaker.data.snowflake[ref].subcard2
-  var subcard3 = wavemaker.data.snowflake[ref].subcard3
-  wavemaker.data.snowflake.splice(ref, 1, subcard1, subcard2, subcard3);
+  var subcard1 = WMproject.data.snowflake[ref].subcard1
+  var subcard2 = WMproject.data.snowflake[ref].subcard2
+  var subcard3 = WMproject.data.snowflake[ref].subcard3
+  WMproject.data.snowflake.splice(ref, 1, subcard1, subcard2, subcard3);
   redrawCards();
 })
 

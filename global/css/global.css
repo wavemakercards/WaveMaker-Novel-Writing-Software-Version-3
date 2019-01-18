@@ -65,10 +65,10 @@ Setting General Interface Variables
 --editor-background-color: #fff;
 --editor-foreground-color: #222;
 
---list-fg : #fff;
---list-bg : #000;
---sub-list-fg : #fff;
---sub-list-bg : #000;
+--list-fg : var(--c0);
+--list-bg : transparent;
+--sub-list-fg : var(--c0);
+--sub-list-bg : var(--c7);
 
 
 
@@ -166,7 +166,6 @@ body {
   font-size:1.1rem;
   background-color:var(--side-nav-bar-button-background);
   color:var(--side-nav-bar-button-foreground);
-  color:#fff;
   border:0px;
   padding:5px;
   width:50px;
@@ -228,7 +227,7 @@ body {
   position: absolute;
   width:100%;
   top:0px;
-  background-color: #efefef;
+  background-color: var(--c0);
 }
 #editor{
   position: absolute;
@@ -244,13 +243,13 @@ body {
   width:320px;
   top:0px;
   bottom:0px;
-  background-color: #000;
+  background-color:var(--c9);
 }
 
 #nodeText{
   margin:30px;
   margin-top : 50px;
-  background-color: #fff;
+  background-color: var(--c0);
   padding:20px;
 
 }

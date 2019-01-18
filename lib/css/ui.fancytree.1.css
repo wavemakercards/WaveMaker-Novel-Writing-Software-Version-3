@@ -51,7 +51,6 @@ ul.fancytree-container li {
   -moz-background-inline-policy: continuous;
   -moz-background-origin: padding;
   background-attachment: scroll;
-  background-color: transparent;
   background-position: 0 0;
   background-repeat: repeat-y;
   background-image: none;
@@ -71,10 +70,7 @@ ul.fancytree-container li.fancytree-lastsib {
 .ui-fancytree-disabled ul.fancytree-container {
   opacity: 0.5;
 }
-ul.fancytree-connectors.fancytree-container li {
-  background-image: url(../skin-bootstrap/vline.gif);
-  background-position: 0 0;
-}
+
 .fancytree-loading span.fancytree-expander,
 .fancytree-loading span.fancytree-expander:hover,
 .fancytree-statusnode-loading span.fancytree-icon,
@@ -172,7 +168,7 @@ span.fancytree-title {
 span.fancytree-node.fancytree-error span.fancytree-title {
 }
 span.fancytree-childcounter {
-  background: #337ab7;
+  background: #00ff00;
 
   border-radius: 10px;
   padding: 2px;
@@ -182,8 +178,7 @@ div.fancytree-drag-helper span.fancytree-childcounter,
 div.fancytree-drag-helper span.fancytree-dnd-modifier {
   display: inline-block;
 
-  background: #337ab7;
-
+  background: #ff0000;
   min-width: 10px;
   height: 10px;
   line-height: 1;
@@ -199,7 +194,7 @@ div.fancytree-drag-helper span.fancytree-childcounter {
   right: -6px;
 }
 div.fancytree-drag-helper span.fancytree-dnd-modifier {
-  background: #5cb85c;
+  background: #000000;
   border: none;
   font-weight: bolder;
 }
@@ -222,10 +217,7 @@ span.fancytree-drag-source.fancytree-drag-remove {
 ul.fancytree-container.fancytree-rtl ul {
   padding: 0 16px 0 0;
 }
-ul.fancytree-container.fancytree-rtl.fancytree-connectors li {
-  background-position: right 0;
-  background-image: url(../skin-bootstrap/vline-rtl.gif);
-}
+
 ul.fancytree-container.fancytree-rtl li.fancytree-lastsib,
 ul.fancytree-container.fancytree-rtl.fancytree-no-connector > li {
   background-image: none;
@@ -233,73 +225,7 @@ ul.fancytree-container.fancytree-rtl.fancytree-no-connector > li {
 table.fancytree-ext-table {
   border-collapse: collapse;
 }
-table.fancytree-ext-table span.fancytree-node {
-  display: inline-block;
-  box-sizing: border-box;
-}
-table.fancytree-ext-table td.fancytree-status-merged {
-  text-align: center;
-  font-style: italic;
-}
-table.fancytree-ext-table
-  tr.fancytree-statusnode-error
-  td.fancytree-status-merged {
-}
-table.fancytree-ext-table.fancytree-ext-ariagrid.fancytree-cell-mode
-  > tbody
-  > tr.fancytree-active
-  > td {
-  background-color: #eee;
-}
-table.fancytree-ext-table.fancytree-ext-ariagrid.fancytree-cell-mode
-  > tbody
-  > tr
-  > td.fancytree-active-cell {
-  background-color: #cbe8f6;
-}
-table.fancytree-ext-table.fancytree-ext-ariagrid.fancytree-cell-mode.fancytree-cell-nav-mode
-  > tbody
-  > tr
-  > td.fancytree-active-cell {
-  background-color: #3875d7;
-}
-table.fancytree-ext-columnview tbody tr td {
-  position: relative;
-  border: 1px solid gray;
-  vertical-align: top;
-  overflow: auto;
-}
-table.fancytree-ext-columnview tbody tr td > ul {
-  padding: 0;
-}
-table.fancytree-ext-columnview tbody tr td > ul li {
-  -moz-background-clip: border;
-  -moz-background-inline-policy: continuous;
-  -moz-background-origin: padding;
-  background-attachment: scroll;
-  background-color: transparent;
-  background-position: 0 0;
-  background-repeat: repeat-y;
-  background-image: none;
-  margin: 0;
-  list-style: none;
-}
-table.fancytree-ext-columnview span.fancytree-node {
-  position: relative;
-  display: inline-block;
-}
-.fancytree-ext-filter-hide span.fancytree-node.fancytree-hide,
-.fancytree-ext-filter-hide tr.fancytree-hide,
-.fancytree-ext-fixed-wrapper .fancytree-ext-fixed-hidden {
-  display: none;
-}
-table.fancytree-ext-columnview span.fancytree-node.fancytree-expanded {
-  background-color: #cbe8f6;
-}
-table.fancytree-ext-columnview .fancytree-has-children span.fancytree-cv-right {
-  position: absolute;
-  right: 3px;
-}
+
 .fancytree-ext-filter-dimm span.fancytree-node span.fancytree-title {
   font-weight: lighter;
 }
@@ -427,146 +353,12 @@ ul.fancytree-container ul {
   outline: 0;
 }
 
-span.fancytree-node.fancytree-drag-source {
-  background-color: #5bc0de !important;
-}
-span.fancytree-node.fancytree-drop-target.fancytree-drop-reject
-  span.fancytree.title {
-  background-color: #d9534f !important;
-}
-.fancytree-plain.fancytree-colorize-selected
-  span.fancytree-node.fancytree-selected,
-.fancytree-plain.fancytree-colorize-selected
-  span.fancytree-node.fancytree-selected
-  span.fancytree-title {
-  background-color: #80c780;
-  border-color: #80c780;
-}
-.fancytree-plain.fancytree-colorize-selected
-  span.fancytree-node.fancytree-selected:hover
-  span.fancytree-title {
-  background-color: #6ec06e;
-}
-.fancytree-plain.fancytree-colorize-selected
-  span.fancytree-node.fancytree-active.fancytree-selected
-  span.fancytree-title {
-}
-.fancytree-plain.fancytree-colorize-selected.fancytree-treefocus
-  span.fancytree-title:hover {
-  background-color: var(--c9);
-}
-.fancytree-plain.fancytree-colorize-selected.fancytree-treefocus
-  span.fancytree-node.fancytree-selected
-  span.fancytree-title {
-  background-color: #5cb85c;
-}
-.fancytree-plain.fancytree-colorize-selected.fancytree-treefocus
-  span.fancytree-node.fancytree-selected:hover
-  span.fancytree-title {
-  background-color: #4cae4c;
-}
+
+
+
 
 .fancytree-plain.fancytree-container span.fancytree-node {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.fancytree-plain.fancytree-container span.fancytree-title {
-  border: 1px solid transparent;
-  border-radius: 3px;
-}
-.fancytree-plain.fancytree-container span.fancytree-title:hover {
-  background-color: var(--c9);
-}
-.fancytree-plain.fancytree-container
-  span.fancytree-node.fancytree-active
-  span.fancytree-title {
-  background-color: #000000;
-}
-.fancytree-plain.fancytree-container
-  span.fancytree-node.fancytree-active:hover
-  span.fancytree-title {
-  background-color: #000;
-}
-.fancytree-plain.fancytree-container.fancytree-treefocus
-  span.fancytree-node.fancytree-focused
-  span.fancytree-title {
-  border-color: #000;
-}
-.fancytree-plain.fancytree-container.fancytree-treefocus
-  span.fancytree-node.fancytree-active
-  span.fancytree-title {
-  background-color: #000;
-  border-color: #000;
-}
-.fancytree-plain.fancytree-container.fancytree-treefocus
-  span.fancytree-node.fancytree-active:hover
-  span.fancytree-title {
-  background-color: #000;
-}
-table.fancytree-ext-table > tbody > tr > td span.fancytree-title {
-  border: none;
-}
-table.fancytree-ext-table.fancytree-colorize-selected
-  > tbody
-  > tr.fancytree-selected
-  > td {
-  background-color: #80c780;
-}
-table.fancytree-ext-table.fancytree-colorize-selected.fancytree-treefocus
-  > tbody
-  > tr.fancytree-selected
-  > td {
-  background-color: #5cb85c;
-}
-table.fancytree-ext-table.fancytree-colorize-selected.table-hover
-  > tbody
-  > tr.fancytree-selected:hover
-  > td {
-  background-color: #6ec06e;
-}
-table.fancytree-ext-table.fancytree-colorize-selected.fancytree-treefocus.table-hover
-  > tbody
-  > tr.fancytree-selected:hover
-  > td {
-  background-color: #4cae4c;
-}
-table.fancytree-ext-table.fancytree-colorize-selected.fancytree-treefocus.table-hover
-  > tbody
-  > tr.fancytree-selected.fancytree-active:hover
-  > td,
-table.fancytree-ext-table.fancytree-colorize-selected.table-hover
-  > tbody
-  > tr.fancytree-selected.fancytree-active:hover
-  > td {
-  background-color: #2e6da4;
-}
-table.fancytree-ext-table.fancytree-colorize-selected
-  > tbody
-  > tr.fancytree-active.fancytree-selected {
-  outline-offset: -2px;
-  outline: #80c780 solid 2px;
-}
-table.fancytree-ext-table.fancytree-container
-  > tbody
-  > tr.fancytree-active
-  > td {
-  background-color: #5094ce;
-}
-table.fancytree-ext-table.fancytree-treefocus.fancytree-container
-  > tbody
-  > tr.fancytree-focused
-  span.fancytree-title {
-  outline: #000 dotted 1px;
-}
-table.fancytree-ext-table.fancytree-treefocus.fancytree-container
-  > tbody
-  > tr.fancytree-active
-  > td {
-  background-color: #337ab7;
-}
-table.fancytree-ext-table.fancytree-treefocus.fancytree-container.table-hover
-  > tbody
-  > tr.fancytree-active:hover
-  > td {
-  background-color: #2e6da4;
-}
+

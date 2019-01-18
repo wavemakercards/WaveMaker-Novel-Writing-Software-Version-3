@@ -22,8 +22,8 @@ function deInitNav(){
 
 $(document).on("click",".navigation-tool-bar-button", function(){
  action=$(this).data("action");
+ $("#navigation-side-nav").html('')
 if(action ==="welcome"){
-
   swal({
     title: "Are you sure?",
     text: "You will return to the main menu",
