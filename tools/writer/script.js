@@ -1,13 +1,7 @@
 
 var emptyWriter = [
     {
-       icon: "fa fa-fw fa-book", title: "Your Manuscript"
-    },
-    {
-       icon: "fa fa-fw fa-users", title: "Characters"
-    },
-    {
-       icon: "fa fa-fw fa-location-arrow", title: "Locations"
+        title: "Your Story"
     }
   ];
 
@@ -483,12 +477,12 @@ function drawEditor() {
   
       $("#editorbuttons").html(
         `
-    <button id='bold' title='Bold'><i class='fa fa-fw fa-bold'></i></button>
-    <button id='italic' title='Italic'><i class='fa fa-fw fa-italic'></i></button>
-    <button id='h1'  title='Heading 1'><i class='fa fa-fw fa-header'></i></button>
-    <button id='h2'  title='Heading 2'><i class='fa fa-fw fa-header' style="font-size:0.8em"></i></button>
-    <button id='h3'  title='Heading 3'><i class='fa fa-fw fa-header' style="font-size:0.5em"></i></button>
-    <button id='para'  title='Paragraph'><i class='fa fa-fw fa-paragraph'></i></button>
+    <button class="wysywig-btn" id='bold' title='Bold'><i class='fa fa-fw fa-bold'></i></button>
+    <button class="wysywig-btn" id='italic' title='Italic'><i class='fa fa-fw fa-italic'></i></button>
+    <button class="wysywig-btn" id='h1'  title='Heading 1'><i class='fa fa-fw fa-header'></i></button>
+    <button class="wysywig-btn" id='h2'  title='Heading 2'><i class='fa fa-fw fa-header' style="font-size:0.8em"></i></button>
+    <button class="wysywig-btn" id='h3'  title='Heading 3'><i class='fa fa-fw fa-header' style="font-size:0.5em"></i></button>
+    <button class="wysywig-btn" id='para'  title='Paragraph'><i class='fa fa-fw fa-paragraph'></i></button>
     `
       );
   
@@ -570,7 +564,7 @@ function drawEditor() {
   
     if (!WMproject.data.writer) {
       WMproject.data.writer = [{
-        icon: "fa fa-fw fa-warning", title: "Empty Project"
+        title: "Your Story"
       }];
       $('#manuscript').fancytree("getTree").reload()
       //$("#manuscript").fancytree("getRootNode").editCreateNode("child", WMproject.data.writer);
