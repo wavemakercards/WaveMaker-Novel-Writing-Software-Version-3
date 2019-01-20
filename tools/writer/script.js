@@ -28,6 +28,8 @@ $("#navigation-side-nav").append(`<div id="manuscript"></div>`);
 function drawEditor(){
     console.log("editor" )
 }
+
+
 drawtree();
 function drawtree() {
 
@@ -221,25 +223,6 @@ function drawtree() {
           dosave("addSibling");
           break;
 
-        case "newchar":
-          node.editCreateNode("child", {
-            title: "New Character",
-            icon: "fa fa-fw fa-user",
-            data: { content: "NEW CHARACTER TEMPLATE HERE" }
-          });
-          dosave("NewChar");
-          break;
-
-        case "newloc":
-          node.editCreateNode("child", {
-            title: "New Location",
-            icon: "fa fa-fw fa-location-arrow",
-            data: { content: "NEW LOCATION TEMPLATE HERE" }
-          });
-          dosave("newloc");
-          break;
-
-
         case "cut":
           CLIPBOARD = { mode: data.cmd, data: node };
           dosave("cut");
@@ -289,7 +272,7 @@ function drawtree() {
 
  
 
-    $("#manuscriptx").contextmenu({
+    $("#manuscript").contextmenu({
     delegate: "span.fancytree-node",
     menu: [
       {
@@ -330,19 +313,6 @@ function drawtree() {
         cmd: "paste",
         uiIcon: "",
         disabled: true
-      },
-      {
-        title: "<i class='fa fa-user fa-fw'></i> New Character",
-        cmd: "newchar",
-        uiIcon: "",
-        disabled: false
-      }
-      ,
-      {
-        title: "<i class='fa fa-location-arrow fa-fw'></i> New Location",
-        cmd: "newloc",
-        uiIcon: "",
-        disabled: false
       }
     ],
     beforeOpen: function (event, ui) {
@@ -532,7 +502,7 @@ function drawEditor() {
            var newval=$(this).val();
            CURRENTNODE.title=newval;
          
-           $(CURRENTLI).find(".fancytree-title").text(newval);
+           $(CURRENTLI).find(".fancytree-title").first().text(newval);
     
           // save any changes
           dosave();

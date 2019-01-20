@@ -49,12 +49,10 @@ if(action ==="welcome"){
 })
 
 $(document).on('click','#navigation-toggle' ,function(){
-  console.log("agggsd")
-  hideNavBar();
   if($('#navigation-side-nav').data("visible")){
-    showNavBar();
-  }else{
     hideNavBar();
+  }else{
+    showNavBar();
   }
 })
 
