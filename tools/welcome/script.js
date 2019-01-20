@@ -1,8 +1,5 @@
 deInitNav();
-
-  getProjects();
-
-
+getProjects();
 
 $("#CreateNewProject")
   .unbind()

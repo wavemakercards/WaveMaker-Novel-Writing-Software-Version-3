@@ -289,7 +289,7 @@ function drawtree() {
 
  
 
-    $("#manuscript").contextmenu({
+    $("#manuscriptx").contextmenu({
     delegate: "span.fancytree-node",
     menu: [
       {
