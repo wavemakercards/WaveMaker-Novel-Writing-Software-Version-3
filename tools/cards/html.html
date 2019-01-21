@@ -204,6 +204,32 @@ max-width:90%;
 }
 
 
+#hashtag-list{
+    list-style: none;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    left:0px;
+    overflow-y: auto;
+}
+#hashtag-list>li{
+    padding:10px;
+    display:block;
+    background-color:var(--side-nav-bar-button-background);
+  color:var(--side-nav-bar-button-foreground);
+     cursor:pointer;
+     font-size: 0.8rem;
+     text-transform: capitalize;
+}
+
+#hashtag-list>li:hover{
+    background-color:var(--side-nav-bar-button-background-hover);
+  color:var(--side-nav-bar-button-foreground-hover);
+}
+
 </style>
 <div id="cards-board">
     <div class="container">

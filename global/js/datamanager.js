@@ -29,7 +29,7 @@ db.settings.get(1, function (set) {
 
 
 function checkprojectloaded() {
-  console.log("loading project")
+  //console.log("loading project")
   if(WMsettings.currentproject){
   db.projects.get(WMsettings.currentproject, function (set) {
     WMproject = set;

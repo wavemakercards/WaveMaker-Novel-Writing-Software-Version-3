@@ -3,7 +3,7 @@ var DocWordCount=0;
 
 
 function wordcountManuscript(dta){
-    console.log(dta)
+    //console.log(dta)
  if(dta.data){
     DocWordCount=DocWordCount+countWords(dta.data.content);
     if(dta.children !== undefined){

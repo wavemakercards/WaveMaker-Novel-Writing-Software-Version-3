@@ -38,7 +38,7 @@ $("#navigation-side-nav").append(`
 
 
 function drawEditor(){
-    console.log("editor" )
+    //console.log("editor" )
 }
 
 
@@ -264,7 +264,7 @@ function drawtree() {
               delete n.key;
             })
           };
-          console.log(CLIPBOARD)
+          //console.log(CLIPBOARD)
           // this is to deal with the NOTES duplication of the same object issue
           var newnotes=JSON.parse(JSON.stringify(CLIPBOARD.data.data.notes))
           CLIPBOARD.data.notes=newnotes;
@@ -432,7 +432,7 @@ function drawEditor() {
   
     if (CURRENTNODE.data.custom) {
       $("#editor").removeClass("manuscript")
-      console.log(CURRENTNODE.data.custom)
+     
       d=new Date();
       $("#editor").load("components/" + CURRENTNODE.data.custom + "-placeholder.html?v="+d.getTime(),function(){
         $.getScript("components/" + CURRENTNODE.data.custom + "-script.js?t=" + d.getTime(), function () {

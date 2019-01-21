@@ -94,6 +94,12 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Col
   cursor:pointer;
 }
 
+#AddNote{
+  position:sticky;
+  top:0px;
+  z-index: 1024
+}
+
 #notesToggle:hover{
       background-color:var(--side-nav-bar-button-background-hover);
   color:var(--side-nav-bar-button-foreground-hover);
@@ -108,6 +114,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Col
   bottom:0px;
   background-color:var(--c9);
   padding-left:50px;
+  overflow-y:auto;
 }
 
 #side-btn-top{
@@ -122,7 +129,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Col
     margin: 5px;
     margin-top: 10px;
     padding: 15px;
-    border-radius: 2px;
+    border-radius: 0px;
     min-height: 100px;
   }
 

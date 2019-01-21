@@ -9,13 +9,23 @@ if (!WMproject.data.cards) {
 dosave();
 function dosave() {
   db.projects.update(WMproject.id, WMproject).then(function () {
-
   });
 }
 
 var CARDS = WMproject.data.cards;
 var newCardObj = {};
 var editcard = "new";
+var allHashtags =[]
+
+
+
+$(document).off("click","#hashtag-list>li").on("click","#hashtag-list>li", function(){
+  $("#card-search").val($(this).data('hash'))
+  drawCards();
+})
+
+
+
 $("#CardManagerModalButton")
   .unbind()
   .click(function () {
@@ -37,12 +47,12 @@ $("#CardManagerModalButton")
 
 $(document).off("click", ".card-edit-button").on("click", ".card-edit-button", function () {
   k = $(this).parent().data("key");
-  newCardObj = JSON.parse(JSON.stringify(WMproject.data.cards[k]));
+  newCardObj = JSON.parse(JSON.stringify(results[k]));
   editcard = k;
-  $("#CardTitle").val(newCardObj.title);
-  $("#CardContent").val(newCardObj.content);
+  $("#CardTitle").val(results[k].title);
+  $("#CardContent").val(results[k].content);
   drawPreviewImages();
-  hashtags = newCardObj.tags;
+  hashtags = results[k].tags;
   redrawHashtags();
   $("#CardManagerModal").modal({ backdrop: 'static', keyboard: false });
 });
@@ -98,6 +108,25 @@ $("#toggleGridButton").unbind().click(function () {
 
 function drawCards() {
 
+  $("#navigation-side-nav").html("<ul id='hashtag-list'></ul>")
+  $.each(CARDS, function(k,v){
+    $.each(v.tags, function(kk,vv){
+     // console.log(allHashtags.indexOf(vv))
+    if(allHashtags.indexOf(vv)==-1){
+    allHashtags.push(vv)
+    }
+  })
+  })
+  allHashtags.sort()
+  $("#hashtag-list").append("<li data-hash=''>Show All</li>")  
+  $.each(allHashtags,function(k,v){
+    $("#hashtag-list").append("<li data-hash='"+v+"'>#"+v+"</li>")
+  })
+
+
+
+
+
   var query = $("#card-search").val();
   if (query != "") {
     results = [];
@@ -107,7 +136,7 @@ function drawCards() {
       $.each(i.tags, function (kk, ii) {
         if (ii.indexOf(query) !== -1) { matchfound = 1; }
         if (matchfound) {
-          // console.log("Match", query, i);
+          //// console.log("Match", query, i);
         }
 
       });
@@ -290,7 +319,7 @@ function drawCards() {
   if (WMproject.state.gridDisplay) {
     var maxh = 0
     $.each($(".cardy"), function () {
-      console.log($(this).height())
+     // console.log($(this).height())
       if (maxh < $(this).height()) { maxh = $(this).height() }
     })
     $(".cardy").height(maxh);
@@ -356,7 +385,7 @@ var wmUploadFile = function (myinput) {
 
       // document.getElementById("base64").value = canvas.toDataURL();
       /*    idarray=parentDiv.attr("id").split("_");
-        console.log(idarray)
+       // console.log(idarray)
         WMproject.wiki[idarray[1]].wiki_components[idarray[3]].content=canvas.toDataURL();*/
     };
     image.src = event.target.result;
@@ -453,4 +482,9 @@ $(document).off("click", ".card-delete-button").on("click", ".card-delete-button
 $('#card-search').unbind().bind("keyup", function () {
   drawCards();
 });
+
+
+
+
+
 
