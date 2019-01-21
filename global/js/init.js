@@ -128,13 +128,14 @@ function loadtool(toolname) {
 
 
   function countWords(str) {
+
     str = str.replace(/[^\w\s]|_/g, "")
              .replace(/\s+/g, " ");
   
     res= str.split(' ')
            .filter(function(n) { return n != '' })
            .length;
-  return res
+  return res;
 
   }
   

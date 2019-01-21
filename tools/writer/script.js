@@ -501,6 +501,7 @@ function drawEditor() {
 
       converter = new showdown.Converter();
       text = CURRENTNODE.data.content;
+      ShowWordCount(countWords(text))
       html = converter.makeHtml(text);
   
       $("#nodeText").html(html);
@@ -536,6 +537,7 @@ function drawEditor() {
       var turndownService = new TurndownService();
       var markdown = turndownService.turndown($("#nodeText").html());
       CURRENTNODE.data.content = markdown;
+      ShowWordCount(countWords(markdown))
     }
     WMproject.data.writer = $("#manuscript")
       .fancytree("getTree")
@@ -662,3 +664,7 @@ $(document).off("click", "#nodeText").on("click", "#nodeText", function () {
     CURRENTNODE.data.notes.push({ content: "", complete: 0 });
     drawNotes()
   })
+
+  function ShowWordCount(counted){
+$("#wordcount").text(counted);
+  }
