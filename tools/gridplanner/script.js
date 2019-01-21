@@ -1,12 +1,12 @@
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
-wavemaker.state = { tool: "gridplanner" };
-if (!wavemaker.data) {
-  wavemaker.data = {};
+WMproject.state = { tool: "gridplanner" };
+if (!WMproject.data) {
+  WMproject.data = {};
 }
 
 
-if (!wavemaker.data.gridplanner) {
-  wavemaker.data.gridplanner = [
+if (!WMproject.data.gridplanner) {
+  WMproject.data.gridplanner = [
     [
       { title: "x" },
       { title: "" }
@@ -18,11 +18,11 @@ if (!wavemaker.data.gridplanner) {
   ];
 }
 
-var datatable = wavemaker.data.gridplanner;
+var datatable = WMproject.data.gridplanner;
 
 dosave();
 function dosave() {
-  db.projects.update(wavemaker.id, wavemaker).then(function () {
+  db.projects.update(WMproject.id, wavemaker).then(function () {
     //console.log("Saved gridplanner");
   });
 }
@@ -69,7 +69,7 @@ function drawTable() {
     y = $(this).data("y");
     mylist = $(this)
     //$(this).html();
-    $.each(wavemaker.data.gridplanner[x][y].content, function (k, i) {
+    $.each(WMproject.data.gridplanner[x][y].content, function (k, i) {
       mylist.append("<li><textarea class='grideditabletextarea' placeholder='write here'>" + i + "</textarea></li>");
     })
   });
@@ -198,7 +198,7 @@ $(document).on("keyup", ".table-title", function () {
   x = $(this).data("x")
   y = $(this).data("y")
   //console.log(x, y)
-  wavemaker.data.gridplanner[x][y] = { title: $(this).val() }
+  WMproject.data.gridplanner[x][y] = { title: $(this).val() }
   dosave();
 })
 
@@ -231,7 +231,7 @@ function gridsave() {
     $.each($(p).children(), function (k, i) {
       newdata.push($(i).children().first().val())
     })
-    wavemaker.data.gridplanner[x][y].content = newdata;
+    WMproject.data.gridplanner[x][y].content = newdata;
   });
 
 }

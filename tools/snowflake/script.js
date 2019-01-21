@@ -119,31 +119,14 @@ $("#snowflakeCards").append(
     .click(function () {
 
 
-      indexKey = WMproject.data.writer.findIndex(x => x.title === "Snowflake")
-      console.log(indexKey);
-      if (indexKey < 0) {
-        console.log("Snowflake Not found");
+
+
         var newSection = {
-          protect: 1,
-          custom: "SNOWFLAKE",
           icon: "fa fa-fw fa-snowflake-o",
           title: "Snowflake",
+          children: JSON.parse(JSON.stringify(WMproject.data.snowflake))
         }
         WMproject.data.writer.push(newSection);
-        indexKey = 3;
-      }
-
-      var newObj = {
-        icon: "fa fa-fw fa-share-square-o",
-        title: "Exported data",
-        custom: "EXPSNOW",
-        children: JSON.parse(JSON.stringify(WMproject.data.snowflake))
-      };
-
-      if (!WMproject.data.writer[indexKey].children) {
-        WMproject.data.writer[indexKey].children = [];
-      }
-      WMproject.data.writer[indexKey].children.push(newObj);
 
       swal("Exported!", "You will now find this data in the writer mode.", "success")
 

@@ -1,19 +1,19 @@
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
-wavemaker.state = { tool: "cards" };
-if (!wavemaker.data) {
-  wavemaker.data = {};
+WMproject.state = { tool: "cards" };
+if (!WMproject.data) {
+  WMproject.data = {};
 }
-if (!wavemaker.data.cards) {
-  wavemaker.data.cards = [];
+if (!WMproject.data.cards) {
+  WMproject.data.cards = [];
 }
 dosave();
 function dosave() {
-  db.projects.update(wavemaker.id, wavemaker).then(function () {
+  db.projects.update(WMproject.id, wavemaker).then(function () {
 
   });
 }
 
-var CARDS = wavemaker.data.cards;
+var CARDS = WMproject.data.cards;
 var newCardObj = {};
 var editcard = "new";
 $("#CardManagerModalButton")
@@ -37,7 +37,7 @@ $("#CardManagerModalButton")
 
 $(document).off("click", ".card-edit-button").on("click", ".card-edit-button", function () {
   k = $(this).parent().data("key");
-  newCardObj = JSON.parse(JSON.stringify(wavemaker.data.cards[k]));
+  newCardObj = JSON.parse(JSON.stringify(WMproject.data.cards[k]));
   editcard = k;
   $("#CardTitle").val(newCardObj.title);
   $("#CardContent").val(newCardObj.content);
@@ -56,9 +56,9 @@ $("#AddCard")
     newCardObj.tags = hashtags;
 
     if (editcard === "new") {
-      wavemaker.data.cards.push(newCardObj);
+      WMproject.data.cards.push(newCardObj);
     } else {
-      wavemaker.data.cards[editcard] = newCardObj;
+      WMproject.data.cards[editcard] = newCardObj;
       editcard = "new";
     }
     $("#CardManagerModal").modal("hide");
@@ -87,10 +87,10 @@ $(document).off("click", ".img-preview").on("click", ".img-preview", function ()
 });
 
 $("#toggleGridButton").unbind().click(function () {
-  if (wavemaker.state.gridDisplay) {
-    wavemaker.state.gridDisplay = 0;
+  if (WMproject.state.gridDisplay) {
+    WMproject.state.gridDisplay = 0;
   } else {
-    wavemaker.state.gridDisplay = 1;
+    WMproject.state.gridDisplay = 1;
   }
   drawCards();
   dosave();
@@ -102,7 +102,7 @@ function drawCards() {
   if (query != "") {
     results = [];
     //console.log("searching", query);
-    $.each(wavemaker.data.cards, function (k, i) {
+    $.each(WMproject.data.cards, function (k, i) {
       var matchfound = 0;
       $.each(i.tags, function (kk, ii) {
         if (ii.indexOf(query) !== -1) { matchfound = 1; }
@@ -123,7 +123,7 @@ function drawCards() {
 
   $("#cards").html("");
   $.each(results, function (k, card) {
-    if (wavemaker.state.gridDisplay) {
+    if (WMproject.state.gridDisplay) {
       cardholder = $(`<div class="col-12 col-sm-6 col-md-4"></div>`);
       $("#toggleGridButton").html("<i class='fa fa-fw fa-square'></i>")
     } else {
@@ -287,7 +287,7 @@ function drawCards() {
     $("body").append(viewer);
   });
 
-  if (wavemaker.state.gridDisplay) {
+  if (WMproject.state.gridDisplay) {
     var maxh = 0
     $.each($(".cardy"), function () {
       console.log($(this).height())
@@ -357,7 +357,7 @@ var wmUploadFile = function (myinput) {
       // document.getElementById("base64").value = canvas.toDataURL();
       /*    idarray=parentDiv.attr("id").split("_");
         console.log(idarray)
-        wavemaker.wiki[idarray[1]].wiki_components[idarray[3]].content=canvas.toDataURL();*/
+        WMproject.wiki[idarray[1]].wiki_components[idarray[3]].content=canvas.toDataURL();*/
     };
     image.src = event.target.result;
   };
@@ -441,7 +441,7 @@ $(document).off("click", ".card-delete-button").on("click", ".card-delete-button
     confirmButtonText: "Yes, Remove it!"
   }).then(result => {
     if (result.value) {
-      wavemaker.data.cards.splice(k, 1);
+      WMproject.data.cards.splice(k, 1);
       drawCards();
       swal("Deleted!", "That has been removed.", "success");
     }

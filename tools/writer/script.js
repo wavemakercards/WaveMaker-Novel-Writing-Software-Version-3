@@ -1,3 +1,10 @@
+d=new Date();
+$("#editor").load("components/manuscript-tools.html?v="+d.getTime(),function(){
+  $.getScript("components/manuscript-tools.js?t=" + d.getTime(), function () {
+});
+
+});
+
 
 var emptyWriter = [
     {
@@ -20,9 +27,14 @@ var CLIPBOARD = null;
   }
 
 $("#navigation-side-nav").html('');
-$("#navigation-side-nav").append(`<button class='btn btn-wavemaker btn-block' id="#add-chapter-button"><i class="fa fa-fw fa-plus"></i> Add Section</button>`);
-$("#navigation-side-nav").append(`<div id="manuscript"></div>`);
 
+$("#navigation-side-nav").append(`<div id="manuscript"></div>`);
+$("#navigation-side-nav").append(`
+<div id="side-btn-top">
+<button class='btn btn-wavemaker btn-50' id="add-sibling-button"><i class="fa fa-fw fa-arrows-v"></i> Add Sibling</button>
+<button class='btn btn-wavemaker btn-50' id="add-sub-button"><i class="fa fa-fw fa-level-up fa-rotate-90"></i> Add Subsection</button>
+</div>
+`);
 
 
 function drawEditor(){
@@ -76,6 +88,7 @@ function drawtree() {
           if (node.data.protect == 1) {
             return false;
           }
+          
           return true;
         },
         dragDrop: function (node, data) {
@@ -84,6 +97,7 @@ function drawtree() {
             return false;
           } else {
             data.otherNode.moveTo(node, data.hitMode);
+            dosave();
           }
         }
       },
@@ -93,6 +107,9 @@ function drawtree() {
         CURRENTNODE = node;
         CURRENTLI = CURRENTNODE.li;
         drawEditor();
+        if(checkMobile()){
+          hideNavBar();
+        }
 
       },
       edit: {
@@ -147,7 +164,7 @@ function drawtree() {
     .on("nodeCommand", function (event, data) {
       // Custom event handler that is triggered by keydown-handler and
       // context menu:
-      var refNode,
+         var refNode,
         moveMode,
         tree = $(this).fancytree("getTree"),
         node = tree.getActiveNode();
@@ -215,12 +232,25 @@ function drawtree() {
 
           break;
         case "addChild":
-          node.editCreateNode("child", "");
+
+        if(!node){
+          swal("Select a place!", "Select a place from the tree menu where you want to add a subsection.", "warning");
+        }else{
+    
+          node.editCreateNode("child", "New Section");
           dosave("addChild");
+        }
+
           break;
-        case "addSibling":
-          node.editCreateNode("after", "");
+        case "addSibling":       
+
+        if(!node){
+          swal("Select a place!", "Select a place from the tree menu where you want to add a section.", "warning");
+        }else{
+    
+          node.editCreateNode("after", "New Section");
           dosave("addSibling");
+        }
           break;
 
         case "cut":
@@ -319,12 +349,13 @@ function drawtree() {
       var node = $.ui.fancytree.getNode(ui.target);
 
       $("#manuscript").contextmenu("enableEntry", "paste", !!CLIPBOARD);
+  /*
       $("#manuscript").contextmenu("enableEntry", "copy", !node.data.protect);
       $("#manuscript").contextmenu("enableEntry", "remove", !node.data.protect);
       $("#manuscript").contextmenu("enableEntry", "rename", !node.data.protect);
       $("#manuscript").contextmenu("enableEntry", "cut", !node.data.protect);
       $("#manuscript").contextmenu("enableEntry", "addSibling", !node.data.protect);
-
+*/
       node.setActive();
     },
     select: function (event, ui) {
@@ -342,11 +373,13 @@ function drawtree() {
 
 
 function drawNotes() {
-    $("#notes").html('');
-    $("#notes").append("<button id='AddNote'>Add Note</button>")
+    $("#notesPanel").html('');
+    
+    $("#notesPanel").append("<button id='notesToggle'><i class='fa fa-fw fa-sticky-note-o'></i></button>")
+    $("#notesPanel").append("<button id='AddNote' class='btn btn-wavemaker btn-block'><i class='fa fa-fw fa-pencil-square-o'></i> Add Note</button>")
     $.each(CURRENTNODE.data.notes, function (k, i) {
       notecard = $("<div class='note-card' data-noteref='" + k + "'><textarea placeholder='Write Here' class='note-content'>" + i.content + "</textarea><button  class='note-delete'><i class='fa fa-trash fa-fw'></i></button></div>")
-      $("#notes").append(notecard)
+      $("#notesPanel").append(notecard)
     })
     autosize($('.note-content'))
   
@@ -391,7 +424,7 @@ function drawEditor() {
       CURRENTNODE.icon = "fa fa-fw fa-file-text-o";
     }
     $("#editor").html("");
-    $("#notes").html("");
+    $("#notesPanel").html("");
   
     
   
@@ -441,6 +474,15 @@ function drawEditor() {
   
       nodetext.html(CURRENTNODE.data.content);
   
+     
+  
+      $("#changeIcon").val(CURRENTNODE.icon)
+  
+      $("#editor").append("<div id='editpane'></div>");
+
+      $("#editpane").append(nodetext);
+      // autosize($(".texteditor"));
+  
       $("#editor").append(nodetitle);
       $('#nodeTitle_input').val(CURRENTNODE.title)
       
@@ -455,41 +497,8 @@ function drawEditor() {
     <button class="wysywig-btn" id='para'  title='Paragraph'><i class='fa fa-fw fa-paragraph'></i></button>
     `
       );
-  
-      /*
-        <select id='changeIcon' class='iconlist form-control'>
-    <option value='fa fa-fw  fa-coffee'>&#xf0f4; Coffee</option>
-    <option value='fa fa-fw fa-address-card'>&#xf2bb; Profile</option>
-    <option value='fa fa-fw fa-asterisk'>&#xf069; Feature</option>
-    <option value='fa fa-fw fa-bell'>&#xf0f3; Reminder</option>
-    <option value='fa fa-fw fa-bomb'>&#xf1e2; Explosive</option>
-    <option value='fa fa-fw fa-book'>&#xf02d; Book</option>
-    <option value='fa fa-fw fa-comment'>&#xf075; Talk</option>
-    <option value='fa fa-fw fa-comments'>&#xf086; Chat</option>
-    <option value='fa fa-fw fa-file-o'>&#xf016; Empty</option>
-    <option value='fa fa-fw fa-file-text-o'>&#xf0f6; Text</option>
-    <option value='fa fa-fw fa-file'>&#xf15b; Empty</option>
-    <option value='fa fa-fw fa-file-text'>&#xf15c; Text</option>
-    <option value='fa fa-fw fa-user'>&#xf007; Character</option>
-    <option value='fa fa-fw fa-folder-o'>&#xf114; Folder</option>
-    <option value='fa fa-fw fa-folder-open-o'>&#xf115; Folder Open</option>
-    <option value='fa fa-fw fa-folder'>&#xf07b; Folder</option>
-    <option value='fa fa-fw fa-folder-open'>&#xf07c; Folder Open</option>
-    <option value='fa fa-fw fa-sticky-note'>&#xf249; Note</option>
-    <option value='fa fa-fw fa-sticky-note-o'>&#xf24a; Note</option>
-    <option value='fa fa-fw fa-heart'>&#xf004; Heart</option>
-    <option value='fa fa-fw fa-location-arrow'>&#xf124; Location</option>
-    <option value='fa fa-fw fa-map-marker'>&#xf041; Place</option>
-    <option value='fa fa-fw fa-question-circle'>&#xf059; Question</option>
-    <option value='fa fa-fw fa-exclamation-triangle'>&#xf071; Warning</option>
-    <option value='fa fa-fw fa-exclamation-circle'>&#xf06a; Warning</option>
-    </select>
-      */
-      $("#changeIcon").val(CURRENTNODE.icon)
-  
-      $("#editor").append(nodetext);
-      // autosize($(".texteditor"));
-  
+
+
       converter = new showdown.Converter();
       text = CURRENTNODE.data.content;
       html = converter.makeHtml(text);
@@ -545,7 +554,19 @@ function drawEditor() {
     });
   }
 
-
+  $(document).off("click", "#notesToggle").on("click", "#notesToggle", function () {
+    if( $("#notesPanel").css("right")==="0px"){
+    $("#notesPanel").css({"right": "-270px"})
+    $("#notesPanel").css({"padding-right": "0px"})
+    $("#notesPanel").css({"padding-left": "50px"})
+    $("#editor").css({"right": "50px"})
+    }else{
+      $("#notesPanel").css({"right": "0px"})
+      $("#notesPanel").css({"padding-right": "50px"})
+      $("#notesPanel").css({"padding-left": "0px"})
+      $("#editor").css({"right": "320px"})
+    }
+  });
 
   
 $(document).off("click", "#nodeText").on("click", "#nodeText", function () {
@@ -628,7 +649,16 @@ $(document).off("click", "#nodeText").on("click", "#nodeText", function () {
     dosave();
   });
   
-  $(document).off("click", "#addSubSection").on("click", "#addSubSection", function () {
-    $("#tree").trigger("nodeCommand", { cmd: "addChild" });
+  $(document).off("click", "#add-sibling-button").on("click", "#add-sibling-button", function () {
+   $("#manuscript").trigger("nodeCommand", { cmd: "addSibling" });
   });
   
+
+  $(document).off("click", "#add-sub-button").on("click", "#add-sub-button", function () {
+    $("#manuscript").trigger("nodeCommand", { cmd: "addChild" });
+   });
+
+   $(document).off("click", "#AddNote").on("click", "#AddNote", function () {
+    CURRENTNODE.data.notes.push({ content: "", complete: 0 });
+    drawNotes()
+  })

@@ -41,12 +41,13 @@
   --editor-font: "Halant", serif;
   --default-font-size:14px;
 
- --manuscript-align: "left";
- --manuscript-fontsize: 1rem;
- --manuscript-line-height:1.5rem;
- --manuscript-paragraph-indent: 0%;
- --manuscript-margin-bottom : 2rem;
 
+ 
+ --manuscriptAlign: "left";
+ --manuscriptFontSize: 1em;
+ --manuscriptLineHeight:1.5em;
+ --manuscriptParaIndent: 0%;
+ --manuscriptMarginBottom : 2em;
 
   --menu-indent-padding :0px;
 
@@ -72,6 +73,17 @@ Setting General Interface Variables
 
 
 
+}
+#manuscript{
+  font-size: 0.8rem;
+}
+
+#mobilecheck{
+  position:fixed;
+  width:1px;
+  height:1px;
+  top: -10px;
+  display:block;
 }
 
 body {
@@ -180,116 +192,110 @@ body {
   color:var(--side-nav-bar-button-foreground-hover);
   outline:none;
 }
-
+.btn-50{
+  position: sticky;
+  display: inline-block;
+  width:49%;
+  margin:0px;
+}
 #navigation-side-nav{
   position:absolute;
   left:50px;
   bottom:0px;
   top:0px;
-  width:320px;
+  width:100%;
   background-color:var(--c8);
-  overflow:hidden;
-  overflow-x: auto;
+}
+
+#manuscript{
+  position: absolute;;
+  top:50px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+
+  overflow-y:scroll;
 }
 
 ::-webkit-scrollbar-button {
   display: block;
-  height: 13px;
+  height: 0px;
   border-radius: 0px;
-  background-color: var(--c6);
-}
-
-::-webkit-scrollbar-button:hover {
-  background-color: var(--c7);
+  background-color: #000
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--c8);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--c2);
+  background-color: var(--c5);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--c3);
+  background-color: var(--c9);
 }
 
-::-webkit-scrollbar-track:hover {
-  background-color: var(--c5);
-}
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-#editorbuttons{
-  position: absolute;
-  width:100%;
-  top:0px;
-  background-color: var(--interface-button-background);
-  text-align: right;
+
+
+
+/*
+####################################################
+M E D I A  Q U E R I E S
+####################################################
+*/
+ 
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+ 
+/* 
+Extra small devices (portrait phones, less than 576px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+ 
+ 
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  
+ 
+
 }
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+  #mobilecheck{
+    display:none;
+  }
+  
+  #notesPanel{
+    right:0px;
+  }
 
-.wysywig-btn{
-  width:50px;
-  height: 50px;
-  background-color: var(--interface-button-background);
-  color: var(--interface-button-foreground);
-  border:0px;
-  margin:0px;
-  cursor:pointer;
+  #navigation-side-nav{
+    width:320px;
+  }
 }
-
-.wysywig-btn:hover,.wysywig-btn:focus,.wysywig-btn:active{
-
-  background-color: var(--interface-button-background-hover);
-  color: var(--interface-button-foreground-hover);
-
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+ 
 }
-
-
-#editor{
-  position: absolute;
-  top:0px;
-  left:0px;
-  right:320px;
-  bottom:0px;
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    
 }
-
-#notes{
-  position: absolute;
-  right:0px;
-  width:320px;
-  top:0px;
-  bottom:0px;
-  background-color:var(--c9);
-}
-#nodeTitle{
-  position: absolute;
-  width:100%;
-  height:46px;
-  top:50px;
-  padding-top:5px;
-  padding-left:10px;
-  background-color: var(--c6);
-  color: var(--interface-button-foreground-hover);
-}
-
-#nodeTitle_input{
-  background-color: transparent;
-  border:0px;
-width:calc(100% - 40px);
-  color: var(--interface-button-foreground-hover);
-  padding:5px;
-}
-#nodeText{
-  margin:30px;
-  margin-top : 120px;
-  background-color: var(--c0);
-  padding:20px;
-  outline: none;
-  -webkit-box-shadow: 0px 4px 17px 2px #000000; 
-box-shadow: 0px 4px 17px 2px #000000;
- min-height: 1024px;
+ 
+ 
+ 
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Custom media queries
+*/
+ 
+/* Set width to make card deck cards 100% width */
+@media (max-width: 950px) { 
+ 
 }

@@ -1,14 +1,14 @@
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
-wavemaker.state = { tool: "settings" };
-if (!wavemaker.data) {
-  wavemaker.data = {};
+WMproject.state = { tool: "settings" };
+if (!WMproject.data) {
+  WMproject.data = {};
 }
-if (!wavemaker.data.settings) {
-  wavemaker.data.settings = [{ title: "", content: "" }];
+if (!WMproject.data.settings) {
+  WMproject.data.settings = [{ title: "", content: "" }];
 }
 dosave();
 function dosave() {
-  db.projects.update(wavemaker.id, wavemaker).then(function () {
+  db.projects.update(WMproject.id, wavemaker).then(function () {
     console.log("Saved");
   });
 }
@@ -16,7 +16,7 @@ function dosave() {
 
 $(document).off("click", "#savefile").on("click", "#savefile", function () {
 
-  myfilename = wavemaker.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".wmProj";
+  myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".wmProj";
   var element = document.createElement('a');
   element.setAttribute('href', 'data:wmProj/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(wavemaker)));
   element.setAttribute('download', myfilename);
@@ -50,11 +50,11 @@ $(document).off("click", "#deleteproject").on("click", "#deleteproject", functio
 })
 
 
-$("#settings_title").val(wavemaker.title);
+$("#settings_title").val(WMproject.title);
 
 $(document).off("click", "#settings_title_save").on("click", "#settings_title_save", function () {
-  if ($("#settings_title").val() != "" && $("#settings_title").val() != wavemaker.title) {
-    wavemaker.title = $("#settings_title").val();
+  if ($("#settings_title").val() != "" && $("#settings_title").val() != WMproject.title) {
+    WMproject.title = $("#settings_title").val();
     swal("Changed!", "The title change has been saved", "success")
     dosave();
   }

@@ -1,7 +1,11 @@
 
+function checkMobile(){
+  return($("#mobilecheck").is(":visible"))
+}
+
+
 function initNav(){   
 loadNavBar()
-showNavBar();
 }
 
 function deInitNav(){
@@ -48,6 +52,8 @@ if(action ==="welcome"){
   }
 })
 
+
+
 $(document).on('click','#navigation-toggle' ,function(){
   if($('#navigation-side-nav').data("visible")){
     hideNavBar();
@@ -62,13 +68,13 @@ $(document).on('click','#navigation-toggle' ,function(){
   */
 
   function showNavBar(){
-    $('#navigation-side-nav').fadeIn()
+    $('#navigation-side-nav').show()
     $('#navigation-side-nav').data("visible",1);
   $("#wavemakerApp").css({left : 370})
   }
 
   function hideNavBar(){
-    $('#navigation-side-nav').fadeOut()
+    $('#navigation-side-nav').hide()
     $('#navigation-side-nav').data("visible",0);
     $("#wavemakerApp").css({left : 50})
   }
@@ -78,8 +84,14 @@ function loadNavBar() {
     navbar = $("<div id='navigation-holder'></div>");
     navbar.load("components/navigationbar.html?t=" + d.getTime(), function () {
       $("body").append(navbar);
-      $('[data-toggle="popover"]').popover()
+      $('[data-toggle="popover"]').popover();
+      if(checkMobile()){
+        hideNavBar()
+      }else{
+        showNavBar()
+      }
     });
+
   }
   
 
@@ -108,3 +120,41 @@ function loadtool(toolname) {
 
 
 
+  function countWords(str) {
+    str = str.replace(/[^\w\s]|_/g, "")
+             .replace(/\s+/g, " ");
+  
+    res= str.split(' ')
+           .filter(function(n) { return n != '' })
+           .length;
+  return res
+
+  }
+  
+
+
+  function setManuscript(){
+    if(!WMproject.data.settings.manuscript){
+      WMproject.data.settings.manuscript = {};
+    }
+    var manu = WMproject.data.settings.manuscript
+    $.each(manu, function (k, i){
+     document.documentElement.style.setProperty('--'+k, i);
+    })
+   dosave();
+ 
+  }
+  
+  function setManuscriptform(){
+    if(!WMproject.data.settings){
+      WMproject.data.settings = {};
+    }
+
+    if(!WMproject.data.settings.manuscript){
+      WMproject.data.settings.manuscript = {};
+    }
+   var manu = WMproject.data.settings.manuscript
+   $.each(manu, function (k, i){
+       $('#'+k).val(i);
+   })
+ }

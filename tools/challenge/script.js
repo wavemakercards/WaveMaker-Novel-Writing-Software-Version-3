@@ -1,13 +1,13 @@
-wavemaker.state = { tool: "distraction_free" };
-if (!wavemaker.data) {
-  wavemaker.data = {};
+WMproject.state = { tool: "distraction_free" };
+if (!WMproject.data) {
+  WMproject.data = {};
 }
-if (!wavemaker.data.distraction_free) {
-  wavemaker.data.distraction_free = [];
+if (!WMproject.data.distraction_free) {
+  WMproject.data.distraction_free = [];
 }
 savedata()
 function savedata() {
-  db.projects.update(wavemaker.id, wavemaker).then(function () {
+  db.projects.update(WMproject.id, wavemaker).then(function () {
     saveWavemaker();
   });
 }
