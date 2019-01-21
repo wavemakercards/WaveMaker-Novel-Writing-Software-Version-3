@@ -8,7 +8,7 @@ if (!WMproject.data.cards) {
 }
 dosave();
 function dosave() {
-  db.projects.update(WMproject.id, wavemaker).then(function () {
+  db.projects.update(WMproject.id, WMproject).then(function () {
 
   });
 }

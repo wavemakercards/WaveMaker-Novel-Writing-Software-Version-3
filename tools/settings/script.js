@@ -8,7 +8,7 @@ if (!WMproject.data.settings) {
 }
 dosave();
 function dosave() {
-  db.projects.update(WMproject.id, wavemaker).then(function () {
+  db.projects.update(WMproject.id, WMproject).then(function () {
     console.log("Saved");
   });
 }
@@ -50,16 +50,6 @@ $(document).off("click", "#deleteproject").on("click", "#deleteproject", functio
 })
 
 
-$("#settings_title").val(WMproject.title);
-
-$(document).off("click", "#settings_title_save").on("click", "#settings_title_save", function () {
-  if ($("#settings_title").val() != "" && $("#settings_title").val() != WMproject.title) {
-    WMproject.title = $("#settings_title").val();
-    swal("Changed!", "The title change has been saved", "success")
-    dosave();
-  }
-
-});
 
 $(document).off("click", "#synchronise").on("click", "#synchronise", function () {
   swal({

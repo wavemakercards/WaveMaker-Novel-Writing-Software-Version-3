@@ -22,7 +22,8 @@ $.each(manuscriptData, function(k,v){
 });
 
 
-$('#ManuscriptTitle').text(WMproject.title)
+
+
 $(document).off("click","#ManuscriptSetStyle").on("click","#ManuscriptSetStyle", function(){
     if(!WMproject.data.settings.manuscript){
         WMproject.data.settings.manuscript = {};
@@ -37,3 +38,15 @@ $(document).off("click","#ManuscriptSetStyle").on("click","#ManuscriptSetStyle",
   })
 
   setManuscriptform();
+
+
+  $("#settings_title").val(WMproject.title);
+
+$(document).off("click", "#settings_title_save").on("click", "#settings_title_save", function () {
+  if ($("#settings_title").val() != "" && $("#settings_title").val() != WMproject.title) {
+    WMproject.title = $("#settings_title").val();
+    swal("Changed!", "The title change has been saved", "success")
+    dosave();
+  }
+
+});

@@ -1,3 +1,5 @@
+hideNavBar()
+
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
 WMproject.state = { tool: "gridplanner" };
 if (!WMproject.data) {
@@ -22,7 +24,7 @@ var datatable = WMproject.data.gridplanner;
 
 dosave();
 function dosave() {
-  db.projects.update(WMproject.id, wavemaker).then(function () {
+  db.projects.update(WMproject.id, WMproject).then(function () {
     //console.log("Saved gridplanner");
   });
 }
