@@ -119,10 +119,6 @@ $("#snowflakeCards").append(
   $("#SendSnowflakeToManuscript")
     .unbind()
     .click(function () {
-
-
-
-
         var newSection = {
           icon: "fa fa-fw fa-snowflake-o",
           title: "Snowflake",

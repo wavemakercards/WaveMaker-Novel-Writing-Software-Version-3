@@ -24,7 +24,7 @@ function dosave() {
 
 $('#timelineSortable').html("");
 $.each(timeline, function (index, element) {
-  $('#timelineSortable').append(NewTimeLineCard(element.cardtitle, element.cardtext, element.cardevent));
+  $('#timelineSortable').append(NewTimeLineCard(element.title, element.content));
 });
 
 timeLineinit();
@@ -100,7 +100,6 @@ function NewTimeLineCard(title, content, event) {
   <div class='timeline-badge handle' title='Click here to add a card above this one'>` + timelineLogo + `</div>
   <div class='timeline-panel'><div class='deleteevent'><i class='fa fa-trash'></i></div>
   <textarea placeholder='Title' class='tm-card-title editable cardtitle'>` + title + `</textarea>
-  <textarea placeholder='Date /Time' class='tm-card-sub editable cardevent'>` + event + `</textarea>
   <textarea placeholder='Type Here' class='cardtext tm-card-body editable'>` + content + `</textarea>
   </div>
   </li>`;
@@ -112,58 +111,30 @@ function NewTimeLineCard(title, content, event) {
 function ReSortTimelineByArray() {
   var new_json = [];
   $("#timelineSortable").children().each(function () {
-    new_json.push({ "cardtitle": $(this).find(".cardtitle").val(), "cardevent": $(this).find(".cardevent").val(), "cardtext": $(this).find(".cardtext").val() })
+    new_json.push({ "title": $(this).find(".cardtitle").val(),  "content": $(this).find(".cardtext").val() })
   })
   WMproject.data.timeline = new_json;
   dosave();
 }
 
 
+
+
+
+
 $("#SendTimelineToManuscript")
-  .unbind()
-  .click(function () {
-
-
-    indexKey = WMproject.data.writer.findIndex(x => x.title === "Timelines")
-    console.log(indexKey);
-    if (indexKey < 0) {
-      console.log("Timelines Not found");
-      var newSection = {
-        protect: 1,
-        custom: "TIMELINE",
-        icon: "fa fa-fw fa-clock-o",
-        title: "Timelines",
-      }
-      WMproject.data.writer.push(newSection);
-      indexKey = 3;
+.unbind()
+.click(function () {
+    var newSection = {
+      icon: "fa fa-fw fa-clock-o",
+      title: "Timeline",
+      children: JSON.parse(JSON.stringify(WMproject.data.timeline))
     }
+    WMproject.data.writer.push(newSection);
 
-    var timelines = []
-    // timeline needs to be formatted to the writer format title:content
-    $.each(WMproject.data.timeline, function (k, i) {
-      timelines.push({
-        icon: "fa fa-fw fa-chevron-right",
-        title: i.cardtitle + " : " + i.cardevent,
-        data: {
-          content: i.cardtext
-        }
-      })
+  swal("Exported!", "You will now find this data in the writer mode.", "success")
 
-    })
+  dosave();
+});
 
-    var newObj = {
-      icon: "fa fa-fw fa-share-square-o",
-      title: "Exported data",
-      custom: "EXPTIME",
-      children: JSON.parse(JSON.stringify(timelines))
-    };
 
-    if (!WMproject.data.writer[indexKey].children) {
-      WMproject.data.writer[indexKey].children = [];
-    }
-    WMproject.data.writer[indexKey].children.push(newObj);
-
-    swal("Exported!", "You will now find this data in the writer mode.", "success")
-
-    dosave();
-  });
