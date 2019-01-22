@@ -31,15 +31,9 @@ $("#navigation-side-nav").html('');
 $("#navigation-side-nav").append(`<div id="manuscript"></div>`);
 $("#navigation-side-nav").append(`
 <div id="side-btn-top">
-<button class='btn btn-wavemaker btn-50' id="add-sibling-button"><i class="fa fa-fw fa-arrows-v"></i> Add Sibling</button>
-<button class='btn btn-wavemaker btn-50' id="add-sub-button"><i class="fa fa-fw fa-level-up fa-rotate-90"></i> Add Subsection</button>
+<button class='btn btn-wavemaker btn-50' id="add-sibling-button"><i class="fa fa-fw fa-arrows-v"></i> Add Sibling</button><button class='btn btn-wavemaker btn-50' id="add-sub-button"><i class="fa fa-fw fa-level-up fa-rotate-90"></i> Add Subsection</button>
 </div>
 `);
-
-
-function drawEditor(){
-    //console.log("editor" )
-}
 
 
 drawtree();
@@ -421,7 +415,7 @@ function drawEditor() {
       CURRENTNODE.data.notes = [];
     }
     if (!CURRENTNODE.icon) {
-      CURRENTNODE.icon = "fa fa-fw fa-file-text-o";
+      CURRENTNODE.icon = "fa fa-fw fa-file-o";
     }
     $("#editor").html("");
     $("#notesPanel").html("");
@@ -478,7 +472,7 @@ function drawEditor() {
   
       $("#changeIcon").val(CURRENTNODE.icon)
   
-      $("#editor").append("<div id='editpane'></div>");
+      $("#editor").append("<div id='editpane'></div><div id='wordcount'></div>");
 
       $("#editpane").append(nodetext);
       // autosize($(".texteditor"));
@@ -666,5 +660,9 @@ $(document).off("click", "#nodeText").on("click", "#nodeText", function () {
   })
 
   function ShowWordCount(counted){
-$("#wordcount").text(counted);
+    var words=" Word"
+    if(counted>1){
+      words=" Words"
+    }
+$("#wordcount").text(counted + words);
   }

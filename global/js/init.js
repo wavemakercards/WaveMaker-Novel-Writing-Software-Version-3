@@ -166,3 +166,18 @@ function loadtool(toolname) {
        $('#'+k).val(i);
    })
  }
+
+
+ /*
+var Interfacetimeout = null;
+
+$(document).on("mousemove", function() {
+  $(".interfacehider").show();
+  clearTimeout(Interfacetimeout);
+
+  Interfacetimeout = setTimeout(function() {
+    $(".interfacehider").fadeOut(1000);
+    console.log("Mouse idle for 3 sec");
+  }, 3000);
+});
+*/

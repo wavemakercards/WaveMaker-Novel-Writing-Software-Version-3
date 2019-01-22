@@ -43,13 +43,12 @@
 
 
  
- --manuscriptAlign: "left";
- --manuscriptFontSize: 1em;
- --manuscriptLineHeight:1.5em;
+ --manuscriptAlign: "justify";
+ --manuscriptFontSize: 1.5rem;
+ --manuscriptLineHeight:1.5rem;
  --manuscriptParaIndent: 0%;
- --manuscriptMarginBottom : 2em;
-
-  --menu-indent-padding :0px;
+ --manuscriptMarginBottom : 1rem;
+ --menu-indent-padding :0px;
 
 
 /*
@@ -74,6 +73,18 @@ Setting General Interface Variables
 
 
 }
+body {
+  position: absolute;
+  background-color: var(--main-background) ;
+  color: var(--main-foreground);
+  font-family: var(--system-font);
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+
 #manuscript{
   font-size: 0.8rem;
 }
@@ -86,16 +97,6 @@ Setting General Interface Variables
   display:block;
 }
 
-body {
-  position: absolute;
-  background-color: var(--main-background) ;
-  color: var(--main-foreground);
-  font-family: var(--system-font);
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-}
 
 .btn-wavemaker {
   color: var(--interface-button-foreground);
@@ -195,7 +196,7 @@ body {
 .btn-50{
   position: sticky;
   display: inline-block;
-  width:49%;
+  width:50%;
   margin:0px;
 }
 #navigation-side-nav{

@@ -26,9 +26,24 @@
 
 }
 
+#wordcount{
+  position: absolute;
+bottom:0px;
+right:40px;
+
+font-size: 0.8em;
+padding:5px;
+background-color: var(--interface-button-background-hover);
+  color: var(--interface-button-foreground-hover);
+  -webkit-border-radius: 5px 5px 0 0;/*Safari, Chrome*/
+-moz-border-radius: 5px 5px 0 0;/*Firefox*/
+border-radius:5px 5px 0 0;
+}
+
 
 #editor{
   position: absolute;
+  font-size: 0.8em;
   top:0px;
   left:0px;
   right:50px;
@@ -119,7 +134,8 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Col
 }
 
 #side-btn-top{
-      background-color:var(--side-nav-bar-button-background);      
+    padding-right:10px;
+    background-color:var(--side-nav-bar-button-background);     
 }
 
 
@@ -183,26 +199,73 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Col
 .manuscript .texteditor  p:first-of-type{
     text-indent:0px;
 }
-#wordcount{
-  position: absolute;
-top:0px;
 
-font-size: 0.8em;
-background-color: #fff;
-color:#222;
-padding:15px;
-height:50px;
 
+
+/*
+####################################################
+M E D I A  Q U E R I E S
+####################################################
+*/
+ 
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+ 
+/* 
+Extra small devices (portrait phones, less than 576px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+ 
+ 
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  
+ 
+
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+  #nodeText{
+    padding:10%;
+  }
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  #nodeText{
+    padding:10%;
+  }
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+  #nodeText{
+    padding:8%;
+  }
+}
+ 
+ 
+ 
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Custom media queries
+*/
+ 
+/* Set width to make card deck cards 100% width */
+@media (max-width: 950px) { 
+ 
 }
 </style>
 
 
       <div id="editor">
-       BOOM
+       loading ...
       </div>
 
-      <div id="notesPanel">
+      <div id="notesPanel" class="interfacehider">
 
       </div>
 
-      <div id="wordcount"></div>
+      

@@ -6,18 +6,18 @@
      min-height:100%;
      color:var(--c0);
      background-color : var(--c8);
+
     }
     .manuscriptform{
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
     .manuscriptform label{
         display:block;
     }
 
     .manuscriptform{
-        margin:20px;
-        background-color: var(--c8);
-        padding:20px;
+        margin:10px;
+        padding:10px;
     }
     .manuscriptform select{
         display: inline-block;
@@ -36,38 +36,59 @@
         text-align: center;
     }
     #ManuscriptWordCount{
-        font-size: 2em;
+        font-size: 2rem;
         display: block;
     }
     .wavemaker-form{
         width: 100%;
         height:50px;
         padding:20px;
-        font-size: 1.4em;
+        font-size: 1.4rem;
+    }
+    .welcome{
+        height:50px;
+        font-size: 1.2rem;
+        background-color: var(--interface-button-background);
+  color:var(--interface-button-foreground);
+  padding:10px;
+  text-align: center;
     }
 
 </style>
+    <div class="welcome" >Welcome to Wavemaker Version 3.0</div>
 <div class="pl">
-    <h1 >Welcome to Wavemaker Version 3.0</h1>
+    
+<div class="container-fluid">
     <div class="row">
-            <div class="col-8">
-                <input class="wavemaker-form" value="" id="settings_title">
-            </div>
-            <div class="col-4">
-                <button id="settings_title_save" class="btn btn-block  btn-wavemaker"><i class="fa fa-fw fa-caret-left"></i>
-                    Save new title</button>
-            </div>
+        <div class="col-12 col-md-6">
+                
+                <div class="row">
+                        <div class="col-12 col-md-8">
+                            <input class="wavemaker-form" value="" id="settings_title">
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <button id="settings_title_save" class="btn btn-block  btn-wavemaker"><i class="fa fa-fw fa-caret-left"></i>
+                                Save new title</button>
+                        </div>
+                    </div>
         </div>
+        <div class="col-12 col-md-6">
+            <Br>
+            <div class="alert alert-info">
+                <h4 class="WordCountTotal">
+                        Total Word Count for Manuscript
+                       <strong id="ManuscriptWordCount">0</strong>
+                    </h4>
+        </div>
+    </div>
 
-<h4 class="WordCountTotal">
-    Total Word Count for Manuscript
-   <strong id="ManuscriptWordCount">0</strong>
-</h4>
-<p>This is the Document section of the writing tool. Here you can create sections of text for your document.&nbsp;</p>
-
-<p>They can be easily re-arranged by dragging and dropping - You can also export from the snowflake and timeline tool and copy those into the main document as well.</p>
+    </div>
 
 
+ 
+    <div class="row">
+            <div class="col-12 col-md-6">
+        
 <div class="manuscriptform">
     <h5>Advanced Styling</h5>
     <label>Alignment</label>
@@ -79,19 +100,19 @@
 </select>
 <label>Font size</label>
 <select id="manuscriptFontSize">
-    <option value="0.5em" >Smallest</option>
-    <option value="0.75em"  >Small</option>
-    <option value="1em" selected >Standard</option>
-    <option value="1.5em"  >Big</option>
-    <option value="2em"  >Biggest</option>
+    <option value="0.5rem" >Smallest</option>
+    <option value="0.75rem"  >Small</option>
+    <option value="1rem" selected >Standard</option>
+    <option value="1.5rem"  >Big</option>
+    <option value="2rem"  >Biggest</option>
 </select>
 
 <label>Line Height</label>
 <select id="manuscriptLineHeight">
-        <option value="1.5em" selected >Standard Spacing</option>
-        <option value="2em"  >Double Spaced</option>
-        <option value="2.5em"  >2.5 Spaced</option>
-        <option value="3em"  >Triple Spaced</option>
+        <option value="1.5rem" selected >Standard Spacing</option>
+        <option value="2rem"  >Double Spaced</option>
+        <option value="2.5rem"  >2.5 Spaced</option>
+        <option value="3rem"  >Triple Spaced</option>
 </select>
 <label>Paragraph indentation </label>
 <select id="manuscriptParaIndent">
@@ -107,8 +128,12 @@
 </select>
 
 
-<button id="ManuscriptSetStyle" class="btn btn-block btn-primary">SAVE</button>
+<button id="ManuscriptSetStyle" class="btn btn-wavemaker">SAVE</button>
 
+</div>
+
+</div>
+</div>
 
 </div>
 
