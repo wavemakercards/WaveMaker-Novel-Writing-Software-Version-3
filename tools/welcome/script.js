@@ -106,10 +106,11 @@ $(document).on("change", "#filepicker", function(){
     swal("Problem!", "That is not a wmdata file sorry", "warning");
     return false
   }
-  
+  swal("Loading!", "Hi, Loading file now, please wait.", "success");
+
  var fr = new FileReader();
   fr.onloadstart =function(e){
-    swal("Loading!", "Hi, Loading file now, please wait.", "success");
+    console.log("loading file start")
   }
   fr.onprogress =function(e){
     console.log(e)
