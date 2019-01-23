@@ -109,7 +109,7 @@ $(document).on("change", "#filepicker", function(){
   
  var fr = new FileReader();
   fr.onloadstart =function(e){
-    console.log("Started Loading")
+    swal("Loading!", "Hi, Loading file now, please wait.", "success");
   }
   fr.onprogress =function(e){
     console.log(e)
