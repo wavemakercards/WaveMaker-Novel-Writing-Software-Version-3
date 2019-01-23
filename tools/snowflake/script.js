@@ -112,7 +112,7 @@ $("#snowflakeCards").append(
 */
 
   $("#snowflakeCards").append(
-    "<button class='btn btn-primary sendtowriter' id='SendSnowflakeToManuscript'><i class='fa fa-fw fa-share-square'></i> Send to Writer</button>"
+    "<button class='btn btn-wavemaker sendtowriter' id='SendSnowflakeToManuscript'><i class='fa fa-fw fa-share-square'></i><span>&nbsp;Send to Writer</span></button>"
   );
 
 

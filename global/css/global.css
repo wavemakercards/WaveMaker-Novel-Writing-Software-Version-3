@@ -25,6 +25,12 @@
   --interface-button-background-hover : #6a6a6a;
   --interface-button-foreground-hover : #fafafa;
 
+  --interface-button-background-danger : #8c0000;
+  --interface-button-foreground-danger : #fafafa;
+
+  --interface-button-background-success : #116600;
+  --interface-button-foreground-success : #fafafa;
+
   --side-nav-bar-background: #212121;
   --side-nav-bar-foreground: #fafafa;
 
@@ -97,7 +103,6 @@ body {
   display:block;
 }
 
-
 .btn-wavemaker {
   color: var(--interface-button-foreground);
   background-color: var(--interface-button-background);
@@ -109,6 +114,42 @@ body {
 }
 
 .btn-wavemaker:hover, .btn-wavemaker:focus, .btn-wavemaker:active {
+  color: var(--interface-button-foreground-hover);
+  background-color: var(--interface-button-background-hover);
+  border:0px;
+  box-shadow: none;
+}
+
+.btn-wavemaker-danger {
+  color: var(--interface-button-foreground-danger);
+  background-color: var(--interface-button-background-danger);
+  border:0px;
+  border-radius: 0px;
+  box-shadow: none;
+  font-size: 0.9rem;
+  height: 50px;
+}
+.btn-wavemaker-danger:hover, .btn-wavemaker-danger:focus, .btn-wavemaker-danger:active {
+  color: var(--interface-button-foreground-hover);
+  background-color: var(--interface-button-background-hover);
+  border:0px;
+  box-shadow: none;
+}
+
+.btn-wavemaker-success {
+  color: var(--interface-button-foreground-success);
+  background-color: var(--interface-button-background-success);
+  border:0px;
+  border-radius: 0px;
+  box-shadow: none;
+  font-size: 0.9rem;
+  height: 50px;
+}
+
+
+
+
+.btn-wavemaker-success:hover, .btn-wavemaker-success:focus, .btn-wavemaker-success:active {
   color: var(--interface-button-foreground-hover);
   background-color: var(--interface-button-background-hover);
   border:0px;
@@ -238,8 +279,19 @@ body {
   width: 10px;
 }
 
-
-
+.sendtowriter{
+  position:fixed;
+  top:0px;
+  right:0px;
+  height:40px;
+  font-size: 0.8rem;
+}
+.sendtowriter>span{
+  display:none;
+}
+.sendtowriter:hover>span,.sendtowriter:focus>span{
+  display:inline-block;
+}
 
 /*
 ####################################################

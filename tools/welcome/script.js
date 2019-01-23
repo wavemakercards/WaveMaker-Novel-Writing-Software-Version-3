@@ -13,7 +13,7 @@ function getProjects() {
   db.projects
     .each(function (set) {
       $("#wavemakerprojectList").append(
-        `<Button class='ProjectSelectButton btn ' data-setid='${set.id}'><i class='fa fa-file-text fa-fw fa-4x'></i> <br><br> ${set.title}</button>`
+        `<Button class='ProjectSelectButton btn ' data-setid='${set.id}'><i class='fa fa-file-text fa-fw '></i>  ${set.title}</button>`
       );
 
     })
@@ -82,4 +82,49 @@ function ProjectsDisplaySetup() {
       });
     });  
 }
+
+$(document).off("click", "#ProjectDownloadAllData").on("click", "#ProjectDownloadAllData", function () {
+  exportDatabase();
+})
+
+
+
+
+
+$(document).on("change", "#filepicker", function(){
+  var files =document.getElementById('selectFiles').files;
+  if (files.length <= 0) {
+    swal("Problem!", "You didn't select a file", "warning");
+    return false
+  }
+
+  var myfilename
+  myfilename = files[0].name
+  var parts=myfilename.split(".")
+  console.log(parts[parts.length-1])
+  if((parts[parts.length-1].toLowerCase()) !=="wmdata"){
+    swal("Problem!", "That is not a wmdata file sorry", "warning");
+    return false
+  }
+  
+ var fr = new FileReader();
+  fr.onloadstart =function(e){
+    console.log("Started Loading")
+  }
+  fr.onprogress =function(e){
+    console.log(e)
+  }
+  fr.onload = function(e) { 
+    console.log("Loading File complete") 
+//    var result = JSON.parse(e.target.result);
+ //   var formatted = JSON.stringify(result, null, 2);
+    importDatabase(e.target.result)
+  }
+  
+  fr.readAsText(files.item(0));
+  
+})
+
+
+
 

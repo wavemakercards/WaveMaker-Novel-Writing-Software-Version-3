@@ -12,7 +12,7 @@ function deInitNav(){
   hideNavBar();
   $("#navigation-holder").remove()
   $('.popover').remove()
-
+  $("#wavemakerApp").css("left","0px");
 }
 
 
@@ -45,7 +45,6 @@ if(action ==="welcome"){
       });
     }
   });
-
 }else{
   loadtool(action)
   showNavBar(); 
@@ -117,7 +116,6 @@ function loadtool(toolname) {
     */
     var d = new Date();
     $("#wavemakerApp").load("tools/" + toolname + "/html.html?t=" + d.getTime(), function () {
-      var d = new Date();
       // load and run the script
       $.getScript("tools/" + toolname + "/script.js?t=" + d.getTime(), function () {
   
