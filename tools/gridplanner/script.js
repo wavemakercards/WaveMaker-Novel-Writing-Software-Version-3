@@ -102,6 +102,8 @@ function drawTable() {
   $(".addnewbit").unbind().click(function () {
     $(this).prev().append("<li><textarea class='grideditabletextarea' placeholder='write here'></textarea></li>")
     autosize($(".grideditabletextarea"))
+    gridsave()
+    dosave();
   });
 
   $(".removeme").unbind().click(function () {
