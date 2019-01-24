@@ -57,11 +57,20 @@ $(document).off("click", ".card-edit-button").on("click", ".card-edit-button", f
   newCardObj = editObject;
   $("#CardTitle").val(editObject.title);
   $("#CardContent").val(editObject.content);
+
   drawPreviewImages();
   hashtags = editObject.tags;
   redrawHashtags();
   $("#CardManagerModal").modal({ backdrop: 'static', keyboard: false });
+  autosize.update($("#CardContent"))
 });
+
+// hacky way of making sure the modal triggers the atosize
+$("#CardManagerModal").unbind().mouseenter(function(){
+  console.log("mouse")
+  autosize.update($("#CardContent"))
+})
+
 
 
 $("#AddCard")
@@ -316,7 +325,7 @@ function drawCards(){
       if (maxh < $(this).height()) { maxh = $(this).height() }
       console.log(maxh)
     })
-    $(".cardy").height(maxh);
+    //$(".cardy").height(maxh);
   }
 
 }
