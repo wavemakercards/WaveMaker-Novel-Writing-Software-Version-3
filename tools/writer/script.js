@@ -116,13 +116,7 @@ function drawtree() {
         CURRENTLI = CURRENTNODE.li;
         $(".activeLInode").removeClass("activeLInode");
         $(CURRENTLI).addClass("activeLInode");
-
-        
         drawEditor();
-        if(checkMobile()){
-          hideNavBar();
-        }
-
       },
       edit: {
         //triggerStart: ["f2", "shift+click", "mac+enter"],
@@ -251,18 +245,20 @@ function drawtree() {
     
           node.editCreateNode("child", "New Section");
           dosave("addChild");
+     //     $("#manuscript input").focus().select()
         }
 
           break;
         case "addSibling":       
-
         if(!node){
           swal("Select a place!", "Select a place from the tree menu where you want to add a section.", "warning");
         }else{
-    
-          node.editCreateNode("after", "New Section");
+          node.editCreateNode("after", "New Section")
+      //    $("#manuscript input").focus().select()
           dosave("addSibling");
+          
         }
+        
           break;
 
         case "cut":
@@ -386,9 +382,8 @@ function drawtree() {
 
 function drawNotes() {
     $("#notesPanel").html('');
-    
-    $("#notesPanel").append("<button id='notesToggle'><i class='fa fa-fw fa-sticky-note-o'></i></button>")
     $("#notesPanel").append("<button id='AddNote' class='btn btn-wavemaker btn-block'><i class='fa fa-fw fa-pencil-square-o'></i> Add Note</button>")
+    $("#notesPanel").append("<button id='notesToggle'><i class='fa fa-fw fa-sticky-note-o'></i></button>")
     $.each(CURRENTNODE.data.notes, function (k, i) {
       notecard = $("<div class='note-card' data-noteref='" + k + "'><textarea placeholder='Write Here' class='note-content'>" + i.content + "</textarea><button  class='note-delete'><i class='fa fa-trash fa-fw'></i></button></div>")
       $("#notesPanel").append(notecard)
@@ -396,7 +391,7 @@ function drawNotes() {
     autosize($('.note-content'))
   
     // reset the update on keypress
-    $(".note-content").on("keyup paste", function () {
+    $(document).off("keyup paste", ".note-content").on("keyup paste", ".note-content", function () {
       k = $(this).parent().data("noteref");
       CURRENTNODE.data.notes[k].content = $(this).val()
       dosave();
@@ -573,12 +568,12 @@ function drawEditor() {
     $("#notesPanel").css({"right": "-270px"})
     $("#notesPanel").css({"padding-right": "0px"})
     $("#notesPanel").css({"padding-left": "50px"})
-    $("#editor").css({"right": "50px"})
+   // $("#editor").css({"right": "50px"})
     }else{
       $("#notesPanel").css({"right": "0px"})
       $("#notesPanel").css({"padding-right": "50px"})
       $("#notesPanel").css({"padding-left": "0px"})
-      $("#editor").css({"right": "320px"})
+      //$("#editor").css({"right": "320px"})
     }
   });
 
@@ -647,7 +642,8 @@ $(document).off("click", "#nodeText").on("click", "#nodeText", function () {
   })
   */
   
-  $(document).off("click", "#nodeText").on("paste", "#nodeText", function (e) {
+  $(document).off("paste", "#nodeText").on("paste", "#nodeText", function (e) {
+    console.log("paste triggered")
     e.preventDefault();
     var text = "";
     if (e.clipboardData || e.originalEvent.clipboardData) {

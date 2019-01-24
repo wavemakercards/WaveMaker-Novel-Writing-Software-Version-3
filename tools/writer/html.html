@@ -10,7 +10,7 @@
 }
 
 .wysywig-btn{
-  width:50px;
+  width:30px;
   height: 50px;
   background-color: var(--interface-button-background);
   color: var(--interface-button-foreground);
@@ -108,12 +108,13 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Col
       background-color:var(--side-nav-bar-button-background);
   color:var(--side-nav-bar-button-foreground);
   cursor:pointer;
+ 
 }
 
 #AddNote{
   position:sticky;
   top:0px;
-  z-index: 1024
+ 
 }
 
 #notesToggle:hover{
@@ -131,6 +132,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Col
   background-color:var(--c9);
   padding-left:50px;
   overflow-y:auto;
+  transition: all 0.5s ease;
 }
 
 #side-btn-top{
@@ -245,6 +247,9 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   #nodeText{
     padding:10%;
   }
+  .wysywig-btn{
+  width:50px; 
+}
 }
  
 /* Large devices (desktops, 992px and up) */
@@ -252,12 +257,14 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   #nodeText{
     padding:10%;
   }
+  
+
 }
  
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {  
   #nodeText{
-    padding:8%;
+    padding:5%;
   }
 }
  
