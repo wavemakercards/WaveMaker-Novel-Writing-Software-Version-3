@@ -1,5 +1,5 @@
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
-WMproject.state = { tool: "settings" };
+
 if (!WMproject.data) {
   WMproject.data = {};
 }

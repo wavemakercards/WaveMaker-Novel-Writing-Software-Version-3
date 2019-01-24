@@ -1,6 +1,13 @@
 hideNavBar()
 
-WMproject.state = { tool: "snowflake" };
+
+if(!WMproject.state){
+  WMproject.state={}
+}
+WMproject.state.tool = "snowflake"
+
+
+
 if (!WMproject.data) {
   WMproject.data = {};
 }

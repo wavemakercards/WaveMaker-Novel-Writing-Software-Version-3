@@ -88,7 +88,9 @@ $(document).off("click", "#ProjectDownloadAllData").on("click", "#ProjectDownloa
 })
 
 
-
+$(document).off("click", "#dataformtoggle").on("click", "#dataformtoggle", function () {
+$("#dataform").slideToggle();
+})
 
 
 $(document).on("change", "#filepicker", function(){

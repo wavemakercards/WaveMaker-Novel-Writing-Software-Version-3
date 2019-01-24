@@ -1,140 +1,183 @@
 <style>
     .pl {
-        position:relative;
+        position: relative;
         display: block;
         padding: 20px;
-     min-height:100%;
-     color:var(--c0);
-     background-color : var(--c8);
+        min-height: 100%;
+        color: var(--c0);
+        background-color: var(--c9);
 
     }
-    .manuscriptform{
-        font-size: 1rem;
-    }
-    .manuscriptform label{
-        display:block;
+
+    .manuscriptform {
+        border-top: 1px solid var(--c0);
+        border-bottom: 1px solid var(--c0);
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
-    .manuscriptform{
-        margin:10px;
-        padding:10px;
-    }
-    .manuscriptform select{
-        display: inline-block;
-        padding:1.5%;
-        width:40%;
-        margin-bottom:10px;
-    }
-    .manuscriptform label{
-        display: inline-block;
-        width:50%;
-     
-    }
-    .WordCountTotal{
-        padding:20px;
-        margin:20px;
-        text-align: center;
-    }
-    #ManuscriptWordCount{
-        font-size: 2rem;
+    .manuscriptform label {
         display: block;
     }
-    .wavemaker-form{
-        width: 100%;
-        height:50px;
-        padding:20px;
-        font-size: 1.4rem;
-    }
-    .welcome{
-        height:50px;
-        font-size: 1.2rem;
-        background-color: var(--interface-button-background);
-  color:var(--interface-button-foreground);
-  padding:10px;
-  text-align: center;
+
+
+    .manuscriptform select {
+        display: inline-block;
+
+
     }
 
-</style>
-    <div class="welcome" >Welcome to Wavemaker Version 3.0</div>
-<div class="pl">
-    
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-md-6">
-                
-                <div class="row">
-                        <div class="col-12 col-md-8">
-                            <input class="wavemaker-form" value="" id="settings_title">
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <button id="settings_title_save" class="btn btn-block  btn-wavemaker"><i class="fa fa-fw fa-caret-left"></i>
-                                Save new title</button>
-                        </div>
-                    </div>
-        </div>
-        <div class="col-12 col-md-6">
-            <Br>
-            <div class="alert alert-info">
-                <h4 class="WordCountTotal">
-                        Total Word Count for Manuscript
-                       <strong id="ManuscriptWordCount">0</strong>
-                    </h4>
-        </div>
-    </div>
+    .WordCountTotal {
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+    }
 
-    </div>
-
+    #ManuscriptWordCount {
+        background-color: var(--c7);
+        padding: 10px;
+        border-radius: 5px;
+    }
 
  
-    <div class="row">
-            <div class="col-12 col-md-6">
-        
-<div class="manuscriptform">
-    <h5>Advanced Styling</h5>
-    <label>Alignment</label>
-<select id="manuscriptAlign">
-    <option value="left" selected >Align Left</option>
-    <option value="cen>ter">Align Center</option>
-    <option value="right">Align Right</option>
-    <option value="justify">Justify</option>
-</select>
-<label>Font size</label>
-<select id="manuscriptFontSize">
-    <option value="0.5rem" >Smallest</option>
-    <option value="0.75rem"  >Small</option>
-    <option value="1rem" selected >Standard</option>
-    <option value="1.5rem"  >Big</option>
-    <option value="2rem"  >Biggest</option>
-</select>
 
-<label>Line Height</label>
-<select id="manuscriptLineHeight">
-        <option value="1.5rem" selected >Standard Spacing</option>
-        <option value="2rem"  >Double Spaced</option>
-        <option value="2.5rem"  >2.5 Spaced</option>
-        <option value="3rem"  >Triple Spaced</option>
-</select>
-<label>Paragraph indentation </label>
-<select id="manuscriptParaIndent">
-        <option value="20px" selected >Yes</option>
-        <option value="0px" >no</option>
-</select>
-<label>Paragraph Spacing</label>
-<select id="manuscriptMarginBottom">
-        <option value="20px" selected >Standard Spacing</option>
-        <option value="30px"  >Double Spaced</option>
-        <option value="40px"  >2.5 Spaced</option>
-        <option value="50px"  >Triple Spaced</option>
-</select>
+    .welcome {
+        height: 50px;
+        font-size: 1.2rem;
+        background-color: var(--interface-button-background);
+        color: var(--interface-button-foreground);
+        padding: 10px;
+        text-align: center;
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+</style>
+<div class="welcome">Welcome to Wavemaker Version 3.0</div>
+<div class="pl">
+
+    <div class="container">
+            <div class="row justify-content-md-center">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <h6>Title of this project 
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-12 ">
+                <div class="row ">
+                    <div class="col-12 col-md-8">
+                        <input class="wavemaker-form" value="" id="settings_title">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <button id="settings_title_save" class="btn btn-block  btn-wavemaker"><i class="fa fa-fw fa-save"></i>
+                            Save new title</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <label>Total Word Count for Manuscript <strong id="ManuscriptWordCount">0</strong> Words
+                        </label>
+                    </div>
+                </div>
+            </div>
 
 
-<button id="ManuscriptSetStyle" class="btn btn-wavemaker">SAVE</button>
+        </div>
 
-</div>
 
-</div>
-</div>
 
-</div>
+        <div class="row justify-content-md-center">
+            <div class="col-12">
+
+                <div class="manuscriptform">
+                    <strong>Manuscript Styling</strong>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6"><label>Alignment</label></div>
+                        <div class="col-12 col-md-6">
+                                <select id="manuscriptAlign" class="wavemaker-form">
+                                        <option value="left" selected>Align Left</option>
+                                        <option value="cen>ter">Align Center</option>
+                                        <option value="right">Align Right</option>
+                                        <option value="justify">Justify</option>
+                                    </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">  <label>Font size</label></div>
+                        <div class="col-12 col-md-6"><select id="manuscriptFontSize" class="wavemaker-form">
+                                <option value="0.5rem">Smallest</option>
+                                <option value="0.75rem">Small</option>
+                                <option value="1.3rem" selected>Standard</option>
+                                <option value="1.5rem">Big</option>
+                                <option value="2rem">Biggest</option>
+                            </select></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6"><label>Line Height</label></div>
+                        <div class="col-12 col-md-6"><select id="manuscriptLineHeight" class="wavemaker-form">
+                                <option value="1.7rem" selected>Standard Spacing</option>
+                                <option value="2rem">Double Spaced</option>
+                                <option value="2.5rem">2.5 Spaced</option>
+                                <option value="3rem">Triple Spaced</option>
+                            </select></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6"><label>Paragraph indentation </label></div>
+                        <div class="col-12 col-md-6">  <select id="manuscriptParaIndent" class="wavemaker-form">
+                                <option value="20px" selected>Yes</option>
+                                <option value="0px">no</option>
+                            </select></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6"> <label>Paragraph Spacing</label></div>
+                        <div class="col-12 col-md-6">    <select id="manuscriptMarginBottom" class="wavemaker-form">
+                                <option value="20px" selected>Standard Spacing</option>
+                                <option value="30px">Double Spaced</option>
+                                <option value="40px">2.5 Spaced</option>
+                                <option value="50px">Triple Spaced</option>
+                            </select>
+        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6"></div>
+                        <div class="col-12 col-md-6"></div>
+                    </div>
+
+                    
+                    
+                  
+                    
+                    <div class="row">
+                            <div class="col-12 text-right"><button id="ManuscriptSetStyle" class="btn btn-wavemaker "><i class="fa fa-fw fa-save"></i> Save Settings</button></div>
+                        
+                        </div>
+                    
+                    
+                    
+                  
+                   
+                
+
+                    
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
 </div>

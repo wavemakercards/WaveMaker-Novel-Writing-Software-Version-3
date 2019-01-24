@@ -18,7 +18,13 @@ var CURRENTLI;
 var CLIPBOARD = null;
    
   // this needs to be updated so that each tool can be reset - the only required entry is TOOL
-  WMproject.state = { tool: "writer" };
+
+  if(!WMproject.state){
+    WMproject.state={}
+  }
+  WMproject.state.tool = "writer"
+  
+
   if (!WMproject.data) {
     WMproject.data = {};
   }
@@ -100,6 +106,10 @@ function drawtree() {
 
         CURRENTNODE = node;
         CURRENTLI = CURRENTNODE.li;
+        $(".activeLInode").removeClass("activeLInode");
+        $(CURRENTLI).addClass("activeLInode");
+
+        
         drawEditor();
         if(checkMobile()){
           hideNavBar();

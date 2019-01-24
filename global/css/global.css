@@ -50,10 +50,11 @@
 
  
  --manuscriptAlign: "justify";
- --manuscriptFontSize: 1.5rem;
- --manuscriptLineHeight:1.5rem;
- --manuscriptParaIndent: 0%;
- --manuscriptMarginBottom : 1rem;
+ --manuscriptFontSize: 1.7rem;
+ --manuscriptLineHeight:2rem;
+ --manuscriptParaIndent: 20px;
+ --manuscriptMarginBottom : 2rem;
+ 
  --menu-indent-padding :0px;
 
 
@@ -89,9 +90,16 @@ body {
   right: 0px;
   bottom: 0px;
 }
+.wavemaker-form {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--c9);
+  color: var(--c0);
+  border: 0px;
+  border-bottom: 1px dashed var(--c0);
+}
 
-
-#manuscript{
+#manuscript, .ui-contextmenu{
   font-size: 0.8rem;
 }
 

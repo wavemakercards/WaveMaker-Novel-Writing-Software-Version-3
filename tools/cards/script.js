@@ -1,18 +1,22 @@
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
-WMproject.state = { tool: "cards" };
+if(!WMproject.state){
+  WMproject.state={}
+}
+WMproject.state.tool = "cards"
 if (!WMproject.data) {
   WMproject.data = {};
 }
 if (!WMproject.data.cards) {
   WMproject.data.cards = [];
 }
+var editObject={};
+
 dosave();
 function dosave() {
   db.projects.update(WMproject.id, WMproject).then(function () {
   });
 }
 
-var CARDS = WMproject.data.cards;
 var newCardObj = {};
 var editcard = "new";
 var allHashtags =[]
@@ -26,7 +30,7 @@ $(document).off("click","#hashtag-list>li").on("click","#hashtag-list>li", funct
 
 
 
-$("#CardManagerModalButton")
+$(".CardManagerModalButton")
   .unbind()
   .click(function () {
     //reset the card to blank
@@ -47,12 +51,14 @@ $("#CardManagerModalButton")
 
 $(document).off("click", ".card-edit-button").on("click", ".card-edit-button", function () {
   k = $(this).parent().data("key");
-  newCardObj = JSON.parse(JSON.stringify(results[k]));
-  editcard = k;
-  $("#CardTitle").val(results[k].title);
-  $("#CardContent").val(results[k].content);
+  editObject=results[k];
+  editcard = "yes";
+  console.log(k)
+  newCardObj = editObject;
+  $("#CardTitle").val(editObject.title);
+  $("#CardContent").val(editObject.content);
   drawPreviewImages();
-  hashtags = results[k].tags;
+  hashtags = editObject.tags;
   redrawHashtags();
   $("#CardManagerModal").modal({ backdrop: 'static', keyboard: false });
 });
@@ -64,16 +70,16 @@ $("#AddCard")
     newCardObj.title = $("#CardTitle").val();
     newCardObj.content = $("#CardContent").val();
     newCardObj.tags = hashtags;
-
     if (editcard === "new") {
       WMproject.data.cards.push(newCardObj);
     } else {
-      WMproject.data.cards[editcard] = newCardObj;
+      editObject = newCardObj;
+      editObject ={};
       editcard = "new";
     }
     $("#CardManagerModal").modal("hide");
-    drawCards();
     dosave();
+    drawCards();
   });
 
 $(document).off("click", ".img-preview").on("click", ".img-preview", function () {
@@ -97,19 +103,19 @@ $(document).off("click", ".img-preview").on("click", ".img-preview", function ()
 });
 
 $("#toggleGridButton").unbind().click(function () {
-  if (WMproject.state.gridDisplay) {
+  if (WMproject.state.gridDisplay==1) {
     WMproject.state.gridDisplay = 0;
   } else {
     WMproject.state.gridDisplay = 1;
   }
-  drawCards();
   dosave();
+  drawCards();
 })
 
-function drawCards() {
-
+function drawCards(){
+  allHashtags =[];
   $("#navigation-side-nav").html("<ul id='hashtag-list'></ul>")
-  $.each(CARDS, function(k,v){
+  $.each(WMproject.data.cards, function(k,v){
     $.each(v.tags, function(kk,vv){
      // console.log(allHashtags.indexOf(vv))
     if(allHashtags.indexOf(vv)==-1){
@@ -118,14 +124,10 @@ function drawCards() {
   })
   })
   allHashtags.sort()
-  $("#hashtag-list").append("<li data-hash=''>Show All</li>")  
+  $("#hashtag-list").append("<li data-hash='' class='btn btn-wavemaker' id='showAll'><i class='fa fa-fw fa-hashtag'></i> Show All</li>")  
   $.each(allHashtags,function(k,v){
-    $("#hashtag-list").append("<li data-hash='"+v+"'>#"+v+"</li>")
+    $("#hashtag-list").append("<li data-hash='"+v+"'><i class='fa fa-fw fa-hashtag'></i> "+v+"</li>")
   })
-
-
-
-
 
   var query = $("#card-search").val();
   if (query != "") {
@@ -146,18 +148,18 @@ function drawCards() {
     });
 
   } else {
-    results = CARDS;
+    results = WMproject.data.cards;
   }
 
 
   $("#cards").html("");
   $.each(results, function (k, card) {
     if (WMproject.state.gridDisplay) {
-      cardholder = $(`<div class="col-12 col-sm-6 col-md-4"></div>`);
-      $("#toggleGridButton").html("<i class='fa fa-fw fa-square'></i>")
-    } else {
-      cardholder = $(`<div class="col-12 col-lg-7 listview"></div>`);
+      cardholder = $(`<div class="col-12 listview"></div>`);
       $("#toggleGridButton").html("<i class='fa fa-fw fa-th'></i>")
+    } else {
+      cardholder = $(`<div class="col-12 col-sm-6 col-md-4 col-lg-3"></div>`);
+      $("#toggleGridButton").html("<i class='fa fa-fw fa-bars'></i>")
     }
 
     mycard = $(
@@ -171,7 +173,7 @@ function drawCards() {
 
     switch (card.images.length) {
       case 1:
-        var newImg = $('<img class="div-img"/>');
+      var newImg = $('<div class="div-img" style=" background-image: url(' + card.images[0] + '); width:100%; height:100px;"></div>');
         newImg.data("key", 0);
         newImg.data("src", card.images[0]);
         newImg.attr("src", card.images)[0];
@@ -273,15 +275,6 @@ function drawCards() {
     imageholder.append('<div style="clear:both"></div>');
 
 
-    /*
-     $.each(card.images, function (k, i) {
-       var newImg = $('<img class="card-img"  />');
-       newImg.data("key", k);
-       newImg.attr("src", i);
-       imageholder.append(newImg);   
-     });
-       */
-
     mycard.append(imageholder);
 
     mycard.append(
@@ -316,11 +309,12 @@ function drawCards() {
     $("body").append(viewer);
   });
 
-  if (WMproject.state.gridDisplay) {
+  if (!WMproject.state.gridDisplay) {
     var maxh = 0
     $.each($(".cardy"), function () {
      // console.log($(this).height())
       if (maxh < $(this).height()) { maxh = $(this).height() }
+      console.log(maxh)
     })
     $(".cardy").height(maxh);
   }
@@ -471,6 +465,7 @@ $(document).off("click", ".card-delete-button").on("click", ".card-delete-button
   }).then(result => {
     if (result.value) {
       WMproject.data.cards.splice(k, 1);
+      dosave();
       drawCards();
       swal("Deleted!", "That has been removed.", "success");
     }

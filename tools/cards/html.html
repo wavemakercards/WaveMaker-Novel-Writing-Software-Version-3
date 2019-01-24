@@ -12,7 +12,7 @@
 
     #cards-board {
         position: absolute;
-        top: 0px;
+        top: 50px;
         left: 0px;
         bottom: 0px;
         right: 0px;
@@ -112,6 +112,8 @@ display: inline-block;
 width:100%;
 padding:10px;
 outline:none;
+background:transparent;
+color: inherit;
 }
 #CardContent{
     border:0px;
@@ -119,6 +121,8 @@ outline:none;
     outline:none;
     resize: none;
     width:100%;
+    background: transparent;
+    color: inherit;
 }
 
 .img-preview{
@@ -230,23 +234,58 @@ max-width:90%;
   color:var(--side-nav-bar-button-foreground-hover);
 }
 
-</style>
-<div id="cards-board">
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <input id="card-search" class="form-control" placeholder='Type here to search' />
-            </div>
-            <div class="col-4">
-                <button class="btn btn-secondary btn-block" id="CardManagerModalButton">Add New</button>
-            </div>
-            <div class="col-2">
-                <button class="btn btn-primary btn-block" id="toggleGridButton"><i class="fa fa-fw fa-square"></i></button>
+#toolwelcome {
+    height: 50px;
+    background-color: var(--interface-button-background);
+    color: var(--interface-button-foreground);
 
+    position:sticky;
+}
+
+.listview .cardy{
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom:20px;
+}
+
+.modal-content{
+    background-color: var(--c8);
+    color: var(--c0);
+    border-radius: 0px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.fixbottom{
+    position:absolute;
+    bottom:0px;
+    -webkit-border-radius: 10px 10px 0 0;/*Safari, Chrome*/
+-moz-border-radius: 10px 10px 0 0;/*Firefox*/
+border-radius: 10px 10px 0 0;
+
+}
+</style>
+<div id="toolwelcome">
+        <div class="container-fluid">
+        <div class="row">
+                <div class="col-8">
+                    <input id="card-search" class="wavemaker-form" placeholder='Type here to search' />
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-wavemaker btn-block CardManagerModalButton" > <i class="fa fa-fw fa-plus"></i></button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-wavemaker btn-block" id="toggleGridButton"><i class="fa fa-fw fa-square"></i></button>
+    
+                </div>
             </div>
-        </div>
-        <hr>
-        <div id="cards" class="row justify-content-md-center"></div>
+            </div>
+</div>
+<div id="cards-board">
+    <div class="container-fluid">
+        <div id="cards" class="row"></div>
+        <div class="text-center"><button class="btn btn-wavemaker CardManagerModalButton fixbottom" > <i class="fa fa-fw fa-plus"></i> Add New</button></div>
+        
     </div>
 </div>
 
@@ -266,7 +305,7 @@ max-width:90%;
                 <textarea id="CardContent" placeholder="Write here ..."></textarea>
                 <div id="ImagePreviewHolder"></div>
                 <div class="wm-image-upload">
-                    <button class="wm-image-upload-form btn btn-primary"><i class="fa fa-fw fa-camera"></i> Upload
+                    <button class="wm-image-upload-form btn btn-wavemaker"><i class="fa fa-fw fa-camera"></i> Upload
                         Image</button>
                     <input type="file" class="wm-image-upload-form" id="wmImageUploadSelect" name="myfile" />
                 </div>
@@ -275,8 +314,8 @@ max-width:90%;
 
             </div>
             <div class="modal-footer">
-                <button type="button" id="AddCard" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="AddCard" class="btn btn-wavemaker">Save changes</button>
+                <button type="button" class="btn btn-wavemaker-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

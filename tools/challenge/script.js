@@ -1,4 +1,4 @@
-WMproject.state = { tool: "distraction_free" };
+
 if (!WMproject.data) {
   WMproject.data = {};
 }

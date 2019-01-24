@@ -1,7 +1,11 @@
 hideNavBar()
 
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
-WMproject.state = { tool: "gridplanner" };
+if(!WMproject.state){
+  WMproject.state={}
+}
+WMproject.state.tool = "gridplanner"
+
 if (!WMproject.data) {
   WMproject.data = {};
 }

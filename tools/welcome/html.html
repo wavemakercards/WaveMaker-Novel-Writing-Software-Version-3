@@ -2,6 +2,10 @@
     /*
     In this mode the css specific to the tool is included here - endeavour to use generic css wherever possible
     */
+body{
+    background-color: var(--c9);
+    color: var(--c0);
+}
 
     #welcome{
         position: absolute;
@@ -53,7 +57,7 @@
     .datafilepicker{
 padding:0px;
         display: block;
-
+    
     }
     .datafilepicker input{
         border:0px;
@@ -62,8 +66,10 @@ padding:0px;
         padding: 10px;
         height: auto;
         border-radius: 0px;
-        text-align: center
-
+        text-align: center;
+        font-size: 0.7rem;
+        height:50px;
+        cursor: pointer;
     }
 
     .wm-sm{
@@ -71,27 +77,32 @@ padding:0px;
         height: auto;
         display: block;
         width:100%;
+        font-size: 0.7em;
     }
     .datamanager{
         padding:10px;
     background-color: var(--c7);
     color: var(--c0);
+   
     }
 
     .datamanager label{
         display:block;
-        border-bottom: 2px solid #ccc;
-        margin-top:20px;
+margin-top:15px;
     }
     .fade{
         background-color: var(--c9);
     }
+    .row{
+        margin-bottom:10px;
+    }
+
 </style>
 
 <div id="welcome">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
+    <div class="container ">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-8   text-center">
                 <h1> <svg class="logo" xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 235 234.3">
                         <g id="Layer_x0020_1">
                             <g id="_921457168">
@@ -100,26 +111,69 @@ padding:0px;
                             </g>
                         </g>
                     </svg></h1>
+                    <p>wavemaker version 3 (Beta)</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <button id="CreateNewProject" class="btn btn-block btn-wavemaker"><i class="fa fa-fw fa-file-text"></i> Create a New Project</button>
-                <BR>
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-8 text-right">
+                <button id="CreateNewProject" class="btn btn-wavemaker"><i class="fa fa-fw fa-folder-open-o"></i>
+                    Create a New Project</button>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-8  ">
+
                 <div id="wavemakerprojectList"></div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-8   text-left">
+                    <button class="btn btn-block btn-wavemaker text-left" id="dataformtoggle" ><i class="fa fa-fw fa-database"></i> Database Manager</button>
+                <div class="datamanager" id="dataform" style="display:none;">
+                        <div class="row">
+                                <div class="col-12" style="font-size:0.7em">
+                                    <h6>How to handle data in this software</h6>
+                                    <p>Wavemaker uses a locally stored browser based database to keep your projects in. So no logins are needed :) .The plus side is you control your data, the downside is YOU control your data ...</p>
+                                    <p>I have a backup system that can create a ".wmdata" file you can save and even load into other devices. Your work will REMAIN in wavemaker unless you delete the data, or someone clears the browser cache!</p>
+                                    <p>
+                                      I will look a getting a web save synch set up soon, but for now use the tools below.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-12 col-md-6"><label>Download a copy of your projects</label></div>
+                                    <div class="col-12 col-md-6">
+                                            <button id="ProjectDownloadAllData" class="btn btn-wavemaker-success wm-sm "><i class="fa fa-fw fa-download"></i>
+                                                Download all Data</button></div>
+                                </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6"><label>Load a .wmdata file</label></div>
+                        <div class="col-12 col-md-6"> <div id="filepicker" class="datafilepicker">
+                                <input type="file" id="selectFiles" value="Select the file to Load" class="form-control" /></div></div>
+                    </div>
+
                 
 
-<div class="datamanager">
-        <h3>Data Manager</h3>
-        <label>Load a .wmdata file</label>
-        <div id="filepicker" class="datafilepicker">
-                <input type="file" id="selectFiles" value="Select the file to Load" class="form-control" /></div>
-                <label>Download a copy of your projects</label>
-                <button id="ProjectDownloadAllData" class="btn btn-wavemaker-success wm-sm "><i class="fa fa-fw fa-download"></i> Download all Data</button>
-                <label>Clear your work form this device</label>
-                <button id="ProjectClearAllData" class="btn btn-wavemaker-danger wm-sm"><i class="fa fa-fw fa-trash"></i> Clear Data</button>
-</div>
-     </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6"> <label>Clear your work form this device</label></div>
+                        <div class="col-12 col-md-6">
+                                <button id="ProjectClearAllData" class="btn btn-wavemaker-danger wm-sm"><i class="fa fa-fw fa-trash"></i>
+                                    Clear Data</button></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6"></div>
+                        <div class="col-12 col-md-6"></div>
+                    </div>
+
+                    
+                   
+                    
+                   
+                </div>
+            </div>
         </div>
     </div>
 
@@ -138,7 +192,7 @@ padding:0px;
                 <div class="modal-footer">
                     <button type="button" id="ProjectCreateNew" class="btn btn-wavemaker">Create Project</button>
                     <button type="button" class="btn btn-wavemaker-danger" data-dismiss="modal">Close</button>
-                    
+
                 </div>
             </div>
         </div>

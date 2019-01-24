@@ -188,8 +188,15 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Col
   line-height:var(--manuscriptLineHeight);
 }
 
-.manuscript .texteditor h1,.manuscript .texteditor h2,.manuscript .texteditor h3 {
+.manuscript .texteditor h1 {
  text-align: center;
+}
+
+.manuscript .texteditor h2 {
+ text-align: left;
+}
+.manuscript .texteditor h3{
+  text-align: left;
 }
 
 .manuscript .texteditor p {
@@ -200,7 +207,15 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Col
     text-indent:0px;
 }
 
+.activeLInode>span{
+ font-weight:bold;
+ font-style: italic;
+}
 
+.activeLInode>.fancytree-node>.fancytree-icon::before,.activeLInode>.fancytree-node>.fancytree-custom-icon::before{
+  font-family: FontAwesome;
+  content: "\f15c";
+}
 
 /*
 ####################################################
