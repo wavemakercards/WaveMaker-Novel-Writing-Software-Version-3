@@ -217,6 +217,7 @@ function addrow() {
     newrow[k] = { title: "" };
   });
   datatable.push(newrow);
+  dosave();
   drawTable();
 }
 
@@ -224,6 +225,7 @@ function addcol() {
   $.each(datatable, function (k, row) {
     datatable[k].push({ title: "" });
   });
+  dosave();
   drawTable();
 }
 
