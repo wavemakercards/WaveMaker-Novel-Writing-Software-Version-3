@@ -33,8 +33,16 @@ function checkprojectloaded() {
   if(WMsettings.currentproject){
   db.projects.get(WMsettings.currentproject, function (set) {
     WMproject = set;
-    loadtool("writer");
-    initNav()
+    if(!WMproject.state){
+      WMproject.state={};
+    }
+    if(!WMproject.state.tool){
+      WMproject.state.tool="writer";
+    }
+    if(WMproject.state.tool!="welcome"){
+      loadtool(WMproject.state.tool)
+      initNav()
+    }
   });
 }else{
   loadtool("welcome")

@@ -34,6 +34,7 @@ $(document).off("click","#ManuscriptSetStyle").on("click","#ManuscriptSetStyle",
       WMproject.data.settings.manuscript.manuscriptLineHeight=$("#manuscriptLineHeight").val();
       WMproject.data.settings.manuscript.manuscriptParaIndent=$("#manuscriptParaIndent").val();
       WMproject.data.settings.manuscript.manuscriptMarginBottom=$("#manuscriptMarginBottom").val();
+      WMproject.data.settings.manuscript.manuscriptPaperStyle=$("#manuscriptPaperStyle").val();
       
       swal("Changed!", "Settings Changed", "success")
       dosave();

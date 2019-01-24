@@ -1,4 +1,6 @@
 
+
+
 function checkMobile(){
   return($("#mobilecheck").is(":visible"))
 }
@@ -14,8 +16,6 @@ function deInitNav(){
   $('.popover').remove()
   $("#wavemakerApp").css("left","0px");
 }
-
-
 
 /*****************************************
  * EVENTS MANAGER

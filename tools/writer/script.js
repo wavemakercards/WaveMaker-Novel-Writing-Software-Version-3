@@ -1,3 +1,11 @@
+if(!WMproject.state){
+  WMproject.state={}
+}
+WMproject.state.tool = "writer"
+db.projects.update(WMproject.id, WMproject).then(function () {
+  console.log("Saved Writer");
+});
+
 d=new Date();
 $("#editor").load("components/manuscript-tools.html?v="+d.getTime(),function(){
   $.getScript("components/manuscript-tools.js?t=" + d.getTime(), function () {
