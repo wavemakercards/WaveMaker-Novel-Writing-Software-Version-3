@@ -568,12 +568,18 @@ function drawEditor() {
     $("#notesPanel").css({"right": "-270px"})
     $("#notesPanel").css({"padding-right": "0px"})
     $("#notesPanel").css({"padding-left": "50px"})
-   // $("#editor").css({"right": "50px"})
+   
+   if(!checkMobile()){
+     $("#editor").css({"right": "50px"})
+   }
     }else{
       $("#notesPanel").css({"right": "0px"})
       $("#notesPanel").css({"padding-right": "50px"})
       $("#notesPanel").css({"padding-left": "0px"})
-      //$("#editor").css({"right": "320px"})
+      
+      if(!checkMobile()){
+        $("#editor").css({"right": "320px"})
+      }
     }
   });
 

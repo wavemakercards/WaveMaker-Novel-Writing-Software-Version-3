@@ -74,7 +74,7 @@ $(document).off('click','#navigation-toggle').on('click','#navigation-toggle' ,f
   }
 
   function hideNavBar(){
-    $('#navigation-side-nav').css({left : -260})
+    $('#navigation-side-nav').css({left : -270})
     $('#navigation-side-nav').data("visible",0);
     $("#wavemakerApp").css({left : 50})
   }
