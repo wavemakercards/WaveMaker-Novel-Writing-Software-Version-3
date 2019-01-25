@@ -49,13 +49,13 @@
 
 
  
- --manuscriptAlign: "justify";
- --manuscriptFontSize: 1.7rem;
- --manuscriptLineHeight:2rem;
+ --manuscriptAlign: "left";
+ --manuscriptFontSize: 1.3rem;
+ --manuscriptLineHeight:1.7rem;
  --manuscriptParaIndent: 20px;
- --manuscriptMarginBottom : 2rem;
+ --manuscriptMarginBottom : 20px;
  --manuscriptPaperStyle : 800px;
- --menu-indent-padding :0px;
+ --menu-indent-padding : 0px;
 
 
 /*
@@ -171,6 +171,7 @@ body {
   right: 0px;
   bottom: 0px;
   overflow: hidden;
+  transition: all 0.5s ;
 }
 
 .logo-top {
@@ -187,7 +188,7 @@ body {
   margin-top: 9px;
 }
 
-#navigation-toggle{
+#ProjectHome{
   position:relative;
   width:50px;
   height:50px;
@@ -198,7 +199,7 @@ body {
   cursor:pointer;
   overflow:none;
 }
-#navigation-toggle .logotext{
+#ProjectHome .logotext{
   position:absolute;
   top:0px;
   width: 270px;
@@ -253,8 +254,9 @@ body {
   left:50px;
   bottom:0px;
   top:0px;
-  width:100%;
+  width:320px;
   background-color:var(--c8);
+  transition: all 0.5s ;
 }
 
 #manuscript{

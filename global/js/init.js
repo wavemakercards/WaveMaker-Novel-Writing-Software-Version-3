@@ -24,10 +24,16 @@ function deInitNav(){
  */
 
 
-$(document).on("click",".navigation-tool-bar-button", function(){
+$(document).on("click",".navtrigger", function(){
  action=$(this).data("action");
  $("#navigation-side-nav").html('')
-if(action ==="welcome"){
+
+  loadtool(action)
+  showNavBar(); 
+ 
+})
+
+$(document).off("click","#ProjectHome").on("click","#ProjectHome", function(){
   swal({
     title: "Are you sure?",
     text: "You will return to the main menu",
@@ -45,15 +51,10 @@ if(action ==="welcome"){
       });
     }
   });
-}else{
-  loadtool(action)
-  showNavBar(); 
-  }
 })
 
 
-
-$(document).on('click','#navigation-toggle' ,function(){
+$(document).off('click','#navigation-toggle').on('click','#navigation-toggle' ,function(){
   if($('#navigation-side-nav').data("visible")){
     hideNavBar();
   }else{
@@ -67,13 +68,13 @@ $(document).on('click','#navigation-toggle' ,function(){
   */
 
   function showNavBar(){
-    $('#navigation-side-nav').show()
+    $('#navigation-side-nav').css({left : 50})
     $('#navigation-side-nav').data("visible",1);
   $("#wavemakerApp").css({left : 370})
   }
 
   function hideNavBar(){
-    $('#navigation-side-nav').hide()
+    $('#navigation-side-nav').css({left : -260})
     $('#navigation-side-nav').data("visible",0);
     $("#wavemakerApp").css({left : 50})
   }
@@ -179,3 +180,9 @@ $(document).on("mousemove", function() {
   }, 3000);
 });
 */
+
+/* This makes any inputs in the fancytree select all when they get create and fcused on */
+$(document).off("focus", ".fancytree-edit-input").on("focus", ".fancytree-edit-input",function(){
+  $(this).select();
+}
+)
