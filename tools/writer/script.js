@@ -6,22 +6,15 @@ db.projects.update(WMproject.id, WMproject).then(function () {
   console.log("Saved Writer");
 });
 
-d=new Date();
-$("#editor").load("components/manuscript-tools.html?v="+d.getTime(),function(){
-  $.getScript("components/manuscript-tools.js?t=" + d.getTime(), function () {
-});
-
-});
-
-
 var emptyWriter = [
     {
         title: "Your Story"
     }
   ];
 
-  var CURRENTNODE;
-var CURRENTLI;
+
+
+
 
 var CLIPBOARD = null;
    
@@ -39,16 +32,32 @@ var CLIPBOARD = null;
   if (!WMproject.data.writer) {
     WMproject.data.writer = emptyWriter;
   }
-
+  if(WriterKey==""){
+    d=new Date();
+    $("#editor").load("components/manuscript-tools.html?v="+d.getTime(),function(){
+      $.getScript("components/manuscript-tools.js?t=" + d.getTime(), function () {
+    });
+    });
+    }else{
+      drawEditor();
+    }
+    
 $("#navigation-side-nav").html('');
 
 $("#navigation-side-nav").append(`<div id="manuscript"></div>`);
 $("#navigation-side-nav").append(`
 <div id="side-btn-top">
-<button class='btn btn-wavemaker btn-50' id="add-sibling-button"><i class="fa fa-fw fa-arrows-v"></i> Add Sibling</button><button class='btn btn-wavemaker btn-50' id="add-sub-button"><i class="fa fa-fw fa-level-up fa-rotate-90"></i> Add Subsection</button>
+<button class='btn btn-wavemaker btn-50' id="add-sibling-button"><i class="fa fa-fw fa-arrows-v"></i> Add Sibling</button><button class='btn btn-wavemaker btn-50' id="add-sub-button"><i class="fa fa-fw fa-level-up fa-rotate-90"></i> Add Child</button>
+<button class='btn btn-wavemaker-secondary btn-block text-left' id="ManuscriptSettings"><i class="fa fa-fw fa-cog"></i> Manuscript Settings</button>
 </div>
+
 `);
 
+
+$("#ManuscriptSettings").unbind().click(function(){
+  WriterKey ='';
+  loadtool("writer");
+})
 
 drawtree();
 function drawtree() {
@@ -111,8 +120,9 @@ function drawtree() {
       },
       activate: function (event, data) {
         var node = data.node;
-
         CURRENTNODE = node;
+        console.log("selected :", node)
+        WriterKey=CURRENTNODE.key;
         CURRENTLI = CURRENTNODE.li;
         $(".activeLInode").removeClass("activeLInode");
         $(CURRENTLI).addClass("activeLInode");
@@ -240,24 +250,31 @@ function drawtree() {
         case "addChild":
 
         if(!node){
-          swal("Select a place!", "Select a place from the tree menu where you want to add a subsection.", "warning");
-        }else{
-    
-          node.editCreateNode("child", "New Section");
-          dosave("addChild");
-     //     $("#manuscript input").focus().select()
+          node = $("#manuscript").fancytree("getTree").getFirstChild()
+          WriterKey =node.key
+          CURRENTNODE=node;
+          CURRENTLI = CURRENTNODE.li;
+          $(".activeLInode").removeClass("activeLInode");
+          $(CURRENTLI).addClass("activeLInode");
         }
-
+    
+          node.editCreateNode("child", "New Child");
+          dosave("addChild");
           break;
         case "addSibling":       
         if(!node){
-          swal("Select a place!", "Select a place from the tree menu where you want to add a section.", "warning");
-        }else{
-          node.editCreateNode("after", "New Section")
-      //    $("#manuscript input").focus().select()
+         
+          node = $("#manuscript").fancytree("getTree").getFirstChild()
+          WriterKey =node.key
+          CURRENTNODE=node;
+          CURRENTLI = CURRENTNODE.li;
+          $(".activeLInode").removeClass("activeLInode");
+          $(CURRENTLI).addClass("activeLInode");
+        }
+          node.editCreateNode("after", "New Sibling")
           dosave("addSibling");
           
-        }
+        
         
           break;
 
@@ -325,13 +342,13 @@ function drawtree() {
       },
       { title: "----" },
       {
-        title: "<i class='fa fa-file fa-fw'></i> New Section",
+        title: "<i class='fa fa-file fa-fw'></i> New Sibling",
         cmd: "addSibling",
         uiIcon: ""
       },
       {
         title:
-          "<i class='fa fa-level-up fa-rotate-90 fa-fw'></i> New Sub Section",
+          "<i class='fa fa-level-up fa-rotate-90 fa-fw'></i> New Child",
         cmd: "addChild",
         uiIcon: ""
       },
@@ -376,7 +393,14 @@ function drawtree() {
     }
   });
 
-
+  if(WriterKey!==''){
+  mynode = $("#manuscript").fancytree("getTree").getNodeByKey(WriterKey)
+  CURRENTNODE = mynode;
+  CURRENTLI = CURRENTNODE.li;
+  $(".activeLInode").removeClass("activeLInode");
+  $(CURRENTLI).addClass("activeLInode");
+  drawEditor();
+  }
 }
 
 
@@ -432,29 +456,9 @@ function drawEditor() {
     }
     $("#editor").html("");
     $("#notesPanel").html("");
-  
     
-  
-  
-  
-    if (CURRENTNODE.data.custom) {
-      $("#editor").removeClass("manuscript")
-     
-      d=new Date();
-      $("#editor").load("components/" + CURRENTNODE.data.custom + "-placeholder.html?v="+d.getTime(),function(){
-        $.getScript("components/" + CURRENTNODE.data.custom + "-script.js?t=" + d.getTime(), function () {
-      });
-      });
-      
-    } else {
-      $("#editor").addClass("manuscript")
-  
-  
-  
-  
-  
-  
-      drawNotes(CURRENTNODE.data)
+    $("#editor").addClass("manuscript")
+    drawNotes(CURRENTNODE.data)
   
       nodetitle = $(
         "<div id='nodeNav' class='animated fadeInDown faster'><div id='editorbuttons'></div><div id='nodeTitle'><i class='" +
@@ -502,6 +506,7 @@ function drawEditor() {
     <button class="wysywig-btn" id='h2'  title='Heading 2'><i class='fa fa-fw fa-header' style="font-size:0.8em"></i></button>
     <button class="wysywig-btn" id='h3'  title='Heading 3'><i class='fa fa-fw fa-header' style="font-size:0.5em"></i></button>
     <button class="wysywig-btn" id='para'  title='Paragraph'><i class='fa fa-fw fa-paragraph'></i></button>
+    <button class="wysywig-btn" id='distraction-free'  title='Distraction Free'><i class='fa fa-fw fa-eye'></i></button>
     `
       );
 
@@ -535,7 +540,7 @@ function drawEditor() {
   
 
   
-    }
+    
   
   }
 
@@ -628,6 +633,14 @@ $(document).off("click", "#nodeText").on("click", "#nodeText", function () {
     document.execCommand("italic", false, null);
     dosave();
   });
+
+  $(document).off("click", "#distraction-free").on("click", "#distraction-free", function () {
+    $("#navigation-holder").hide()
+    loadtool("distraction-free")
+  });
+  
+
+  
   
   /*
   // NOT NEEDED as Markdown wont support
@@ -685,3 +698,5 @@ $(document).off("click", "#nodeText").on("click", "#nodeText", function () {
     }
 $("#wordcount").text(counted + words);
   }
+
+  setManuscript()

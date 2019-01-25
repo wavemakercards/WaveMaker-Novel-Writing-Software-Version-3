@@ -17,24 +17,26 @@ function savedata() {
   });
 }
 
+if(!CURRENTNODE){
+  $("#navigation-holder").show()
+  loadtool("writer")
+}
 
 
-
-
-var Mydata="";
 $("#distraction-free-editor").on("keyup",function(){
-repos();
+  repos();
+dosave();
 })
 
 function repos(){
    var mypos =getCaretPosition($("#distraction-free-editor"))
  if($("#distraction-free-editor").html()!=""){
     var caretpos = mypos -$("#distraction-free-editor").position().top
-    console.log(caretpos)
+    //console.log(caretpos)
     var newpos = (window.innerHeight*0.4) - (caretpos)
     $("#distraction-free-editor").css({top: parseInt(newpos)+"px"})
  }
-  gomarkdown()
+
 }
 
 function gohtml(){
@@ -45,7 +47,7 @@ function gomarkdown(){
   var turndownService = new TurndownService();
       var markdown = turndownService.turndown($("#distraction-free-editor").html());
       Mydata = markdown;
-      $("#wc").html(countWords(markdown))
+     
 }
 
 function getCaretPosition(editableDiv) {
@@ -68,6 +70,12 @@ $(function(){
 document.execCommand("defaultParagraphSeparator", false, "p");
   $("#distraction-free-editor").css({top: "40%"})
  // $("#distraction-free-editor").focus()
+
+
+
+ $("#distraction-free-editor").html(markdown2html(CURRENTNODE.data.content))
+
+
 })
 
 $(document).off("click","#bold").on("click","#bold", function(){
@@ -94,6 +102,12 @@ $(document).off("click","#paragraph").on("click","#paragraph", function(){
   document.execCommand("formatBlock", false, "p");
 })
 
+$(document).off("click", "#distraction-free").on("click", "#distraction-free", function () {
+  $("#navigation-holder").show()
+  loadtool("writer")
+});
+
+//$("").html(markdown2html(CURRENTNODE.))
 
 $('#distraction-free-editor').off('paste').on('paste', function(e) {
     e.preventDefault();
@@ -111,11 +125,23 @@ $('#distraction-free-editor').off('paste').on('paste', function(e) {
 });
 
 
-  function countWords(str) {
-    str = str.replace(/[^\w\s]|_/g, "")
-             .replace(/\s+/g, " ");
-      res= str.split(' ')
-           .filter(function(n) { return n != '' })
-           .length;
-  return res;
+  function dosave() {
+
+      var markdown = html2markdown($("#distraction-free-editor").html())
+      CURRENTNODE.data.content = markdown;
+    
+    $("#distraction-free-wc").html(countWords(markdown))
+
+    WMproject.data.writer = $("#manuscript")
+      .fancytree("getTree")
+      .toDict();
+  
+    if (!WMproject.data.writer) {
+      WMproject.data.writer = [{
+        title: "Your Story"
+      }];
+      $('#manuscript').fancytree("getTree").reload()
+    }
+    db.projects.update(WMproject.id, WMproject).then(function () {
+    });
   }

@@ -154,15 +154,30 @@ body {
   height: 50px;
 }
 
-
-
-
 .btn-wavemaker-success:hover, .btn-wavemaker-success:focus, .btn-wavemaker-success:active {
   color: var(--interface-button-foreground-hover);
   background-color: var(--interface-button-background-hover);
   border:0px;
   box-shadow: none;
 }
+
+.btn-wavemaker-secondary {
+  color: var(--interface-button-foreground-hover);
+  background-color: var(--interface-button-background-hover);
+  border:0px;
+  border-radius: 0px;
+  box-shadow: none;
+  font-size: 0.9rem;
+  height: 50px;
+}
+
+.btn-wavemaker-secondary:hover, .btn-wavemaker-secondary:focus, .btn-wavemaker-secondary:active {
+  color: var(--interface-button-foreground);
+  background-color: var(--interface-button-background);
+  border:0px;
+  box-shadow: none;
+}
+
 
 #wavemakerApp {
   position: absolute;
@@ -261,7 +276,7 @@ body {
 
 #manuscript{
   position: absolute;;
-  top:50px;
+  top:100px;
   left:0px;
   right:0px;
   bottom:0px;

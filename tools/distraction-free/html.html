@@ -1,5 +1,4 @@
 <style>
- @import url('https://fonts.googleapis.com/css?family=Merriweather');
 body{
   overflow:hidden;
   position:absolute;
@@ -16,26 +15,18 @@ body{
   bottom:0px;
   right:0px;
   padding:10px;
-  color:#000;
+  font-weight:bold;
+   
 }
 #distraction-free-editor{
-font-family: 'Merriweather', serif; 
-  line-height:1em;
+  font-family: var(--editor-font);
   position:absolute;
   min-height:2em;
   outline:none;
-   padding:20px;
-  font-size:1em;
-
-  color:#555;
-  line-height:2em;
-  width:50%;
-  left:25%;
-  
-  border-left:1px solid #efefef;
-  border-right:1px solid #efefef;
-background-color:#efefef;
-  
+   padding:5px;
+  width:calc(100% - 50px);
+  left:0px;
+ 
     -webkit-transition-property: width height background-color font-size left top -webkit-transform color;
     -webkit-transition-duration: 0.1s;
     -webkit-transition-timing-function: ease-in-out;
@@ -45,63 +36,7 @@ background-color:#efefef;
 
 }
 
-p{
-  text-indent:5%;
-  line-height:2.5em;
-}
 
-h1, h2, h3, p {
-  padding:10px;
-  margin-bottom:20px;
-}
-
-
-
-#distraction-free-editor>p:first-of-type{
-    text-indent:0px;
-}
-
-#linediv{
-  height:1px;
-  background-color: rgba(0,0,0,0.05);
-  position:absolute;
-  top:calc(50% );
-  width:100%;
-  z-index:1024;
-}
-
-#topfade{
-  position:absolute;
-  top:0px;
-  bottom:60%;
-  left:0px;
-  right:0px;
-
-    z-index:1024;
-  
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.8+56,0.2+100 */
-background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.8) 56%, rgba(255,255,255,0.2) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 56%,rgba(255,255,255,0.2) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 56%,rgba(255,255,255,0.2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccffffff', endColorstr='#33ffffff',GradientType=0 ); /* IE6-9 */
-  
-}
-
-#bottomfade{
-  position:absolute;
-  bottom:0px;
-  top:60%;
-  left:0px;
-  right:0px;
-
-    z-index:1024;
-  
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.2+0,0.8+44 */
-background: -moz-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.8) 44%, rgba(255,255,255,0.8) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.8) 44%,rgba(255,255,255,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.8) 44%,rgba(255,255,255,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#ccffffff',GradientType=0 ); /* IE6-9 */
-}
 
 #distraction-free-toolbar{
   height:30px;
@@ -113,23 +48,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', e
   right:0px;
   
 }
-p{
-  position:relative;
-  border:1px dotted #ccc;
-}
-p::after { 
-  position:absolute;
-  top:0px;
-  left:0px;
-  content: "p";
 
-  color:#ccc;
-    width:20px;
-  height:20px;
-  line-height:12px;
-  font-size:12px;
-   text-indent:0px;
-}
 
 #distraction-free-toolbar button{
   border:0px;
@@ -147,19 +66,117 @@ p::after {
     color:#222;
   background-color:#ccc;
 }
+
+
+ .texteditor{
+  font-size: var(--manuscriptFontSize)
+}
+ .texteditor p{
+  text-align: var(--manuscriptAlign);
+  text-indent:var(--manuscriptParaIndent);
+  line-height:var(--manuscriptLineHeight);
+}
+
+ .texteditor h1 {
+ text-align: center;
+}
+
+ .texteditor h2 {
+ text-align: left;
+}
+ .texteditor h3{
+  text-align: left;
+}
+
+.texteditor p {
+  margin-bottom:var(--manuscriptMarginBottom)
+}
+
+.texteditor  p:first-of-type{
+    text-indent:0px;
+}
+/*
+#linediv{
+  height:1px;
+  background-color: rgba(0,0,0,0.05);
+  position:absolute;
+  top:calc(50% );
+  width:100%;
+  z-index:1024;
+}
+*/
+
+/*
+####################################################
+M E D I A  Q U E R I E S
+####################################################
+*/
+ 
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+ 
+/* 
+Extra small devices (portrait phones, less than 576px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+ 
+ 
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  
+ 
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+  #distraction-free-editor{
+  padding:20px;
+  width: 70%;
+  left:15%;
+  }
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+  #distraction-free-editor{
+  padding:20px;
+  width: 50%;
+  left:25%;
+  }
+}
+ 
+ 
+ 
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Custom media queries
+*/
+ 
+/* Set width to make card deck cards 100% width */
+@media (max-width: 950px) { 
+ 
+}
 </style>
 
 
 
-<div id="distraction-free-editor" contentEditable="true" placeholder="Start Writing Here"></div>
+<div id="distraction-free-editor" class="texteditor" contentEditable="true" placeholder="Start Writing Here"></div>
 <div id="linediv"></div>
 <div id="2topfade"></div>
 <div id="2bottomfade"></div>
 <div id="distraction-free-wc"></div>
 <div id="distraction-free-toolbar">
-  <button id="bold"><i class="fa fa-fw fa-bold"></i></button>
-  <button id="italic"><i class="fa fa-fw fa-italic"></i></button>
-  <button id="h1"><i class="fa fa-fw fa-header"></i></button>
-  <button id="h2"><i class="fa fa-fw fa-header"></i></button>
-  <button id="h3"><i class="fa fa-fw fa-header"></i></button>
-  <button id="paragraph"><i class="fa fa-fw fa-paragraph"></i></button>
+
+  <button class="wysywig-btn" id='bold' title='Bold'><i class='fa fa-fw fa-bold'></i></button>
+  <button class="wysywig-btn" id='italic' title='Italic'><i class='fa fa-fw fa-italic'></i></button>
+  <button class="wysywig-btn" id='h1'  title='Heading 1'><i class='fa fa-fw fa-header'></i></button>
+  <button class="wysywig-btn" id='h2'  title='Heading 2'><i class='fa fa-fw fa-header' style="font-size:0.8em"></i></button>
+  <button class="wysywig-btn" id='h3'  title='Heading 3'><i class='fa fa-fw fa-header' style="font-size:0.5em"></i></button>
+  <button class="wysywig-btn" id='para'  title='Paragraph'><i class='fa fa-fw fa-paragraph'></i></button>
+  <button class="wysywig-btn" id='distraction-free'  title='Distraction Free'><i class='fa fa-fw fa-eye'></i></button>

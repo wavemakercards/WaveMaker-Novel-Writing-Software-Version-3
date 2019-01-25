@@ -1,6 +1,6 @@
-
-
-
+var WriterKey = '';
+var CURRENTNODE;
+var CURRENTLI;
 function checkMobile(){
   return($("#mobilecheck").is(":visible"))
 }
@@ -127,7 +127,9 @@ function loadtool(toolname) {
 
 
   function countWords(str) {
-
+    if(!str){
+      return 0;
+    }else{
     str = str.replace(/[^\w\s]|_/g, "")
              .replace(/\s+/g, " ");
   
@@ -135,7 +137,7 @@ function loadtool(toolname) {
            .filter(function(n) { return n != '' })
            .length;
   return res;
-
+    }
   }
   
 
@@ -147,9 +149,9 @@ function loadtool(toolname) {
     var manu = WMproject.data.settings.manuscript
     $.each(manu, function (k, i){
      document.documentElement.style.setProperty('--'+k, i);
+     console.log("--"+k, " : " , i)
     })
    dosave();
- 
   }
   
   function setManuscriptform(){
