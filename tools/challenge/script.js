@@ -34,7 +34,7 @@ $(function () {
     target = $("#ds_settings").val() * 30
     $("#startform").fadeOut()
     setTimeout(writetimer, 1000);
-    $('#demo').focus();
+    $('#challengeEditor').focus();
   })
 })
 
@@ -51,6 +51,24 @@ function writetimer() {
 
 
 document.onkeydown = checkKey;
+
+$(document).off("paste", "#challengeEditor").on("paste", "#challengeEditor", function (e) {
+
+  e.preventDefault();
+  var text = "";
+  if (e.clipboardData || e.originalEvent.clipboardData) {
+    text = (e.originalEvent || e).clipboardData.getData("text/plain");
+  } else if (window.clipboardData) {
+    text = window.clipboardData.getData("Text");
+  }
+  if (document.queryCommandSupported("insertText")) {
+    document.execCommand("insertText", false, text);
+  } else {
+    document.execCommand("paste", false, text);
+  }
+
+});
+
 
 function checkKey(e) {
 
@@ -76,7 +94,7 @@ function checkKey(e) {
   }
 
 
-  getwordcount($("#demo"))
+  getwordcount($("#challengeEditor"))
 }
 
 
@@ -108,8 +126,9 @@ function getwordcount(el) {
 }
 
 function finish() {
-  $(".resultholder").html(nl2br($("#demo").val()))
-  markdown= html2markdown($(".resultholder").html())
+  html=markdown2html($("#challengeEditor").val());
+  markdown= html2markdown(html)
+  $(".resultholder").html(html)
   var eventtime = new Date();
 
   WMproject.data.writer.push({
@@ -120,11 +139,5 @@ function finish() {
     }
   })
   $("#result").show();
-  $("#demo").val('');
-}
-
-
-function nl2br(str, is_xhtml) {
-  var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
-  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+  $("#challengeEditor").val('');
 }
