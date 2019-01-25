@@ -166,6 +166,18 @@ function loadtool(toolname) {
    })
  }
 
+ function html2markdown(html){
+  var turndownService = new TurndownService();
+var markdown = turndownService.turndown(html);
+return markdown;
+}
+
+
+function markdown2html(markdown){
+  converter = new showdown.Converter();
+  html = converter.makeHtml(markdown);
+  return html
+}
 
  /*
 var Interfacetimeout = null;

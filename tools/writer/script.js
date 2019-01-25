@@ -506,10 +506,10 @@ function drawEditor() {
       );
 
 
-      converter = new showdown.Converter();
+     
       text = CURRENTNODE.data.content;
       ShowWordCount(countWords(text))
-      html = converter.makeHtml(text);
+      html = markdown2html(text);
   
       $("#nodeText").html(html);
   
@@ -541,8 +541,7 @@ function drawEditor() {
 
   function dosave() {
     if ($("#nodeText").length) {
-      var turndownService = new TurndownService();
-      var markdown = turndownService.turndown($("#nodeText").html());
+      var markdown = html2markdown($("#nodeText").html())
       CURRENTNODE.data.content = markdown;
       ShowWordCount(countWords(markdown))
     }

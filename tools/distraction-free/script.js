@@ -109,20 +109,26 @@ function getwordcount(el) {
 
 function finish() {
   $(".resultholder").html(nl2br($("#demo").val()))
-  markdown= html2markdown($(".resultholder").html())
-  var eventtime = new Date();
-
-  WMproject.data.writer.push({
-    icon: "fa fa-fw fa-trophy",
-    title : eventtime,
-    data : {
-      content : markdown
-    }
-  })
   $("#result").show();
   $("#demo").val('');
 }
 
+
+// for demo
+
+var i = 0;
+var speed = 100;
+var txt = "This is 'Distraction Free' writing\nThe WaveMaker distraction free mode focuses you on only the sentence you are writing. You can delete stuff, but you cannot go back and edit you keep going forwards. \nIn Fact - Don't even look at the screen\nJust Type.\nThe word count below will brighten as you reach your target goal of the number of words you set and the timer will alert you when the time has expired.";
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    autosize.update($(".texteditor"));
+    i++;
+    getwordcount($("#demo"))
+    setTimeout(typeWriter, speed);
+  }
+}
 
 function nl2br(str, is_xhtml) {
   var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
