@@ -215,3 +215,25 @@ window.onbeforeunload = function() {
         else return false;
     }
 }
+
+
+// catch ctrl s
+
+$(window).bind('keydown', function(event) {
+  if (event.ctrlKey || event.metaKey) {
+      switch (String.fromCharCode(event.which).toLowerCase()) {
+      case 's':
+          event.preventDefault();
+          swal("No Need!", 'Saving "just happens" with wavemaker!', "success");
+          break;
+      case 'f':
+          event.preventDefault();
+         // alert('ctrl-f');
+          break;
+      case 'g':
+          event.preventDefault();
+        //  alert('ctrl-g');
+          break;
+      }
+  }
+});
