@@ -74,7 +74,7 @@ document.execCommand("defaultParagraphSeparator", false, "p");
 
 
  $("#distraction-free-editor").html(markdown2html(CURRENTNODE.data.content))
-
+ dosave()
 
 })
 
@@ -130,7 +130,7 @@ $('#distraction-free-editor').off('paste').on('paste', function(e) {
       var markdown = html2markdown($("#distraction-free-editor").html())
       CURRENTNODE.data.content = markdown;
     
-    $("#distraction-free-wc").html(countWords(markdown))
+    $("#distraction-free-wc").html(countWords(markdown)+" Wd")
 
     WMproject.data.writer = $("#manuscript")
       .fancytree("getTree")
