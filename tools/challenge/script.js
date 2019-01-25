@@ -7,9 +7,6 @@ WMproject.state.tool= "challenge" ;
 if (!WMproject.data) {
   WMproject.data = {};
 }
-if (!WMproject.data.distraction_free) {
-  WMproject.data.distraction_free = [];
-}
 savedata()
 function savedata() {
   db.projects.update(WMproject.id, WMproject).then(function () {

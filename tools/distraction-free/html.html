@@ -1,172 +1,165 @@
 <style>
- 
-    body {
-        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-
-        color: #fff;
-        background-color: #212121;
-        overflow: hidden;
-    }
-
-    .page {
-        position: fixed;
-        top: 0px;
-        bottom: 0px;
-        left: 25%;
-        right: 25%;
-        background-color: #212121;
-
-    }
-
-    .texteditor {
-        position: fixed;
-        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-        outline: none;
-        border: none;
-        resize: none;
-        font-size: 1.3em;
-        background: none;
-        line-height: 1.5em;
-        background-color: transparent;
-        text-align: justify;
-        bottom: 60%;
-        left: 30%;
-        right: 30%;
-        width: 40%;
-        color: #bbb;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=0, Color=#333)";
-        /*IE 8*/
-        text-shadow: 0 0 4px #333333, 0 0 3px rgba(33, 33, 33, 0.7);
-        /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
-        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color=#333);
-        /*IE 5.5-7*/
-        height: 40px;
-        font-weight: 100;
-    }
-
-    .texteditor:focus {
-        background-color: transparent;
-    }
-
-    .overlaytop {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        left: 0px;
-        bottom: 63%;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#212121+0,212121+100&0.9+75,0+94 */
-        background: -moz-linear-gradient(top, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0.9) 75%, rgba(33, 33, 33, 0) 94%, rgba(33, 33, 33, 0) 100%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0.9) 75%, rgba(33, 33, 33, 0) 94%, rgba(33, 33, 33, 0) 100%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0.9) 75%, rgba(33, 33, 33, 0) 94%, rgba(33, 33, 33, 0) 100%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6212121', endColorstr='#00212121', GradientType=0);
-        /* IE6-9 */
-
-    }
-
-    #displayCount {
-        position: absolute;
-        bottom: 0px;
-        right: 0px;
-        text-align: center;
-        font-size: 1em;
-        color: rgba(255, 255, 255, 0);
-        padding: 5%;
-    }
-
-    #displayTimer {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        text-align: center;
-        font-size: 0.8em;
-        color: rgba(255, 255, 255, 0.5);
-        padding: 5%;
-    }
+ @import url('https://fonts.googleapis.com/css?family=Merriweather');
+body{
+  overflow:hidden;
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  font-weight:normal;
+}
 
 
-    #startform {
-        position: absolute;
-        z-index: 99999999;
-        background-color: #212121;
-        color: #fff;
-        text-align: center;
-        padding-top: 100px;
-        left: 0px;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-    }
+#distraction-free-wc{
+  position:fixed;
+  bottom:0px;
+  right:0px;
+  padding:10px;
+  color:#000;
+}
+#distraction-free-editor{
+font-family: 'Merriweather', serif; 
+  line-height:1em;
+  position:absolute;
+  min-height:2em;
+  outline:none;
+   padding:20px;
+  font-size:1em;
 
-    .timerselect {
-        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-        font-size: 14px;
-        color: #fff;
-        background-color: #424242;
-        border: 0px;
-        padding: 10px;
-        border-radius: 5px;
-        outline: none;
-        border: none;
-        min-width: 100px;
-    }
+  color:#555;
+  line-height:2em;
+  width:50%;
+  left:25%;
+  
+  border-left:1px solid #efefef;
+  border-right:1px solid #efefef;
+background-color:#efefef;
+  
+    -webkit-transition-property: width height background-color font-size left top -webkit-transform color;
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-property: width height background-color font-size left top transform color;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
 
-    #result {
-        background-color: #fff;
-        color: #424242;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        overflow-y: scroll;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        text-align: center;
-    }
+}
 
-    .resultholder {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: justify;
-    }
+p{
+  text-indent:5%;
+  line-height:2.5em;
+}
+
+h1, h2, h3, p {
+  padding:10px;
+  margin-bottom:20px;
+}
+
+
+
+#distraction-free-editor>p:first-of-type{
+    text-indent:0px;
+}
+
+#linediv{
+  height:1px;
+  background-color: rgba(0,0,0,0.05);
+  position:absolute;
+  top:calc(50% );
+  width:100%;
+  z-index:1024;
+}
+
+#topfade{
+  position:absolute;
+  top:0px;
+  bottom:60%;
+  left:0px;
+  right:0px;
+
+    z-index:1024;
+  
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.8+56,0.2+100 */
+background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.8) 56%, rgba(255,255,255,0.2) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 56%,rgba(255,255,255,0.2) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 56%,rgba(255,255,255,0.2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccffffff', endColorstr='#33ffffff',GradientType=0 ); /* IE6-9 */
+  
+}
+
+#bottomfade{
+  position:absolute;
+  bottom:0px;
+  top:60%;
+  left:0px;
+  right:0px;
+
+    z-index:1024;
+  
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.2+0,0.8+44 */
+background: -moz-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.8) 44%, rgba(255,255,255,0.8) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.8) 44%,rgba(255,255,255,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.8) 44%,rgba(255,255,255,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#ccffffff',GradientType=0 ); /* IE6-9 */
+}
+
+#distraction-free-toolbar{
+  height:30px;
+  background-color:#efefef;
+  text-align:center;
+  position:fixed;
+  top:0px;
+  left:0px;
+  right:0px;
+  
+}
+p{
+  position:relative;
+  border:1px dotted #ccc;
+}
+p::after { 
+  position:absolute;
+  top:0px;
+  left:0px;
+  content: "p";
+
+  color:#ccc;
+    width:20px;
+  height:20px;
+  line-height:12px;
+  font-size:12px;
+   text-indent:0px;
+}
+
+#distraction-free-toolbar button{
+  border:0px;
+  height:30px;
+  font-size:1rem;
+  min-width:30px;
+  color:#ccc;
+  background-color:transparent;
+  cursor:pointer;
+
+}
+
+
+#distraction-free-toolbar button:hover{
+    color:#222;
+  background-color:#ccc;
+}
 </style>
 
 
 
-
-<div class="page">
-    <textarea id="demo" class="texteditor" placeholder="Start Writing"></textarea>
-
-</div>
-<div class="overlaytop"></div>
-
-<div id="displayCount">0</div>
-<div id="displayTimer"></div>
-
-
-<div id="startform">
-
- <i class="fa fa-trophy fa-5x"></i>
-    <h3>Challenge Mode</h3>
-    Choose your goal
-    <br>
-    <select id="ds_settings" class="timerselect">
-        <option value="5">5 Minutes / 150 Words</option>
-        <option value="10">10 Minutes / 300 Words</option>
-        <option value="20">20 Minutes / 600 Words</option>
-        <option value="30">30 Minutes / 900 Words</option>
-    </select>
-    <BR>
-    <BR>
-    <button id="letsgo" class="timerselect">Start</button>
-</div>
-
-<div id="result">
-    <h3>You Wrote</h3>
-    <div class="resultholder">
-    </div>
-</div>
-
+<div id="distraction-free-editor" contentEditable="true" placeholder="Start Writing Here"></div>
+<div id="linediv"></div>
+<div id="2topfade"></div>
+<div id="2bottomfade"></div>
+<div id="distraction-free-wc"></div>
+<div id="distraction-free-toolbar">
+  <button id="bold"><i class="fa fa-fw fa-bold"></i></button>
+  <button id="italic"><i class="fa fa-fw fa-italic"></i></button>
+  <button id="h1"><i class="fa fa-fw fa-header"></i></button>
+  <button id="h2"><i class="fa fa-fw fa-header"></i></button>
+  <button id="h3"><i class="fa fa-fw fa-header"></i></button>
+  <button id="paragraph"><i class="fa fa-fw fa-paragraph"></i></button>
