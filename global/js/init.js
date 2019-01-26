@@ -1,6 +1,7 @@
 var WriterKey = '';
 var CURRENTNODE;
 var CURRENTLI;
+
 function checkMobile(){
   return($("#mobilecheck").is(":visible"))
 }

@@ -32,7 +32,7 @@ var CLIPBOARD = null;
   if (!WMproject.data.writer) {
     WMproject.data.writer = emptyWriter;
   }
-  if(WriterKey==""){
+  if(!WriterKey){
     d=new Date();
     $("#editor").load("components/manuscript-tools.html?v="+d.getTime(),function(){
       $.getScript("components/manuscript-tools.js?t=" + d.getTime(), function () {
