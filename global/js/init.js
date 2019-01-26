@@ -1,6 +1,6 @@
-
-
-
+var WriterKey = '';
+var CURRENTNODE;
+var CURRENTLI;
 function checkMobile(){
   return($("#mobilecheck").is(":visible"))
 }
@@ -74,7 +74,7 @@ $(document).off('click','#navigation-toggle').on('click','#navigation-toggle' ,f
   }
 
   function hideNavBar(){
-    $('#navigation-side-nav').css({left : -260})
+    $('#navigation-side-nav').css({left : -270})
     $('#navigation-side-nav').data("visible",0);
     $("#wavemakerApp").css({left : 50})
   }
@@ -127,7 +127,9 @@ function loadtool(toolname) {
 
 
   function countWords(str) {
-
+    if(!str){
+      return 0;
+    }else{
     str = str.replace(/[^\w\s]|_/g, "")
              .replace(/\s+/g, " ");
   
@@ -135,7 +137,7 @@ function loadtool(toolname) {
            .filter(function(n) { return n != '' })
            .length;
   return res;
-
+    }
   }
   
 
@@ -147,9 +149,9 @@ function loadtool(toolname) {
     var manu = WMproject.data.settings.manuscript
     $.each(manu, function (k, i){
      document.documentElement.style.setProperty('--'+k, i);
+     console.log("--"+k, " : " , i)
     })
    dosave();
- 
   }
   
   function setManuscriptform(){
@@ -166,6 +168,18 @@ function loadtool(toolname) {
    })
  }
 
+ function html2markdown(html){
+  var turndownService = new TurndownService();
+var markdown = turndownService.turndown(html);
+return markdown;
+}
+
+
+function markdown2html(markdown){
+  converter = new showdown.Converter();
+  html = converter.makeHtml(markdown);
+  return html
+}
 
  /*
 var Interfacetimeout = null;
@@ -186,3 +200,40 @@ $(document).off("focus", ".fancytree-edit-input").on("focus", ".fancytree-edit-i
   $(this).select();
 }
 )
+
+
+/*
+function disableF5(e) { if ((e.which || e.keyCode) == 116) {e.preventDefault();} };
+$(document).on("keydown", disableF5);
+*/
+var changes = true;        
+window.onbeforeunload = function() {
+    if (changes)
+    {
+        var message = "Are you sure you want to navigate away from this page?\n\nYou have started writing or editing a post.\n\nPress OK to continue or Cancel to stay on the current page.";
+        if (confirm(message)) return true;
+        else return false;
+    }
+}
+
+
+// catch ctrl s
+
+$(window).bind('keydown', function(event) {
+  if (event.ctrlKey || event.metaKey) {
+      switch (String.fromCharCode(event.which).toLowerCase()) {
+      case 's':
+          event.preventDefault();
+          swal("No Need!", 'Saving "just happens" with wavemaker!', "success");
+          break;
+      case 'f':
+          event.preventDefault();
+         // alert('ctrl-f');
+          break;
+      case 'g':
+          event.preventDefault();
+        //  alert('ctrl-g');
+          break;
+      }
+  }
+});

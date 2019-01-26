@@ -30,9 +30,8 @@ $(document).off("click","#hashtag-list>li").on("click","#hashtag-list>li", funct
 
 
 
-$(".CardManagerModalButton")
-  .unbind()
-  .click(function () {
+$(document).off("click",".CardManagerModalButton").on("click",".CardManagerModalButton",
+   function () {
     //reset the card to blank
     newCardObj = JSON.parse("{}");
     newCardObj.title = '';
@@ -159,7 +158,6 @@ function drawCards(){
   } else {
     results = WMproject.data.cards;
   }
-
 
   $("#cards").html("");
   $.each(results, function (k, card) {
@@ -301,6 +299,13 @@ function drawCards(){
     $("#cards").append(cardholder);
   });
 
+  if(results.length===0){
+    if(query!=""){
+      $("#cards").html("<h1>No matches found</h1>");
+    }else{
+    $("#cards").html(`<div class=''><button class='btn btn-wavemaker btn-block CardManagerModalButton' style='padding:60px; height:auto;'><i class='fa fa-fw fa-plus'></i>Click  here to add a Card</button></div>`);
+    }
+  }
 
   $(".card-img").unbind().bind("click", function () {
     var viewer = $("<div id='imageview'></div>");

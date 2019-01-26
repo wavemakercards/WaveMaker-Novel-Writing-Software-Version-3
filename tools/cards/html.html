@@ -259,10 +259,17 @@ max-width:90%;
 .fixbottom{
     position:fixed;
     bottom:0px;
+    width: 120px;
+    left: calc(50% - 60px);
     -webkit-border-radius: 10px 10px 0 0;/*Safari, Chrome*/
 -moz-border-radius: 10px 10px 0 0;/*Firefox*/
 border-radius: 10px 10px 0 0;
+z-index: 1024;
 
+}
+
+#showAll{
+    line-height: 30px;
 }
 </style>
 <div id="toolwelcome">
@@ -285,7 +292,6 @@ border-radius: 10px 10px 0 0;
     <div class="container-fluid">
         <div id="cards" class="row"></div>
         <div class="text-center"><button class="btn btn-wavemaker CardManagerModalButton fixbottom" > <i class="fa fa-fw fa-plus"></i> Add New</button></div>
-        
     </div>
 </div>
 
