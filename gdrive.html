@@ -1,0 +1,247 @@
+<style>
+    .googleButton {
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 1px solid #ccc;
+        background-color: #fafafa;
+        color: #212121;
+    }
+
+    .GoogleDrivefileBtn {
+        width: 100%;
+        background-color: #fafafa;
+        margin-bottom: 10px;
+        height: 150px;
+        border: 0px;
+    }
+
+    .GoogleDrivefileBtn:hover {
+        background-color: #ccc;
+        cursor: pointer;
+    }
+</style>
+<div class="text-center">
+    <div id="GoogleDrivebuttons">
+        <button id="authorize-button" class="googleButton"><i class="fa fa-fw fa-google"></i> Authorize</button>
+        <button id="signout-button" class="googleButton"><i class="fa fa-fw fa-google"></i> Sign Out</button>
+    </div>
+    <div id="files"></div>
+</div>
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="lib/js/jquery-3.3.1.min.js"></script>
+<script>
+    // Client ID and API key from the Developer Console
+    var CLIENT_ID = '196875539919-18arpm8l3es472u2pjpf1vi8qgj3rdtl.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyAuG0KiJEMyzQYEj6jFiWD476y6QxQY5V0';
+    // Array of API discovery doc URLs for APIs used by the quickstart
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+    // Authorization scopes required by the API; multiple scopes can be
+    // included, separated by spaces.
+    var SCOPES = 'https://www.googleapis.com/auth/drive.file';
+    var pickerApiLoaded = false;
+    var oauthToken
+    var CurrentSelectedFile
+    var SHOW_CREATE
+
+    function GoogleDrivehandleClientLoad() {
+        gapi.load('client:auth2', GoogleDriveInit);
+    }
+
+
+    function GoogleDriveInit() {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+
+            // Listen for sign-in state changes.
+            gapi.auth2.getAuthInstance().isSignedIn.listen(GoogleSigninStatus);
+            // Handle the initial sign-in state.
+            GoogleSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+
+            $('#authorize-button').unbind().click(function () {
+                gapi.auth2.getAuthInstance().signIn()
+            });
+            $('#signout-button').unbind().click(function () {
+                gapi.auth2.getAuthInstance().signOut();
+            });
+        });
+    }
+    /**
+     *  Called when the signed in status changes, to update the UI
+     *  appropriately. After a sign-in, the API is called.
+     */
+    function GoogleSigninStatus(isSignedIn) {
+
+        if (isSignedIn) {
+            console.log("Signed In")
+            $('#authorize-button').hide();
+            $('#signout-button').show();
+            GoogleDriveListFiles();
+            $("#GoogleDriveloggedIn").show();
+        } else {
+            console.log("Signed Out")
+            $('#authorize-button').show();
+            $('#signout-button').hide();
+        }
+
+    }
+
+
+    function GoogleDriveListFiles() {
+
+        gapi.client.drive.files.list({
+            'pageSize': 100,
+            'fields': "nextPageToken, files(id, name)",
+            'q': "name contains '.wmproj'",
+        }).then(function (response) {
+            var files = response.result.files;
+            // get the first one found!
+
+            if (files && files.length > 0) {
+                console.log("File exists - using first one found")
+                var file = files[0]
+                console.log(file)
+                $("#files").html('')
+                $.each(files, function (k, f) {
+                    newbutton = $(`<button class="btn btn-primary SelectGooglefile">${f.name}</button>`)
+                    newbutton.data("fileobj", f)
+
+                    $("#files").append(newbutton);
+                    console.log(f)
+                })
+            }
+        });
+    }
+
+    function GoogleDriveReadFileContents(file) {
+        var request = gapi.client.drive.files.get({
+            fileId: file.id,
+            alt: 'media'
+        })
+        request.then(function (response) {
+            wavemaker = JSON.parse(response.body);
+            filename = file.name
+            res = filename.replace(".wmproj", "")
+            CURRENT_FILE_NAME = res.trim();
+            CURRENT_FILE_OBJ = response;
+            CURRENT_FILE_ID = file;
+            console.log(filename)
+            console.log(wavemaker)
+        }, function (error) {
+            //console.error(error)
+        })
+        return request; //for batch request
+    }
+
+    function GoogleDriveCreateNewFile() {
+        newFilename = "WaveMaker" // probably use a timestamp 
+        GoogleDriveCreateNewFileWrite(newFilename + ".wmproj", JSON.stringify(["hello", "bad"]))
+    }
+
+
+    function GoogleDriveCreateNewFileWrite(name, data, callback) {
+        const boundary = '-------314159265358979323846';
+        const delimiter = "\r\n--" + boundary + "\r\n";
+        const close_delim = "\r\n--" + boundary + "--";
+        const contentType = 'application/json';
+
+        var metadata = {
+            'name': name,
+            'mimeType': contentType
+        };
+
+        var multipartRequestBody =
+            delimiter +
+            'Content-Type: application/json\r\n\r\n' +
+            JSON.stringify(metadata) +
+            delimiter +
+            'Content-Type: ' + contentType + '\r\n\r\n' +
+            data +
+            close_delim;
+
+        var request = gapi.client.request({
+            'path': '/upload/drive/v3/files',
+            'method': 'POST',
+            'params': {
+                'uploadType': 'multipart'
+            },
+            'headers': {
+                'Content-Type': 'multipart/related; boundary="' + boundary + '"'
+            },
+            'body': multipartRequestBody
+        });
+        if (!callback) {
+            callback = function (file) {
+                CURRENT_FILE_OBJ = file;
+                CURRENT_FILE_ID = file.id;
+                CURRENT_FILE_NAME = name.replace(".wmproj", "").trim();
+                GoogleDrivehandleClientLoad()
+            };
+        }
+        request.execute(callback);
+    }
+
+
+    function GoogleDriveSaveFile() {
+        fileID = CURRENT_FILE_ID;
+        fileMetadata = CURRENT_FILE_OBJ.headers;
+        data = JSON.stringify(wavemaker);
+        const boundary = '-------314159265358979323846';
+        const delimiter = "\r\n--" + boundary + "\r\n";
+        const close_delim = "\r\n--" + boundary + "--";
+
+        const contentType = 'application/json';
+
+        var metadata = {
+            'name': name,
+            'mimeType': contentType
+        };
+
+        var multipartRequestBody =
+            delimiter +
+            'Content-Type: application/json\r\n\r\n' +
+            JSON.stringify(metadata) +
+            delimiter +
+            'Content-Type: ' + contentType + '\r\n\r\n' +
+            data +
+            close_delim;
+
+        var request = gapi.client.request({
+            'path': '/upload/drive/v3/files/' + fileID,
+            'method': 'PATCH',
+            'params': {
+                'uploadType': 'multipart'
+            },
+            'headers': {
+                'Content-Type': 'multipart/related; boundary="' + boundary + '"'
+            },
+            'body': multipartRequestBody
+        });
+
+        callback = function (file) {
+            autosaveTrigger = true;
+            GoogleDriveInit()
+        }
+        request.execute(callback);
+    }
+
+
+    $(function () {
+        GoogleDrivehandleClientLoad()
+    })
+
+
+    $(document).off("click", ".SelectGooglefile").on("click", ".SelectGooglefile", function () {
+        console.log($(this).data("fileobj"))
+    })
+
+    $(document).off("click", "#newGooglefile").on("click", "#newGooglefile", function () {
+        console.log("Creating New File")
+        //           GoogleDriveCreateNewFile()
+    })
+
+</script>
