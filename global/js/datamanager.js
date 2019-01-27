@@ -72,6 +72,7 @@ function exportDatabase(mode) {
     switch (mode){
       case "web" :
       console.log("synch to web");
+      SaveRemoteData(JSON.stringify(exportData))
       break;
       default :
       console.log("defaults to backup")
@@ -80,6 +81,24 @@ function exportDatabase(mode) {
   });
   
 }
+
+var AuthCode='';
+function SaveRemoteData(mydata){
+  $.post( "https://wavemaker.cards/php/", { authkey: AuthCode, wmdata: mydata })
+  .done(function( data ) {
+    console.log( "Data Loaded: " + data );
+  });
+}
+
+function getRemoteData(){
+  $.get( "https://wavemaker.cards/php/?authfile="+AuthCode)
+  .done(function( data ) {
+    console.log( "Data Loaded: " + data );
+    importDatabase(data)
+  });
+}
+
+
 
 
 function importDatabase(json) {
@@ -121,3 +140,7 @@ function downloadFile(mydata){
   element.click();
   document.body.removeChild(element);
 }
+
+
+
+
