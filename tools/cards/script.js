@@ -136,6 +136,11 @@ function drawCards(){
   $.each(allHashtags,function(k,v){
     $("#hashtag-list").append("<li data-hash='"+v+"'><i class='fa fa-fw fa-hashtag'></i> "+v+"</li>")
   })
+  $("#hashtag-list").append("<li data-hash='' class='btn  CardManagerModalButton'><i class='fa fa-fw fa-plus'></i>Click  here to add a Card</li>")  
+  
+
+
+  
 
   var query = $("#card-search").val();
   if (query != "") {

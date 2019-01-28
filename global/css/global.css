@@ -99,6 +99,10 @@ body {
   border-bottom: 1px dashed var(--c0);
 }
 
+.btn{
+  border-radius:0px;
+}
+
 #manuscript, .ui-contextmenu{
   font-size: 0.8rem;
 }
