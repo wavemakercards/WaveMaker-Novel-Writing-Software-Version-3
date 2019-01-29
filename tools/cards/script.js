@@ -1,3 +1,4 @@
+$('#navigation-toggle').show();
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
 if(!WMproject.state){
   WMproject.state={}

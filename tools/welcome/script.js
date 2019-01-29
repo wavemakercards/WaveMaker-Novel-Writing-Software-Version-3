@@ -1,11 +1,21 @@
 deInitNav();
 getProjects();
 
+GoogleDrivehandleClientLoad();
+
 $("#CreateNewProject")
   .unbind()
   .click(function () {
     $("#CreateNewProjectModal").modal("show");
   });
+
+$("#GdriveUp").unbind().click(function(){
+  exportDatabase("gDriveSave");
+})
+
+$("#GdriveDown").unbind().click(function(){
+  GDriveRead()
+})
 
 function getProjects() {
   

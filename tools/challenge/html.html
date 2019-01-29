@@ -1,208 +1,416 @@
-<style>
- 
-    body {
-        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-
-        color: #fff;
-        background-color: #212121;
-        overflow: hidden;
-    }
-
-    .page {
-        position: fixed;
-        top: 0px;
-        bottom: 0px;
-        left: 25%;
-        right: 25%;
-        background-color: #212121;
-
-    }
-
-    .texteditor {
-        position: fixed;
-        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-        outline: none;
-        border: none;
-        resize: none;
-        font-size: 1.3em;
-        background: none;
-        line-height: 1.5em;
-        background-color: transparent;
-        text-align: justify;
-        bottom: 60%;
-        left: 30%;
-        right: 30%;
-        width: 40%;
-        color: #bbb;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=0, Color=#333)";
-        /*IE 8*/
-        text-shadow: 0 0 4px #333333, 0 0 3px rgba(33, 33, 33, 0.7);
-        /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
-        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color=#333);
-        /*IE 5.5-7*/
-        height: 40px;
-        font-weight: 100;
-    }
-
-    .texteditor:focus {
-        background-color: transparent;
-    }
-
-    .overlaytop {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        left: 0px;
-        bottom: 63%;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#212121+0,212121+100&0.9+75,0+94 */
-        background: -moz-linear-gradient(top, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0.9) 75%, rgba(33, 33, 33, 0) 94%, rgba(33, 33, 33, 0) 100%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0.9) 75%, rgba(33, 33, 33, 0) 94%, rgba(33, 33, 33, 0) 100%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0.9) 75%, rgba(33, 33, 33, 0) 94%, rgba(33, 33, 33, 0) 100%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6212121', endColorstr='#00212121', GradientType=0);
-        /* IE6-9 */
-
-    }
-
-    #displayCount {
-        position: absolute;
-        bottom: 0px;
-        right: 0px;
-        text-align: center;
-        font-size: 1em;
-        color: rgba(255, 255, 255, 0);
-        padding: 5%;
-    }
-
-    #displayTimer {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        text-align: center;
-        font-size: 0.8em;
-        color: rgba(255, 255, 255, 0.5);
-        padding: 5%;
-    }
-
-
-    #startform {
-        position: absolute;
-        z-index: 1024;
-        background-color: #212121;
-        color: #fff;
-        text-align: center;
-        padding-top: 100px;
-        left: 0px;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-    }
-
-    .timerselect {
-        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-        font-size: 14px;
-        color: #fff;
-        background-color: #424242;
-        border: 0px;
-        padding: 10px;
-        border-radius: 5px;
-        outline: none;
-        border: none;
-        min-width: 100px;
-    }
-
-    #result {
-        background-color: #fff;
-        color: #424242;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        overflow-y: scroll;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        text-align: center;
-    }
-
-    .resultholder {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: justify;
-    }
-
-    .resultmessage{
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: justify;
-    }
-    .warning{
-        max-width: 400px;
-        padding:15px;
-        font-size: 0.8rem;
-        margin: 0 auto;
-        background-color: var(--c8);
-        border-radius:10px;
-        text-align: left;
-    }
-</style>
-
-
-
-
-<div class="page">
-    <textarea id="challengeEditor" class="texteditor" placeholder="Start Writing"></textarea>
-
-</div>
-<div class="overlaytop"></div>
-
-<div id="displayCount">0</div>
-<div id="displayTimer"></div>
-
-
-<div id="startform">
-
- <i class="fa fa-trophy fa-5x"></i>
-    <h3>Challenge Mode</h3>
-
-    
-    <h6>Choose your Challenge</h6>
-    <select id="ds_settings" class="timerselect">
-        <option value="5">5 Minutes / 150 Words</option>
-        <option value="10">10 Minutes / 300 Words</option>
-        <option value="20">20 Minutes / 600 Words</option>
-        <option value="30">30 Minutes / 900 Words</option>
-    </select>
-    <BR>
-    <BR>
-    <button id="letsgo" class="timerselect">Start</button>
-<BR><BR>
-    <div class="warning">
-        <h5 class=" text-center"> <i class="fa fa-exclamation-triangle "></i> Be Warned
-           </h5> This is a CHALLENGE, Just write, no going back, no editing.
-           <BR> Your work only saves when you COMPLETE the task!
-            <BR>
-              If you leave this page, crash computer anything before you click finish - it's all gone!
-            <BR>
-                Choose wisely :)
-     </div>
-</div>
-
-<div id="result">
-        <div class="resultmessage">
-        <div class="alert alert-success">
-                <h2>Well Done</h2>
-                <p>The text is now in the writer tool, it has a little <i class="fa fa-trophy"></i> trophy and the date and time you finished as a title, you can get to it there :)</p>
-            </div>
-            </div>
-    <h3>You Wrote</h3>
-    <div class="resultholder">
-    </div>
-   
-    
-        
-
-</div>
-
+<style>
+
+ 
+
+    body {
+
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+
+
+
+        color: #fff;
+
+        background-color: #212121;
+
+        overflow: hidden;
+
+    }
+
+
+
+    .page {
+
+        position: fixed;
+
+        top: 0px;
+
+        bottom: 0px;
+
+        left: 25%;
+
+        right: 25%;
+
+        background-color: #212121;
+
+
+
+    }
+
+
+
+    .ChallengeModeTextarea {
+
+        position: fixed;
+
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+
+        outline: none;
+
+        border: none;
+
+        resize: none;
+
+        font-size: 1.3em;
+
+        background: none;
+
+        line-height: 1.5em;
+
+        background-color: transparent;
+
+        text-align: justify;
+
+        bottom: 60%;
+
+        left: 30%;
+
+        right: 30%;
+
+        width: 40%;
+
+        color: #bbb;
+
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=0, Color=#333)";
+
+        /*IE 8*/
+
+        text-shadow: 0 0 4px #333333, 0 0 3px rgba(33, 33, 33, 0.7);
+
+        /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color=#333);
+
+        /*IE 5.5-7*/
+
+        height: 40px;
+
+        font-weight: 100;
+
+    }
+
+
+
+    .ChallengeModeTextarea:focus {
+
+        background-color: transparent;
+
+    }
+
+
+
+    .overlaytop {
+
+        position: absolute;
+
+        top: 0px;
+
+        right: 0px;
+
+        left: 0px;
+
+        bottom: 63%;
+
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#212121+0,212121+100&0.9+75,0+94 */
+
+        background: -moz-linear-gradient(top, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0.9) 75%, rgba(33, 33, 33, 0) 94%, rgba(33, 33, 33, 0) 100%);
+
+        /* FF3.6-15 */
+
+        background: -webkit-linear-gradient(top, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0.9) 75%, rgba(33, 33, 33, 0) 94%, rgba(33, 33, 33, 0) 100%);
+
+        /* Chrome10-25,Safari5.1-6 */
+
+        background: linear-gradient(to bottom, rgba(33, 33, 33, 0.9) 0%, rgba(33, 33, 33, 0.9) 75%, rgba(33, 33, 33, 0) 94%, rgba(33, 33, 33, 0) 100%);
+
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6212121', endColorstr='#00212121', GradientType=0);
+
+        /* IE6-9 */
+
+
+
+    }
+
+
+
+    #displayCount {
+
+        position: absolute;
+
+        bottom: 0px;
+
+        right: 0px;
+
+        text-align: center;
+
+        font-size: 1em;
+
+        color: rgba(255, 255, 255, 0);
+
+        padding: 5%;
+
+    }
+
+
+
+    #displayTimer {
+
+        position: absolute;
+
+        top: 0px;
+
+        right: 0px;
+
+        text-align: center;
+
+        font-size: 0.8em;
+
+        color: rgba(255, 255, 255, 0.5);
+
+        padding: 5%;
+
+    }
+
+
+
+
+
+    #startform {
+
+        position: absolute;
+
+        z-index: 1024;
+
+        background-color: #212121;
+
+        color: #fff;
+
+        text-align: center;
+
+        padding-top: 100px;
+
+        left: 0px;
+
+        top: 0px;
+
+        right: 0px;
+
+        bottom: 0px;
+
+    }
+
+
+
+    .timerselect {
+
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+
+        font-size: 14px;
+
+        color: #fff;
+
+        background-color: #424242;
+
+        border: 0px;
+
+        padding: 10px;
+
+        border-radius: 5px;
+
+        outline: none;
+
+        border: none;
+
+        min-width: 100px;
+
+    }
+
+
+
+    #result {
+
+        background-color: #fff;
+
+        color: #424242;
+
+        position: absolute;
+
+        left: 0px;
+
+        top: 0px;
+
+        right: 0px;
+
+        bottom: 0px;
+
+        overflow-y: scroll;
+
+        padding-top: 10%;
+
+        padding-bottom: 10%;
+
+        text-align: center;
+
+    }
+
+
+
+    .resultholder {
+
+        max-width: 800px;
+
+        margin: 0 auto;
+
+        text-align: justify;
+
+    }
+
+
+
+    .resultmessage{
+
+        max-width: 800px;
+
+        margin: 0 auto;
+
+        text-align: justify;
+
+    }
+
+    .warning{
+
+        max-width: 400px;
+
+        padding:15px;
+
+        font-size: 0.8rem;
+
+        margin: 0 auto;
+
+        background-color: var(--c8);
+
+        border-radius:10px;
+
+        text-align: left;
+
+    }
+
+</style>
+
+
+
+
+
+
+
+
+
+<div class="page">
+
+    <textarea id="challengeEditor" data-gramm_editor="false" class="ChallengeModeTextarea" placeholder="Start Writing"></textarea>
+
+
+
+</div>
+
+<div class="overlaytop"></div>
+
+
+
+<div id="displayCount">0</div>
+
+<div id="displayTimer"></div>
+
+
+
+
+
+<div id="startform">
+
+
+
+ <i class="fa fa-trophy fa-5x"></i>
+
+    <h3>Challenge Mode</h3>
+
+
+
+    
+
+    <h6>Choose your Challenge</h6>
+
+    <select id="ds_settings" class="timerselect">
+
+        <option value="5">5 Minutes / 150 Words</option>
+
+        <option value="10">10 Minutes / 300 Words</option>
+
+        <option value="20">20 Minutes / 600 Words</option>
+
+        <option value="30">30 Minutes / 900 Words</option>
+
+    </select>
+
+    <BR>
+
+    <BR>
+
+    <button id="letsgo" class="timerselect">Start</button>
+
+<BR><BR>
+
+    <div class="warning">
+
+        <h5 class=" text-center"> <i class="fa fa-exclamation-triangle "></i> Be Warned
+
+           </h5> This is a CHALLENGE, Just write, no going back, no editing.
+
+           <BR> Your work only saves when you COMPLETE the task!
+
+            <BR>
+
+              If you leave this page, crash computer anything before you click finish - it's all gone!
+
+            <BR>
+
+                Choose wisely :)
+
+     </div>
+
+</div>
+
+
+
+<div id="result">
+
+        <div class="resultmessage">
+
+        <div class="alert alert-success">
+
+                <h2>Well Done</h2>
+
+                <p>The text is now in the writer tool, it has a little <i class="fa fa-trophy"></i> trophy and the date and time you finished as a title, you can get to it there :)</p>
+
+            </div>
+
+            </div>
+
+    <h3>You Wrote</h3>
+
+    <div class="resultholder">
+
+    </div>
+
+   
+
+    
+
+        
+
+
+
+</div>
+
+
+

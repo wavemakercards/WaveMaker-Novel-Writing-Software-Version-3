@@ -144,6 +144,11 @@ function loadtool(toolname) {
 
 
   function setManuscript(){
+
+    if(!WMproject.data.settings){
+      WMproject.data.settings = {};
+    }
+
     if(!WMproject.data.settings.manuscript){
       WMproject.data.settings.manuscript = {};
     }

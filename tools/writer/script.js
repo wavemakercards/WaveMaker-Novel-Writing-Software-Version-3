@@ -1,3 +1,11 @@
+// some sorting out of bits and bobs
+$('#navigation-toggle').show();
+
+
+
+
+
+
 if(!WMproject.state){
   WMproject.state={}
 }

@@ -177,25 +177,16 @@
     z-index: 1024;
   }
 
-  .gridbuttons>button {
-    width: auto;
-    cursor: pointer;
-    background-color: var(--c7);
-    color: var(--c0);
-    border: 0px;
-    height: 35px;
-    font-size: 0.8em;
-    padding: 10px;
-  }
 
+ 
   #manage {
-    margin-top: 30px;
+    margin-top: 50px;
   }
 </style>
 <div id="timelines">
   <div class="gridbuttons">
-    <button id="addrow">Add New Row <i class="fa fa-fw fa-arrow-circle-right"></i></button>
-    <button id="addcol">Add New Column<i class="fa fa-fw fa-arrow-circle-down"></i></button>
+    <button id="addrow" class="btn btn-wavemaker" title="Add Row" data-container="body"  data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Add Row"><i class="fa fa-fw fa-arrow-circle-right"></i></button>
+    <button id="addcol"  class="btn btn-wavemaker" title ="Add Column" data-container="body"  data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Add Row"  ><i class="fa fa-fw fa-arrow-circle-down"></i></button>
   </div>
   <table id="manage"></table>
 </div>
