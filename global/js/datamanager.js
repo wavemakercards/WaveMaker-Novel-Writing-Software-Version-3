@@ -57,7 +57,7 @@ function saveWavemaker() {
 
 var exportData = {}
 
-function exportDatabase(mode) {
+function exportDatabase(mode, showfeedback=false) {
   exportData.settings = {};
   exportData.projects = [];
 
@@ -80,6 +80,9 @@ function exportDatabase(mode) {
         case "gDriveSave":
         console.log("Saving Data to Google Drive");
         GDriveWrite(JSON.stringify(exportData))
+        if(showfeedback){
+          swal("Uploaded!", "That has been Uploaded.", "success");
+        }
         break;
       default:
         console.log("defaults to backup")
@@ -108,6 +111,8 @@ function importDatabase(json) {
     });
 
   })
+
+  swal("Import Complete!", "Your data file has been imported.", "success");
   exportData = {}
   loadtool("welcome")
 }
@@ -170,12 +175,13 @@ function downloadFile(mydata) {
            console.log("Signed In")
            $('#authorize-button').hide();
            $('#signout-button').show();
+           $("#okGoogle").show();
            GDriveFileGet();
        } else {
            console.log("Signed Out")
            $('#authorize-button').show();
            $('#signout-button').hide();
-           $('#googlefiles').html('');
+           $("#okGoogle").hide();
        }
 
    }

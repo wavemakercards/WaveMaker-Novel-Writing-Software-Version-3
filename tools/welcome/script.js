@@ -10,11 +10,35 @@ $("#CreateNewProject")
   });
 
 $("#GdriveUp").unbind().click(function(){
-  exportDatabase("gDriveSave");
+  swal({
+    title: "Upload To Google Drive?",
+    text: "This Will overwrite your saved copy on there!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Upload it!"
+  }).then(result => {
+    if (result.value) {
+      exportDatabase("gDriveSave");
+    }
+  })
 })
 
 $("#GdriveDown").unbind().click(function(){
-  GDriveRead()
+  swal({
+    title: "Download from Google Drive?",
+    text: "This Will overwrite your local saved data!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Download it!"
+  }).then(result => {
+    if (result.value) {
+      GDriveRead()    
+    }
+  })
 })
 
 function getProjects() {
