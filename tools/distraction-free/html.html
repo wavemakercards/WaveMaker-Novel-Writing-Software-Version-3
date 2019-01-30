@@ -9,6 +9,18 @@
     font-weight: normal;
   }
 
+  #editorholder{
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  overflow-y: scroll;
+  padding-top:40%;
+  padding-bottom:50%;
+    
+}
+
   #distraction-free-wc {
     position: fixed;
     bottom: 0px;
@@ -19,12 +31,11 @@
 
   #distraction-free-editor {
     font-family: var(--editor-font);
-    position: absolute;
     min-height: 2em;
     outline: none;
     padding: 5px;
     width: calc(100% - 50px);
-    left: 0px;
+    margin:0 auto;
     -webkit-transition-property: width height background-color font-size left top -webkit-transform color;
     -webkit-transition-duration: 0.1s;
     -webkit-transition-timing-function: ease-in-out;
@@ -216,14 +227,10 @@ Custom media queries
 
 
 
+<div id="editorholder">
+  <div id="distraction-free-editor" class="texteditor" contentEditable="true" placeholder="Start Writing Here"></div>
+  </div>
 
-<div id="distraction-free-editor" class="texteditor" contentEditable="true" placeholder="Start Writing Here"></div>
-
-<div id="linediv"></div>
-
-<div id="2topfade"></div>
-
-<div id="2bottomfade"></div>
 
 <div id="distraction-free-wc"></div>
 

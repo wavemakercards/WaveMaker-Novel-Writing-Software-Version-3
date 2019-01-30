@@ -58,27 +58,25 @@ dosave();
 })
 
 
-
+var lastpos
 function repos(){
-
    var mypos =getCaretPosition($("#distraction-free-editor"))
+   if(mypos!==0){
+    var newpos = (mypos -$("#distraction-free-editor").position().top)
+ //   console.log("Target pos", parseInt(newpos))
+  //  $("#editorholder").scrollTop(parseInt(newpos))
 
- if($("#distraction-free-editor").html()!=""){
-
-    var caretpos = mypos -$("#distraction-free-editor").position().top
-
-    //console.log(caretpos)
-
-    var newpos = (window.innerHeight*0.4) - (caretpos)
-
-    $("#distraction-free-editor").css({top: parseInt(newpos)+"px"})
-
- }
-
-
-
+  newpos=newpos-100;
+     if(lastpos!==newpos){
+     lastpos=newpos
+     
+       $("#editorholder").animate({
+                    scrollTop: parseInt(newpos)
+                }, 400);
+     }
+     
+   }
 }
-
 
 
 function gohtml(){
@@ -114,20 +112,23 @@ function getCaretPosition(editableDiv) {
   range = sel.getRangeAt(0);
 
   caretPos = range.getBoundingClientRect();
+  return caretPos.y;
 
+  /*
   if(caretPos.y){  
 
     return caretPos.y;
 
   }else{
 
-    
+
 
  var go = $("#distraction-free-editor").position().top + $(range.startContainer).position().top
 
     return go               
 
   }
+  */
 
 }
 
