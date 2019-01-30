@@ -18,9 +18,11 @@ db.settings.get(1, function (set) {
   if (set) {
     //cool settings found
     WMsettings = set;
-   checkprojectloaded();
+    checkprojectloaded();
   } else {
-    WMsettings = { currentproject: 0 };
+    WMsettings = {
+      currentproject: 0
+    };
     db.settings.add(WMsettings).then(function () {
       loadtool("welcome");
     });
@@ -30,108 +32,96 @@ db.settings.get(1, function (set) {
 
 function checkprojectloaded() {
   //console.log("loading project")
-  if(WMsettings.currentproject){
-  db.projects.get(WMsettings.currentproject, function (set) {
-    WMproject = set;
-    if(!WMproject.state){
-      WMproject.state={};
-    }
-    if(!WMproject.state.tool){
-      WMproject.state.tool="writer";
-    }
-    if(WMproject.state.tool!="welcome"){
-      loadtool(WMproject.state.tool)
-      initNav()
-    }
-  });
-}else{
-  loadtool("welcome")
-}
+  if (WMsettings.currentproject) {
+    db.projects.get(WMsettings.currentproject, function (set) {
+      WMproject = set;
+      if (!WMproject.state) {
+        WMproject.state = {};
+      }
+      if (!WMproject.state.tool) {
+        WMproject.state.tool = "writer";
+      }
+      if (WMproject.state.tool != "welcome") {
+        loadtool(WMproject.state.tool)
+        initNav()
+      }
+    });
+  } else {
+    loadtool("welcome")
+  }
 }
 
 function saveWavemaker() {
-  // console.log("Save SYNCH");
+  console.log("Save SYNCH");
 }
 
-var exportData={}
-function exportDatabase(mode) {
-    exportData.settings = {};
-    exportData.projects = [];
+var exportData = {}
 
-    exportData.settings.id=1
-    exportData.settings.settings=WMsettings
+function exportDatabase(mode, showfeedback=false) {
+  exportData.settings = {};
+  exportData.projects = [];
 
-   return db.projects.each(function (set) {
+  exportData.settings.id = 1
+  exportData.settings.settings = WMsettings
+
+  return db.projects.each(function (set) {
     var newObj = {}
-    newObj.id=set.id
-    newObj.title=set.title
-    newObj.data=set.data
+    newObj.id = set.id
+    newObj.title = set.title
+    newObj.data = set.data
     exportData.projects.push(newObj)
-   }).then(()=>{
+  }).then(() => {
 
-    switch (mode){
-      case "web" :
-      console.log("synch to web");
-      SaveRemoteData(JSON.stringify(exportData))
-      break;
-      default :
-      console.log("defaults to backup")
-      downloadFile(JSON.stringify(exportData))
+    switch (mode) {
+      case "gDriveNew":
+        console.log("New Google Drive Created");
+        GDriveWrite(JSON.stringify(exportData))
+        break;
+        case "gDriveSave":
+        console.log("Saving Data to Google Drive");
+        GDriveWrite(JSON.stringify(exportData))
+        if(showfeedback){
+          swal("Uploaded!", "That has been Uploaded.", "success");
+        }
+        break;
+      default:
+        console.log("defaults to backup")
+        downloadFile(JSON.stringify(exportData))
     }
   });
-  
+
 }
-
-var AuthCode='';
-function SaveRemoteData(mydata){
-  $.post( "https://wavemaker.cards/php/", { authkey: AuthCode, wmdata: mydata })
-  .done(function( data ) {
-    console.log( "Data Loaded: " + data );
-  });
-}
-
-function getRemoteData(){
-  $.get( "https://wavemaker.cards/php/?authfile="+AuthCode)
-  .done(function( data ) {
-    console.log( "Data Loaded: " + data );
-    importDatabase(data)
-  });
-}
-
-
-
 
 function importDatabase(json) {
-  var importData=JSON.parse(json);
+  var importData = JSON.parse(json);
   console.log(importData)
-// Clear the database contents
-db.settings.clear()
-db.projects.clear()
+  // Clear the database contents
+  db.settings.clear()
+  db.projects.clear()
 
-db.settings.add(importData.settings.settings).then(function () {
-  console.log("settings added")
-});
-
-$.each(importData.projects, function(k,v){
-  console.log(v)
-
- db.projects.add(v).then(function () {
-    console.log("project " + v.id)
+  db.settings.add(importData.settings.settings).then(function () {
+    console.log("settings added")
   });
 
-})
+  $.each(importData.projects, function (k, v) {
+    console.log(v)
 
-exportData={}
-loadtool("welcome")
+    db.projects.add(v).then(function () {
+      console.log("project " + v.id)
+    });
+
+  })
+
+  swal("Import Complete!", "Your data file has been imported.", "success");
+  exportData = {}
+  loadtool("welcome")
 }
 
-
-
-function downloadFile(mydata){
-  var d=new Date();
-  var str = d.getHours()+"-"+d.getMinutes()+"-"+d.getDate()+"-"+d.getMonth()+"-"+d.getFullYear();
-  myfilename = "wavemaker-"+str+".wmdata";
-   //
+function downloadFile(mydata) {
+  var d = new Date();
+  var str = d.getHours() + "-" + d.getMinutes() + "-" + d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear();
+  myfilename = "wavemaker-" + str + ".wmdata";
+  //
   var element = document.createElement('a');
   element.setAttribute('href', 'data:wmdata/plain;charset=utf-8,' + encodeURIComponent(mydata));
   element.setAttribute('download', myfilename);
@@ -143,4 +133,148 @@ function downloadFile(mydata){
 
 
 
+   // Client ID and API key from the Developer Console
+   var CLIENT_ID = '196875539919-18arpm8l3es472u2pjpf1vi8qgj3rdtl.apps.googleusercontent.com';
+   var API_KEY = 'AIzaSyAuG0KiJEMyzQYEj6jFiWD476y6QxQY5V0';
+   // Array of API discovery doc URLs for APIs used by the quickstart
+   var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+   // Authorization scopes required by the API; multiple scopes can be
+   // included, separated by spaces.
+   var SCOPES = 'https://www.googleapis.com/auth/drive.file';
+   var SHOW_CREATE
+   var CURRENT_FILE_OBJ
+
+
+
+   function GoogleDrivehandleClientLoad() {
+       gapi.load('client:auth2', GoogleDriveInit);
+   }
+
+   function GoogleDriveInit() {
+       gapi.client.init({
+           apiKey: API_KEY,
+           clientId: CLIENT_ID,
+           discoveryDocs: DISCOVERY_DOCS,
+           scope: SCOPES
+       }).then(function () {
+           // Listen for sign-in state changes.
+           gapi.auth2.getAuthInstance().isSignedIn.listen(GoogleSigninStatus);
+           // Handle the initial sign-in state.
+           GoogleSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+           $('#authorize-button').unbind().click(function () {
+               gapi.auth2.getAuthInstance().signIn()
+           });
+           $('#signout-button').unbind().click(function () {
+               gapi.auth2.getAuthInstance().signOut();
+           });
+       });
+   }
+
+   function GoogleSigninStatus(isSignedIn) {
+       if (isSignedIn) {
+           console.log("Signed In")
+           $('#authorize-button').hide();
+           $('#signout-button').show();
+           $("#okGoogle").show();
+           GDriveFileGet();
+       } else {
+           console.log("Signed Out")
+           $('#authorize-button').show();
+           $('#signout-button').hide();
+           $("#okGoogle").hide();
+       }
+
+   }
+
+   function GDriveFileGet() {
+       gapi.client.drive.files.list({
+           'pageSize': 100,
+           'fields': "nextPageToken, files(id, name)",
+           'q': "name contains '.wavemakerData'",
+       }).then(function (response) {
+           var files = response.result.files;
+           // get the first one found!
+           if (files && files.length > 0) {
+               console.log("File exists - using first one found")
+               CURRENT_FILE_OBJ = files[0]
+           }else{
+            exportDatabase('gDriveNew');
+           }
+       });
+   }
+
+   function GDriveRead() {
+    console.log("Reading File");
+       var request = gapi.client.drive.files.get({
+           fileId: CURRENT_FILE_OBJ.id,
+           alt: 'media'
+       })
+       request.then(function (response) {
+           CURRENT_FILE_OBJ = response;          
+           importDatabase(response.body)
+           console.log(CURRENT_FILE_OBJ)
+       }, function (error) {
+           console.error(error)
+       })
+       console.log("Got" , CURRENT_FILE_OBJ);
+       return request; //for batch request
+      
+   }
+
+
+
+
+
+   function GDriveWrite(FILEDATA, callback) {
+    var filePath =""; 
+    console.log(CURRENT_FILE_OBJ);
+    if(CURRENT_FILE_OBJ){
+      filePath = CURRENT_FILE_OBJ.id
+    }  
+       const boundary = '-------314159265358979323846';
+       const delimiter = "\r\n--" + boundary + "\r\n";
+       const close_delim = "\r\n--" + boundary + "--";
+       const contentType = 'application/json';
+       var metadata = {'name': "wm.wavemakerData",'mimeType': contentType};
+       var multipartRequestBody =delimiter +'Content-Type: application/json\r\n\r\n' +JSON.stringify(metadata) +delimiter +'Content-Type: ' + contentType + '\r\n\r\n' +FILEDATA+close_delim;
+       var request
+       if(filePath==""){
+       request = gapi.client.request({
+           'path': '/upload/drive/v3/files',
+           'method': 'POST',
+           'params': {
+               'uploadType': 'multipart'
+           },
+           'headers': {
+               'Content-Type': 'multipart/related; boundary="' + boundary + '"'
+           },
+           'body': multipartRequestBody
+       });
+      }else{
+       request = gapi.client.request({
+        'path': '/upload/drive/v3/files/' + filePath,
+        'method': 'PATCH',
+        'params': {
+            'uploadType': 'multipart'
+        },
+        'headers': {
+            'Content-Type': 'multipart/related; boundary="' + boundary + '"'
+        },
+        'body': multipartRequestBody
+    });
+  }
+
+
+       if (!callback) {
+           callback = function (file) {
+            if(CURRENT_FILE_OBJ){
+              console.log("Data Saved to GDrive");
+            }  else{
+              console.log("Data Created on GDrive");
+            }   
+            CURRENT_FILE_OBJ = file;
+           };
+       }
+       request.execute(callback);
+   }
 

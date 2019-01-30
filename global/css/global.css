@@ -89,6 +89,7 @@ body {
   left: 0px;
   right: 0px;
   bottom: 0px;
+  overflow: hidden;
 }
 .wavemaker-form {
   width: 100%;
@@ -97,6 +98,10 @@ body {
   color: var(--c0);
   border: 0px;
   border-bottom: 1px dashed var(--c0);
+}
+
+.btn{
+  border-radius:0px;
 }
 
 #manuscript, .ui-contextmenu{

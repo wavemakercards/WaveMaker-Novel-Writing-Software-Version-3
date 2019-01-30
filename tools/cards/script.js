@@ -1,3 +1,4 @@
+$('#navigation-toggle').show();
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
 if(!WMproject.state){
   WMproject.state={}
@@ -136,6 +137,11 @@ function drawCards(){
   $.each(allHashtags,function(k,v){
     $("#hashtag-list").append("<li data-hash='"+v+"'><i class='fa fa-fw fa-hashtag'></i> "+v+"</li>")
   })
+  $("#hashtag-list").append("<li data-hash='' class='btn  CardManagerModalButton'><i class='fa fa-fw fa-plus'></i>Click  here to add a Card</li>")  
+  
+
+
+  
 
   var query = $("#card-search").val();
   if (query != "") {

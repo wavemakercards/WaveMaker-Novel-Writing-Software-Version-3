@@ -1,184 +1,249 @@
-<style>
-body{
-  overflow:hidden;
-  position:absolute;
-  top:0px;
-  left:0px;
-  right:0px;
-  bottom:0px;
-  font-weight:normal;
-}
-
-
-#distraction-free-wc{
-  position:fixed;
-  bottom:0px;
-  right:0px;
-  padding:10px;
-  font-weight:bold;
-   
-}
-#distraction-free-editor{
-  font-family: var(--editor-font);
-  position:absolute;
-  min-height:2em;
-  outline:none;
-   padding:5px;
-  width:calc(100% - 50px);
-  left:0px;
- 
-    -webkit-transition-property: width height background-color font-size left top -webkit-transform color;
-    -webkit-transition-duration: 0.1s;
-    -webkit-transition-timing-function: ease-in-out;
-    transition-property: width height background-color font-size left top transform color;
-    transition-duration: 0.1s;
-    transition-timing-function: ease-in-out;
-
-}
-
-
-
-#distraction-free-toolbar{
-  height:30px;
-  background-color:#efefef;
-  text-align:center;
-  position:fixed;
-  top:0px;
-  left:0px;
-  right:0px;
-  
-}
-
-
-#distraction-free-toolbar button{
-  border:0px;
-  height:30px;
-  font-size:1rem;
-  min-width:30px;
-  color:#ccc;
-  background-color:transparent;
-  cursor:pointer;
-
-}
-
-
-#distraction-free-toolbar button:hover{
-    color:#222;
-  background-color:#ccc;
-}
-
-
- .texteditor{
-  font-size: var(--manuscriptFontSize)
-}
- .texteditor p{
-  text-align: var(--manuscriptAlign);
-  text-indent:var(--manuscriptParaIndent);
-  line-height:var(--manuscriptLineHeight);
-}
-
- .texteditor h1 {
- text-align: center;
-}
-
- .texteditor h2 {
- text-align: left;
-}
- .texteditor h3{
-  text-align: left;
-}
-
-.texteditor p {
-  margin-bottom:var(--manuscriptMarginBottom)
-}
-
-
-
-.texteditor  p:first-of-type{
-    text-indent:0px;
-}
-/*
-#linediv{
-  height:1px;
-  background-color: rgba(0,0,0,0.05);
-  position:absolute;
-  top:calc(50% );
-  width:100%;
-  z-index:1024;
-}
-*/
-
-/*
-####################################################
-M E D I A  Q U E R I E S
-####################################################
-*/
- 
-/*
-::::::::::::::::::::::::::::::::::::::::::::::::::::
-Bootstrap 4 breakpoints
-*/
- 
-/* 
-Extra small devices (portrait phones, less than 576px) 
-No media query since this is the default in Bootstrap because it is "mobile first"
-*/
- 
- 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {  
- 
-}
- 
-/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-@media (min-width: 768px) {  
-  #distraction-free-editor{
-  padding:20px;
-  width: 70%;
-  left:calc(15% - 50px);
-  }
-}
- 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-
-}
- 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {  
-  #distraction-free-editor{
-  padding:20px;
-  width: 50%;
-  left:calc(25% - 50px);
-  }
-}
- 
- 
- 
-/*
-::::::::::::::::::::::::::::::::::::::::::::::::::::
-Custom media queries
-*/
- 
-/* Set width to make card deck cards 100% width */
-@media (max-width: 950px) { 
- 
-}
-</style>
-
-
-
-<div id="distraction-free-editor" class="texteditor" contentEditable="true" placeholder="Start Writing Here"></div>
-<div id="linediv"></div>
-<div id="2topfade"></div>
-<div id="2bottomfade"></div>
-<div id="distraction-free-wc"></div>
-<div id="distraction-free-toolbar">
-
-  <button class="wysywig-btn" id='bold' title='Bold'><i class='fa fa-fw fa-bold'></i></button>
-  <button class="wysywig-btn" id='italic' title='Italic'><i class='fa fa-fw fa-italic'></i></button>
-  <button class="wysywig-btn" id='h1'  title='Heading 1'><i class='fa fa-fw fa-header'></i></button>
-  <button class="wysywig-btn" id='h2'  title='Heading 2'><i class='fa fa-fw fa-header' style="font-size:0.8em"></i></button>
-  <button class="wysywig-btn" id='h3'  title='Heading 3'><i class='fa fa-fw fa-header' style="font-size:0.5em"></i></button>
-  <button class="wysywig-btn" id='para'  title='Paragraph'><i class='fa fa-fw fa-paragraph'></i></button>
-  <button class="wysywig-btn" id='distraction-free'  title='Distraction Free'><i class='fa fa-fw fa-eye'></i></button>
+<style>
+  
+
+  #editorholder{
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  overflow-y: scroll;
+  padding-top:20%;
+  padding-bottom:50%;
+}
+#wavemakerApp{
+  left:0px !important;
+}
+  #distraction-free-wc {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  #distraction-free-editor {
+    font-family: var(--editor-font);
+    min-height: 2em;
+    outline: none;
+    padding: 5px;
+    width: calc(100% - 50px);
+    margin:0 auto;
+    -webkit-transition-property: width height background-color font-size left top -webkit-transform color;
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-property: width height background-color font-size left top transform color;
+    transition-duration: 0.1s;
+   transition-timing-function: ease-in-out;
+ }
+#distraction-free-editor:empty{
+  background-color: #fff;
+  border-bottom:1px solid #ccc;
+} 
+
+  #distraction-free-toolbar {
+    height: 50px;
+    background-color: #efefef;
+    text-align: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+  }
+
+  #distraction-free-toolbar button {
+    border: 0px;
+    height: 50px;
+    font-size: 1rem;
+    min-width: 50px;
+    color: #ccc;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  #distraction-free-toolbar button:hover {
+    color: #222;
+    background-color: #ccc;
+  }
+
+  .texteditor {
+    font-size: var(--manuscriptFontSize)
+  }
+
+  .texteditor p {
+    text-align: var(--manuscriptAlign);
+    text-indent: var(--manuscriptParaIndent);
+    line-height: var(--manuscriptLineHeight);
+  }
+
+  .texteditor h1 {
+    text-align: center;
+  }
+
+  .texteditor h2 {
+    text-align: left;
+  }
+
+  .texteditor h3 {
+    text-align: left;
+  }
+
+  .texteditor p {
+    margin-bottom: var(--manuscriptMarginBottom)
+  }
+
+  .texteditor p:first-of-type {
+    text-indent: 0px;
+  }
+
+  /*
+
+#linediv{
+
+  height:1px;
+
+  background-color: rgba(0,0,0,0.05);
+
+  position:absolute;
+
+  top:calc(50% );
+
+  width:100%;
+
+  z-index:1024;
+
+}
+
+*/
+
+
+
+  /*
+
+####################################################
+
+M E D I A  Q U E R I E S
+
+####################################################
+
+*/
+
+
+
+  /*
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Bootstrap 4 breakpoints
+
+*/
+
+
+
+  /* 
+
+Extra small devices (portrait phones, less than 576px) 
+
+No media query since this is the default in Bootstrap because it is "mobile first"
+
+*/
+
+
+
+
+
+  /* Small devices (landscape phones, 576px and up) */
+
+  @media (min-width: 576px) {}
+
+
+
+  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+
+  @media (min-width: 768px) {
+
+    #distraction-free-editor {
+
+      padding: 20px;
+
+      width: 70%;
+
+      
+    }
+
+  }
+
+
+
+  /* Large devices (desktops, 992px and up) */
+
+  @media (min-width: 992px) {}
+
+
+
+  /* Extra large devices (large desktops, 1200px and up) */
+
+  @media (min-width: 1200px) {
+
+    #distraction-free-editor {
+
+      padding: 20px;
+
+      width: 50%;
+
+      left: calc(25% - 50px);
+
+    }
+
+  }
+
+
+
+
+
+
+
+  /*
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Custom media queries
+
+*/
+
+
+
+  /* Set width to make card deck cards 100% width */
+
+  @media (max-width: 950px) {}
+</style>
+
+
+
+
+
+
+<div id="editorholder">
+  <div id="distraction-free-editor" class="texteditor" contentEditable="true" placeholder="Start Writing Here"></div>
+  </div>
+
+
+<div id="distraction-free-wc"></div>
+
+<div id="distraction-free-toolbar">
+
+
+
+  <button class="wysywig-btn" id='bold' title='Bold'><i class='fa fa-fw fa-bold'></i></button>
+
+  <button class="wysywig-btn" id='italic' title='Italic'><i class='fa fa-fw fa-italic'></i></button>
+
+  <button class="wysywig-btn" id='h1' title='Heading 1'><i class='fa fa-fw fa-header'></i></button>
+
+  <button class="wysywig-btn" id='h2' title='Heading 2'><i class='fa fa-fw fa-header' style="font-size:0.8em"></i></button>
+
+  <button class="wysywig-btn" id='h3' title='Heading 3'><i class='fa fa-fw fa-header' style="font-size:0.5em"></i></button>
+
+  <button class="wysywig-btn" id='para' title='Paragraph'><i class='fa fa-fw fa-paragraph'></i></button>
+
+  <button class="wysywig-btn" id='distraction-free' title='Distraction Free'><i class='fa fa-fw fa-eye'></i></button>

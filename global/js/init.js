@@ -1,7 +1,7 @@
 var WriterKey = '';
 var CURRENTNODE;
 var CURRENTLI;
-
+var viewDocSettings =0
 function checkMobile(){
   return($("#mobilecheck").is(":visible"))
 }
@@ -144,6 +144,11 @@ function loadtool(toolname) {
 
 
   function setManuscript(){
+
+    if(!WMproject.data.settings){
+      WMproject.data.settings = {};
+    }
+
     if(!WMproject.data.settings.manuscript){
       WMproject.data.settings.manuscript = {};
     }
@@ -209,12 +214,9 @@ $(document).on("keydown", disableF5);
 */
 var changes = true;        
 window.onbeforeunload = function() {
-    if (changes)
-    {
-        var message = "Are you sure you want to navigate away from this page?\n\nYou have started writing or editing a post.\n\nPress OK to continue or Cancel to stay on the current page.";
-        if (confirm(message)) return true;
-        else return false;
-    }
+  //swal("Hmmm", 'Saving "just happens" with wavemaker!', "success");;
+  return false;
+ 
 }
 
 

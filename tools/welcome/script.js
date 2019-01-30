@@ -1,11 +1,45 @@
 deInitNav();
 getProjects();
 
+GoogleDrivehandleClientLoad();
+
 $("#CreateNewProject")
   .unbind()
   .click(function () {
     $("#CreateNewProjectModal").modal("show");
   });
+
+$("#GdriveUp").unbind().click(function(){
+  swal({
+    title: "Upload To Google Drive?",
+    text: "This Will overwrite your saved copy on there!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Upload it!"
+  }).then(result => {
+    if (result.value) {
+      exportDatabase("gDriveSave", true);
+    }
+  })
+})
+
+$("#GdriveDown").unbind().click(function(){
+  swal({
+    title: "Download from Google Drive?",
+    text: "This Will overwrite your local saved data!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Download it!"
+  }).then(result => {
+    if (result.value) {
+      GDriveRead()    
+    }
+  })
+})
 
 function getProjects() {
   
