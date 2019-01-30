@@ -1,13 +1,5 @@
 <style>
-  body {
-    overflow: hidden;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    font-weight: normal;
-  }
+  
 
   #editorholder{
   position:absolute;
@@ -16,11 +8,12 @@
   right:0px;
   bottom:0px;
   overflow-y: scroll;
-  padding-top:40%;
+  padding-top:20%;
   padding-bottom:50%;
-    
 }
-
+#wavemakerApp{
+  left:0px !important;
+}
   #distraction-free-wc {
     position: fixed;
     bottom: 0px;
@@ -43,6 +36,10 @@
     transition-duration: 0.1s;
    transition-timing-function: ease-in-out;
  }
+#distraction-free-editor:empty{
+  background-color: #fff;
+  border-bottom:1px solid #ccc;
+} 
 
   #distraction-free-toolbar {
     height: 50px;
@@ -171,8 +168,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
       width: 70%;
 
-      left: calc(15% - 50px);
-
+      
     }
 
   }

@@ -25,7 +25,7 @@ var emptyWriter = [
 
 
 var CLIPBOARD = null;
-   
+
   // this needs to be updated so that each tool can be reset - the only required entry is TOOL
 
   if(!WMproject.state){
@@ -40,15 +40,7 @@ var CLIPBOARD = null;
   if (!WMproject.data.writer) {
     WMproject.data.writer = emptyWriter;
   }
-  if(!WriterKey){
-    d=new Date();
-    $("#editor").load("components/manuscript-tools.html?v="+d.getTime(),function(){
-      $.getScript("components/manuscript-tools.js?t=" + d.getTime(), function () {
-    });
-    });
-    }else{
-      drawEditor();
-    }
+
     
 $("#navigation-side-nav").html('');
 
@@ -64,10 +56,35 @@ $("#navigation-side-nav").append(`
 
 $("#ManuscriptSettings").unbind().click(function(){
   WriterKey ='';
+  viewDocSettings =1
   loadtool("writer");
 })
 
 drawtree();
+
+
+if(!WriterKey){
+
+  if(viewDocSettings!=1){
+    CURRENTNODE =  $("#manuscript").fancytree("getTree").getFirstChild()
+    WriterKey=CURRENTNODE.key;
+    CURRENTLI = CURRENTNODE.li;
+    $(".activeLInode").removeClass("activeLInode");
+    $(CURRENTLI).addClass("activeLInode");
+    drawEditor();
+    }else{
+  d=new Date();
+  $("#editor").load("components/manuscript-tools.html?v="+d.getTime(),function(){
+    $.getScript("components/manuscript-tools.js?t=" + d.getTime(), function () {
+  });
+  });
+    }
+
+  
+}else{
+    drawEditor();
+}
+
 function drawtree() {
 
   listSource = WMproject.data.writer;
@@ -129,7 +146,7 @@ function drawtree() {
       activate: function (event, data) {
         var node = data.node;
         CURRENTNODE = node;
-        console.log("selected :", node)
+       // console.log("selected :", node)
         WriterKey=CURRENTNODE.key;
         CURRENTLI = CURRENTNODE.li;
         $(".activeLInode").removeClass("activeLInode");
@@ -271,7 +288,6 @@ function drawtree() {
           break;
         case "addSibling":       
         if(!node){
-         
           node = $("#manuscript").fancytree("getTree").getFirstChild()
           WriterKey =node.key
           CURRENTNODE=node;
@@ -297,6 +313,7 @@ function drawtree() {
               delete n.key;
             })
           };
+
           //console.log(CLIPBOARD)
           // this is to deal with the NOTES duplication of the same object issue
           var newnotes=JSON.parse(JSON.stringify(CLIPBOARD.data.data.notes))

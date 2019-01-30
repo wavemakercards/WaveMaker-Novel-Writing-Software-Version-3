@@ -1,7 +1,7 @@
 var WriterKey = '';
 var CURRENTNODE;
 var CURRENTLI;
-
+var viewDocSettings =0
 function checkMobile(){
   return($("#mobilecheck").is(":visible"))
 }

@@ -9,7 +9,7 @@ if(!WMproject.state){
 
 }
 
-WMproject.state.tool= "distraction-free" ;
+WMproject.state.tool= "writer" ; // not distraction free as wont know what to load
 
 if (!WMproject.data) {
 
@@ -63,10 +63,10 @@ function repos(){
    var mypos =getCaretPosition($("#distraction-free-editor"))
    if(mypos!==0){
     var newpos = (mypos -$("#distraction-free-editor").position().top)
- //   console.log("Target pos", parseInt(newpos))
+    console.log("Target pos", parseInt(newpos))
   //  $("#editorholder").scrollTop(parseInt(newpos))
 
-  newpos=newpos-100;
+      //  newpos=newpos-100;
      if(lastpos!==newpos){
      lastpos=newpos
      
@@ -79,25 +79,6 @@ function repos(){
 }
 
 
-function gohtml(){
-
-   converter = new showdown.Converter();
-
-      return converter.makeHtml(Mydata);
-
-}
-
-function gomarkdown(){
-
-  var turndownService = new TurndownService();
-
-      var markdown = turndownService.turndown($("#distraction-free-editor").html());
-
-      Mydata = markdown;
-
-     
-
-}
 
 
 
@@ -146,11 +127,8 @@ document.execCommand("defaultParagraphSeparator", false, "p");
 
 
 
-
-
-
-
  $("#distraction-free-editor").html(markdown2html(CURRENTNODE.data.content))
+
 
  dosave()
 
@@ -218,10 +196,6 @@ $(document).off("click", "#distraction-free").on("click", "#distraction-free", f
 
 
 
-//$("").html(markdown2html(CURRENTNODE.))
-
-
-
 $('#distraction-free-editor').off('paste').on('paste', function(e) {
 
     e.preventDefault();
@@ -252,17 +226,11 @@ $('#distraction-free-editor').off('paste').on('paste', function(e) {
 
 
 
-
-
   function dosave() {
 
-
-
       var markdown = html2markdown($("#distraction-free-editor").html())
-
       CURRENTNODE.data.content = markdown;
-
-    
+  
 
     $("#distraction-free-wc").html(countWords(markdown)+" Wd")
 
@@ -273,8 +241,6 @@ $('#distraction-free-editor').off('paste').on('paste', function(e) {
       .fancytree("getTree")
 
       .toDict();
-
-  
 
     if (!WMproject.data.writer) {
 
@@ -294,12 +260,3 @@ $('#distraction-free-editor').off('paste').on('paste', function(e) {
 
   }
 
-  // have to add a scroll to it
-  $(document).off('mousewheel DOMMouseScroll', "#distraction-free-editor").on('mousewheel DOMMouseScroll',"#distraction-free-editor", function(event){
-    if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-        $("#distraction-free-editor").css({top: ($("#distraction-free-editor").position().top +100)+"px"})
-    }
-    else {
-        $("#distraction-free-editor").css({top: ($("#distraction-free-editor").position().top -100)+"px"})
-    }
-});
