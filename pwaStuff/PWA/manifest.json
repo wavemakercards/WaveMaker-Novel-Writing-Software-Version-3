@@ -1,0 +1,37 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "name": "Wavemaker Novel Writing Software",
+    "scope": "/",
+    "display": "minimal-ui",
+    "start_url": "https://wavemaker.cards/",
+    "short_name": "Wavemaker",
+    "theme_color": "#ffffff",
+    "description": "Wavemaker Novel Writing Software",
+    "orientation": "any",
+    "background_color": "#ffffff",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/images/icons/android-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/favicon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        }
+    ]
+}
