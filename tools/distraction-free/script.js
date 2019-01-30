@@ -63,7 +63,7 @@ function repos(){
    var mypos =getCaretPosition($("#distraction-free-editor"))
    if(mypos!==0){
     var newpos = (mypos -$("#distraction-free-editor").position().top)
-    console.log("Target pos", parseInt(newpos))
+   // console.log("Target pos", parseInt(newpos))
   //  $("#editorholder").scrollTop(parseInt(newpos))
 
       //  newpos=newpos-100;
