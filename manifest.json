@@ -4,7 +4,7 @@
 "lang": "en-GB",
 "start_url": "/",
 "display": "standalone",
-"theme_color": "#424242",
+"theme_color": "#37474f",
  "icons": [
   {
    "src": "\/icons/android-icon-36x36.png",
