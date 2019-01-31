@@ -23,7 +23,6 @@ function dosave() {
 var panelwidth;
 drawpage()
 
-
 var dropObj = {}
 function drawpage(){
     $("#cardmanager").html('')
@@ -42,25 +41,21 @@ function drawpage(){
         console.log(dropObj.startlist.data.notes[dropObj.startpos])
     },
     stop : function (event, ui) {
-
-        dropObj.endlist =ui.item.parent().parent().data("objTarget")
+    dropObj.endlist =ui.item.parent().parent().data("objTarget")
       dropObj.endpos =0; // if none then top of list
       if (typeof $(ui.item[0]).prev().data() !== 'undefined') {
         dropObj.endpos = $(ui.item[0]).prev().data().position +1 // add 1 o the prev id and do the splice
       }       
-      console.log(dropObj)
-  
+     
         if(dropObj.startlist === dropObj.endlist){
         // same list just update position
-      //  if(dropObj.endpos===dropObj.startpos){
-            console.log("same list")
+      //  if(dropObj.endpos===dropObj.startpos)  
             indexfix = 1;
             if (dropObj.startpos < dropObj.endpos) { indexfix = 0 }
             dropObj.endlist.data.notes.splice(dropObj.endpos, 0, dataToMove); // add
             dropObj.startlist.data.notes.splice(dropObj.startpos + indexfix, 1); //delete
      //   }
       }else{
-        console.log("different list")
         dropObj.endlist.data.notes.splice(dropObj.endpos, 0, dataToMove); // add
         dropObj.startlist.data.notes.splice(dropObj.startpos, 1); //delete
       }
@@ -72,46 +67,9 @@ function drawpage(){
  }
 
 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function WriteColumns(dta){
- if(dta.data){
+    console.log(dta)
+
     panelwidth = panelwidth + 370
     mycol= $(`
     <div class="cardsorter">
@@ -123,7 +81,8 @@ function WriteColumns(dta){
 
     mycol.data("objTarget",dta);
     $("#cardmanager").append(mycol)
-   
+
+    if(dta.data){
     $.each(dta.data.notes, function (cardID, currentNote) {    
      
         addStyle = "";
@@ -155,7 +114,7 @@ function WriteColumns(dta){
     listTargetid++
 
 
-$('#cardmanager').width(panelwidth + "px")
+
 
     if(dta.children !== undefined){
         $.each(dta.children, function(k,v){
@@ -163,6 +122,7 @@ $('#cardmanager').width(panelwidth + "px")
         });
     }
 }
+$('#cardmanager').width(panelwidth + "px")
 }
 
 
