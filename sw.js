@@ -43,7 +43,7 @@ importScripts('sw-toolbox.js'); toolbox.precache([
     "tools/welcome/script.js",
     "tools/writer/html.html",
     "tools/writer/script.js"
-]); toolbox.router.get('/images/ *', toolbox.networkFirst); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 5});
+]); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 50});
 
 /*
 

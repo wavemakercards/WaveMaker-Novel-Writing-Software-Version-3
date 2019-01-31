@@ -103,6 +103,14 @@ body {
   bottom: 0px;
   overflow: hidden;
 }
+
+#install-alert {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  
+}
+
 .wavemaker-form {
   width: 100%;
   padding: 10px;
