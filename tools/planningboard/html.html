@@ -1,0 +1,171 @@
+<style>
+
+#scroller{
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  overflow: auto;
+}
+
+.wmcard{
+  color: #212121;
+    border: 1px solid #616161;
+    background-color: #fafafa;
+    padding: 15px;
+    font-size: 0.8em;
+}
+.btn-circle.btn-xs {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    padding: 0px 0;
+    font-size: 10px;
+    line-height: 1;
+    border-radius: 15px;
+}
+.smallButtons {
+    color: #212121;
+    border: 0px;
+    background: none;
+}
+
+#cardmanager{
+  padding-top:60px;
+  margin:0 auto;
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+}
+
+.cardsorter{
+  padding:25px;
+  position:relative;
+    width:  350px;
+    float: left;
+    min-height: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px #d3d3d3 dashed;
+    margin-bottom:70px;
+}
+
+.sortableCards{
+  position: relative;
+ list-style: none;
+ margin: 0;
+ padding:0;
+ min-height: 100px;
+}
+
+.sortableCards>li{
+  margin-bottom:10px;
+    cursor: move;
+}
+
+.CardmanagerTitle{
+  text-align: center;
+  padding: 5px;
+}
+
+.addNewCard{
+  position: absolute;
+  right:0px;
+  top:0px;
+  border:0px;
+  background: none;
+}
+
+#addCardsManagerChapter{
+  position:fixed;
+  top:0px !important;
+  right:150px;
+  width:150px !important;
+  height: 50px !important;
+  z-index:999999999;
+}
+
+#toggleCompletedCardsCardEditor{
+  position:fixed;
+  top:0px !important;
+  right:0px;
+  width:150px !important;
+  height: 50px !important;
+  z-index:999999999;
+
+}
+
+
+#CardsColourPicker{
+  position: absolute;
+  left:5px;
+  
+}
+#CardsColourPicker button{
+  border:0px; 
+  width:20px;
+  height:20px;
+  border:1px solid #000;
+  margin: 1px;
+  padding:0px;
+}
+
+.color0{
+}
+.color1{
+  background-color: #71cac4 !important;
+}
+.color2{
+  background-color: #e2e647 !important;
+}
+.color3{
+  background-color: #f49ebb !important;
+}
+.color4{
+  background-color: #fbad4b !important;
+}
+</style>
+<div id="scroller">
+<div id="cardmanager"></div>
+</div>
+ <!-- Modal -->
+ <div class="modal fade" id="CardModal" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="CardTitle"
+ aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <select id="CardType" class="form-control">
+         <option value="Character Card">Character Card</option>
+         <option value="Theme Card">Theme Card</option>
+         <option value="Plot Card">Plot Card</option>
+         <option value="Scene Card">Scene Card</option>
+         <option value="Symbol Card">Symbol Card</option>
+         <option value="Location Card">Location Card</option>
+         <option value="Note Card">Note Card</option>
+       </select>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+       <textarea id="CardText" class='texteditor' placeholder='Make Your Note Here'></textarea>
+     </div>
+     <div class="modal-footer">
+       <input type="hidden" value="" id="cardColorCoice">
+       <div id="CardsColourPicker">
+         <button  data-color="0" class="color0 CardsColourPickerButton"></button>
+         <button  data-color="1" class="color1 CardsColourPickerButton"></button>
+         <button  data-color="2"class="color2 CardsColourPickerButton"></button>
+         <button  data-color="3"class="color3 CardsColourPickerButton"></button>
+         <button  data-color="4"class="color4 CardsColourPickerButton"></button>
+       </div>
+
+       <button type="button" class="btn btn-secondary btn-circle circle-pill" data-dismiss="modal">Close</button>
+       <button type="button" class="btn btn-primary btn-circle circle-pill" id="saveCard">Save changes</button>
+     </div>
+   </div>
+ </div>
+</div>

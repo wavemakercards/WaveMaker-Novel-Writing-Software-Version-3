@@ -66,8 +66,12 @@ $(function () {
     setTimeout(writetimer, 1000);
 
     $('#challengeEditor').focus();
+    
+    document.getElementById("challengeEditor").onkeydown = checkKey;
 
   })
+
+
 
 })
 
@@ -97,7 +101,7 @@ function writetimer() {
 
 
 
-document.onkeydown = checkKey;
+
 
 
 
@@ -143,12 +147,6 @@ function checkKey(e) {
 
   e = e || window.event;
 
-
-
-
-
-
-
   if (e.keyCode == '38') {
 
     // up arrow
@@ -180,10 +178,6 @@ function checkKey(e) {
     // right arrow
 
   }
-
-
-
-
 
   getwordcount($("#challengeEditor"))
 

@@ -1,16 +1,63 @@
 :root {
 
+  /* brown */
+  --c0: #efebe9;
+  --c1: #d7ccc8;
+  --c2: #eeeeee;
+  --c3: #bcaaa4;
+  --c4: #8d6e63;
+  --c5: #795548;
+  --c6: #6d4c41;
+  --c7: #5d4037;
+  --c8: #4e342e;
+  --c9: #3e2723;
+  /* Grays */
+  --c0: #fafafa;
+  --c1: #f5f5f5;
+  --c2: #eeeeee;
+  --c3: #e0e0e0;
+  --c4: #bdbdbd;
+  --c5: #9e9e9e;
+  --c6: #757575;
+  --c7: #616161;
+  --c8: #424242;
+  --c9: #212121;
+  /* bluegray */
+  --c0: #eceff1;
+  --c1: #cfd8dc;
+  --c2: #b0bec5;
+  --c3: #90a4ae;
+  --c4: #78909c;
+  --c5: #607d8b;
+  --c6: #546e7a;
+  --c7: #455a64;
+  --c8: #37474f;
+  --c9: #263238;
+
+
+   /* purple */
+   --c0: #EDE7F6;
+   --c1: #D1C4E9;
+   --c2: #B39DDB;
+   --c3: #9575CD;
+   --c4: #7E57C2;
+   --c5: #673AB7;
+   --c6: #5E35B1;
+   --c7: #512DA8;
+   --c8: #4527A0;
+   --c9: #311B92;
+
  /* Grays */
- --c0: var(--c0);
+ --c0: #fafafa;
  --c1: #f5f5f5;
- --c2: var(--c2);
- --c3: var(--c3);
+ --c2: #eeeeee;
+ --c3: #e0e0e0;
  --c4: #bdbdbd;
  --c5: #9e9e9e;
  --c6: #757575;
- --c7: var(--c7);
+ --c7: #616161;
  --c8: #424242;
- --c9: var(--c9);
+ --c9: #212121;
   
 
   --c0: #eceff1;
@@ -34,7 +81,7 @@
 
   --interface-button-background : var(--c9);
   --interface-button-foreground : var(--c0);
-  --interface-button-background-hover : #6a6a6a;
+  --interface-button-background-hover : var(--c7);
   --interface-button-foreground-hover : var(--c0);
 
   --interface-button-background-danger : #8c0000;
@@ -48,7 +95,7 @@
 
   --side-nav-bar-button-background : var(--c9);
   --side-nav-bar-button-foreground : var(--c0);
-  --side-nav-bar-button-background-hover : #6a6a6a;
+  --side-nav-bar-button-background-hover : var(--c7);
   --side-nav-bar-button-foreground-hover : var(--c0);
 
   --side-tool-panel-background:var(--c7);
