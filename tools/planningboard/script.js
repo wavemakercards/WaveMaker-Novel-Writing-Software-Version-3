@@ -26,6 +26,8 @@ drawpage()
 
 var dropObj = {}
 function drawpage(){
+    $("#cardmanager").html('')
+
   panelwidth =0;
   $.each(WMproject.data.writer, function(k,v){
     WriteColumns(v)
@@ -33,30 +35,38 @@ function drawpage(){
 
   $(".sortableCards").unbind().sortable({
     connectWith: ".connectedSortable",
-    start: function (event, ui) {    },
-    receive : function (event, ui) {
-    //  console.log(ui)
-      dropObj.startlist =$(ui.sender[0]).parent()
-      dropObj.startpos =$(ui.item[0]).data().position
+    start : function (event, ui) {
+        dropObj.startlist =ui.item.parent().parent().data("objTarget")
+        dropObj.startpos =$(ui.item[0]).data().position
+        dataToMove=JSON.parse(JSON.stringify(dropObj.startlist.data.notes[dropObj.startpos]))
+        console.log(dropObj.startlist.data.notes[dropObj.startpos])
+    },
+    stop : function (event, ui) {
 
-      dropObj.endlist =$(this).parent()
+        dropObj.endlist =ui.item.parent().parent().data("objTarget")
       dropObj.endpos =0; // if none then top of list
-      if($(ui.item[0]).prev()){
+      if (typeof $(ui.item[0]).prev().data() !== 'undefined') {
         dropObj.endpos = $(ui.item[0]).prev().data().position +1 // add 1 o the prev id and do the splice
-      }
-
-      if(dropObj.startlist === dropObj.endlist ){
+      }       
+      console.log(dropObj)
+  
+        if(dropObj.startlist === dropObj.endlist){
         // same list just update position
-        if(dropObj.endpos!==dropObj.startpos){
-          dropObj.endpos.data("objTarget").notes.splice()
-        }
+      //  if(dropObj.endpos===dropObj.startpos){
+            console.log("same list")
+            indexfix = 1;
+            if (dropObj.startpos < dropObj.endpos) { indexfix = 0 }
+            dropObj.endlist.data.notes.splice(dropObj.endpos, 0, dataToMove); // add
+            dropObj.startlist.data.notes.splice(dropObj.startpos + indexfix, 1); //delete
+     //   }
+      }else{
+        console.log("different list")
+        dropObj.endlist.data.notes.splice(dropObj.endpos, 0, dataToMove); // add
+        dropObj.startlist.data.notes.splice(dropObj.startpos, 1); //delete
       }
+      dosave()
+      drawpage()
 
-
-
-
-
-    console.log(dropObj)
     }
 }).disableSelection();
  }
