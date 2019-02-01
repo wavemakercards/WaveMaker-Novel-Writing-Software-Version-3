@@ -163,3 +163,40 @@ $(document).on("change", "#filepicker", function(){
 })
 
 
+
+$(document).on("change", "#wmProjfilepicker", function(){
+  var files =document.getElementById('wmProjselectFiles').files;
+  if (files.length <= 0) {
+    swal("Problem!", "You didn't select a file", "warning");
+    return false
+  }
+
+  var myfilename
+  myfilename = files[0].name
+  var parts=myfilename.split(".")
+  //console.log(parts[parts.length-1])
+  if((parts[parts.length-1].toLowerCase()) !=="wmproj"){
+    swal("Problem!", "That is not a wmproj file sorry", "warning");
+    return false
+  }
+  swal("Loading!", "Hi, Loading file now, please wait.", "success");
+
+ var fr = new FileReader();
+  fr.onloadstart =function(e){
+   // console.log("loading file start")
+  }
+  fr.onprogress =function(e){
+  //  console.log(e)
+  }
+  fr.onload = function(e) { 
+  //  console.log("Loading File complete") 
+//    var result = JSON.parse(e.target.result);
+ //   var formatted = JSON.stringify(result, null, 2);
+    importWMproj(e.target.result, parts[0])
+  }
+  
+  fr.readAsText(files.item(0));
+  
+})
+
+

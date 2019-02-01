@@ -92,6 +92,87 @@ function exportDatabase(mode, showfeedback=false) {
 
 }
 
+var newObj
+function importWMproj(json, filename){
+  var importData = JSON.parse(json);
+   newObj = {
+    title : filename,
+    data : {}
+  }
+  newObj.data.writer =[];
+  newObj.data.timeline = [];
+  newObj.data.snowflake =[];
+
+
+  $.each(importData.writer, function(key, xwriter){
+
+var notesarray=[]
+    $.each(xwriter.cards, function(xk, xcard){
+      notesarray.push({
+      title : xcard.cardtype,
+      content : xcard.cardtext,
+      backgroundColor : xcard.cardColor,
+      completed : xcard.completed,
+      })
+  });
+
+
+    newObj.data.writer.push(
+      {
+        title : xwriter.title,
+        data : { content : xwriter.bodytext ,
+              notes : notesarray
+        }
+      })
+      
+     
+
+      newObj.data.snowflake.push(
+        {
+          title : xwriter.title,
+          data : { content : xwriter.content ,
+               subcard1 : {
+                 title : xwriter.subcard1.title  ,
+                 content : xwriter.subcard1.content
+                },
+               subcard2 : {
+                title : xwriter.subcard2.title  ,
+                content : xwriter.subcard2.content
+               },
+               subcard3 : {
+                title : xwriter.subcard3.title  ,
+                content : xwriter.subcard3.content
+               }
+          }
+        }
+    )
+
+ 
+
+  })
+
+  $.each(importData.timeline, function(tk, xtimeline){
+    newObj.data.timeline.push(
+         {
+           title : xtimeline.cardtitle + " : " + xtimeline.cardevent ,
+           content : xtimeline.cardtext 
+         })
+       
+       })
+
+  
+//  console.log(newObj)
+  db.projects.add(newObj).then(function () {
+    db.projects.toArray(function (arr) {
+      WMsettings.currentproject = arr[arr.length - 1].id;
+      db.settings.update(1, WMsettings).then(function () {
+        checkprojectloaded();
+      });
+    })
+
+})
+}
+
 function importDatabase(json) {
   var importData = JSON.parse(json);
 //  console.log(importData)

@@ -60,7 +60,7 @@ body{
         color:var(--c0);
     }
     .datafilepicker{
-padding:0px;
+        padding:0px;
         display: block;
     
     }
@@ -106,7 +106,10 @@ margin-top:15px;
     opacity: 0;;
 }
 
-
+#wmProjselectFiles{
+    position: absolute;
+    opacity: 0;;
+}
 
 
 .googleButton {
@@ -241,6 +244,21 @@ margin-top:15px;
 
                 
                 
+                    <div class="row">
+                        <div class="col-12 col-md-6"><label>Load a .wmProj file</label></div>
+                        <div class="col-12 col-md-6">
+                            
+                            <div id="wmProjfilepicker" class="datafilepicker">
+                                <input type="file" id="wmProjselectFiles" value="Select the file to Load" class="form-control" />
+                                <div class="btn btn-wavemaker-success btn-block wm-sm" > <i class="fa fa-fw fa-upload"></i> Upload a wmProj file</div>
+                            </div>
+                            
+                               
+                            
+                            
+                            </div>
+                    </div>
+
 
 
                     <div class="row">
