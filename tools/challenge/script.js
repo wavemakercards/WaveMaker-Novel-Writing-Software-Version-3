@@ -55,7 +55,7 @@ $(function () {
 
   $("#letsgo").click(function () {
 
-    console.log($("#ds_settings").val())
+    //console.log($("#ds_settings").val())
 
     timer = $("#ds_settings").val() * 60
 

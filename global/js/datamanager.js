@@ -52,7 +52,7 @@ function checkprojectloaded() {
 }
 
 function saveWavemaker() {
-  console.log("Save SYNCH");
+  //console.log("Save SYNCH");
 }
 
 var exportData = {}
@@ -74,18 +74,18 @@ function exportDatabase(mode, showfeedback=false) {
 
     switch (mode) {
       case "gDriveNew":
-        console.log("New Google Drive Created");
+     //   console.log("New Google Drive Created");
         GDriveWrite(JSON.stringify(exportData))
         break;
         case "gDriveSave":
-        console.log("Saving Data to Google Drive");
+      //  console.log("Saving Data to Google Drive");
         GDriveWrite(JSON.stringify(exportData))
         if(showfeedback){
           swal("Uploaded!", "That has been Uploaded.", "success");
         }
         break;
       default:
-        console.log("defaults to backup")
+    //    console.log("defaults to backup")
         downloadFile(JSON.stringify(exportData))
     }
   });
@@ -94,20 +94,20 @@ function exportDatabase(mode, showfeedback=false) {
 
 function importDatabase(json) {
   var importData = JSON.parse(json);
-  console.log(importData)
+//  console.log(importData)
   // Clear the database contents
   db.settings.clear()
   db.projects.clear()
 
   db.settings.add(importData.settings.settings).then(function () {
-    console.log("settings added")
+    //console.log("settings added")
   });
 
   $.each(importData.projects, function (k, v) {
-    console.log(v)
+ //   console.log(v)
 
     db.projects.add(v).then(function () {
-      console.log("project " + v.id)
+    //  console.log("project " + v.id)
     });
 
   })
@@ -172,13 +172,13 @@ function downloadFile(mydata) {
 
    function GoogleSigninStatus(isSignedIn) {
        if (isSignedIn) {
-           console.log("Signed In")
+         //  console.log("Signed In")
            $('#authorize-button').hide();
            $('#signout-button').show();
            $("#okGoogle").show();
            GDriveFileGet();
        } else {
-           console.log("Signed Out")
+         //  console.log("Signed Out")
            $('#authorize-button').show();
            $('#signout-button').hide();
            $("#okGoogle").hide();
@@ -195,7 +195,7 @@ function downloadFile(mydata) {
            var files = response.result.files;
            // get the first one found!
            if (files && files.length > 0) {
-               console.log("File exists - using first one found")
+           //    console.log("File exists - using first one found")
                CURRENT_FILE_OBJ = files[0]
            }else{
             exportDatabase('gDriveNew');
@@ -204,7 +204,7 @@ function downloadFile(mydata) {
    }
 
    function GDriveRead() {
-    console.log("Reading File");
+    //console.log("Reading File");
        var request = gapi.client.drive.files.get({
            fileId: CURRENT_FILE_OBJ.id,
            alt: 'media'
@@ -212,11 +212,11 @@ function downloadFile(mydata) {
        request.then(function (response) {
            CURRENT_FILE_OBJ = response;          
            importDatabase(response.body)
-           console.log(CURRENT_FILE_OBJ)
+          // console.log(CURRENT_FILE_OBJ)
        }, function (error) {
-           console.error(error)
+        //   console.error(error)
        })
-       console.log("Got" , CURRENT_FILE_OBJ);
+       //console.log("Got" , CURRENT_FILE_OBJ);
        return request; //for batch request
       
    }
@@ -227,7 +227,7 @@ function downloadFile(mydata) {
 
    function GDriveWrite(FILEDATA, callback) {
     var filePath =""; 
-    console.log(CURRENT_FILE_OBJ);
+    //console.log(CURRENT_FILE_OBJ);
     if(CURRENT_FILE_OBJ){
       filePath = CURRENT_FILE_OBJ.id
     }  
@@ -268,9 +268,9 @@ function downloadFile(mydata) {
        if (!callback) {
            callback = function (file) {
             if(CURRENT_FILE_OBJ){
-              console.log("Data Saved to GDrive");
+              //console.log("Data Saved to GDrive");
             }  else{
-              console.log("Data Created on GDrive");
+             // console.log("Data Created on GDrive");
             }   
             CURRENT_FILE_OBJ = file;
            };

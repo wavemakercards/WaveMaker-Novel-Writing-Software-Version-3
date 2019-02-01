@@ -11,7 +11,7 @@ if(!WMproject.state){
 }
 WMproject.state.tool = "writer"
 db.projects.update(WMproject.id, WMproject).then(function () {
-  console.log("Saved Writer");
+//  console.log("Saved Writer");
 });
 
 var emptyWriter = [
@@ -431,22 +431,100 @@ function drawtree() {
 
 function drawNotes() {
     $("#notesPanel").html('');
-    $("#notesPanel").append("<button id='AddNote' class='btn btn-wavemaker btn-block'><i class='fa fa-fw fa-pencil-square-o'></i> Add Note</button>")
+    $("#notesPanel").append("<button id='AddNote' class='btn btn-wavemaker btn-block noteCardAdd'><i class='fa fa-fw fa-pencil-square-o'></i> Add Note</button>")   
     $("#notesPanel").append("<button id='notesToggle'><i class='fa fa-fw fa-sticky-note-o'></i></button>")
+    
+    mycol= $(`
+    <div class="cardsorter">
+    <ul id="notelist" class="sortableCards connectedSortable"></ul>
+    </div>
+    `);
+   
+   // fix for writer - I know!!
+    $("#notesPanel").data("objTarget",CURRENTNODE);
+   
+    mycol.data("objTarget",CURRENTNODE);
+    $("#notesPanel").append(mycol)
+
+
+    $.each(CURRENTNODE.data.notes, function (cardID, currentNote) {    
+     
+      addStyle = "";
+      if (currentNote.completed) {
+          addStyle=addStyle+" markAsDone " ;
+      }
+      if(currentNote.backgroundColor){
+              addStyle=addStyle+" color"+currentNote.backgroundColor+" " ;
+      }
+     
+      $(`#notelist`).append(`
+      <li data-position="${cardID}"  ><div class="wmcard cardSelect ${addStyle}"   >
+      <button type="button" class="pull-right btn btn-danger btn-circle btn-xs deleteNoteCard">
+      <i class="fa fa-times" title="Delete this Section"></i></button>
+      <div class="wmcard-body">
+      <div class="wmcard-title">${currentNote.title}</div>
+      <p class="wmcard-text">${nl2br(currentNote.content)}</p>
+      </div>
+      <button class="smallButtons noteCardEdit" ><i class="fa fa-edit"></i></button>
+      <button class="smallButtons cardToggle pull-right" title="Toggle Card Off" ><i class="fa fa-check"></i></button>
+      </div>
+      </li>
+      `);
+  })
+
+    
+    
+  $(".sortableCards").unbind().sortable({
+    connectWith: ".connectedSortable",
+    start : function (event, ui) {
+        dropObj.startlist =ui.item.parent().parent().data("objTarget")
+        dropObj.startpos =$(ui.item[0]).data().position
+        dataToMove=JSON.parse(JSON.stringify(dropObj.startlist.data.notes[dropObj.startpos]))
+       // console.log(dropObj.startlist.data.notes[dropObj.startpos])
+    },
+    stop : function (event, ui) {
+    dropObj.endlist =ui.item.parent().parent().data("objTarget")
+      dropObj.endpos =0; // if none then top of list
+      if (typeof $(ui.item[0]).prev().data() !== 'undefined') {
+        dropObj.endpos = $(ui.item[0]).prev().data().position +1 // add 1 o the prev id and do the splice
+      }       
+     
+        if(dropObj.startlist === dropObj.endlist){
+        // same list just update position
+      //  if(dropObj.endpos===dropObj.startpos)  
+            indexfix = 1;
+            if (dropObj.startpos < dropObj.endpos) { indexfix = 0 }
+            dropObj.endlist.data.notes.splice(dropObj.endpos, 0, dataToMove); // add
+            dropObj.startlist.data.notes.splice(dropObj.startpos + indexfix, 1); //delete
+     //   }
+      }else{
+        dropObj.endlist.data.notes.splice(dropObj.endpos, 0, dataToMove); // add
+        dropObj.startlist.data.notes.splice(dropObj.startpos, 1); //delete
+      }
+      dosave()
+      drawNotes()
+
+    }
+}).disableSelection();
+
+
+    /*
+    
     $.each(CURRENTNODE.data.notes, function (k, i) {
       notecard = $("<div class='note-card' data-noteref='" + k + "'><textarea placeholder='Write Here' class='note-content'>" + i.content + "</textarea><button  class='note-delete'><i class='fa fa-trash fa-fw'></i></button></div>")
       $("#notesPanel").append(notecard)
     })
     autosize($('.note-content'))
-  
+
     // reset the update on keypress
     $(document).off("keyup paste", ".note-content").on("keyup paste", ".note-content", function () {
       k = $(this).parent().data("noteref");
       CURRENTNODE.data.notes[k].content = $(this).val()
       dosave();
     })
-  
-  
+    */
+    
+    
     // reset the buttons
     $('.note-delete').unbind().click(function () {
       swal({
@@ -667,26 +745,9 @@ $(document).off("click", "#nodeText").on("click", "#nodeText", function () {
 
   
   
-  /*
-  // NOT NEEDED as Markdown wont support
-  //doing it a different (and I think better way int he MANUSCRIPT files)
-  
-  $(document).off("click","#justifyLeft").on("click","#justifyLeft", function(){
-    document.execCommand("justifyLeft", false, "");
-  })
-  $(document).off("click","#justifyRight").on("click","#justifyRight", function(){
-    document.execCommand("justifyRight", false, "");
-  })
-  $(document).off("click","#justifyCenter").on("click","#justifyCenter", function(){
-    document.execCommand("justifyCenter", false, "");
-  })
-  $(document).off("click","#justifyFull").on("click","#justifyFull", function(){
-    document.execCommand("justifyFull", false, "");
-  })
-  */
   
   $(document).off("paste", "#nodeText").on("paste", "#nodeText", function (e) {
-    console.log("paste triggered")
+    //console.log("paste triggered")
     e.preventDefault();
     var text = "";
     if (e.clipboardData || e.originalEvent.clipboardData) {
@@ -711,10 +772,7 @@ $(document).off("click", "#nodeText").on("click", "#nodeText", function () {
     $("#manuscript").trigger("nodeCommand", { cmd: "addChild" });
    });
 
-   $(document).off("click", "#AddNote").on("click", "#AddNote", function () {
-    CURRENTNODE.data.notes.push({ content: "", complete: 0 });
-    drawNotes()
-  })
+
 
   function ShowWordCount(counted){
     var words=" Word"

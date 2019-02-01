@@ -123,7 +123,7 @@ function drawTable() {
       }).then(result => {
         if (result.value) {
           datatable.splice(toremove.x, 1);
-          console.log(datatable)
+         // console.log(datatable)
           drawTable()
           dosave("remove");
           swal("Deleted!", "That has been deleted.", "success");
@@ -141,7 +141,7 @@ function drawTable() {
         confirmButtonText: "Yes, delete it!"
       }).then(result => {
         if (result.value) {
-          console.log("delete Col", toremove.y);
+          //console.log("delete Col", toremove.y);
           $.each(datatable, function (k, i) {
             i.splice(toremove.y, 1);
           });

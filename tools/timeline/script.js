@@ -22,7 +22,7 @@ dosave();
 
 function dosave() {
   db.projects.update(WMproject.id, WMproject).then(function () {
-    console.log("Saved timelines");
+    //console.log("Saved timelines");
   });
 }
 
@@ -41,7 +41,7 @@ function timeLineinit() {
       },
       placeholder: "ui-state-highlight",
       stop: function (event, ui) {
-        console.log(ui.item)
+       // console.log(ui.item)
       }
     }
   );

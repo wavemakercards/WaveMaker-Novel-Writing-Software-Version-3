@@ -8,126 +8,19 @@
   bottom:0px;
   overflow: auto;
 }
-
-.wmcard{
-  color: #212121;
-    border: 1px solid #616161;
-    background-color: #fafafa;
-    padding: 15px;
-    font-size: 0.8em;
-}
-.btn-circle.btn-xs {
-    width: 15px;
-    height: 15px;
-    text-align: center;
-    padding: 0px 0;
-    font-size: 10px;
-    line-height: 1;
-    border-radius: 15px;
-}
-.smallButtons {
-    color: #212121;
-    border: 0px;
-    background: none;
-}
-
-#cardmanager{
-  padding-top:60px;
-  margin:0 auto;
-  position:absolute;
-  top:0px;
-  left:0px;
-  right:0px;
-  bottom:0px;
-}
-
 .cardsorter{
-  padding:25px;
-  position:relative;
-    width:  350px;
-    float: left;
-    min-height: 500px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 1px #d3d3d3 dashed;
-    margin-bottom:70px;
-}
-
-.sortableCards{
-  position: relative;
- list-style: none;
- margin: 0;
- padding:0;
- min-height: 100px;
-}
-
-.sortableCards>li{
-  margin-bottom:10px;
-    cursor: move;
-}
-
-.CardmanagerTitle{
-  text-align: center;
-  padding: 5px;
-}
-
-.addNewCard{
-  position: absolute;
-  right:0px;
-  top:0px;
-  border:0px;
-  background: none;
-}
-
-#addCardsManagerChapter{
-  position:fixed;
-  top:0px !important;
-  right:150px;
-  width:150px !important;
-  height: 50px !important;
-  z-index:999999999;
-}
-
-#toggleCompletedCardsCardEditor{
-  position:fixed;
-  top:0px !important;
-  right:0px;
-  width:150px !important;
-  height: 50px !important;
-  z-index:999999999;
-
+padding:25px;
+position:relative;
+  width:  350px;
+  float: left;
+  min-height: 500px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 1px #d3d3d3 dashed;
+  margin-bottom:70px;
 }
 
 
-#CardsColourPicker{
-  position: absolute;
-  left:5px;
-  
-}
-#CardsColourPicker button{
-  border:0px; 
-  width:20px;
-  height:20px;
-  border:1px solid #000;
-  margin: 1px;
-  padding:0px;
-}
-/*
-.color0{
-  background-color  :transparent;
-}*/
-.color1{
-  background-color: #71cac4 !important;
-}
-.color2{
-  background-color: #e2e647 !important;
-}
-.color3{
-  background-color: #f49ebb !important;
-}
-.color4{
-  background-color: #fbad4b !important;
-}
 </style>
 <div id="scroller">
 <div id="cardmanager"></div>
@@ -152,7 +45,7 @@
        </button>
      </div>
      <div class="modal-body">
-       <textarea id="CardText" class='texteditor' placeholder='Make Your Note Here'></textarea>
+       <textarea id="NoteCardtext" class='noteTextEditor' placeholder='Make Your Note Here'></textarea>
      </div>
      <div class="modal-footer">
        <input type="hidden" value="" id="cardColorCoice">

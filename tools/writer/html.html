@@ -291,4 +291,41 @@ Custom media queries
 
       </div>
 
-      
+       <!-- Modal -->
+ <div class="modal fade" id="CardModal" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="CardTitle"
+ aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <select id="CardType" class="form-control">
+         <option value="Character Card">Character Card</option>
+         <option value="Theme Card">Theme Card</option>
+         <option value="Plot Card">Plot Card</option>
+         <option value="Scene Card">Scene Card</option>
+         <option value="Symbol Card">Symbol Card</option>
+         <option value="Location Card">Location Card</option>
+         <option value="Note Card">Note Card</option>
+       </select>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+       <textarea id="NoteCardtext" class='noteTextEditor' placeholder='Make Your Note Here'></textarea>
+     </div>
+     <div class="modal-footer">
+       <input type="hidden" value="" id="cardColorCoice">
+       <div id="CardsColourPicker">
+         <button  data-color="0" class="color0 CardsColourPickerButton"></button>
+         <button  data-color="1" class="color1 CardsColourPickerButton"></button>
+         <button  data-color="2"class="color2 CardsColourPickerButton"></button>
+         <button  data-color="3"class="color3 CardsColourPickerButton"></button>
+         <button  data-color="4"class="color4 CardsColourPickerButton"></button>
+       </div>
+
+       <button type="button" class="btn btn-secondary btn-circle circle-pill" data-dismiss="modal">Close</button>
+       <button type="button" class="btn btn-primary btn-circle circle-pill" id="saveCard">Save changes</button>
+     </div>
+   </div>
+ </div>
+</div>

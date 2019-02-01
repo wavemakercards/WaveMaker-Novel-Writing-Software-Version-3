@@ -2,7 +2,9 @@ var WriterKey = '';
 var CURRENTNODE;
 var CURRENTLI;
 var viewDocSettings =0
-
+var selectedSection;
+var selectedNote;
+var dropObj = {}
 
 if (window.matchMedia('(display-mode: standalone)').matches) {
   console.log("This is running as standalone.");
@@ -32,9 +34,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
     // Wait for the user to respond to the prompt
     deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the A2HS prompt');
+         // console.log('User accepted the A2HS prompt');
         } else {
-          console.log('User dismissed the A2HS prompt');
+        //  console.log('User dismissed the A2HS prompt');
         }
         deferredPrompt = null;
       });
@@ -204,7 +206,7 @@ function loadtool(toolname) {
     var manu = WMproject.data.settings.manuscript
     $.each(manu, function (k, i){
      document.documentElement.style.setProperty('--'+k, i);
-     console.log("--"+k, " : " , i)
+    // console.log("--"+k, " : " , i)
     })
    dosave();
   }
@@ -289,3 +291,89 @@ $(window).bind('keydown', function(event) {
       }
   }
 });
+
+
+$(document).off("click",".noteCardAdd").on("click",".noteCardAdd", function () {
+  selectedSection = $(this).parent().data("objTarget");
+  selectedNote = false;
+  $("#CardModal").modal("show");
+  $("#NoteCardtext").val("");
+  $("#cardColorCoice").val('')
+  autosize($('.noteTextEditor'));
+})
+
+$(document).off("click",".CardsColourPickerButton").on("click",".CardsColourPickerButton",function () {
+  $("#cardColorCoice").val($(this).data("color"))
+})
+
+
+$(document).off("click",".noteCardEdit").on("click",".noteCardEdit", function () {
+  selectedSection =$(this).parent().parent().parent().parent().data().objTarget;
+  selectedNote = $(this).parent().parent().data().position;
+  $("#CardType").val(selectedSection.data.notes[selectedNote].title);
+  $("#NoteCardtext").val(selectedSection.data.notes[selectedNote].content);
+  $("#cardColorCoice").val(selectedSection.data.notes[selectedNote].backgroundColor)
+  $("#CardModal").modal("show");
+  autosize($('.noteTextEditor'));
+  autosize.update($(".noteTextEditor"));
+})
+
+$(document).off("click","#saveCard").on("click","#saveCard", function () {
+  type = $("#CardType").val();
+  text = $("#NoteCardtext").val();
+  color = $("#cardColorCoice").val();
+  if (selectedNote===false) {
+      selectedSection.data.notes.push({
+          title: type,
+          content: text,
+          backgroundColor: color
+      })
+  } else {
+      selectedSection.data.notes[selectedNote].title = type
+      selectedSection.data.notes[selectedNote].content = text
+      selectedSection.data.notes[selectedNote].backgroundColor = color
+  }
+ // selectedSection = false;
+  selectedNote = false;
+  $("#CardModal").modal("hide")
+  $('.modal-backdrop').remove();
+
+  dosave()
+  drawNotes();
+})
+
+
+$(document).off("click",".deleteNoteCard").on("click",".deleteNoteCard",function (evt) {
+  evt.stopPropagation();
+  swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Delete it!'
+  }).then((result) => {
+      if (result.value) {
+          selectedNote =$(this).parent().parent().parent().parent().data().objTarget;
+          kill = $(this).parent().parent().data().position;
+          selectedNote.data.notes.splice(kill, 1)
+          dosave()
+          drawNotes()
+          swal(
+              'Deleted!',
+              'Your Card has been deleted.',
+              'success'
+          )
+      }
+  })
+})
+
+
+$(document).off("click",".cardToggle").on("click",".cardToggle",function () {
+selectedSection =$(this).parent().parent().parent().parent().data().objTarget;
+selectedNote = $(this).parent().parent().data().position;
+selectedSection.data.notes[selectedNote].completed = !selectedSection.data.notes[selectedNote].completed;
+dosave()
+drawNotes()
+})

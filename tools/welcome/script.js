@@ -137,7 +137,7 @@ $(document).on("change", "#filepicker", function(){
   var myfilename
   myfilename = files[0].name
   var parts=myfilename.split(".")
-  console.log(parts[parts.length-1])
+  //console.log(parts[parts.length-1])
   if((parts[parts.length-1].toLowerCase()) !=="wmdata"){
     swal("Problem!", "That is not a wmdata file sorry", "warning");
     return false
@@ -146,13 +146,13 @@ $(document).on("change", "#filepicker", function(){
 
  var fr = new FileReader();
   fr.onloadstart =function(e){
-    console.log("loading file start")
+   // console.log("loading file start")
   }
   fr.onprogress =function(e){
-    console.log(e)
+  //  console.log(e)
   }
   fr.onload = function(e) { 
-    console.log("Loading File complete") 
+  //  console.log("Loading File complete") 
 //    var result = JSON.parse(e.target.result);
  //   var formatted = JSON.stringify(result, null, 2);
     importDatabase(e.target.result)

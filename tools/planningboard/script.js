@@ -21,10 +21,13 @@ function dosave() {
 }
 
 var panelwidth;
-drawpage()
 
-var dropObj = {}
-function drawpage(){
+
+
+drawNotes()
+
+
+function drawNotes(){
     $("#cardmanager").html('')
 
   panelwidth =0;
@@ -38,7 +41,7 @@ function drawpage(){
         dropObj.startlist =ui.item.parent().parent().data("objTarget")
         dropObj.startpos =$(ui.item[0]).data().position
         dataToMove=JSON.parse(JSON.stringify(dropObj.startlist.data.notes[dropObj.startpos]))
-        console.log(dropObj.startlist.data.notes[dropObj.startpos])
+       // console.log(dropObj.startlist.data.notes[dropObj.startpos])
     },
     stop : function (event, ui) {
     dropObj.endlist =ui.item.parent().parent().data("objTarget")
@@ -60,7 +63,7 @@ function drawpage(){
         dropObj.startlist.data.notes.splice(dropObj.startpos, 1); //delete
       }
       dosave()
-      drawpage()
+      drawNotes()
 
     }
 }).disableSelection();
@@ -68,12 +71,12 @@ function drawpage(){
 
 
 function WriteColumns(dta){
-    console.log(dta)
+    //console.log(dta)
 
     panelwidth = panelwidth + 370
     mycol= $(`
     <div class="cardsorter">
-    <button class="addNewCard"><i class="fa fa-plus"></i></button>
+    <button class="noteCardAdd"><i class="fa fa-plus"></i></button>
     <div class="CardmanagerTitle">${dta.title}</div>
     <ul id="List_${listTargetid}_list" class="sortableCards connectedSortable"></ul>
     </div>
@@ -89,33 +92,26 @@ function WriteColumns(dta){
         if (currentNote.completed) {
             addStyle=addStyle+" markAsDone " ;
         }
-        if(currentNote.cardColor){
-                addStyle=addStyle+" color"+currentNote.cardColor+" " ;
+        if(currentNote.backgroundColor){
+                addStyle=addStyle+" color"+currentNote.backgroundColor+" " ;
         }
        
         $(`#List_${listTargetid}_list`).append(`
         <li data-position="${cardID}"  ><div class="wmcard cardSelect ${addStyle}"   >
-        <button type="button" class="pull-right btn btn-danger btn-circle btn-xs deleteCard">
+        <button type="button" class="pull-right btn btn-danger btn-circle btn-xs deleteNoteCard">
         <i class="fa fa-times" title="Delete this Section"></i></button>
         <div class="wmcard-body">
-        <div class="wmcard-title">${currentNote.title} ${cardID}</div>
+        <div class="wmcard-title">${currentNote.title}</div>
         <p class="wmcard-text">${nl2br(currentNote.content)}</p>
         </div>
-        <button class="smallButtons cardEdit" ><i class="fa fa-edit"></i></button>
+        <button class="smallButtons noteCardEdit" ><i class="fa fa-edit"></i></button>
         <button class="smallButtons cardToggle pull-right" title="Toggle Card Off" ><i class="fa fa-check"></i></button>
         </div>
         </li>
         `);
-
-     
-      
     })
 
     listTargetid++
-
-
-
-
     if(dta.children !== undefined){
         $.each(dta.children, function(k,v){
         WriteColumns(v)
@@ -128,152 +124,6 @@ $('#cardmanager').width(panelwidth + "px")
 
 
 
-$("#addSection").unbind().click(function () {
-  addEditorSection();
-  drawpage();
-})
-
-
-
-$("#addCardsManagerChapter").unbind().click(function () {
-
-  addEditorSection();
-  drawpage();
-})
-
-$("#addCard").unbind().click(function () {
-  selectedCard = false;
-  $("#CardModal").modal("show");
-  $("#CardText").val("");
-  autosize($('.texteditor'));
-})
-
-$(".addNewCard").unbind().click(function () {
-
-  selectedSection = $(this).parent().attr("id");
-  selectedCard = false;
-  $("#CardModal").modal("show");
-  $("#CardText").val("");
-  $("#cardColorCoice").val('')
-  autosize($('.texteditor'));
-})
-
-
-$('.cardToggle').unbind().click(function () {
-  toggleCardDone($(this).parent());
-})
-
-
-$("#toggleCompletedCards").unbind().click(function () {
-  toggleCards()
-})
-
-
-$("#toggleCompletedCardsCardEditor").unbind().click(function () {
-  toggleCards()
-})
-
-$('.cardEdit').unbind().click(function () {
-  selectedCard = $(this).parent().attr("id");
-  selectedSection = $(this).parent().data("parent")
-  $("#CardType").val(WaveMaker.writer[selectedSection].cards[selectedCard].cardtype);
-  $("#CardText").val(WaveMaker.writer[selectedSection].cards[selectedCard].cardtext);
-  $("#cardColorCoice").val(WaveMaker.writer[selectedSection].cards[selectedCard].cardColor)
-  $("#CardModal").modal("show");
-  autosize($('.texteditor'));
-  autosize.update($(".texteditor"));
-})
-
-
-
-$('.deleteCard').unbind().click(function (evt) {
-  evt.stopPropagation();
-  swal({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Delete it!'
-  }).then((result) => {
-      if (result.value) {
-          kill = $(this).parent().attr("id")
-          section = $(this).parent().data("parent")
-          $("#" + kill).remove()
-          delete WaveMaker.writer[section].cards[kill];
-          //setupRightHandSide()
-          swal(
-              'Deleted!',
-              'Your Card has been deleted.',
-              'success'
-          )
-      }
-  })
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-var cardColors=['default','#71cac4','#e2e647','#f49ebb','#fbad4b']; cardToolsave = true;
-
-
-
-function saveCard() {
-    //console.log(selectedSection)
-    cardsObj = WaveMaker.writer[selectedSection].cards;
-    type = $("#CardType").val();
-    text = $("#CardText").val();
-    color = $("#cardColorCoice").val();
-    if (!selectedCard) {
-        timestamp = new Date().getTime() + "" + new Date().getUTCMilliseconds();
-        cardsObj["card_" + timestamp] = {
-            cardtype: type,
-            cardtext: text,
-            cardColor: color,
-            position: Object.size(cardsObj)
-        }
-    } else {
-        cardsObj[selectedCard].cardtype = type
-        cardsObj[selectedCard].cardtext = text
-        cardsObj[selectedCard].cardColor = color
-    }
-    $("#" + selectedCard).find(".wmcard-title").html(type)
-    $("#" + selectedCard).find(".wmcard-text").html(nl2br(text))
-    selectedCard = false;
-    $("#CardModal").modal("hide")
-
-    $('.modal-backdrop').remove();
-
-    if (cardToolsave) {
-        drawpage();
-    } else {
-        setupRightHandSide()
-    }
-}
-
-
-function toggleCardDone(mycard) {
-    myref = mycard.attr("id")
-    myparent = mycard.data("parent")
-    if ($("#" + myref).hasClass("markAsDone")) {
-        $("#" + myref).removeClass("markAsDone")
-        WaveMaker.writer[myparent].cards[myref].completed = false
-    } else {
-        $("#" + myref).addClass("markAsDone")
-        WaveMaker.writer[myparent].cards[myref].completed = true
-    }
-    updatecompletedcards();
-}
 
 
 function toggleCards() {
@@ -292,8 +142,5 @@ function updatecompletedcards() {
 }
 
 
-$(".CardsColourPickerButton").unbind().click(function () {
-    $("#cardColorCoice").val($(this).data("color"))
-})
 
 

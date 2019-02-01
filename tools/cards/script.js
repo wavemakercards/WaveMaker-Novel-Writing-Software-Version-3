@@ -53,7 +53,7 @@ $(document).off("click", ".card-edit-button").on("click", ".card-edit-button", f
   k = $(this).parent().data("key");
   editObject=results[k];
   editcard = "yes";
-  console.log(k)
+  //console.log(k)
   newCardObj = editObject;
   $("#CardTitle").val(editObject.title);
   $("#CardContent").val(editObject.content);
@@ -67,7 +67,7 @@ $(document).off("click", ".card-edit-button").on("click", ".card-edit-button", f
 
 // hacky way of making sure the modal triggers the atosize
 $("#CardManagerModal").unbind().mouseenter(function(){
-  console.log("mouse")
+  //console.log("mouse")
   autosize.update($("#CardContent"))
 })
 
@@ -126,7 +126,7 @@ function drawCards(){
   $("#navigation-side-nav").html("<ul id='hashtag-list'></ul>")
   $.each(WMproject.data.cards, function(k,v){
     $.each(v.tags, function(kk,vv){
-     // console.log(allHashtags.indexOf(vv))
+     // //console.log(allHashtags.indexOf(vv))
     if(allHashtags.indexOf(vv)==-1){
     allHashtags.push(vv)
     }
@@ -146,13 +146,13 @@ function drawCards(){
   var query = $("#card-search").val();
   if (query != "") {
     results = [];
-    //console.log("searching", query);
+    ////console.log("searching", query);
     $.each(WMproject.data.cards, function (k, i) {
       var matchfound = 0;
       $.each(i.tags, function (kk, ii) {
         if (ii.indexOf(query) !== -1) { matchfound = 1; }
         if (matchfound) {
-          //// console.log("Match", query, i);
+          //// //console.log("Match", query, i);
         }
 
       });
@@ -332,9 +332,9 @@ function drawCards(){
   if (!WMproject.state.gridDisplay) {
     var maxh = 0
     $.each($(".cardy"), function () {
-     // console.log($(this).height())
+     // //console.log($(this).height())
       if (maxh < $(this).height()) { maxh = $(this).height() }
-      console.log(maxh)
+      //console.log(maxh)
     })
     //$(".cardy").height(maxh);
   }
@@ -399,7 +399,7 @@ var wmUploadFile = function (myinput) {
 
       // document.getElementById("base64").value = canvas.toDataURL();
       /*    idarray=parentDiv.attr("id").split("_");
-       // console.log(idarray)
+       // //console.log(idarray)
         WMproject.wiki[idarray[1]].wiki_components[idarray[3]].content=canvas.toDataURL();*/
     };
     image.src = event.target.result;
