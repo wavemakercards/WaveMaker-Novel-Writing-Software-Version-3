@@ -513,17 +513,23 @@ font-size: 1.3em;
 background-color  :#fff;
 }
 .color1{
-background-color: #71cac4 !important;
+background-color: #f06292 !important;
 }
 .color2{
-background-color: #e2e647 !important;
+background-color: #9575cd !important;
 }
 .color3{
-background-color: #f49ebb !important;
+background-color: #4fc3f7 !important;
 }
 .color4{
-background-color: #fbad4b !important;
+background-color: #4db6ac !important;
 }
+.color5{
+  background-color: #fff176 !important;
+  }
+  .color6{
+    background-color: #ff8a65 !important;
+    }
 
 
 

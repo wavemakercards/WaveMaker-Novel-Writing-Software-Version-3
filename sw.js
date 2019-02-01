@@ -1,7 +1,6 @@
 /*
-Verison 3.0.1
+Verison 3.0.2
 */
-
 'use strict';
 importScripts('sw-toolbox.js'); toolbox.precache([
     "index.html",
@@ -30,11 +29,10 @@ importScripts('sw-toolbox.js'); toolbox.precache([
     "lib/js/tether.min.js",
     "lib/js/touchpunch.js",
     "lib/js/turndown.js",
-    "tools/cards/script.js",
     "tools/cards/html.html",
-    "tools/challenge/script.js",
-    "tools/challenge/html.html",
     "tools/cards/script.js",
+    "tools/challenge/html.html",
+    "tools/challenge/script.js",
     "tools/distraction-free/html.html",
     "tools/distraction-free/script.js",
     "tools/gridplanner/html.html",
