@@ -53,7 +53,7 @@ function getProjects() {
         `
         <div class="row">
         <div class="col-8"><Button class='ProjectSelectButton btn ' data-setid='${set.id}'><i class='fa fa-file-text fa-fw '></i>  ${set.title}</button></div>
-        <div class="col-4"><Button class='ProjectDeleteButton btn btn-wavemaker-danger ' data-setid='${set.id}' title ="Delete this Project"><i class='fa fa-trash fa-fw '></i></button></div>
+        <div class="col-4 text-right"><Button class='ProjectDeleteButton btn btn-wavemaker-danger ' data-setid='${set.id}' title ="Delete this Project"><i class='fa fa-trash fa-fw '></i></button></div>
         </div>
         `
       );
