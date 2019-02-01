@@ -1,3 +1,7 @@
+/*
+Verison 3.0.1
+*/
+
 'use strict';
 importScripts('sw-toolbox.js'); toolbox.precache([
     "index.html",
