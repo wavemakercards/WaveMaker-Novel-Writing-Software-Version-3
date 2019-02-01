@@ -4,38 +4,19 @@ hideNavBar()
 
 
 if(!WMproject.state){
-
   WMproject.state={}
-
 }
-
 WMproject.state.tool= "challenge" ;
-
 if (!WMproject.data) {
-
   WMproject.data = {};
-
 }
 
 savedata()
-
 function savedata() {
-
   db.projects.update(WMproject.id, WMproject).then(function () {
-
     saveWavemaker();
-
   });
-
 }
-
-
-
-
-
-
-
-
 
 var target = 150;
 
@@ -44,147 +25,68 @@ var timer = 5 * 60;
 
 
 $(function () {
-
   $("#result").hide();
-
   autosize($('.ChallengeModeTextarea'));
-
   //setTimeout(typeWriter, speed);
-
-
-
-  $("#letsgo").click(function () {
-
-    //console.log($("#ds_settings").val())
-
-    timer = $("#ds_settings").val() * 60
-
-    target = $("#ds_settings").val() * 30
-
-    $("#startform").fadeOut()
-
-    setTimeout(writetimer, 1000);
-
-    $('#challengeEditor').focus();
-    
-    document.getElementById("challengeEditor").onkeydown = checkKey;
-
-  })
-
-
-
+  $("#letsgo").unbind().click(
+    function () {
+      //console.log($("#ds_settings").val())
+      timer = $("#ds_settings").val() * 60
+      target = $("#ds_settings").val() * 30
+      $("#startform").fadeOut()
+      setTimeout(writetimer, 1000);
+      $('#challengeEditor').focus();
+      document.getElementById("challengeEditor").onkeydown = checkKey;
+    })
 })
 
 
 
 function writetimer() {
-
   if (timer == 0) {
-
     $("#displayTimer").html('<button onclick="finish()" class="timerselect">Finish</button>')
-
   } else {
-
     timer = timer - 1;
-
     $("#displayTimer").html(timer + " seconds left")
-
     setTimeout(writetimer, 1000);
-
   }
-
 }
-
-
-
-
-
-
-
-
-
-
 
 $(document).off("paste", "#challengeEditor").on("paste", "#challengeEditor", function (e) {
-
-
-
   e.preventDefault();
-
   var text = "";
-
   if (e.clipboardData || e.originalEvent.clipboardData) {
-
     text = (e.originalEvent || e).clipboardData.getData("text/plain");
-
   } else if (window.clipboardData) {
-
     text = window.clipboardData.getData("Text");
-
   }
-
   if (document.queryCommandSupported("insertText")) {
-
     document.execCommand("insertText", false, text);
-
   } else {
-
     document.execCommand("paste", false, text);
-
   }
-
-
-
 });
 
-
-
-
-
 function checkKey(e) {
-
-
-
   e = e || window.event;
-
   if (e.keyCode == '38') {
-
     // up arrow
-
     e.preventDefault();
-
   }
-
   else if (e.keyCode == '40') {
-
     // down arrow
-
     e.preventDefault();
-
   }
-
   else if (e.keyCode == '37') {
-
     e.preventDefault();
-
     // left arrow
-
   }
-
   else if (e.keyCode == '39') {
-
     e.preventDefault();
-
     // right arrow
-
   }
-
   getwordcount($("#challengeEditor"))
-
 }
-
-
-
 
 
 function getwordcount(el) {

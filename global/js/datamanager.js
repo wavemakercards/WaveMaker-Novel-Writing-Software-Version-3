@@ -80,6 +80,7 @@ function exportDatabase(mode, showfeedback=false) {
         case "gDriveSave":
       //  console.log("Saving Data to Google Drive");
         GDriveWrite(JSON.stringify(exportData))
+        $("#synchmsg").html("") 
         if(showfeedback){
           swal("Uploaded!", "That has been Uploaded.", "success");
         }
@@ -116,38 +117,33 @@ var notesarray=[]
       })
   });
 
-
     newObj.data.writer.push(
       {
         title : xwriter.title,
         data : { content : xwriter.bodytext ,
               notes : notesarray
         }
-      })
-      
-     
+      })   
 
       newObj.data.snowflake.push(
         {
           title : xwriter.title,
-          data : { content : xwriter.content ,
+          content : xwriter.bodytext ,
                subcard1 : {
                  title : xwriter.subcard1.title  ,
-                 content : xwriter.subcard1.content
+                 content : xwriter.subcard1.bodytext
                 },
                subcard2 : {
                 title : xwriter.subcard2.title  ,
-                content : xwriter.subcard2.content
+                content : xwriter.subcard2.bodytext
                },
                subcard3 : {
                 title : xwriter.subcard3.title  ,
-                content : xwriter.subcard3.content
+                content : xwriter.subcard3.bodytext
                }
-          }
+    
         }
     )
-
- 
 
   })
 
@@ -192,7 +188,7 @@ function importDatabase(json) {
     });
 
   })
-
+  $("#synchmsg").html("") 
   swal("Import Complete!", "Your data file has been imported.", "success");
   exportData = {}
   loadtool("welcome")

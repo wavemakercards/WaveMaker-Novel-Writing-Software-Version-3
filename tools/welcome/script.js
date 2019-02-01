@@ -20,12 +20,14 @@ $("#GdriveUp").unbind().click(function(){
     confirmButtonText: "Yes, Upload it!"
   }).then(result => {
     if (result.value) {
+      $("#synchmsg").html("<i class='fa fa-fw fa-spinner fa-spin'></i> Putting Data") 
       exportDatabase("gDriveSave", true);
     }
   })
 })
 
 $("#GdriveDown").unbind().click(function(){
+
   swal({
     title: "Download from Google Drive?",
     text: "This Will overwrite your local saved data!",
@@ -36,18 +38,24 @@ $("#GdriveDown").unbind().click(function(){
     confirmButtonText: "Yes, Download it!"
   }).then(result => {
     if (result.value) {
+      $("#synchmsg").html("<i class='fa fa-fw fa-spinner fa-spin'></i> Getting Data") 
       GDriveRead()    
     }
   })
 })
 
 function getProjects() {
-  
-   $("#WMprojectprojectList").html('');
+  WMsettings.currentproject= false;
+   $("#wavemakerprojectList").html('');
   db.projects
     .each(function (set) {
       $("#wavemakerprojectList").append(
-        `<Button class='ProjectSelectButton btn ' data-setid='${set.id}'><i class='fa fa-file-text fa-fw '></i>  ${set.title}</button>`
+        `
+        <div class="row">
+        <div class="col-8"><Button class='ProjectSelectButton btn ' data-setid='${set.id}'><i class='fa fa-file-text fa-fw '></i>  ${set.title}</button></div>
+        <div class="col-4"><Button class='ProjectDeleteButton btn btn-wavemaker-danger ' data-setid='${set.id}' title ="Delete this Project"><i class='fa fa-trash fa-fw '></i></button></div>
+        </div>
+        `
       );
 
     })
@@ -64,7 +72,41 @@ function ProjectsDisplaySetup() {
       $("#CreateNewProjectModal").modal("show");
     });
 
-  $(".ProjectSelectButton")
+  $(".ProjectDeleteButton")
+    .unbind()
+    .click(function () {
+      indexValue = $(this).data("setid");
+
+
+
+      swal({
+        title: "Delete this project",
+        text: "This will remove the project from this system !",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(result => {
+        if (result.value) {
+          //delete the database!!
+         
+     db.projects.where("id").equals(indexValue).delete();
+   //  console.log("DELETE", indexValue)
+     getProjects()
+           swal("Deleted!", "The Data has been cleared", "success");
+   
+        }
+      });
+
+
+
+
+
+    
+    });
+
+    $(".ProjectSelectButton")
     .unbind()
     .click(function () {
       WMsettings.currentproject = $(this).data("setid");
@@ -72,6 +114,9 @@ function ProjectsDisplaySetup() {
         checkprojectloaded();
       });
     });
+
+    
+
 
   $("#ProjectCreateNew")
     .unbind()
@@ -110,7 +155,7 @@ function ProjectsDisplaySetup() {
          Dexie.delete('wavemaker');
           WMproject = {};
           WMsettings = {};
-           swal("Deleted!", "The Data has been cleared", "success");
+           swal("Deleted!", "The app will need to re-load", "success");
           location.reload();
         }
       });
@@ -127,7 +172,7 @@ $("#dataform").slideToggle();
 })
 
 
-$(document).on("change", "#filepicker", function(){
+$(document).off("change", "#filepicker").on("change", "#filepicker", function(){
   var files =document.getElementById('selectFiles').files;
   if (files.length <= 0) {
     swal("Problem!", "You didn't select a file", "warning");
@@ -164,7 +209,7 @@ $(document).on("change", "#filepicker", function(){
 
 
 
-$(document).on("change", "#wmProjfilepicker", function(){
+$(document).off("change", "#wmProjfilepicker").on("change", "#wmProjfilepicker", function(){
   var files =document.getElementById('wmProjselectFiles').files;
   if (files.length <= 0) {
     swal("Problem!", "You didn't select a file", "warning");
