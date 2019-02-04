@@ -471,7 +471,9 @@ display: block;
 border:0px;
 outline:none;
 padding:10px;
+width: 100%;
 }
+
 
 
 #CardsColourPicker{

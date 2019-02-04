@@ -6,6 +6,8 @@ var selectedSection;
 var selectedNote;
 var dropObj = {}
 
+console.log("Version ", "123123")
+
 function checkMobile(){
   return($("#mobilecheck").is(":visible"))
 }
@@ -87,7 +89,7 @@ $(document).off('click','#navigation-toggle').on('click','#navigation-toggle' ,f
 function loadNavBar() {
     var d = new Date();
     navbar = $("<div id='navigation-holder'></div>");
-    navbar.load("components/navigationbar.html?t=" + d.getTime(), function () {
+    navbar.load("components/navigationbar.html", function () {
       $("body").append(navbar);
       $('[data-toggle="popover"]').popover();
       if(checkMobile()){
@@ -107,7 +109,7 @@ function loadNavBar() {
     return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
   }
   
-
+  $.ajaxSetup({cache: true });
 
 function loadtool(toolname) {
     // this loads the html into the app div and then gets the script file and runs i
@@ -121,9 +123,9 @@ function loadtool(toolname) {
     }
     */
     var d = new Date();
-    $("#wavemakerApp").load("tools/" + toolname + "/html.html?t=" + d.getTime(), function () {
+    $("#wavemakerApp").load("tools/" + toolname + "/html.html", function () {
       // load and run the script
-      $.getScript("tools/" + toolname + "/script.js?t=" + d.getTime(), function () {
+      $.getScript("tools/" + toolname + "/script.js", function () {
   
       });
     });

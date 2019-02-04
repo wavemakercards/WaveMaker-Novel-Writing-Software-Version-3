@@ -1,4 +1,7 @@
-/* Version 3x*/
+/*
+Verison 3.0.1
+*/
+
 'use strict';
 importScripts('sw-toolbox.js'); toolbox.precache([
     "index.html",
@@ -27,10 +30,10 @@ importScripts('sw-toolbox.js'); toolbox.precache([
     "lib/js/tether.min.js",
     "lib/js/touchpunch.js",
     "lib/js/turndown.js",
-    "tools/cards/html.html",
     "tools/cards/script.js",
-    "tools/challenge/html.html",
+    "tools/cards/html.html",
     "tools/challenge/script.js",
+    "tools/challenge/html.html",
     "tools/distraction-free/html.html",
     "tools/distraction-free/script.js",
     "tools/gridplanner/html.html",
@@ -43,4 +46,16 @@ importScripts('sw-toolbox.js'); toolbox.precache([
     "tools/welcome/script.js",
     "tools/writer/html.html",
     "tools/writer/script.js"
-]); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 50});
+]); toolbox.router.get('/images/ *', toolbox.cacheFirst); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 5});
+
+/*
+//cachefirst version for live
+'use strict';
+importScripts('sw-toolbox.js'); toolbox.precache([
+    "index.html",
+    "css/style.css",
+    "css/bootstrap-reboot.min.css",
+    "scripts/jquery-3.3.1.min.js",
+    "scripts/index.js"
+]); toolbox.router.get('/images/ *', toolbox.cacheFirst); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 5});
+*/
