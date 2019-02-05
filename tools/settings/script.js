@@ -1,20 +1,23 @@
-// this needs to be updated so that each tool can be reset - the only required entry is TOOL
-WMproject.state = { tool: "settings" };
-if (!WMproject.data) {
-  WMproject.data = {};
+$('#navigation-toggle').hide();
+hideNavBar()
+
+
+console.log("settinsg")
+
+if(!WMproject.state){
+  WMproject.state={}
 }
-if (!WMproject.data.settings) {
-  WMproject.data.settings = [{ title: "", content: "" }];
-}
-dosave();
-function dosave() {
+WMproject.state.tool = "exporting"
+
+
+savedata()
+function savedata() {
   db.projects.update(WMproject.id, WMproject).then(function () {
-    console.log("Saved");
+    saveWavemaker();
   });
 }
 
-
-$(document).off("click", "#savefile").on("click", "#savefile", function () {
+$(document).off("click", "#ExportProjectFile").on("click", "#ExportProjectFile", function () {
 
   myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".wmProj";
   var element = document.createElement('a');
