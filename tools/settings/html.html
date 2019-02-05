@@ -1,0 +1,83 @@
+<style>
+    /*
+    In this mode the css specific to the tool is included here - endeavour to use generic css wherever possible
+    */
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="context">Settings</h1>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-success">
+                <div class="row">
+                    <div class="col-8">
+                        <input class="form-control" value="" id="settings_title">
+                    </div>
+                    <div class="col-4">
+                        <button id="settings_title_save" class="btn btn-block  btn-success"><i class="fa fa-fw fa-caret-left"></i>
+                            Save new title</button>
+                    </div>
+                </div>
+                <select id="bodyfont" class="form-control">
+                    <option value="'Quicksand', serif">Quicksand (default app)</option>
+                    <option value="'Halant', serif">Halant (default editor)</option>
+                    <option value="'Handlee', cursive">Handlee</option>
+                    <option value="'Bitter', serif">Bitter</option>
+                    <option value="'Open Sans', sans-serif">Open Sans</option>
+                    <option value="'Raleway', serif">Raleway</option>
+                    <option value="'Special Elite', cursive">Special Elite</option>
+                    <option value="'Vollkorn', cursive">Vollkorn</option>
+                </select>
+
+                <select id="fontsize" class="form-control">
+                    <option value="6px">6px</option>
+                    <option value="8px">8px</option>
+                    <option value="10px">10px</option>
+                    <option value="12px">12px</option>
+                    <option value="14px">14px</option>
+                    <option value="16px">16px</option>
+                    <option value="18px">18px</option>
+                </select>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Default checkbox
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-info">
+                Last Synchronised : <b>NEVER</b> <button id="synchronise" class="btn btn-sm btn-info"><i class="fa fa-fw fa-cloud-upload"></i>
+                    Synch to cloud</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-primary">
+                <button id="savefile" class="btn btn-sm btn-primary"><i class="fa fa-download fa-fw"></i> Download
+                    .wmProj file</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-danger"><button id="deleteproject" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>
+                    Delete Project</button></div>
+        </div>
+    </div>
+</div>
