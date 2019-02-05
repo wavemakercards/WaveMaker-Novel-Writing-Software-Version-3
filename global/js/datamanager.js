@@ -93,10 +93,15 @@ function exportDatabase(mode, showfeedback=false) {
 
 }
 
-var newObj
+
 function importWMproj(json, filename){
+  var newObj
+
+
   var importData = JSON.parse(json);
-   newObj = {
+
+  //console.log(importData)
+  newObj = {
     title : filename,
     data : {}
   }
@@ -124,27 +129,42 @@ var notesarray=[]
               notes : notesarray
         }
       })   
-
-      newObj.data.snowflake.push(
-        {
-          title : xwriter.title,
-          content : xwriter.bodytext ,
-               subcard1 : {
-                 title : xwriter.subcard1.title  ,
-                 content : xwriter.subcard1.bodytext
-                },
-               subcard2 : {
-                title : xwriter.subcard2.title  ,
-                content : xwriter.subcard2.bodytext
-               },
-               subcard3 : {
-                title : xwriter.subcard3.title  ,
-                content : xwriter.subcard3.bodytext
-               }
-    
+      
+      
+      var snowObj ={
+        title : '',
+        content : '',
+        subcard1 : {
+          title : ''  ,
+          content : ''
+         },
+        subcard2 : {
+         title : '' ,
+         content : ''
+        },
+        subcard3 : {
+         title : ''  ,
+         content : ''
         }
-    )
+      }
+      snowObj.title = xwriter.title;
+      snowObj.content = xwriter.bodytext;
+      if(xwriter.subcard1){
+        snowObj.subcard1.title = xwriter.subcard1.title;
+        snowObj.subcard1.content = xwriter.subcard1.bodytext;
+      }
 
+      if(xwriter.subcard2){
+        snowObj.subcard2.title = xwriter.subcard2.title;
+        snowObj.subcard2.content = xwriter.subcard2.bodytext;
+      }
+
+      if(xwriter.subcard3){
+        snowObj.subcard3.title = xwriter.subcard3.title;
+        snowObj.subcard3.content = xwriter.subcard3.bodytext;
+      }
+    
+    newObj.data.snowflake.push(snowObj)
   })
 
   $.each(importData.timeline, function(tk, xtimeline){
