@@ -146,6 +146,7 @@ function drawCards(){
   var query = $("#card-search").val();
   if (query != "") {
     results = [];
+    query=query.toLowerCase().replace(/ /g, "") // turns natural text into hashtage matching format
     ////console.log("searching", query);
     $.each(WMproject.data.cards, function (k, i) {
       var matchfound = 0;
