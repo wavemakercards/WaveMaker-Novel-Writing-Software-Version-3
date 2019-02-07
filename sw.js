@@ -36,6 +36,8 @@ importScripts('sw-toolbox.js'); toolbox.precache([
     "tools/challenge/html.html",
     "tools/distraction-free/html.html",
     "tools/distraction-free/script.js",
+    "tools/exporting/html.html",
+    "tools/exporting/script.js",
     "tools/gridplanner/html.html",
     "tools/gridplanner/script.js",
     "tools/snowflake/html.html",
@@ -46,7 +48,7 @@ importScripts('sw-toolbox.js'); toolbox.precache([
     "tools/welcome/script.js",
     "tools/writer/html.html",
     "tools/writer/script.js"
-]); toolbox.router.get('/images/ *', toolbox.networkFirst); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 5});
+]); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 5});
 
 /*
 //cachefirst version for live

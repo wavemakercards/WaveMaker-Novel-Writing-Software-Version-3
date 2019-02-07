@@ -117,3 +117,17 @@ $(document).off("click", "#ExportHTML").on("click", "#ExportHTML", function () {
   element.click();
   document.body.removeChild(element);
 })
+
+
+
+$(document).off("click", "#ExportProjectFile").on("click", "#ExportProjectFile", function () {
+
+  myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".wmProx";
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:wmProx/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(WMproject)));
+  element.setAttribute('download', myfilename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+})

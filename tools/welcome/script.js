@@ -220,8 +220,10 @@ $(document).off("change", "#wmProjfilepicker").on("change", "#wmProjfilepicker",
   myfilename = files[0].name
   var parts=myfilename.split(".")
   //console.log(parts[parts.length-1])
-  if((parts[parts.length-1].toLowerCase()) !=="wmproj"){
-    swal("Problem!", "That is not a wmproj file sorry", "warning");
+var extension =(parts[parts.length-1].toLowerCase())
+
+  if( extension !=="wmproj" && extension !=="wmprox" ){
+    swal("Problem!", "That is not a Wavemaker Project file sorry", "warning");
     return false
   }
   swal("Loading!", "Hi, Loading file now, please wait.", "success");
@@ -237,7 +239,28 @@ $(document).off("change", "#wmProjfilepicker").on("change", "#wmProjfilepicker",
   //  console.log("Loading File complete") 
 //    var result = JSON.parse(e.target.result);
  //   var formatted = JSON.stringify(result, null, 2);
+    if(extension ==="wmproj"){
     importWMproj(e.target.result, parts[0])
+    }else{
+      var newObj =JSON.parse(e.target.result)
+      delete newObj.id;
+      delete newObj.state;
+     //  console.log(newObj)
+  db.projects.add(newObj).then(function () {
+    db.projects.toArray(function (arr) {
+      WMsettings.currentproject = arr[arr.length - 1].id;
+      db.settings.update(1, WMsettings).then(function () {
+        checkprojectloaded();
+      });
+    })
+
+})
+
+
+   
+
+      
+    }
   }
   
   fr.readAsText(files.item(0));
