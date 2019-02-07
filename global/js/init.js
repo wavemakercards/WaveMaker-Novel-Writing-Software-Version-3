@@ -6,8 +6,6 @@ var selectedSection;
 var selectedNote;
 var dropObj = {}
 
-console.log("Version ", "123123")
-
 function checkMobile(){
   return($("#mobilecheck").is(":visible"))
 }

@@ -145,7 +145,7 @@ function getwordcount(el) {
 
 function finish() {
 
-  html=markdown2html($("#challengeEditor").val());
+  html=markdown2html(nl2br($("#challengeEditor").val()));
 
   markdown= html2markdown(html)
 

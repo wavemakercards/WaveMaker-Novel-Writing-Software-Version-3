@@ -1,7 +1,7 @@
 /*
 Verison 3.0.1
 */
-
+console.log("Version ", "3.0.1")
 'use strict';
 importScripts('sw-toolbox.js'); toolbox.precache([
     "index.html",
@@ -46,7 +46,7 @@ importScripts('sw-toolbox.js'); toolbox.precache([
     "tools/welcome/script.js",
     "tools/writer/html.html",
     "tools/writer/script.js"
-]); toolbox.router.get('/images/ *', toolbox.cacheFirst); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 5});
+]); toolbox.router.get('/images/ *', toolbox.networkFirst); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 5});
 
 /*
 //cachefirst version for live

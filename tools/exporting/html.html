@@ -9,32 +9,46 @@
         right: 0px;
         bottom: 0px;
     }
+    .card{
+        padding: 10px;
+    }
 </style>
 <div id="exportOptions">
 
-    <div class="container-fluid">
-<div class="row">
-    <div class="col-12">
-        Export as an HTML Document
-    </div>
-</div>
-
-<div class="row">
-        <div class="col-12">
-            Export as Markdown
-        </div>
-    </div>
-
-    <div class="row">
-            <div class="col-12">
-                Export as RTF
-            </div>
-        </div>
-
-
+    <div class="container">
         <div class="row">
-                <div class="col-12">
-                    Export as eBook
+            <div class="col-12 col-md-6">
+                <div class="card">
+                <h2><i class="fa fa-fw fa-code"></i> Export as HTML </h2>
+                <p>HTML is is great for sharing to the web, and e-book formats, can also be opened in Word easily</p>
+                <button class="btn btn-wavemaker" id="ExportHTML"><i class="fa fa-fw fa-code"></i> Export HTML (.html)</button>
+            </div>
+            <hr>
+            </div>
+
+        <div class="col-12 col-md-6">
+                <div class="card">
+            <h2><i class="fa fa-fw fa-arrow-circle-o-down"></i> Export as Markdown</h2>
+            <p>You can use markdown format for your export if you want. This is a very popular format that can be imported virtually anywhere</p>
+            <button class="btn btn-wavemaker" id="ExportMarkdown"><i class="fa fa-fw fa-arrow-circle-o-down"></i>  Export Markdown (.md)</button>
+        </div>    <hr> </div>
+    </div>
+ 
+        <div class="row">
+            <div class="col-12 col-md-6">
+                    <div class="card">
+            <h2><i class="fa fa-fw fa-file-word-o"></i> Export as RTF  </h2>
+            <p>Rich Text Format - Coming Soon</p>
+            <button class="btn btn-wavemaker" id="ExportHTML" disabled><i class="fa fa-fw fa-file-word-o"></i> Export RTF (.rtf)</button>
+        </div>    <hr> </div>
+
+                <div class="col-12 col-md-6">
+                        <div class="card">
+                  
+                        <h2><i class="fa fa-fw fa-book"></i> Export as eBook  </h2>
+                        <p>eBook Export - Coming Soon</p>
+                        <button class="btn btn-wavemaker" id="ExportHTML" disabled><i class="fa fa-fw fa-book"></i> Export Ebook</button>
+                    </div>     <hr>
                 </div>
             </div>
 

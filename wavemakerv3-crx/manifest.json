@@ -1,0 +1,23 @@
+{
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "manifest_version": 2,
+    "name": "Wavemaker Software for Planning and Writing your Novel ",
+    "description": "This is the latest version of wavemaker software, now fully cross platform",
+    "version": "3.0.0",
+    "icons": {
+        "16": "wavemaker-16.png",
+        "128": "wavemaker-128.png"
+      },
+    "app": {
+        "urls": [
+            "https://wavemaker.cards/"
+        ],
+        "launch": {
+            "web_url": "https://wavemaker.cards/"
+        }
+    },
+    "permissions": [
+        "unlimitedStorage",
+        "notifications"
+    ]
+}
