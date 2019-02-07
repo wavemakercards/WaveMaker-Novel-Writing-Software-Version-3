@@ -1,6 +1,6 @@
 deInitNav();
 getProjects();
-
+WriterKey='';
 GoogleDrivehandleClientLoad();
 
 $("#CreateNewProject")
