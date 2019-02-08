@@ -511,6 +511,10 @@ color: #212121;
 font-size: 1.3em;
 }
 
+
+.wmcard {
+  font-weight: bold;
+  }
 .markAsDone {
   opacity: 0.4;
 }
@@ -524,21 +528,26 @@ background-color  :#fff;
 }
 .color1{
 background-color: #f06292 !important;
+
 }
 .color2{
 background-color: #9575cd !important;
+
 }
 .color3{
 background-color: #4fc3f7 !important;
+
 }
 .color4{
 background-color: #4db6ac !important;
+
 }
 .color5{
   background-color: #fff176 !important;
   }
   .color6{
     background-color: #ff8a65 !important;
+  
     }
 
 
