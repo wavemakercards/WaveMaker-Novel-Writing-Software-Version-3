@@ -72,7 +72,7 @@ function drawNotes(){
 
 function WriteColumns(dta){
     //console.log(dta)
-
+    listTargetid++
     panelwidth = panelwidth + 370
     mycol= $(`
     <div class="cardsorter">
@@ -111,9 +111,10 @@ function WriteColumns(dta){
         `);
     })
 
-    listTargetid++
+    
     if(dta.children !== undefined){
         $.each(dta.children, function(k,v){
+        
         WriteColumns(v)
         });
     }
