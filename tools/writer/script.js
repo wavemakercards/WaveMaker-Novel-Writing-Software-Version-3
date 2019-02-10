@@ -147,8 +147,10 @@ function drawtree() {
         var node = data.node;
         CURRENTNODE = node;
        // console.log("selected :", node)
-        WriterKey=CURRENTNODE.key;
-        CURRENTLI = CURRENTNODE.li;
+          //set a KEY timestamp 
+           CURRENTNODE.key= "_"+Math.round(+new Date()/1000);
+           WriterKey=CURRENTNODE.key;
+           CURRENTLI = CURRENTNODE.li;
         $(".activeLInode").removeClass("activeLInode");
         $(CURRENTLI).addClass("activeLInode");
         drawEditor();

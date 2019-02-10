@@ -5,7 +5,6 @@ var viewDocSettings =0
 var selectedSection;
 var selectedNote;
 var dropObj = {}
-
 function checkMobile(){
   return($("#mobilecheck").is(":visible"))
 }
