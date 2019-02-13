@@ -2,8 +2,8 @@ $('#navigation-toggle').hide();
 hideNavBar()
 
 
-if(!WMproject.state){
-  WMproject.state={}
+if (!WMproject.state) {
+  WMproject.state = {}
 }
 WMproject.state.tool = "exporting"
 
@@ -15,20 +15,20 @@ function savedata() {
   });
 }
 
-var markDownOutput ="";
-function getMarkDown(dta){
+var markDownOutput = "";
+function getMarkDown(dta) {
   //console.log(dta)
-  if(dta.data){
-  markDownOutput=markDownOutput+dta.data.content;
-    if(dta.children !== undefined){
-      $.each(dta.children, function(k,v){
+  if (dta.data) {
+    markDownOutput = markDownOutput + dta.data.content;
+    if (dta.children !== undefined) {
+      $.each(dta.children, function (k, v) {
         getMarkDown(v)
       });
     }
   }
 }
 $(document).off("click", "#ExportMarkdown").on("click", "#ExportMarkdown", function () {
-  $.each(WMproject.data.writer, function(k,v){
+  $.each(WMproject.data.writer, function (k, v) {
     getMarkDown(v);
   })
 
@@ -43,33 +43,34 @@ $(document).off("click", "#ExportMarkdown").on("click", "#ExportMarkdown", funct
 })
 
 
-var HTMLOutput ="";
-function getHtmlOutput(dta,lev){
+var HTMLOutput = "";
+function getHtmlOutput(dta, lev) {
   //console.log(dta)
-  if(dta.data){
-  html = markdown2html(dta.data.content);
-  if(lev == 1){
-   // HTMLOutput=HTMLOutput+"<div class='chaptername'>"+dta.title+"</div><div class='chapter'>";
-    HTMLOutput=HTMLOutput+"<div class='chapter'>";
-  }
-      HTMLOutput=HTMLOutput+html;
-    if(dta.children !== undefined){
-      $.each(dta.children, function(k,v){
-        getHtmlOutput(v,0)
+  if (dta.data) {
+    html = markdown2html(dta.data.content);
+    if (lev == 1) {
+      // HTMLOutput=HTMLOutput+"<div class='chaptername'>"+dta.title+"</div><div class='chapter'>";
+      HTMLOutput = HTMLOutput + "<div class='chapter'>";
+    }
+    HTMLOutput = HTMLOutput + html;
+    if (dta.children !== undefined) {
+      $.each(dta.children, function (k, v) {
+        getHtmlOutput(v, 0)
       });
     }
-    if(lev == 1){
-    HTMLOutput=HTMLOutput+"</div>";
+    if (lev == 1) {
+      HTMLOutput = HTMLOutput + "</div>";
     }
   }
 }
+
 $(document).off("click", "#ExportHTML").on("click", "#ExportHTML", function () {
-  $.each(WMproject.data.writer, function(k,v){
-    getHtmlOutput(v,1);
+  $.each(WMproject.data.writer, function (k, v) {
+    getHtmlOutput(v, 1);
   })
 
 
-  HTMLOutput=  `<style>
+  HTMLOutput = `<style>
   body{
     background-color: #ccc;
     padding:10%;
@@ -106,7 +107,7 @@ $(document).off("click", "#ExportHTML").on("click", "#ExportHTML", function () {
   .chapter>p:first-of-type{
       text-indent:0px;
   }
-  </style>`+HTMLOutput;
+  </style>`+ HTMLOutput;
 
   myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".html";
   var element = document.createElement('a');
@@ -116,12 +117,11 @@ $(document).off("click", "#ExportHTML").on("click", "#ExportHTML", function () {
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
-})
+});
 
 
 
 $(document).off("click", "#ExportProjectFile").on("click", "#ExportProjectFile", function () {
-
   myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".wmProx";
   var element = document.createElement('a');
   element.setAttribute('href', 'data:wmProx/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(WMproject)));
@@ -130,4 +130,113 @@ $(document).off("click", "#ExportProjectFile").on("click", "#ExportProjectFile",
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
-})
+});
+
+
+
+var RTFOutput = "";
+function getRTFOutput(dta, lev) {
+  //console.log(dta)
+  if (dta.data) {
+    html = markdown2html(dta.data.content);
+    if (lev == 1) {
+      // HTMLOutput=HTMLOutput+"<div class='chaptername'>"+dta.title+"</div><div class='chapter'>";
+      if (RTFOutput !== "") { RTFOutput = RTFOutput + "<hr>"; }
+      RTFOutput = RTFOutput + "<h1>" + dta.title + "</h1>";
+    }
+    RTFOutput = RTFOutput + html;
+    if (dta.children !== undefined) {
+      $.each(dta.children, function (k, v) {
+        getRTFOutput(v, 0);
+      });
+    }
+  }
+}
+
+
+
+$(document).off("click", "#ExportRTF").on("click", "#ExportRTF", function () {
+  $.each(WMproject.data.writer, function (k, v) {
+    getRTFOutput(v, 1);
+  });
+
+  RTFOutput = convertHtmlToRtf(RTFOutput)
+
+  myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".rtf";
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:rtf/plain;charset=utf-8,' + encodeURIComponent(RTFOutput));
+  element.setAttribute('download', myfilename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+});
+
+
+function convertHtmlToRtf(html) {
+  if (!(typeof html === "string" && html)) {
+    return null;
+  }
+
+  var tmpRichText, hasHyperlinks;
+  var richText = html;
+
+  // Singleton tags
+
+  //  richText = richText.replace(/<(?:hr)(?:\s+[^>]*)?\s*[\/]?>/ig, "{\\pard \\brdrb \\brdrs \\brdrw10 \\brsp20 \\par}\n{\\pard\\par}\n");
+
+  richText = richText.replace(/<(?:hr)(?:\s+[^>]*)?\s*[\/]?>/ig, "{\\par \\page }\n");
+
+
+  richText = richText.replace(/<(?:br)(?:\s+[^>]*)?\s*[\/]?>/ig, "{\\pard\\par}\n");
+
+  // Empty tags
+  richText = richText.replace(/<(?:p|div|section|article)(?:\s+[^>]*)?\s*[\/]>/ig, "{\\pard\\par}\n");
+  richText = richText.replace(/<(?:[^>]+)\/>/g, "");
+
+  // Hyperlinks
+  richText = richText.replace(
+    /<a(?:\s+[^>]*)?(?:\s+href=(["'])(?:javascript:void\(0?\);?|#|return false;?|void\(0?\);?|)\1)(?:\s+[^>]*)?>/ig,
+    "{{{\n");
+  tmpRichText = richText;
+  richText = richText.replace(
+    /<a(?:\s+[^>]*)?(?:\s+href=(["'])(.+)\1)(?:\s+[^>]*)?>/ig,
+    "{\\field{\\*\\fldinst{HYPERLINK\n \"$2\"\n}}{\\fldrslt{\\ul\\cf1\n");
+  hasHyperlinks = richText !== tmpRichText;
+  richText = richText.replace(/<a(?:\s+[^>]*)?>/ig, "{{{\n");
+  richText = richText.replace(/<\/a(?:\s+[^>]*)?>/ig, "\n}}}");
+
+  // Start tags
+  richText = richText.replace(/<(?:h1)(?:\s+[^>]*)?>/ig, "{\\fs36\\sl480\\slmult1\\qc\n");
+  richText = richText.replace(/<(?:h2)(?:\s+[^>]*)?>/ig, "{\\fs30\\sl480\\slmult1\n");
+  richText = richText.replace(/<(?:h3)(?:\s+[^>]*)?>/ig, "{\\fs28\\sl480\\slmult1\n");
+  richText = richText.replace(/<(?:b|strong)(?:\s+[^>]*)?>/ig, "{\\b\n");
+  richText = richText.replace(/<(?:i|em)(?:\s+[^>]*)?>/ig, "{\\i\n");
+  richText = richText.replace(/<(?:u|ins)(?:\s+[^>]*)?>/ig, "{\\ul\n");
+  richText = richText.replace(/<(?:strike|del)(?:\s+[^>]*)?>/ig, "{\\strike\n");
+  richText = richText.replace(/<sup(?:\s+[^>]*)?>/ig, "{\\super\n");
+  richText = richText.replace(/<sub(?:\s+[^>]*)?>/ig, "{\\sub\n");
+
+  /* notes  double spacing :\\sl480\\slmult1
+  Indentation :  \\fi480
+  space after : \\sa480
+  */
+  richText = richText.replace("<p>", "{\\pard\\sl480\\slmult1\\sa480\n"); // noindent first one!!
+  richText = richText.replace(/<(?:p|div|section|article)(?:\s+[^>]*)?>/ig, "{\\pard\\sl480\\slmult1\\fi480\\sa480\n");
+
+  // End tags
+  richText = richText.replace(/<\/(?:p|div|section|article)(?:\s+[^>]*)?>/ig, "\n\\par}\n");
+  //deal with enditng of headings reset font
+  richText = richText.replace(/<\/(?:h1|h2|h3)(?:\s+[^>]*)?>/ig, "\\fs22\\par}");
+  richText = richText.replace(/<\/(?:b|strong|i|em|u|ins|strike|del|sup|sub)(?:\s+[^>]*)?>/ig, "\n}");
+
+  // Strip any other remaining HTML tags [but leave their contents]
+  richText = richText.replace(/<(?:[^>]+)>/g, "");
+
+  // Prefix and suffix the rich text with the necessary syntax
+  richText =
+    "{\\rtf1\\ansi\n" + (hasHyperlinks ? "{\\colortbl\n;\n\\red0\\green0\\blue255;\n}\n" : "") + richText +
+    "\n}";
+
+  return richText;
+}
