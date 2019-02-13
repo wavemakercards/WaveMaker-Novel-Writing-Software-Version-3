@@ -107,19 +107,9 @@ function loadNavBar() {
   }
   
   $.ajaxSetup({cache: true });
-
+  var IntitalCount=0; 
 function loadtool(toolname) {
-    // this loads the html into the app div and then gets the script file and runs i
-    /*
-    if (toolname !== "welcome") {
-      // check if wavemaker is set if not we go to the welcome page
-      if (!wavemaker.title) {
-        loadtool("welcome");
-        return false;
-      }
-    }
-    */
-    var d = new Date();
+    gatherStats();
     $("#wavemakerApp").load("tools/" + toolname + "/html.html", function () {
       // load and run the script
       $.getScript("tools/" + toolname + "/script.js", function () {
@@ -128,7 +118,43 @@ function loadtool(toolname) {
     });
   }
 
+  function InitialWC(dta){
+      //console.log(dta)
+   if(dta.data){
+    IntitalCount=IntitalCount+countWords(dta.data.content);
+      if(dta.children !== undefined){
+          $.each(dta.children, function(k,v){
+          IntitalCount(v)
+          });
+      }
+  }
+  }
+  
+  function gatherStats(){
+    if(!WMproject.data){
+      console.log("no project loaded for stats")
+    }else{
+      console.log("Checking Stats")
+      var d = new Date();
+      // for logging I am  creating an entry in the settings with a wordcount for the previous day
+      
+      if(!WMsettings.wclog){
+        WMsettings.wclog = {};
+      }
+      today=d.getUTCFullYear() +"-"+(d.getUTCMonth()+1)+"-"+d.getUTCDate();
+  
+      if(!WMsettings.wclog[today]){
+        console.log("getting Stats")
+        $.each(WMproject.data.writer, function(k,v){
+          InitialWC(v)
+      });
+        WMsettings.wclog[today] = IntitalCount;
+      }
+      
+      }
+  
 
+  }
 
   function countWords(str) {
     if(!str){
