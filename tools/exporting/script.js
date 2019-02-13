@@ -138,13 +138,16 @@ var RTFOutput = "";
 function getRTFOutput(dta, lev) {
   //console.log(dta)
   if (dta.data) {
-    html = markdown2html(dta.data.content);
+    var html = markdown2html(dta.data.content);
+    var headhtml = "";
     if (lev == 1) {
       // HTMLOutput=HTMLOutput+"<div class='chaptername'>"+dta.title+"</div><div class='chapter'>";
-      if (RTFOutput !== "") { RTFOutput = RTFOutput + "<hr>"; }
-      RTFOutput = RTFOutput + "<h1>" + dta.title + "</h1>";
+      if (RTFOutput !== "") { headhtml = headhtml + "<hr>"; }
+      headhtml = headhtml + "<h1>" + dta.title + "</h1>";
     }
-    RTFOutput = RTFOutput + html;
+    html = headhtml + html;
+
+    RTFOutput = RTFOutput + convertHtmlToRtf(html);
     if (dta.children !== undefined) {
       $.each(dta.children, function (k, v) {
         getRTFOutput(v, 0);
@@ -161,6 +164,7 @@ $(document).off("click", "#ExportRTF").on("click", "#ExportRTF", function () {
   });
 
   RTFOutput = convertHtmlToRtf(RTFOutput)
+  RTFOutput = "{\\rtf1\\ansi\n" + RTFOutput + "\n}";
 
   myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".rtf";
   var element = document.createElement('a');
@@ -234,9 +238,12 @@ function convertHtmlToRtf(html) {
   richText = richText.replace(/<(?:[^>]+)>/g, "");
 
   // Prefix and suffix the rich text with the necessary syntax
-  richText =
-    "{\\rtf1\\ansi\n" + (hasHyperlinks ? "{\\colortbl\n;\n\\red0\\green0\\blue255;\n}\n" : "") + richText +
-    "\n}";
-
+  // do this at the END on mine as we are doing chunk by chunk
+  /* richText =
+     "{\\rtf1\\ansi\n" + (hasHyperlinks ? "{\\colortbl\n;\n\\red0\\green0\\blue255;\n}\n" : "") + richText +
+     "\n}";
+ */
   return richText;
 }
+
+
