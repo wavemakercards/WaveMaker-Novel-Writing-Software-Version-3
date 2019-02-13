@@ -124,7 +124,7 @@ function loadtool(toolname) {
     IntitalCount=IntitalCount+countWords(dta.data.content);
       if(dta.children !== undefined){
           $.each(dta.children, function(k,v){
-          IntitalCount(v)
+            InitialWC(v)
           });
       }
   }
