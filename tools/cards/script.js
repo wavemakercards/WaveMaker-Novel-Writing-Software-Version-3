@@ -1,7 +1,7 @@
 $('#navigation-toggle').show();
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
-if(!WMproject.state){
-  WMproject.state={}
+if (!WMproject.state) {
+  WMproject.state = {}
 }
 WMproject.state.tool = "cards"
 if (!WMproject.data) {
@@ -10,7 +10,7 @@ if (!WMproject.data) {
 if (!WMproject.data.cards) {
   WMproject.data.cards = [];
 }
-var editObject={};
+var editObject = {};
 
 dosave();
 function dosave() {
@@ -20,19 +20,19 @@ function dosave() {
 
 var newCardObj = {};
 var editcard = "new";
-var allHashtags =[]
+var allHashtags = []
 
 
 
-$(document).off("click","#hashtag-list>li").on("click","#hashtag-list>li", function(){
+$(document).off("click", "#hashtag-list>li").on("click", "#hashtag-list>li", function () {
   $("#card-search").val($(this).data('hash'))
   drawCards();
 })
 
 
 
-$(document).off("click",".CardManagerModalButton").on("click",".CardManagerModalButton",
-   function () {
+$(document).off("click", ".CardManagerModalButton").on("click", ".CardManagerModalButton",
+  function () {
     //reset the card to blank
     newCardObj = JSON.parse("{}");
     newCardObj.title = '';
@@ -51,7 +51,7 @@ $(document).off("click",".CardManagerModalButton").on("click",".CardManagerModal
 
 $(document).off("click", ".card-edit-button").on("click", ".card-edit-button", function () {
   k = $(this).parent().data("key");
-  editObject=results[k];
+  editObject = results[k];
   editcard = "yes";
   //console.log(k)
   newCardObj = editObject;
@@ -66,7 +66,7 @@ $(document).off("click", ".card-edit-button").on("click", ".card-edit-button", f
 });
 
 // hacky way of making sure the modal triggers the atosize
-$("#CardManagerModal").unbind().mouseenter(function(){
+$("#CardManagerModal").unbind().mouseenter(function () {
   //console.log("mouse")
   autosize.update($("#CardContent"))
 })
@@ -83,7 +83,7 @@ $("#AddCard")
       WMproject.data.cards.push(newCardObj);
     } else {
       editObject = newCardObj;
-      editObject ={};
+      editObject = {};
       editcard = "new";
     }
     $("#CardManagerModal").modal("hide");
@@ -112,7 +112,7 @@ $(document).off("click", ".img-preview").on("click", ".img-preview", function ()
 });
 
 $("#toggleGridButton").unbind().click(function () {
-  if (WMproject.state.gridDisplay==1) {
+  if (WMproject.state.gridDisplay == 1) {
     WMproject.state.gridDisplay = 0;
   } else {
     WMproject.state.gridDisplay = 1;
@@ -121,32 +121,32 @@ $("#toggleGridButton").unbind().click(function () {
   drawCards();
 })
 
-function drawCards(){
-  allHashtags =[];
+function drawCards() {
+  allHashtags = [];
   $("#navigation-side-nav").html("<ul id='hashtag-list'></ul>")
-  $.each(WMproject.data.cards, function(k,v){
-    $.each(v.tags, function(kk,vv){
-     // //console.log(allHashtags.indexOf(vv))
-    if(allHashtags.indexOf(vv)==-1){
-    allHashtags.push(vv)
-    }
-  })
+  $.each(WMproject.data.cards, function (k, v) {
+    $.each(v.tags, function (kk, vv) {
+      // //console.log(allHashtags.indexOf(vv))
+      if (allHashtags.indexOf(vv) == -1) {
+        allHashtags.push(vv)
+      }
+    })
   })
   allHashtags.sort()
-  $("#hashtag-list").append("<li data-hash='' class='btn btn-wavemaker' id='showAll'><i class='fa fa-fw fa-hashtag'></i> Show All</li>")  
-  $.each(allHashtags,function(k,v){
-    $("#hashtag-list").append("<li data-hash='"+v+"'><i class='fa fa-fw fa-hashtag'></i> "+v+"</li>")
+  $("#hashtag-list").append("<li data-hash='' class='btn btn-wavemaker' id='showAll'><i class='fa fa-fw fa-hashtag'></i> Show All</li>")
+  $.each(allHashtags, function (k, v) {
+    $("#hashtag-list").append("<li data-hash='" + v + "'><i class='fa fa-fw fa-hashtag'></i> " + v + "</li>")
   })
-  $("#hashtag-list").append("<li data-hash='' class='btn  CardManagerModalButton'><i class='fa fa-fw fa-plus'></i>Click  here to add a Card</li>")  
-  
+  $("#hashtag-list").append("<li data-hash='' class='btn  CardManagerModalButton'><i class='fa fa-fw fa-plus'></i>Click  here to add a Card</li>")
 
 
-  
+
+
 
   var query = $("#card-search").val();
   if (query != "") {
     results = [];
-    query=query.toLowerCase().replace(/ /g, "") // turns natural text into hashtage matching format
+    query = query.toLowerCase().replace(/ /g, "") // turns natural text into hashtage matching format
     ////console.log("searching", query);
     $.each(WMproject.data.cards, function (k, i) {
       var matchfound = 0;
@@ -187,7 +187,7 @@ function drawCards(){
 
     switch (card.images.length) {
       case 1:
-      var newImg = $('<div class="div-img" style=" background-image: url(' + card.images[0] + '); width:100%; height:100px;"></div>');
+        var newImg = $('<div class="div-img" style=" background-image: url(' + card.images[0] + '); width:100%; height:100px;"></div>');
         newImg.data("key", 0);
         newImg.data("src", card.images[0]);
         newImg.attr("src", card.images)[0];
@@ -306,11 +306,11 @@ function drawCards(){
     $("#cards").append(cardholder);
   });
 
-  if(results.length===0){
-    if(query!=""){
+  if (results.length === 0) {
+    if (query != "") {
       $("#cards").html("<h1>No matches found</h1>");
-    }else{
-    $("#cards").html(`<div class=''><button class='btn btn-wavemaker btn-block CardManagerModalButton' style='padding:60px; height:auto;'><i class='fa fa-fw fa-plus'></i>Click  here to add a Card</button></div>`);
+    } else {
+      $("#cards").html(`<div class=''><button class='btn btn-wavemaker btn-block CardManagerModalButton' style='padding:60px; height:auto;'><i class='fa fa-fw fa-plus'></i>Click  here to add a Card</button></div>`);
     }
   }
 
@@ -333,7 +333,7 @@ function drawCards(){
   if (!WMproject.state.gridDisplay) {
     var maxh = 0
     $.each($(".cardy"), function () {
-     // //console.log($(this).height())
+      // //console.log($(this).height())
       if (maxh < $(this).height()) { maxh = $(this).height() }
       //console.log(maxh)
     })
@@ -448,7 +448,7 @@ $(document).off("click", "#hashtagger").on("click", "#hashtagger", function () {
 });
 
 $(document).off("keyup", "#ht").on("keyup", "#ht", function (e) {
-  if (e.which == 13) //enter
+  if (e.which == 13 || e.which == 32) //enter or space
   {
     if ($("#ht").val() == "") {
       // alert("Need to enter something")
