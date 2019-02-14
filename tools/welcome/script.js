@@ -20,7 +20,7 @@ $("#GdriveUp").unbind().click(function(){
     confirmButtonText: "Yes, Upload it!"
   }).then(result => {
     if (result.value) {
-      $("#synchmsg").html("<i class='fa fa-fw fa-spinner fa-spin'></i> Putting Data") 
+      $("#synchmsg").html("<i class='fa fa-fw fa-spinner fa-spin'></i> Putting Data (May Take short while)") 
       exportDatabase("gDriveSave", true);
     }
   })

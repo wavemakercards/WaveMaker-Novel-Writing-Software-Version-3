@@ -80,10 +80,7 @@ function exportDatabase(mode, showfeedback=false) {
         case "gDriveSave":
       //  console.log("Saving Data to Google Drive");
         GDriveWrite(JSON.stringify(exportData))
-        $("#synchmsg").html("") 
-        if(showfeedback){
-          swal("Uploaded!", "That has been Uploaded.", "success");
-        }
+        
         break;
       default:
     //    console.log("defaults to backup")
@@ -365,10 +362,12 @@ function downloadFile(mydata) {
        if (!callback) {
            callback = function (file) {
             if(CURRENT_FILE_OBJ){
-              //console.log("Data Saved to GDrive");
+              console.log("Data Saved to GDrive");
             }  else{
-             // console.log("Data Created on GDrive");
-            }   
+              console.log("Data Created on GDrive");
+            }  
+            $("#synchmsg").html("") 
+        swal("Uploaded!", "That has been Uploaded.", "success"); 
             CURRENT_FILE_OBJ = file;
            };
        }
