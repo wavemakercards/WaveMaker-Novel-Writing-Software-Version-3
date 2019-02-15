@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="Wavemaker Novel Planning and Writing Software. " />
   <meta name="author" content="" />
-  <link rel="shortcut icon" type="image/png" href="icons/favicon.ico"/>
+  <link rel="shortcut icon" type="image/png" href="icons/favicon.ico" />
   <link rel="/apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
   <link rel="/apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
   <link rel="/apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
@@ -36,102 +37,102 @@
 
 <body>
 
-  
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1734434-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-1734434-2');
-</script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1734434-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-1734434-2');
+  </script>
 
 
 
   <div id="mobilecheck"></div> <!-- If this is visible then we are on mobile-->
   <div id="wavemakerApp"></div>
 
-  <div  id="install-alert" class="alert alert-secondary  alert-dismissible animated fadeInDown" role="alert">
+  <div id="install-alert" class="alert alert-secondary  alert-dismissible animated fadeInDown" role="alert">
     Install this as an offline App!
-        <button id="install-button" class="btn btn-secondary btn-sm ">Click Here!</button>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <button id="install-button" class="btn btn-secondary btn-sm ">Click Here!</button>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
 
-      <script>
+    <script>
 
-        
-        if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("sw.js").then(function(reg) {
-            console.log("register", reg);
-          }).catch(function(err) {
-            console.log("err", err);
-          });
-        }
-    
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-      console.log("This is running as standalone.");
-    }else{
-      console.log("This is running as webapp.");
-    }
-    
-    
-    let deferredPrompt;
-    const installAlert= document.getElementById('install-alert');
-    const installBtn = document.getElementById('install-button');
-    installAlert.style.display = 'none';
-    
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      deferredPrompt = e;
-      // Update UI to notify the user they can add to home screen
-      installAlert.style.display = 'block';
-    
-      installBtn.addEventListener('click', (e) => {
-        // hide our user interface that shows our A2HS button
-        installAlert.style.display = 'none';
-        // Show the prompt
-        deferredPrompt.prompt();
-        // Wait for the user to respond to the prompt
-        deferredPrompt.userChoice.then((choiceResult) => {
+
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js").then(function (reg) {
+          console.log("register", reg);
+        }).catch(function (err) {
+          console.log("err", err);
+        });
+      }
+
+      if (window.matchMedia('(display-mode: standalone)').matches) {
+        console.log("This is running as standalone.");
+      } else {
+        console.log("This is running as webapp.");
+      }
+
+
+      let deferredPrompt;
+      const installAlert = document.getElementById('install-alert');
+      const installBtn = document.getElementById('install-button');
+      installAlert.style.display = 'none';
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI to notify the user they can add to home screen
+        installAlert.style.display = 'block';
+
+        installBtn.addEventListener('click', (e) => {
+          // hide our user interface that shows our A2HS button
+          installAlert.style.display = 'none';
+          // Show the prompt
+          deferredPrompt.prompt();
+          // Wait for the user to respond to the prompt
+          deferredPrompt.userChoice.then((choiceResult) => {
             if (choiceResult.outcome === 'accepted') {
-             // console.log('User accepted the A2HS prompt');
+              // console.log('User accepted the A2HS prompt');
             } else {
-            //  console.log('User dismissed the A2HS prompt');
+              //  console.log('User dismissed the A2HS prompt');
             }
             deferredPrompt = null;
           });
+        });
       });
-    });
-    
-    
-    
-      </script>
 
 
-  <script src="https://apis.google.com/js/api.js"></script>
-   <!-- Bootstrap core JavaScript s -->
-  <script src="lib/js/autosize.js"></script>
-  <script src="lib/js/jquery-3.3.1.min.js"></script>
-  <script src="lib/js/jquery-ui.min.js"></script>
-  <script src="lib/js/tether.min.js"></script>
-  <script src="lib/js/bootstrap.min.js"></script>
-  <script src="lib/js/sweetalert2.all.js"></script>
-  <script src="lib/js/dexie.js"></script>
-  <script src="lib/js/split.min.js"></script>
-  <script src="lib/js/jquery.fancytree-all-deps.js"></script>
-  <script src="lib/js/jquery.ui-contextmenu.min.js"></script>
-  <script src="lib/js/turndown.js"></script>
-  <script src="lib/js/showdown.min.js"></script>
-  <script src="lib/js/touchpunch.js"></script>
 
-  <script src="global/js/datamanager.js"></script>
-  <script src="global/js/init.js"></script>
+    </script>
+
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <!-- Bootstrap core JavaScript s -->
+    <script src="lib/js/autosize.js"></script>
+    <script src="lib/js/jquery-3.3.1.min.js"></script>
+    <script src="lib/js/jquery-ui.min.js"></script>
+    <script src="lib/js/tether.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script src="lib/js/sweetalert2.all.js"></script>
+    <script src="lib/js/dexie.js"></script>
+    <script src="lib/js/split.min.js"></script>
+    <script src="lib/js/jquery.fancytree-all-deps.js"></script>
+    <script src="lib/js/jquery.ui-contextmenu.min.js"></script>
+    <script src="lib/js/turndown.js"></script>
+    <script src="lib/js/showdown.min.js"></script>
+    <script src="lib/js/hammer.min.js"></script>
+
+    <script src="global/js/datamanager.js"></script>
+    <script src="global/js/init.js"></script>
 
 
 </body>
-</html>
 
+</html>
