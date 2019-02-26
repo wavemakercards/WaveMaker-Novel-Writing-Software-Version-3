@@ -1,6 +1,6 @@
 deInitNav();
 getProjects();
-WriterKey='';
+WriterKey = '';
 GoogleDrivehandleClientLoad();
 
 $("#CreateNewProject")
@@ -9,7 +9,7 @@ $("#CreateNewProject")
     $("#CreateNewProjectModal").modal("show");
   });
 
-$("#GdriveUp").unbind().click(function(){
+$("#GdriveUp").unbind().click(function () {
   swal({
     title: "Upload To Google Drive?",
     text: "This Will overwrite your saved copy on there!",
@@ -20,13 +20,13 @@ $("#GdriveUp").unbind().click(function(){
     confirmButtonText: "Yes, Upload it!"
   }).then(result => {
     if (result.value) {
-      $("#synchmsg").html("<i class='fa fa-fw fa-spinner fa-spin'></i> Putting Data (May Take short while)") 
+      $("#synchmsg").html("<i class='fa fa-fw fa-spinner fa-spin'></i> Putting Data (May Take short while)")
       exportDatabase("gDriveSave", true);
     }
   })
 })
 
-$("#GdriveDown").unbind().click(function(){
+$("#GdriveDown").unbind().click(function () {
 
   swal({
     title: "Download from Google Drive?",
@@ -38,15 +38,15 @@ $("#GdriveDown").unbind().click(function(){
     confirmButtonText: "Yes, Download it!"
   }).then(result => {
     if (result.value) {
-      $("#synchmsg").html("<i class='fa fa-fw fa-spinner fa-spin'></i> Getting Data") 
-      GDriveRead()    
+      $("#synchmsg").html("<i class='fa fa-fw fa-spinner fa-spin'></i> Getting Data")
+      GDriveRead()
     }
   })
 })
 
 function getProjects() {
-  WMsettings.currentproject= false;
-   $("#wavemakerprojectList").html('');
+  WMsettings.currentproject = false;
+  $("#wavemakerprojectList").html('');
   db.projects
     .each(function (set) {
       $("#wavemakerprojectList").append(
@@ -90,12 +90,12 @@ function ProjectsDisplaySetup() {
       }).then(result => {
         if (result.value) {
           //delete the database!!
-         
-     db.projects.where("id").equals(indexValue).delete();
-   //  console.log("DELETE", indexValue)
-     getProjects()
-           swal("Deleted!", "The Data has been cleared", "success");
-   
+
+          db.projects.where("id").equals(indexValue).delete();
+          //  console.log("DELETE", indexValue)
+          getProjects()
+          swal("Deleted!", "The Data has been cleared", "success");
+
         }
       });
 
@@ -103,10 +103,10 @@ function ProjectsDisplaySetup() {
 
 
 
-    
+
     });
 
-    $(".ProjectSelectButton")
+  $(".ProjectSelectButton")
     .unbind()
     .click(function () {
       WMsettings.currentproject = $(this).data("setid");
@@ -115,33 +115,57 @@ function ProjectsDisplaySetup() {
       });
     });
 
-    
+
 
 
   $("#ProjectCreateNew")
     .unbind()
     .click(function () {
       if ($("#ProjectNewTitle").val() !== "") {
-        var newObj = { title: $("#ProjectNewTitle").val() };
-        db.projects.add(newObj).then(function () {
-          $(".modal-backdrop").remove();
-          db.projects.toArray(function (arr) {
-            WMsettings.currentproject = arr[arr.length - 1].id;
-            db.settings.update(1, WMsettings).then(function () {
-              checkprojectloaded();
-            });
-          })
+        var newObj = {};
 
-        });
+
+        if ($("#ProjectNewTemplate").val() !== "") {
+          $.getJSON("templates/" + $("#ProjectNewTemplate").val() + ".json", function (data) {
+            console.log(data)
+            newObj = data;
+            newObj.title = $("#ProjectNewTitle").val();
+            db.projects.add(newObj).then(function () {
+              $(".modal-backdrop").remove();
+              db.projects.toArray(function (arr) {
+                WMsettings.currentproject = arr[arr.length - 1].id;
+                db.settings.update(1, WMsettings).then(function () {
+                  checkprojectloaded();
+                });
+              });
+
+            });
+          });
+        } else {
+          newObj = { title: $("#ProjectNewTitle").val() };
+          db.projects.add(newObj).then(function () {
+            $(".modal-backdrop").remove();
+            db.projects.toArray(function (arr) {
+              WMsettings.currentproject = arr[arr.length - 1].id;
+              db.settings.update(1, WMsettings).then(function () {
+                checkprojectloaded();
+              });
+            })
+
+          });
+
+        }
+
+
       } else {
         swal("Nope!", "You need to write something obviously", "warning");
       }
     });
-  
-   $("#ProjectClearAllData")
+
+  $("#ProjectClearAllData")
     .unbind()
     .click(function () {
-       swal({
+      swal({
         title: "Clear All Data?",
         text: "This will remove all the projects from this system !",
         type: "warning",
@@ -152,14 +176,14 @@ function ProjectsDisplaySetup() {
       }).then(result => {
         if (result.value) {
           //delete the database!!
-         Dexie.delete('wavemaker');
+          Dexie.delete('wavemaker');
           WMproject = {};
           WMsettings = {};
-           swal("Deleted!", "The app will need to re-load", "success");
+          swal("Deleted!", "The app will need to re-load", "success");
           location.reload();
         }
       });
-    });  
+    });
 }
 
 $(document).off("click", "#ProjectDownloadAllData").on("click", "#ProjectDownloadAllData", function () {
@@ -168,12 +192,12 @@ $(document).off("click", "#ProjectDownloadAllData").on("click", "#ProjectDownloa
 
 
 $(document).off("click", "#dataformtoggle").on("click", "#dataformtoggle", function () {
-$("#dataform").slideToggle();
+  $("#dataform").slideToggle();
 })
 
 
-$(document).off("change", "#filepicker").on("change", "#filepicker", function(){
-  var files =document.getElementById('selectFiles').files;
+$(document).off("change", "#filepicker").on("change", "#filepicker", function () {
+  var files = document.getElementById('selectFiles').files;
   if (files.length <= 0) {
     swal("Problem!", "You didn't select a file", "warning");
     return false
@@ -181,36 +205,36 @@ $(document).off("change", "#filepicker").on("change", "#filepicker", function(){
 
   var myfilename
   myfilename = files[0].name
-  var parts=myfilename.split(".")
+  var parts = myfilename.split(".")
   //console.log(parts[parts.length-1])
-  if((parts[parts.length-1].toLowerCase()) !=="wmdata"){
+  if ((parts[parts.length - 1].toLowerCase()) !== "wmdata") {
     swal("Problem!", "That is not a wmdata file sorry", "warning");
     return false
   }
   swal("Loading!", "Hi, Loading file now, please wait.", "success");
 
- var fr = new FileReader();
-  fr.onloadstart =function(e){
-   // console.log("loading file start")
+  var fr = new FileReader();
+  fr.onloadstart = function (e) {
+    // console.log("loading file start")
   }
-  fr.onprogress =function(e){
-  //  console.log(e)
+  fr.onprogress = function (e) {
+    //  console.log(e)
   }
-  fr.onload = function(e) { 
-  //  console.log("Loading File complete") 
-//    var result = JSON.parse(e.target.result);
- //   var formatted = JSON.stringify(result, null, 2);
+  fr.onload = function (e) {
+    //  console.log("Loading File complete") 
+    //    var result = JSON.parse(e.target.result);
+    //   var formatted = JSON.stringify(result, null, 2);
     importDatabase(e.target.result)
   }
-  
+
   fr.readAsText(files.item(0));
-  
+
 })
 
 
 
-$(document).off("change", "#wmProjfilepicker").on("change", "#wmProjfilepicker", function(){
-  var files =document.getElementById('wmProjselectFiles').files;
+$(document).off("change", "#wmProjfilepicker").on("change", "#wmProjfilepicker", function () {
+  var files = document.getElementById('wmProjselectFiles').files;
   if (files.length <= 0) {
     swal("Problem!", "You didn't select a file", "warning");
     return false
@@ -218,53 +242,53 @@ $(document).off("change", "#wmProjfilepicker").on("change", "#wmProjfilepicker",
 
   var myfilename
   myfilename = files[0].name
-  var parts=myfilename.split(".")
+  var parts = myfilename.split(".")
   //console.log(parts[parts.length-1])
-var extension =(parts[parts.length-1].toLowerCase())
+  var extension = (parts[parts.length - 1].toLowerCase())
 
-  if( extension !=="wmproj" && extension !=="wmprox" ){
+  if (extension !== "wmproj" && extension !== "wmprox") {
     swal("Problem!", "That is not a Wavemaker Project file sorry", "warning");
     return false
   }
   swal("Loading!", "Hi, Loading file now, please wait.", "success");
 
- var fr = new FileReader();
-  fr.onloadstart =function(e){
-   // console.log("loading file start")
+  var fr = new FileReader();
+  fr.onloadstart = function (e) {
+    // console.log("loading file start")
   }
-  fr.onprogress =function(e){
-  //  console.log(e)
+  fr.onprogress = function (e) {
+    //  console.log(e)
   }
-  fr.onload = function(e) { 
-  //  console.log("Loading File complete") 
-//    var result = JSON.parse(e.target.result);
- //   var formatted = JSON.stringify(result, null, 2);
-    if(extension ==="wmproj"){
-    importWMproj(e.target.result, parts[0])
-    }else{
-      var newObj =JSON.parse(e.target.result)
+  fr.onload = function (e) {
+    //  console.log("Loading File complete") 
+    //    var result = JSON.parse(e.target.result);
+    //   var formatted = JSON.stringify(result, null, 2);
+    if (extension === "wmproj") {
+      importWMproj(e.target.result, parts[0])
+    } else {
+      var newObj = JSON.parse(e.target.result)
       delete newObj.id;
       delete newObj.state;
-     //  console.log(newObj)
-  db.projects.add(newObj).then(function () {
-    db.projects.toArray(function (arr) {
-      WMsettings.currentproject = arr[arr.length - 1].id;
-      db.settings.update(1, WMsettings).then(function () {
-        checkprojectloaded();
-      });
-    })
+      //  console.log(newObj)
+      db.projects.add(newObj).then(function () {
+        db.projects.toArray(function (arr) {
+          WMsettings.currentproject = arr[arr.length - 1].id;
+          db.settings.update(1, WMsettings).then(function () {
+            checkprojectloaded();
+          });
+        })
 
-})
+      })
 
 
-   
 
-      
+
+
     }
   }
-  
+
   fr.readAsText(files.item(0));
-  
+
 })
 
 

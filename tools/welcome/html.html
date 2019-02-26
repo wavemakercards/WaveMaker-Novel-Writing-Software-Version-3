@@ -2,137 +2,151 @@
     /*
     In this mode the css specific to the tool is included here - endeavour to use generic css wherever possible
     */
-body{
-    background-color: var(--c9);
-    color: var(--c0);
-}
+    body {
+        background-color: var(--c9);
+        color: var(--c0);
+    }
 
-    #welcome{
+    #welcome {
         position: absolute;
         overflow-y: scroll;
-        top:0px;
+        top: 0px;
         left: 0px;
         right: 0px;
-        bottom:0px;
+        bottom: 0px;
     }
 
-    .ProjectSelectButton{
+    .ProjectSelectButton {
         background-color: var(--c5);
         color: var(--c0);
-        width:100%;
-        margin-bottom:10px;
+        width: 100%;
+        margin-bottom: 10px;
         border-radius: 0px;
         display: block;
-        min-height:50px;
+        min-height: 50px;
         text-align: left;
-        cursor:pointer;
+        cursor: pointer;
         word-wrap: break-word;
         white-space: normal;
-        
-      }
-    .ProjectSelectButton:hover{
-        background-color: var(--c3);
-        color: var(--c7);
-   
 
     }
 
-#GoogleDrivebuttons{
-    text-align: center;
-    margin:10px;
-}
+    .ProjectSelectButton:hover {
+        background-color: var(--c3);
+        color: var(--c7);
 
-    #CreateNewProjectModal .modal-content{
-        color:var(--c0);
+
+    }
+
+    #GoogleDrivebuttons {
+        text-align: center;
+        margin: 10px;
+    }
+
+    #CreateNewProjectModal .modal-content {
+        color: var(--c0);
         background-color: var(--c8);
         border-radius: 0px;
 
     }
 
-    #ProjectNewTitle{
-        border:0px;
-        color:var(--c9);
+    #ProjectNewTitle {
+        border: 0px;
+        color: var(--c9);
         background-color: var(--c0);
         border-radius: 0px;
 
     }
-    .close,.close:hover{
-        color:var(--c0);
+
+    .close,
+    .close:hover {
+        color: var(--c0);
     }
-    .datafilepicker{
-        padding:0px;
+
+    .datafilepicker {
+        padding: 0px;
         display: block;
-    
+
     }
-    .datafilepicker input{
-        border:0px;
+
+    .datafilepicker input {
+        border: 0px;
         background: var(--c9);
-        color:var(--c0);
+        color: var(--c0);
         padding: 10px;
         height: auto;
         border-radius: 0px;
         text-align: center;
         font-size: 0.7rem;
-        height:50px;
+        height: 50px;
         cursor: pointer;
     }
 
-    .wm-sm{
+    .wm-sm {
         padding: 10px;
         height: auto;
         display: block;
-        width:100%;
+        width: 100%;
         font-size: 0.7em;
     }
-    .datamanager{
-        padding:10px;
-    background-color: var(--c7);
-    color: var(--c0);
-   
+
+    .datamanager {
+        padding: 10px;
+        background-color: var(--c7);
+        color: var(--c0);
+
     }
 
-    .datamanager label{
-        display:block;
-margin-top:15px;
+    .datamanager label {
+        display: block;
+        margin-top: 15px;
     }
-    .fade{
+
+    .fade {
         background-color: var(--c9);
     }
-    .row{
-        margin-bottom:10px;
+
+    .row {
+        margin-bottom: 10px;
     }
-#selectFiles{
-    position: absolute;
-    opacity: 0;;
-}
 
-#wmProjselectFiles{
-    position: absolute;
-    opacity: 0;;
-}
+    #selectFiles {
+        position: absolute;
+        opacity: 0;
+        ;
+    }
+
+    #wmProjselectFiles {
+        position: absolute;
+        opacity: 0;
+        ;
+    }
 
 
-.googleButton {
+    .googleButton {
         padding: 0px;
-        padding-left:20px;
-        padding-right:20px;
+        padding-left: 20px;
+        padding-right: 20px;
         border: 3px solid #ccc;
         background-color: #fafafa;
         color: #212121;
-        min-width:50px;
-        height:50px;
+        min-width: 50px;
+        height: 50px;
         border-radius: 25px;
         font-size: 12px;
-        top:0px;
-        right:0px;
+        top: 0px;
+        right: 0px;
         cursor: pointer;
     }
-    .googleButton>img{
-       width: 25px;
-       height:25px;
+
+    .googleButton>img {
+        width: 25px;
+        height: 25px;
     }
-    .googleButton:hover{
-        border: 3px solid #4885ed;;
+
+    .googleButton:hover {
+        border: 3px solid #4885ed;
+        ;
         background-color: #ccc;
     }
 
@@ -152,13 +166,11 @@ margin-top:15px;
     }
 
 
-    .logo{
-        width:100px;
-        height:100px;
-        margin-top:10%;
+    .logo {
+        width: 100px;
+        height: 100px;
+        margin-top: 10%;
     }
-    
-
 </style>
 
 <div id="welcome">
@@ -168,14 +180,19 @@ margin-top:15px;
                 <h1> <svg class="logo" xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 235 234.3">
                         <g id="Layer_x0020_1">
                             <g id="_921457168">
-                                <path class="logo-top" d="M194.1 65.8L135.8 7.5c-10.1-10.1-26.5-10.1-36.6 0L41.1 65.7c-3.4 3.4-3.4 8.8 0 12.2l17.6 17.6 11.7 10.9c3.5 3.2 8.8 3.2 12.3 0l23.5-21.7c6.5-6 16.4-6 22.8 0l23.5 21.7c3.5 3.2 8.8 3.2 12.3 0l11.7-10.9L194.1 78c3.3-3.3 3.3-8.8 0-12.2z"></path>
-                                <path class="logo-bottom" d="M7.9 135.5l91.3 91.3c10.1 10.1 26.5 10.1 36.6 0l91.3-91.3c15.8-15.8 4.7-20.5-6.9-31.5l-14.3-13.6c-3.4-3.3-8.8-3.2-12.3 0l-23.5 21.7c-6.5 6-16.4 6-22.8 0l-23.5-21.7a9.08 9.08 0 0 0-12.3 0L88 112.1c-6.5 6-16.4 6-22.8 0L41.7 90.4a9.08 9.08 0 0 0-12.3 0l-13.2 12.2c-12.1 11.2-24.8 16.3-8.3 32.9z"></path>
+                                <path class="logo-top"
+                                    d="M194.1 65.8L135.8 7.5c-10.1-10.1-26.5-10.1-36.6 0L41.1 65.7c-3.4 3.4-3.4 8.8 0 12.2l17.6 17.6 11.7 10.9c3.5 3.2 8.8 3.2 12.3 0l23.5-21.7c6.5-6 16.4-6 22.8 0l23.5 21.7c3.5 3.2 8.8 3.2 12.3 0l11.7-10.9L194.1 78c3.3-3.3 3.3-8.8 0-12.2z">
+                                </path>
+                                <path class="logo-bottom"
+                                    d="M7.9 135.5l91.3 91.3c10.1 10.1 26.5 10.1 36.6 0l91.3-91.3c15.8-15.8 4.7-20.5-6.9-31.5l-14.3-13.6c-3.4-3.3-8.8-3.2-12.3 0l-23.5 21.7c-6.5 6-16.4 6-22.8 0l-23.5-21.7a9.08 9.08 0 0 0-12.3 0L88 112.1c-6.5 6-16.4 6-22.8 0L41.7 90.4a9.08 9.08 0 0 0-12.3 0l-13.2 12.2c-12.1 11.2-24.8 16.3-8.3 32.9z">
+                                </path>
                             </g>
                         </g>
                     </svg></h1>
                 <h1>wavemaker</h1>
                 <p>Novel Planning &amp; Writing Software</p>
-                <a href="https://wavemaker.co.uk/blog/wavemaker-version-3-is-live/" target="_blank" class="btn btn-primary "><i class= "fa fa-fw fa-info-circle"></i> How to Video Guides </a>
+                <a href="https://wavemaker.co.uk/blog/wavemaker-version-3-is-live/" target="_blank"
+                    class="btn btn-primary "><i class="fa fa-fw fa-info-circle"></i> How to Video Guides </a>
 
             </div>
         </div>
@@ -204,8 +221,9 @@ margin-top:15px;
 
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-8   text-left">
-                <button class="btn btn-block btn-wavemaker text-left" id="dataformtoggle"><i class="fa fa-fw fa-database"></i>
-                     Manage Your Projects</button>
+                <button class="btn btn-block btn-wavemaker text-left" id="dataformtoggle"><i
+                        class="fa fa-fw fa-database"></i>
+                    Manage Your Projects</button>
                 <div class="datamanager" id="dataform" style="display:none;">
                     <div class="row">
                         <div class="col-12" style="font-size:0.7em">
@@ -214,7 +232,8 @@ margin-top:15px;
                                 logins are needed :) .The plus side is you control your data, the downside is YOU
                                 control your data ...</p>
 
-                                <p>The best way to use this is to link to your Google Drive and Synchronise up to it regularly</p>
+                            <p>The best way to use this is to link to your Google Drive and Synchronise up to it
+                                regularly</p>
 
                             </p>
                         </div>
@@ -223,32 +242,36 @@ margin-top:15px;
                     <div class="row justify-content-md-center">
                         <div class="col-12 col-md-8 ">
                             <div id="GoogleDrivebuttons">
-                                <button id="authorize-button" class="googleButton "><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDE5QzU4OTgyMzFBMTFFOTlFRDJCQUZBNUExNjY3OEUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDE5QzU4OTkyMzFBMTFFOTlFRDJCQUZBNUExNjY3OEUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MTlDNTg5NjIzMUExMUU5OUVEMkJBRkE1QTE2Njc4RSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0MTlDNTg5NzIzMUExMUU5OUVEMkJBRkE1QTE2Njc4RSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuDHf0cAAAR5SURBVHja5FdLSJRRFL7+jo4PVFwkaq0MAhe5yGrXphbRi3TZotpIkbgJEumhUCqaldAuKogWLdqEElSbgsCFjyIIJESFQsHHqKOO46gzjn3f7T/Dmd9fty66cLz/3Mc53/nOuedeM7a2tsxeNMfsUQt0dXX5TpCJjIwM28fjcVNdXX3+EFosFotwnI19MpmU9XmZmZnT6N/K2K6G0YzQLYbSKHEsKVUDAwPvy8rK7O9EIpEGTLesrKwIug96XNbp3qFhLDbZ2dlGf0ufm5vLvZ2hUMj09fXZMVEmvQiVQjpkv+hjTwEjqd4RWv2E3q2trV2MRCJnioqKzMjIiJmYmDDBYND4JSWNb2xsVG1ubjZoMN41lkkVo5TIGBctLy+3kloiJ9L+/v5/VDk75yWMt6AL+jEj3451G0r4Q74ppAuJ1Ly6unqY9MALU1BQYGZnZ83o6KgNgQAV4JITALoP67u5T/QJ2JT4UeFm6/6lpaUWQSmNgAYHB22mE6h3XnQgRPXQcVSM6nUWBLwy0WjUwDPbU0CVWVxcbF9fXw9QuT5ieXl5nDNDQ0OpWPuB5xj0dOoQig6G0pFMk2xjLNGOAcBV/vbGnkLjw8PDC1gzx32+lQmewvApSC3Z8Yo1LEIl9AI0NesiIIaFLoLDfBNCcXm3IkEdiPU9oVuHMi01aRxoziGTL/gtFuNInhCMv4TST1j/U4dDg6UOzB/B93VhVMTxxCAYDoefaWr9YgSDd4V2KG7SbOgMV8frCbpSzZ6jSh0TqxVygOhEkTZKD2D0G4y9sCgRFnqNJOzR672JBobysadbn31HJqGgDBXqpk4oP0Uw0saCgj5VRHAy2na7GNyKdglrqlMxllisrKw8wOS246MpBOpeGO0lI4WFhWZsbMzO42x/B5DnfmdaOcb97a4e4/APsvg4vK0TD/RtpSiOIemu0Wh5ebkpKSkxU1NTtoSymqHdwL4/3lKqwwTHTsNWLetEgKUPCfWYiOitH2VuRtcVFxfPytVIwCyhVMLLY3p6OllZWXmltLT0qzch9fECO49ycnL6AkB7EkpO6OOjN7o1m5sqcEPdgtcF+N52NU1OTsahKwo2wtBVjJAkvbcTfjuQg9B3NoAi8AXZ2QMDNfRaFgsQUjszM0MArWSEieU9OipP7Fp3zPFmOvcjF4YQ1je23kHZHQzWaISkhWGYn5+3dNJzYUBfpRqAlF5JSn29SsOdcBtHN+G4hn9BnupKJd7Nzc3Z80qPeJHsFD8NWlc5XcVA8Tt4/DlVMt1z1gGq47IJCcCEsceA3wTiHok0I14QO4GiEyhObWm12kU2g8mHElfGC/G33uozTcN+pdFrUMqt+6KkY68x9oMV0j4EtALQcB+Kf9MYvZXbSr8euFYSbCe6aVTXAFC8tLCw0OjWdrvfIX0UF2ECfT3jyoRicunnkNwsEjP9bNLPJ6n18kIBe43AENIxD+Tn53ufNh/Hx8cbgKoCDCxLTL0G9Ln3/gOgkjQXesLQ8UqexSl2/rv/nf4KMAAv2tTKy+9nKQAAAABJRU5ErkJggg==' />
+                                <button id="authorize-button" class="googleButton "><img
+                                        src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDE5QzU4OTgyMzFBMTFFOTlFRDJCQUZBNUExNjY3OEUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDE5QzU4OTkyMzFBMTFFOTlFRDJCQUZBNUExNjY3OEUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MTlDNTg5NjIzMUExMUU5OUVEMkJBRkE1QTE2Njc4RSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0MTlDNTg5NzIzMUExMUU5OUVEMkJBRkE1QTE2Njc4RSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuDHf0cAAAR5SURBVHja5FdLSJRRFL7+jo4PVFwkaq0MAhe5yGrXphbRi3TZotpIkbgJEumhUCqaldAuKogWLdqEElSbgsCFjyIIJESFQsHHqKOO46gzjn3f7T/Dmd9fty66cLz/3Mc53/nOuedeM7a2tsxeNMfsUQt0dXX5TpCJjIwM28fjcVNdXX3+EFosFotwnI19MpmU9XmZmZnT6N/K2K6G0YzQLYbSKHEsKVUDAwPvy8rK7O9EIpEGTLesrKwIug96XNbp3qFhLDbZ2dlGf0ufm5vLvZ2hUMj09fXZMVEmvQiVQjpkv+hjTwEjqd4RWv2E3q2trV2MRCJnioqKzMjIiJmYmDDBYND4JSWNb2xsVG1ubjZoMN41lkkVo5TIGBctLy+3kloiJ9L+/v5/VDk75yWMt6AL+jEj3451G0r4Q74ppAuJ1Ly6unqY9MALU1BQYGZnZ83o6KgNgQAV4JITALoP67u5T/QJ2JT4UeFm6/6lpaUWQSmNgAYHB22mE6h3XnQgRPXQcVSM6nUWBLwy0WjUwDPbU0CVWVxcbF9fXw9QuT5ieXl5nDNDQ0OpWPuB5xj0dOoQig6G0pFMk2xjLNGOAcBV/vbGnkLjw8PDC1gzx32+lQmewvApSC3Z8Yo1LEIl9AI0NesiIIaFLoLDfBNCcXm3IkEdiPU9oVuHMi01aRxoziGTL/gtFuNInhCMv4TST1j/U4dDg6UOzB/B93VhVMTxxCAYDoefaWr9YgSDd4V2KG7SbOgMV8frCbpSzZ6jSh0TqxVygOhEkTZKD2D0G4y9sCgRFnqNJOzR672JBobysadbn31HJqGgDBXqpk4oP0Uw0saCgj5VRHAy2na7GNyKdglrqlMxllisrKw8wOS246MpBOpeGO0lI4WFhWZsbMzO42x/B5DnfmdaOcb97a4e4/APsvg4vK0TD/RtpSiOIemu0Wh5ebkpKSkxU1NTtoSymqHdwL4/3lKqwwTHTsNWLetEgKUPCfWYiOitH2VuRtcVFxfPytVIwCyhVMLLY3p6OllZWXmltLT0qzch9fECO49ycnL6AkB7EkpO6OOjN7o1m5sqcEPdgtcF+N52NU1OTsahKwo2wtBVjJAkvbcTfjuQg9B3NoAi8AXZ2QMDNfRaFgsQUjszM0MArWSEieU9OipP7Fp3zPFmOvcjF4YQ1je23kHZHQzWaISkhWGYn5+3dNJzYUBfpRqAlF5JSn29SsOdcBtHN+G4hn9BnupKJd7Nzc3Z80qPeJHsFD8NWlc5XcVA8Tt4/DlVMt1z1gGq47IJCcCEsceA3wTiHok0I14QO4GiEyhObWm12kU2g8mHElfGC/G33uozTcN+pdFrUMqt+6KkY68x9oMV0j4EtALQcB+Kf9MYvZXbSr8euFYSbCe6aVTXAFC8tLCw0OjWdrvfIX0UF2ECfT3jyoRicunnkNwsEjP9bNLPJ6n18kIBe43AENIxD+Tn53ufNh/Hx8cbgKoCDCxLTL0G9Ln3/gOgkjQXesLQ8UqexSl2/rv/nf4KMAAv2tTKy+9nKQAAAABJRU5ErkJggg==' />
                                     Connect your Google Drive</button>
-                                <button id="signout-button" class="googleButton "><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDY4NTdENzgyMzE5MTFFOTlBRkZBMjc1RjEyMUY2OEEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDY4NTdENzkyMzE5MTFFOTlBRkZBMjc1RjEyMUY2OEEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpENjg1N0Q3NjIzMTkxMUU5OUFGRkEyNzVGMTIxRjY4QSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpENjg1N0Q3NzIzMTkxMUU5OUFGRkEyNzVGMTIxRjY4QSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlhQVREAAAYiSURBVHja5FdZiBxV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'>
+                                <button id="signout-button" class="googleButton "><img
+                                        src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDY4NTdENzgyMzE5MTFFOTlBRkZBMjc1RjEyMUY2OEEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDY4NTdENzkyMzE5MTFFOTlBRkZBMjc1RjEyMUY2OEEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpENjg1N0Q3NjIzMTkxMUU5OUFGRkEyNzVGMTIxRjY4QSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpENjg1N0Q3NzIzMTkxMUU5OUFGRkEyNzVGMTIxRjY4QSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlhQVREAAAYiSURBVHja5FdZiBxV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'>
                                     Sign OUT of Google Drive</button>
-            
-            
-            
-            
+
+
+
+
                             </div>
-            
-            
+
+
                             <div id="okGoogle" class="text-center">
                                 <div id="synchmsg"></div>
                                 <div style=" display: inline-block">
-                                    <button id="GdriveUp" class="btn btn-wavemaker-success wm-sm text-center " style="width:120px;"><i
-                                            class="fa fa-fw fa-cloud-upload"></i><BR>Sync Up</button>
+                                    <button id="GdriveUp" class="btn btn-wavemaker-success wm-sm text-center "
+                                        style="width:120px;"><i class="fa fa-fw fa-cloud-upload"></i><BR>Sync
+                                        Up</button>
                                 </div>
                                 <div style=" display: inline-block">
-                                    <button id="GdriveDown" class="btn btn-wavemaker-danger wm-sm " style="width:120px;"><i class="fa fa-fw fa-cloud-download"></i><BR>Sync
+                                    <button id="GdriveDown" class="btn btn-wavemaker-danger wm-sm "
+                                        style="width:120px;"><i class="fa fa-fw fa-cloud-download"></i><BR>Sync
                                         Down</button>
-            
+
                                 </div>
                             </div>
                         </div>
                     </div>
-            
+
 
 
 
@@ -261,8 +284,10 @@ margin-top:15px;
                         <div class="col-12 col-md-4">
 
                             <div id="wmProjfilepicker" class="datafilepicker">
-                                <input type="file" id="wmProjselectFiles" value="Select the file to Load" class="form-control" />
-                                <div class="btn btn-wavemaker-success btn-block wm-sm"> <i class="fa fa-fw fa-upload"></i>
+                                <input type="file" id="wmProjselectFiles" value="Select the file to Load"
+                                    class="form-control" />
+                                <div class="btn btn-wavemaker-success btn-block wm-sm"> <i
+                                        class="fa fa-fw fa-upload"></i>
                                     Import a Project</div>
                             </div>
                         </div>
@@ -273,7 +298,8 @@ margin-top:15px;
                     <div class="row">
                         <div class="col-12 col-md-8"><label>Full DataBase Backup</label></div>
                         <div class="col-12 col-md-4">
-                            <button id="ProjectDownloadAllData" class="btn btn-wavemaker-success wm-sm "><i class="fa fa-fw fa-download"></i>
+                            <button id="ProjectDownloadAllData" class="btn btn-wavemaker-success wm-sm "><i
+                                    class="fa fa-fw fa-download"></i>
                                 Download Database</button></div>
                     </div>
 
@@ -282,8 +308,10 @@ margin-top:15px;
                         <div class="col-12 col-md-4">
 
                             <div id="filepicker" class="datafilepicker">
-                                <input type="file" id="selectFiles" value="Select the file to Load" class="form-control" />
-                                <div class="btn btn-wavemaker-success btn-block wm-sm"> <i class="fa fa-fw fa-upload"></i>
+                                <input type="file" id="selectFiles" value="Select the file to Load"
+                                    class="form-control" />
+                                <div class="btn btn-wavemaker-success btn-block wm-sm"> <i
+                                        class="fa fa-fw fa-upload"></i>
                                     Upload Database</div>
                             </div>
 
@@ -302,7 +330,8 @@ margin-top:15px;
                     <div class="row">
                         <div class="col-12 col-md-8"> <label>Clear your work form this device</label></div>
                         <div class="col-12 col-md-4">
-                            <button id="ProjectClearAllData" class="btn btn-wavemaker-danger wm-sm"><i class="fa fa-fw fa-trash"></i>
+                            <button id="ProjectClearAllData" class="btn btn-wavemaker-danger wm-sm"><i
+                                    class="fa fa-fw fa-trash"></i>
                                 DELETE Database</button></div>
 
                     </div>
@@ -314,20 +343,21 @@ margin-top:15px;
         </div>
 
         <div class="row">
-            <div style="background-color: #fff; padding:10px; text-align: center; border-radius: 20px; width: 320px; margin: 0 auto;">
-              <p style="color:#222; font-size: 1.1em; font-weight: bold; word-wrap: break-word">
-               Hi <BR>If you like wavemaker and want to support it
-              </p>
+            <div
+                style="background-color: #fff; padding:10px; text-align: center; border-radius: 20px; width: 320px; margin: 0 auto;">
+                <p style="color:#222; font-size: 1.1em; font-weight: bold; word-wrap: break-word">
+                    Hi <BR>If you like wavemaker and want to support it
+                </p>
 
-              <a href="https://www.patreon.com/wavemakercards" target="_blank">
-                <img src="data:image/png;base64,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
-      " ></a>
-      <p style="color:#222; font-size: 0.8em; font-weight: bold; word-wrap:break-word";>
-       Your support means a lot, thanks to people like you we can keep developing and improving.
-       <BR>
-        Thanks<BR>
-        Iain
-       </p>
+                <a href="https://www.patreon.com/wavemakercards" target="_blank">
+                    <img src="data:image/png;base64,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
+      "></a>
+                <p style="color:#222; font-size: 0.8em; font-weight: bold; word-wrap:break-word" ;>
+                    Your support means a lot, thanks to people like you we can keep developing and improving.
+                    <BR>
+                    Thanks<BR>
+                    Iain
+                </p>
 
             </div>
 
@@ -346,6 +376,13 @@ margin-top:15px;
                 </div>
                 <div class="modal-body">
                     <input type="text" id="ProjectNewTitle" class="form-control" placeholder="Project Title" class="">
+                    <BR>
+
+                    <select id="ProjectNewTemplate" class="form-control">
+                        <option value="">Empty Project</option>
+                        <option value="bnp">Better Novel Project</option>
+                        <option value="ms">Manuscript Shredder</option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="ProjectCreateNew" class="btn btn-wavemaker">Create Project</button>

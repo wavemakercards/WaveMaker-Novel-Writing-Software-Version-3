@@ -1,0 +1,927 @@
+{
+    "title": "Manuscript Shredder NanoWrimo",
+    "data": {
+        "writer": [
+            {
+                "icon": "fa fa-fw fa-file-o",
+                "key": "_1",
+                "title": "Day 1",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "This is based on the Manuscript Shredders NaNoWriMo Calendar spreadsheet.\n\nhttp://themanuscriptshredder.com/nanowrimo-calendar/\n",
+                            "completed": false
+                        },
+                        {
+                            "title": "Note Card",
+                            "content": "Introduce protagonist and establish likability, hook the reader, and setup First Plot Point. World building, establishing normal, introduce theme (if any)."
+                        },
+                        {
+                            "title": "Scene Card",
+                            "content": "Opening scene or sequence of story; protagonist must be introduced within first 1-3 scenes. (*page 1 unless you have a really good reason.)\n",
+                            "completed": false
+                        }
+                    ],
+                    "mStyle": []
+                },
+                "mStyle": []
+            },
+            {
+                "key": "_2",
+                "title": "Day 2",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Scene Card",
+                            "content": "*Establish normal, build world, build character, introduce theme (if any)"
+                        }
+                    ]
+                }
+            },
+            {
+                "icon": "fa fa-fw fa-file-o",
+                "key": "_3",
+                "title": "Day 3",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Plot Card",
+                            "content": "Hook: Create a question, build an emotional attachment, or present a situation the reader needs to answer. May or may not be part of the main conflict."
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_4",
+                "title": "Day 4",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*Introduce stakes. What will happen if MC continues in the same path?"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_5",
+                "title": "Day 5",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "Inciting Incident: (Optional) Game-changing event occurring during Part 1, often leading to a decision at the First Plot Point."
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_6",
+                "title": "Day 6",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "First Plot Point: Protagonist's character flaw solidifies (should mirror the antagonistic forces)"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_7",
+                "title": "Day 7",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "* Antagonistic forces fully come into play, defining the goal, stakes, and obstacles for protagonist; first time the meaning and implications of antagonistic events are seen."
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_8",
+                "title": "Day 8",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "The protagonist reacts to the new goal/stakes/obstacles revealed by the First Plot Point, but cannot overcome the antagonistic forces because of his character flaw or missing knowledge."
+                        },
+                        {
+                            "title": "Note Card",
+                            "content": "*Characters deal with consequences of decision in inciting incident. Use secondary characters to make things worse. Introduce B-plot (also called the love story)"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_9",
+                "title": "Day 9",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*Character regroups, attempts to learn the new rules, and fails to thrive because of character lie/flaw.",
+                            "completed": false
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_10",
+                "title": "Day 10",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*Character deals with consequences of failure",
+                            "completed": false
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_11",
+                "title": "Day 11",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*First Pinch Point - Character's lie is challenged or recognizes missing knowledge.",
+                            "completed": false
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_12",
+                "title": "Day 12",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*Character learns new information that causes him/her to change views/abilities. The stubborn hero will either misinterpret new info or disregard it. In the hero's journey, the hero will respond to the first plot pinch by turning to the mentor for help. The reluctant hero takes many forms, but the unifying feature is the need to be forced into action. As a result, his first instinct is to retreat. "
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_13",
+                "title": "Day 13",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*The false new normal. Typically a “break” in the action where the character compromises a belief for the sake of comfort or creates/believes an incorrect view/information. Second plot point in B story/love story\"  "
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_14",
+                "title": "Day 14",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*Recommitment scene. Character is forced/chooses to return to the quest."
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_15",
+                "title": "Day 15",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "Midpoint information/awareness causes the protagonist to change course in how to approach the obstacles; the hero is now empowered with information on how to proceed, not merely reacting anymore; protagonist also ramps up battle with inner demons.",
+                            "completed": false
+                        },
+                        {
+                            "title": "Note Card",
+                            "content": "*Character makes plan for solving main conflict. Character begins to try new belief"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_16",
+                "title": "Day 16",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*Build up to the battle. Show preparations and continue developing B story ",
+                            "completed": false
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_17",
+                "title": "Day 17",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*The first offensive",
+                            "completed": false
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_18",
+                "title": "Day 18",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*New plan seems to be working until...",
+                            "completed": false
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_19",
+                "title": "Day 19",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "Second Pinch Point - Reminder of the story's antagonistic forces, as the antagonist ups the game against the protagonist's attacks."
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_20",
+                "title": "Day 20",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*Main character's new beliefs are tested and character reverts to old habits-usually leading to \"all hope is lost.\""
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_21",
+                "title": "Day 21",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "All hope is lost lull before the Second Plot Point. Can also include “the crisis” element in B plot"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_22",
+                "title": "Day 22",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "Second Plot Point: The final injection of new information into the story (doesn't need to be fully understood by the protagonist yet); protagonist's quest is accelerated."
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_23",
+                "title": "Day 23",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*Character transformation is complete. Now the final battle can begin."
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_24",
+                "title": "Day 24",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "The protagonist summons the courage and growth to come up with solutions, overcome inner obstacles, and conquer the antagonistic force; all new information must have been referenced, foreshadowed, or already in play (otherwise, deus ex machina).",
+                            "completed": false
+                        },
+                        {
+                            "title": "Note Card",
+                            "content": "*Main character makes plan for final battle. Time to smooth things over with allies.  Tie up subplots. Make up with love interest.",
+                            "completed": false
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_25",
+                "title": "Day 25",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*The approach. This is the lull before the storm. Create anticipation. Remind readers of the stakes. Make it personal. Make sure the clock is ticking.",
+                            "completed": false
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_26",
+                "title": "Day 26",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*The first encounter, ends in false victory. Protagonist forces are in control and are either putting the pieces of their plan into place or making the first direct assault. ",
+                            "completed": false
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_27",
+                "title": "Day 27",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*Antagonist pushes back. Victory for the hero seems inevitable. Then, the antagonistic forces emerge even stronger.",
+                            "completed": false
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_28",
+                "title": "Day 28",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*The climax. Hero's last confrontation with the villain, the antagonistic forces, and her personal lie. She will either emerge victorious or everything will burn around her. Time for the hero to show her new colors."
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_29",
+                "title": "Day 29",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*The falling action. All questions must be answered. All loose ends tied up. Show effects of the climax. "
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "_30",
+                "title": "Day 30",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "*The wrap-up. The new normal. What the hero's life will be like from now on. What has really changed in the character's world. "
+                        }
+                    ]
+                }
+            }
+        ],
+        "timeline": [
+            {
+                "title": " : ",
+                "content": ""
+            }
+        ],
+        "snowflake": [
+            {
+                "title": "Day 1",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 2",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 3",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 4",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 5",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 6",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 7",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 8",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 9",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 10",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 11",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 12",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 13",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 14",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 15",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 16",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 17",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 18",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 19",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 20",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 21",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 22",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 23",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 24",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 25",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 26",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 27",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 28",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 29",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            },
+            {
+                "title": "Day 30",
+                "content": "",
+                "subcard1": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard2": {
+                    "title": "",
+                    "content": ""
+                },
+                "subcard3": {
+                    "title": "",
+                    "content": ""
+                }
+            }
+        ],
+        "settings": {
+            "manuscript": {}
+        },
+        "cards": []
+    }
+}

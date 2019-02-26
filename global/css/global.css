@@ -151,6 +151,13 @@ body {
   overflow: hidden;
 }
 
+div,p{
+  overflow-wrap: break-word;
+}
+
+.form-control{
+  border-radius: 0px;
+}
 #install-alert {
   position: absolute;
   width:100%;
