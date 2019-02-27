@@ -1,0 +1,632 @@
+{
+    "title": "Three-Act Structure",
+    "data": {
+        "writer": [
+            {
+                "expanded": true,
+                "icon": "fa fa-fw fa-file-o",
+                "key": "_1551283984",
+                "title": "Act 1",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "Act One (set-up)\nThe first act is used to introduce the reader to the world your characters live in and to set up the coming conflict.",
+                            "backgroundColor": "5"
+                        }
+                    ]
+                },
+                "children": [
+                    {
+                        "expanded": true,
+                        "icon": "fa fa-fw fa-file-o",
+                        "key": "_1551283968",
+                        "title": "Block One",
+                        "data": {
+                            "content": "",
+                            "notes": [
+                                {
+                                    "title": "Note Card",
+                                    "content": "Introduce Hero in Ordinary World",
+                                    "backgroundColor": "1"
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283942",
+                                "title": "Chapter 1: Introduction (set up)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "In the first chapter, you need to set up your hero in their ordinary world. There are certain things you should include,  as well as common mistakes you should avoid. In The Hunger Games, the first chapter introduces the dystopian world and the Reaping.",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283943",
+                                "title": "Chapter 2: Inciting incident (conflict)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "The inciting incident in Chapter Two is the event or decision that sets your hero along the path of your narrative. The inciting incident is really important – without it, your story would not occur. The inciting incident in The Hunger Games is Katniss volunteering herself for the Hunger Games to save her sister; if Katniss didn’t volunteer, the rest of the novel would not have happened.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283953",
+                                "title": "Chapter 3: Immediate reaction (resolution)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "In the third chapter, the hero reacts to the inciting incident. The immediate reaction in The Hunger Games is when Katniss’ family and friends come to say goodbye to her before she leaves for the Games.",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "expanded": false,
+                        "icon": "fa fa-fw fa-file-o",
+                        "key": "_1551283946",
+                        "title": "Block Two",
+                        "data": {
+                            "content": "",
+                            "notes": [
+                                {
+                                    "title": "Note Card",
+                                    "content": "Problem Disrupts Hero’s Life",
+                                    "backgroundColor": "1"
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283256",
+                                "title": "Chapter 4: Reaction (set-up)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Chapter Four is where the hero reacts to and reflects on the long-term impacts of the inciting incident. In Chapter Four, Katniss reflects on the impact her death would have on her community, especially her mother and sister. Katniss also starts to discuss strategy with Haymitch, her mentor.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283270",
+                                "title": "Chapter 5: Action (conflict)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "As a result of their reflection, the hero decides to take action and do something to change their situation in Chapter Five. In The Hunger Games, Katniss takes her first step towards winning the Games in the parade of tributes. Her fiery dress and attitude win over the crowd.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283279",
+                                "title": "Chapter 6: Consequence (resolution)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Chapter Six details the immediate consequences of the action the hero took in Chapter Five. In The Hunger Games, Katniss discusses the success of the parade with Haymitch. She also reflects on her past and the difficulty of rebellion.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "expanded": false,
+                        "icon": "fa fa-fw fa-file-o",
+                        "key": "_1551283950",
+                        "title": "Block Three",
+                        "data": {
+                            "content": "",
+                            "notes": [
+                                {
+                                    "title": "Note Card",
+                                    "content": "Hero’s Life Changes Direction",
+                                    "backgroundColor": "1"
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283367",
+                                "title": "Chapter 7: Pressure (set-up)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "The hero’s life has changed as a result of the action they took in Chapter Five, and this creates a lot of pressure and stress in Chapter Seven. The pressure is obvious in Chapter Seven of The Hunger Games. Here, Katniss has her demonstration where she shows the Gamemakers her archery skills by shooting an arrow towards them in frustration.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283295",
+                                "title": "Chapter 8: Pinch (conflict)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "In Chapter Eight, the first pinch – or plot twist – occurs. A good plot twist is something completely unexpected for the reader. The first pinch in The Hunger Games is Katniss receiving a score of 11, something completely unexpected.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283301",
+                                "title": "Chapter 9: Push (resolution)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "As a result of the pinch, the hero is pushed into a new world in Chapter Nine. The majority of this chapter in The Hunger Games centres around the television interviews with Caesar, the last formality before the tributes are sent into the Games. Here, Peeta declares his love for Katniss.  \n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "expanded": false,
+                "icon": "fa fa-fw fa-file-o",
+                "key": "_1551283980",
+                "title": "Act 2",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "Act Two (conflict)\nThe second act is full of conflict.\n\nCharacter development is crucial in the second act; the hero at the end of Act One does not yet have the tools (whether those tools be emotional, physical or literal items the hero must retrieve) to succeed in the third act, so Act Two is all about the journey.",
+                            "backgroundColor": "5"
+                        }
+                    ]
+                },
+                "children": [
+                    {
+                        "expanded": false,
+                        "icon": "fa fa-fw fa-file-o",
+                        "key": "_1551283421",
+                        "title": "Block Four – Hero Explores New World",
+                        "data": {
+                            "content": "",
+                            "notes": [
+                                {
+                                    "title": "Note Card",
+                                    "content": "Hero Explores New World",
+                                    "backgroundColor": "1"
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "expanded": false,
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283415",
+                                "title": "Chapter 10: New world (set-up)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Chapter 10 allows you to introduce the reader to the new world. What has changed, and how does the hero feel about it? In Chapter 10, Katniss finally enters the Hunger Games.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283415",
+                                "title": "Chapter 11: Fun and games (event/conflict)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "In Chapter 11, the hero can take a break and have a little fun. Maybe they have a date with their new lover, or maybe they do something they’ve never done before. Here, Katniss travels through the arena looking for water, and while she is still in an intense environment, she still has a bit of a break.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283416",
+                                "title": "Chapter 12: Old world contrast (resolution)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Chapter 12 is time for the hero to compare their current world to how things were at the novel’s beginning. After realising Peeta has teamed up with her enemies, Katniss reflects on their relationship and compares this Peeta to the person she was friends with.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "expanded": false,
+                        "icon": "fa fa-fw fa-file-o",
+                        "key": "_1551283429",
+                        "title": "Block Five – Crisis of New World",
+                        "data": {
+                            "content": "",
+                            "notes": [
+                                {
+                                    "title": "Note Card",
+                                    "content": "Crisis of New World",
+                                    "backgroundColor": "1"
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283437",
+                                "title": "Chapter 13: Build-up (set-up)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Chapter 13 is the build-up to the midpoint and Chapter 14 is the midpoint itself. A good midpoint will dramatically change the hero or impact their life in a negative way. In The Hunger Games, Katniss is pushed towards the Career tributes in Chapter 13, and escapes from them after Peeta saves her in Chapter 14.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283457",
+                                "title": "Chapter 14: Midpoint (conflict)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Chapter 13 is the build-up to the midpoint and Chapter 14 is the midpoint itself. A good midpoint will dramatically change the hero or impact their life in a negative way. In The Hunger Games, Katniss is pushed towards the Career tributes in Chapter 13, and escapes from them after Peeta saves her in Chapter 14.",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283475",
+                                "title": "Chapter 15: Reversal (resolution)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Chapter 15 is the immediate reaction or consequence of the midpoint. Here, Katniss makes an alliance with Rue and they formulate a plan to take down the Career tributes.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "expanded": false,
+                        "icon": "fa fa-fw fa-file-o",
+                        "key": "_1551283494",
+                        "title": "Block Six – Finding a Solution",
+                        "data": {
+                            "content": "",
+                            "notes": [
+                                {
+                                    "title": "Note Card",
+                                    "content": "Finding a Solution",
+                                    "backgroundColor": "1"
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283497",
+                                "title": "Chapter 16: Reaction (set-up)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "In Chapter 16, the hero reflects on the long-term impacts of the midpoint. In The Hunger Games, Katniss realises that to take down the Careers, they need to stop their food supply.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283506",
+                                "title": "Chapter 17: Action (conflict)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "In Chapter 17, the hero decides to take action to resolve the problem created by the midpoint; however, they realise the enormity of their task when things don’t necessarily go to plan. In Chapter 17, Katniss blows up the Career’s food supply, but before she and Rue can celebrate, Rue is attacked by another tribute.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283511",
+                                "title": "Chapter 18: Dedication (resolution)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Despite the set-backs, in Chapter 18 the hero decides that they will succeed no matter what. Rue dies in Chapter 18, and Katniss promises to win for her.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "expanded": false,
+                "icon": "fa fa-fw fa-file-o",
+                "key": "_1551283981",
+                "title": "Act 3",
+                "data": {
+                    "content": "",
+                    "notes": [
+                        {
+                            "title": "Note Card",
+                            "content": "Act Three (resolution)\nThe final act is all about resolutions. In the third act, the hero needs to find solutions to the conflict created by the midpoint, and you as the author need to make sure you tie up all the loose ends.",
+                            "backgroundColor": "5"
+                        }
+                    ]
+                },
+                "children": [
+                    {
+                        "expanded": false,
+                        "icon": "fa fa-fw fa-file-o",
+                        "key": "_1551283576",
+                        "title": "Block Seven – Victory Seems Impossible",
+                        "data": {
+                            "content": "",
+                            "notes": [
+                                {
+                                    "title": "Note Card",
+                                    "content": "Victory Seems Impossible",
+                                    "backgroundColor": "1"
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283606",
+                                "title": "Chapter 19: Trials (set-up)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "In Chapter 19, the hero faces significant trials. These trials are extremely difficult for the hero and is something the hero has never experienced before. Here, Katniss races to find Peeta and struggles to help save his injured leg.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283614",
+                                "title": "Chapter 20: Pinch (event/conflict)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Chapter 20 is the second pinch, where the hero experiences something completely unexpected that makes everything even worse. In Chapter 20, Peeta’s injury leads to blood poisoning.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283619",
+                                "title": "Chapter 21: Darkest moment (resolution)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "This plot twist leads to the darkest moment in Chapter 21 where the thought of success is incomprehensible. Here, Katniss risks everything to get medicine for Peeta, and the chapter ends with her passing out from her own injuries.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "expanded": false,
+                        "icon": "fa fa-fw fa-file-o",
+                        "key": "_1551283738",
+                        "title": "Block Eight – Hero Finds Power",
+                        "data": {
+                            "content": "",
+                            "notes": [
+                                {
+                                    "title": "Note Card",
+                                    "content": "Hero Finds Power",
+                                    "backgroundColor": "1"
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283667",
+                                "title": "Chapter 22: Power within (set-up)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Having hit rock-bottom, the hero remembers their desire to succeed in Chapter 18 and finds the power within to continue on.  In Chapter 22, Katniss and Peeta both start to recover from their injuries.\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283688",
+                                "title": "Chapter 23: Action (conflict)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "After deciding they can do it, the hero takes action in Chapter 23, and this action causes the plotlines to converge and come together in Chapter 24. In Chapter 23, Peeta and Katniss realise how close they are to winning, and in Chapter 24 all of the tributes are pushed towards the lake by the Gamemakers for the final battl",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283692",
+                                "title": "Chapter 24: Converge (resolution)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "After deciding they can do it, the hero takes action in Chapter 23, and this action causes the plotlines to converge and come together in Chapter 24. In Chapter 23, Peeta and Katniss realise how close they are to winning, and in Chapter 24 all of the tributes are pushed towards the lake by the Gamemakers for the final battl",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "expanded": false,
+                        "icon": "fa fa-fw fa-file-o",
+                        "key": "_1551283698",
+                        "title": "Block Nine – Hero Fights and Wins",
+                        "data": {
+                            "content": "",
+                            "notes": [
+                                {
+                                    "title": "Note Card",
+                                    "content": "Hero Fights and Wins",
+                                    "backgroundColor": "1"
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283720",
+                                "title": "Chapter 25: Battle (set-up)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Block nine is the finale. In Chapter 25, the character has one last battle. This doesn’t have to be a physical battle – it could be a fight between friends or lovers, or a mental battle your hero has with themselves. Here, Peeta and Katniss try to survive the freezing night and kill Cato.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283725",
+                                "title": "Chapter 26: Climax (conflict)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Chapter 26 is the final climax. The decisions the hero makes here will impact the rest of their life; it is the point of no return. In The Hunger Games, Katniss and Peeta pretend to eat the poisonous berries, which leads to President Snow stopping them by declaring them both winners. However, Katniss realises that despite winning the Games, she’s now in even more danger.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "icon": "fa fa-fw fa-file-o",
+                                "key": "_1551283730",
+                                "title": "Chapter 27: Resolution (resolution)",
+                                "data": {
+                                    "content": "",
+                                    "notes": [
+                                        {
+                                            "title": "Note Card",
+                                            "content": "Chapter 27 is the resolution or the immediate reaction to the hero’s decision in the last chapter. Here, Katniss and Peeta finally get to go home.\n\n",
+                                            "backgroundColor": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "settings": {
+            "manuscript": {}
+        }
+    }
+}
