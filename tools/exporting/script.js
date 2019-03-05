@@ -89,7 +89,7 @@ $(document).off("click", "#ExportHTML").on("click", "#ExportHTML", function () {
   -webkit-box-shadow: 0 0 25px -7px #000000;/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
   box-shadow: 0 0 25px -7px #000000;/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=25, Direction=135, Color=#000000); /*IE 5.5-7*/
-  page-break:after;
+  page-break-after: always
   margin-bottom:50px;
   }
   
