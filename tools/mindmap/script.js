@@ -33,17 +33,28 @@ function SaveMindMap() {
   });
 }
 
-
+var mindmap = {}
 var linkem = { start: 0, end: 0 };
+var linkKey = -1
+
+DrawMindMapNav()
 
 
-$("#navigation-side-nav").html("<ul id='mindmap-list'></ul>")
-
+function DrawMindMapNav() {
+  SaveMindMap()
+  $("#navigation-side-nav").html('')
+  $("#navigation-side-nav").append("<ul id='mindmap-list'></ul>")
+  $("#mindmap-list").append("<li data-key='add' class='btn  btn-wavemaker'><i class='fa fa-fw fa-plus'></i> Create a Mindmap</li>")
+  $.each(WMproject.data.mindmaps, function (k, i) {
+    var newli = $("<li><i class='fa fa-fw fa-sitemap fa-rotate-270'></i> " + i.title + "</li>")
+    newli.data("key", k);
+    $("#mindmap-list").append(newli)
+  })
+}
 
 $(document).off("click", "#mindmap-list>li").on("click", "#mindmap-list>li", function () {
   var key = $(this).data('key');
   if (key === "add") {
-    console.log("adding")
     var newmap = {
       title: "New Mindmap",
       links: [],
@@ -56,24 +67,7 @@ $(document).off("click", "#mindmap-list>li").on("click", "#mindmap-list>li", fun
     mindmap = WMproject.data.mindmaps[key]
     DrawMindMap()
   }
-
-
-
 })
-
-
-DrawMindMapNav()
-function DrawMindMapNav() {
-  $("#mindmap-list").html('')
-  $("#mindmap-list").append("<li data-key='add' class='btn  btn-wavemaker'><i class='fa fa-fw fa-plus'></i> Create a Mindmap</li>")
-  $.each(WMproject.data.mindmaps, function (k, i) {
-    var newli = $("<li><i class='fa fa-fw fa-sitemap fa-rotate-270'></i> " + i.title + "</li>")
-    newli.data("key", k);
-    $("#mindmap-list").append(newli)
-  })
-
-
-}
 
 
 function DrawMindMap() {
@@ -115,25 +109,23 @@ function redrawlines() {
     $("#mindmap_line").append($(newline));
   })
 }
-
-
 function uuID() {
   return Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
 }
+$(document).off("click", ".trash").on("click", ".trash", function (e) {
 
 
 
-$(document).on("click", ".trash", function (e) {
   swal({
     title: "Are you sure?",
     text: "You Will remove this node and all it's links",
     type: "warning",
     showCancelButton: true,
-    confirmButtonClass: "btn-danger",
-    confirmButtonText: "Yes, delete it!",
-    closeOnConfirm: false
-  },
-    function () {
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Remove it!"
+  }).then(result => {
+    if (result.value) {
       var key = $("#" + CurrentMindmapItemKey).data("key");
       // find all links with this one in there
       var cleanarray = [];
@@ -146,39 +138,46 @@ $(document).on("click", ".trash", function (e) {
 
 
       mindmap.items.splice(key, 1);
-      swal("Deleted!", "Your imaginary file has been deleted.", "success");
+      swal("Deleted!", "That has been deleted.", "success");
       DrawMindMap();
-    });
+
+
+
+    }
+  });
+
 })
 
 
-var linkKey = -1
-$(document).on("click", ".connectingLines", function (e) {
+$(document).off("click", ".connectingLines").on("click", ".connectingLines", function (e) {
   e.stopPropagation()
   linkKey = $(this).data("key");
+
   swal({
     title: "Are you sure?",
-    text: "You Will remove this node and all it's links",
+    text: "You Will remove this link",
     type: "warning",
     showCancelButton: true,
-    confirmButtonClass: "btn-danger",
-    confirmButtonText: "Yes, delete it!",
-    closeOnConfirm: false
-  },
-    function () {
-      console.log("Deleting line :", linkKey)
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Remove it!"
+  }).then(result => {
+    if (result.value) {
       mindmap.links.splice(linkKey, 1);
       linkKey = -1
-      swal("Deleted!", "Your imaginary file has been deleted.", "success");
+      swal("Deleted!", "That has been deleted.", "success");
       DrawMindMap();
-    });
+    }
+  });
+
 })
 
 $(document).on("click", ".mindmap-item", function (e) {
   e.stopPropagation()
+
 })
 
-$(document).on("click", "#mindmap_items", function (e) {
+$(document).off("click", "#mindmap_items").on("click", "#mindmap_items", function (e) {
   e.stopPropagation()
   CurrentMindmapItemKey = '';
   linkem = { start: 0, end: 0 };
@@ -186,13 +185,13 @@ $(document).on("click", "#mindmap_items", function (e) {
 })
 
 
-$(document).on("keyup", ".notes", function () {
+$(document).off("keyup", ".notes").on("keyup", ".notes", function () {
   key = $(this).parent().data("key")
   mindmap.items[key].content = $(this).val();
 
 })
 
-$(document).on("click", ".linker", function (e) {
+$(document).off("click", ".linker").on("click", ".linker", function (e) {
   e.stopPropagation()
   myLinkButton = $(this).parent().attr("id");
   if (linkem.start == 0) {
@@ -201,7 +200,7 @@ $(document).on("click", ".linker", function (e) {
   } else {
     if (linkem.start != myLinkButton) {
       linkem.end = myLinkButton;
-      links.push(linkem)
+      mindmap.links.push(linkem)
 
       // clean up the  links array
       nodupes = ArrNoDupe(mindmap.links); // no duplicate links
@@ -230,13 +229,7 @@ $("#add_mindmap_item").click(function () {
 })
 
 var $dragging = null;
-$(document.body).on("mousemove", function (e) {
-  if (linkem.start != 0 && linkem.end == 0) {
-    $("#mindmap_link_tooltip").css({ "top": (e.pageY) + "px" })
-    $("#mindmap_link_tooltip").css({ "left": (e.pageX) + "px" })
-  } else {
-    $("#mindmap_link_tooltip").css({ "top": "-100px" })
-  }
+$(document.body).off("mousemove").on("mousemove", function (e) {
   if ($dragging) {
     $dragging.offset({
       top: e.pageY - 15,
@@ -246,12 +239,12 @@ $(document.body).on("mousemove", function (e) {
   }
 });
 
-$(document).on("mousedown", ".handle", function (e) {
+$(document).off("mousedown", ".handle").on("mousedown", ".handle", function (e) {
   $dragging = $(this).parent();
 });
 
 
-$(document).on("mouseup", function (e) {
+$(document).off("mouseup").on("mouseup", function (e) {
   if ($dragging) {
     var index = $($dragging).data("key")
     mindmap.items[index].top = parseInt($($dragging).css("top"), 10);
@@ -263,7 +256,7 @@ $(document).on("mouseup", function (e) {
 
 
 
-$(document).on("focus", ".mindmap-item", function (e) {
+$(document).off("focus", ".mindmap-item").on("focus", ".mindmap-item", function (e) {
   $(this).find(".handle").show();
   $(this).find(".linker").show();
   $(this).find(".trash").show();
@@ -272,7 +265,7 @@ $(document).on("focus", ".mindmap-item", function (e) {
   redrawlines()
 });
 
-$(document).on("blur", ".mindmap-item", function (e) {
+$(document).off("blur", ".mindmap-item").on("blur", ".mindmap-item", function (e) {
   $(this).find(".handle").hide();
   $(this).find(".linker").hide();
   $(this).find(".trash").hide();
@@ -295,7 +288,7 @@ function createLine(el1, el2) {
   var dy1 = off1.top + off1.height / 2;
   // center of second point
   var dx2 = off2.left + off2.width / 2;
-  var dy2 = off2.top + off1.height / 2;
+  var dy2 = off2.top + off2.height / 2;
   // distance
   var length = Math.sqrt(((dx2 - dx1) * (dx2 - dx1)) + ((dy2 - dy1) * (dy2 - dy1)));
   // center
@@ -333,25 +326,23 @@ function ArrNoDupe(a) {
 }
 
 
-$(document).unbind().keydown(function (e) {
-  var key = $("#" + CurrentMindmapItemKey).data("key")
+$("#mindmap_items").keydown(function (e) {
   switch (e.which) {
     case 37: // left
-      mindmap.items[key].left = $("#" + CurrentMindmapItemKey).position().left - 10;
+      mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].left = $("#" + CurrentMindmapItemKey).position().left - 10;
       DrawMindMap()
       break;
     case 38: // up
-      mindmap.items[key].top = $("#" + CurrentMindmapItemKey).position().top - 10;
+      mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].top = $("#" + CurrentMindmapItemKey).position().top - 10;
       DrawMindMap()
       break;
     case 39: // right
-      mindmap.items[key].left = $("#" + CurrentMindmapItemKey).position().left + 10;
+      mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].left = $("#" + CurrentMindmapItemKey).position().left + 10;
       DrawMindMap()
       break;
 
     case 40: // down
-      mindmap.items[key].top = $("#" + CurrentMindmapItemKey).position().top + 10;
-
+      mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].top = $("#" + CurrentMindmapItemKey).position().top + 10;
       DrawMindMap()
       break;
 

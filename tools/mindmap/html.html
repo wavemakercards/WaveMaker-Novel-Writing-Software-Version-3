@@ -110,8 +110,8 @@ div {
         position: absolute;
         top: 0px;
         left: 0px;
-        background-color: #424242;
-        color: #fff;
+        background-color: var(--c8);
+        color: var(--c0);
         padding: 2px 3px 2px 3px;
         font-size: 0.7em;
         width: 20px;
@@ -120,9 +120,12 @@ div {
         border-radius: 10px;
     }
 
+
+
     .mindmap-item>.linker {
         position: absolute;
-        background-color: #636363;
+        background-color: var(--interface-button-background-success);
+        color: var(--interface-button-foreground-success);
         padding: 2px 3px 2px 3px;
         font-size: 0.7em;
         width: 20px;
@@ -131,14 +134,14 @@ div {
         top: 0px;
         right: 0px;
 
-        color: #fff;
+
         cursor: pointer;
 
     }
 
     .mindmap-item>.linker:hover {
-        background-color: #212121;
-        color: #fafafa;
+        background-color: var(--c9);
+        color: var(--c0);
     }
 
     button {
@@ -147,7 +150,8 @@ div {
 
     .mindmap-item>.trash {
         position: absolute;
-        background-color: #f00;
+        background-color: var(--interface-button-background-danger);
+        color: var(--interface-button-foreground-danger);
         border-radius: 10px;
         padding: 2px 3px 2px 3px;
         font-size: 0.7em;
@@ -157,13 +161,12 @@ div {
         bottom: 0px;
         left: 0px;
 
-        color: #fff;
         cursor: pointer;
     }
 
     .mindmap-item>.trash:hover {
-        background-color: #212121;
-        color: #fafafa;
+        background-color: var(--interface-button-background-danger-hover);
+        color: var(--interface-button-foreground-danger-hover);
     }
 
 
@@ -184,8 +187,8 @@ div {
         left: 0px;
         right: 0px;
         height: 50px;
-        background-color: #212121;
-        color: #fff;
+        background-color: var(--c9);
+        color: var(--c0);
     }
 
     #mindmap_items {
@@ -205,11 +208,13 @@ div {
     }
 
     #add_mindmap_item {
+        /*
         height: 50px;
         background-color: #ddd;
         color: #212121;
         border: 0px;
         font-size: 1.2em;
+        */
     }
 
     #mindmap_link_tooltip {
@@ -231,41 +236,5 @@ div {
 
 
 <div id="mindmap_tools">
-    <button id="add_mindmap_item"><i class="fa fa-sticky-note"></i> Add a Note</button>
-</div>
-
-<div id="mindmap_link_tooltip" class="animated pulse infinite"><i class="fa fa-link fa-fw "></i></div>
-
-
-
-
-<div id="CardManagerModal" class="modal fade " tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"><input type="text" id="CardTitle" placeholder="Card Title" class=""></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <div id="hashtagger"></div>
-                <textarea id="CardContent" placeholder="Write here ..."></textarea>
-                <div id="ImagePreviewHolder"></div>
-                <div class="wm-image-upload">
-                    <button class="wm-image-upload-form btn btn-wavemaker"><i class="fa fa-fw fa-camera"></i> Upload
-                        Image</button>
-                    <input type="file" class="wm-image-upload-form" id="wmImageUploadSelect" name="myfile" />
-                </div>
-
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="AddCard" class="btn btn-wavemaker">Save changes</button>
-                <button type="button" class="btn btn-wavemaker-danger" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
+    <button id="add_mindmap_item" class="btn btn-wavemaker"><i class="fa fa-fw fa-sticky-note"></i> Add Note</button>
 </div>
