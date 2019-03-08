@@ -1,225 +1,20 @@
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+    body {
+        font-size: 14px;
+        font-family: 'Quicksand', sans-serif;
+    }
+
     /*
-    In this mode the css specific to the tool is included here - endeavour to use generic css wherever possible
-    */
-    #card-search {
-        border: 0px;
-        background-color: transparent;
-        border-radius: 0px;
-        outline: none;
-        box-shadow: none;
-    }
+div {
+ transition: all 0.1s ease; 
 
-    #cards-board {
-        position: absolute;
-        top: 50px;
-        left: 0px;
-        bottom: 0px;
-        right: 0px;
-        padding: 10px;
-        overflow-y: auto;
-    }
-
-    .cardy {
-        position: relative;
-        width: 100%;
-        background-color: #fff;
-        margin-bottom: 20px;
-
-        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=0, Color=#000000)";
-        -moz-box-shadow: 0 3px 10px -3px #000000;
-        -webkit-box-shadow: 0 3px 10px -3px #000000;
-        box-shadow: 0 3px 10px -3px #000000;
-        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color=#000000);
-        min-height: 200px;
-        padding: 10px;
-    }
-
-    .card-delete-button {
-        background: transparent;
-        border: 0px;
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        cursor: pointer;
-        outline: none;
-    }
-
-    .card-edit-button {
-        background: transparent;
-        border: 0px;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        cursor: pointer;
-        outline: none;
-    }
-
-    .card-title {
-        margin-top: 15px;
-        border-bottom: 1px solid #ccc;
-        min-height: 1em;
-        font-weight: bold;
-        font-size: 1.3em;
-    }
-
-    .card-description {
-        border-bottom: 1px solid #ccc;
-        min-height: 1em;
-        padding: 10px;
-        font-weight: bold;
-        border-top: 1px solid #ccc;
-        margin-top: 10px;
-
-    }
+}
+*/
 
 
-
-
-    .wikiImage {
-        max-width: 300px;
-    }
-
-    .wm-image-upload-form {
-        border: none;
-        width: 100%;
-    }
-
-    .wm-image-upload {
-        width: 100%;
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-    }
-
-    .wiki-block-holder {
-        position: relative;
-        margin-bottom: 20px;
-    }
-
-    .wm-image-upload input[type=file] {
-
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        opacity: 0;
-
-        cursor: pointer;
-    }
-
-    .wm-image-upload-form {
-        border: none;
-        width: 100%;
-        cursor: pointer;
-    }
-
-    #CardTitle {
-        border: 0px;
-        width: 100%;
-        padding: 10px;
-        outline: none;
-        background: transparent;
-        color: inherit;
-    }
-
-    #CardContent {
-        border: 0px;
-        padding: 10px;
-        outline: none;
-        resize: none;
-        width: 100%;
-        background: transparent;
-        color: inherit;
-    }
-
-    .img-preview {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        margin: 1%;
-
-    }
-
-    #ImagePreviewHolder {
-        position: relative;
-        margin: 1em 0;
-        text-align: center;
-        background-color: #ccc;
-    }
-
-
-    .modal-title {
-        width: 100%;
-        line-height: 1em;
-    }
-
-    #ht {
-        display: inline-block;
-        border: 0px;
-        border-bottom: 1px solid var(--c3);
-        outline: none;
-        color: var(--c0);
-        background: transparent;
-
-    }
-
-    #ht::placeholder {
-        /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: var(--c3);
-        opacity: 1;
-        /* Firefox */
-    }
-
-    #hashtagger {
-        padding: 5px;
-        background-color: var(--c6);
-        border-radius: 3px;
-    }
-
-    .badge {
-        margin-right: 10px;
-    }
-
-    .deletehashtag {
-        cursor: pointer;
-    }
-
-    .div-img {
-        display: inline-block;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        border: 2px solid #fff;
-        cursor: pointer;
-    }
-
-
-    .card-images img {
-        /* Just in case there are inline attributes */
-        width: 100% !important;
-        height: auto !important;
-    }
-
-    #imageview {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        background-color: rgba(0, 0, 0, 0.9);
-        text-align: center;
-        z-index: 99999999;
-    }
-
-    #imageview>img {
-        margin: 5%;
-        max-width: 90%;
-    }
-
-
-    #hashtag-list {
+    #mindmap-list {
         list-style: none;
         margin: 0;
         padding: 0;
@@ -231,8 +26,8 @@
         overflow-y: auto;
     }
 
-    #hashtag-list>li {
-        padding: 10px;
+    #mindmap-list>li {
+        padding: 15px;
         display: block;
         background-color: var(--side-nav-bar-button-background);
         color: var(--side-nav-bar-button-foreground);
@@ -241,76 +36,207 @@
         text-transform: capitalize;
     }
 
-    #hashtag-list>li:hover {
+    #mindmap-list>li:hover {
         background-color: var(--side-nav-bar-button-background-hover);
         color: var(--side-nav-bar-button-foreground-hover);
     }
 
-    #toolwelcome {
-        height: 50px;
-        background-color: var(--interface-button-background);
-        color: var(--interface-button-foreground);
-
-        position: sticky;
+    .connectingLines {
+        position: absolute;
+        border: 2px solid #ccc;
+        background-color: #ccc;
+        z-index: 90;
+        cursor: pointer;
     }
 
-    .listview .cardy {
-        max-width: 600px;
-        margin: 0 auto;
-        margin-bottom: 20px;
+
+    .activelines {
+        border: 1px solid #f00;
+        background-color: #f00;
+        z-index: 91;
     }
 
-    .modal-content {
-        background-color: var(--c8);
-        color: var(--c0);
-        border-radius: 0px;
-        max-width: 600px;
-        margin: 0 auto;
+    .connectingLines:hover {
+        position: absolute;
+        border: 4px solid #00f;
+        background-color: #00f;
+        z-index: 90;
     }
 
-    .fixbottom {
-        position: fixed;
+    .mindmap-item {
+        z-index: 100;
+        padding: 0px;
+        position: absolute;
+        outline: none;
+        box-shadow: none;
+
+        border-radius: 10px;
+    }
+
+    /*
+.mindmap-item:focus, .mindmap-item:hover{
+  background-color:rgba(0,0,0,0.05);
+}
+*/
+
+    .mindmap-item:focus>.notes,
+    .mindmap-item:hover>.notes {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=13, Direction=0, Color=#000000)";
+        /*IE 8*/
+        -moz-box-shadow: 0 0 13px rgba(0, 0, 0, 0.4);
+        /*FF 3.5+*/
+        -webkit-box-shadow: 0 0 13px rgba(0, 0, 0, 0.4);
+        /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+        box-shadow: 0 0 13px rgba(0, 0, 0, 0.4);
+        /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=13, Direction=135, Color=#000000);
+        /*IE 5.5-7*/
+    }
+
+    .notes:focus {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=13, Direction=0, Color=#000000)";
+        /*IE 8*/
+        -moz-box-shadow: 0 0 13px rgba(0, 0, 0, 0.4);
+        /*FF 3.5+*/
+        -webkit-box-shadow: 0 0 13px rgba(0, 0, 0, 0.4);
+        /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+        box-shadow: 0 0 13px rgba(0, 0, 0, 0.4);
+        /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=13, Direction=135, Color=#000000);
+        /*IE 5.5-7*/
+    }
+
+    .mindmap-item>.handle {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: #424242;
+        color: #fff;
+        padding: 2px 3px 2px 3px;
+        font-size: 0.7em;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .mindmap-item>.linker {
+        position: absolute;
+        background-color: #636363;
+        padding: 2px 3px 2px 3px;
+        font-size: 0.7em;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        top: 0px;
+        right: 0px;
+
+        color: #fff;
+        cursor: pointer;
+
+    }
+
+    .mindmap-item>.linker:hover {
+        background-color: #212121;
+        color: #fafafa;
+    }
+
+    button {
+        border: 0px;
+    }
+
+    .mindmap-item>.trash {
+        position: absolute;
+        background-color: #f00;
+        border-radius: 10px;
+        padding: 2px 3px 2px 3px;
+        font-size: 0.7em;
+        width: 20px;
+        height: 20px;
+
         bottom: 0px;
-        width: 120px;
-        left: calc(50% - 60px);
-        -webkit-border-radius: 10px 10px 0 0;
-        /*Safari, Chrome*/
-        -moz-border-radius: 10px 10px 0 0;
-        /*Firefox*/
-        border-radius: 10px 10px 0 0;
-        z-index: 1024;
+        left: 0px;
 
+        color: #fff;
+        cursor: pointer;
     }
 
-    #showAll {
-        line-height: 30px;
+    .mindmap-item>.trash:hover {
+        background-color: #212121;
+        color: #fafafa;
+    }
+
+
+    .mindmap-item>.notes {
+        padding: 5px;
+        margin: 10px;
+        border: 0px;
+        border: 5px solid #ccc;
+        border-radius: 25px;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 1em;
+        text-align: center;
+    }
+
+    #mindmap_tools {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        height: 50px;
+        background-color: #212121;
+        color: #fff;
+    }
+
+    #mindmap_items {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    #mindmap_line {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    #add_mindmap_item {
+        height: 50px;
+        background-color: #ddd;
+        color: #212121;
+        border: 0px;
+        font-size: 1.2em;
+    }
+
+    #mindmap_link_tooltip {
+        position: absolute;
+        top: -100px;
+        color: #fff;
+        background-color: #00d;
+        padding: 3px;
+        font-size: 0.7em;
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        z-index: 150;
     }
 </style>
-<div id="toolwelcome">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-8">
-                <input id="card-search" class="wavemaker-form" placeholder='Type here to search' />
-            </div>
-            <div class="col-2">
-                <button class="btn btn-wavemaker btn-block CardManagerModalButton"> <i
-                        class="fa fa-fw fa-plus"></i></button>
-            </div>
-            <div class="col-2">
-                <button class="btn btn-wavemaker btn-block" id="toggleGridButton"><i
-                        class="fa fa-fw fa-square"></i></button>
 
-            </div>
-        </div>
-    </div>
+<div id="mindmap_line"></div>
+<div id="mindmap_items"></div>
+
+
+<div id="mindmap_tools">
+    <button id="add_mindmap_item"><i class="fa fa-sticky-note"></i> Add a Note</button>
 </div>
-<div id="cards-board">
-    <div class="container-fluid">
-        <div id="cards" class="row"></div>
-        <div class="text-center"><button class="btn btn-wavemaker CardManagerModalButton fixbottom"> <i
-                    class="fa fa-fw fa-plus"></i> Add New</button></div>
-    </div>
-</div>
+
+<div id="mindmap_link_tooltip" class="animated pulse infinite"><i class="fa fa-link fa-fw "></i></div>
+
+
 
 
 <div id="CardManagerModal" class="modal fade " tabindex="-1" role="dialog">
