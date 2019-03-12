@@ -7,19 +7,20 @@ WMproject.state.tool = "mindmap"
 if (!WMproject.data) {
   WMproject.data = {};
 }
-if (!WMproject.data.cards) {
+if (!WMproject.data.mindmaps) {
   WMproject.data.mindmaps = [];
 }
 
 
 
 dosave();
+
 function dosave() {
-  db.projects.update(WMproject.id, WMproject).then(function () {
-  });
+  db.projects.update(WMproject.id, WMproject).then(function () {});
 }
 
 var CurrentMindmapItemKey = ""
+
 function loadMindMap(mykey) {
   mindmap = WMproject.data.mindmaps[mykey]
   mindmap = {};
@@ -29,12 +30,14 @@ function loadMindMap(mykey) {
 
 
 function SaveMindMap() {
-  db.projects.update(WMproject.id, WMproject).then(function () {
-  });
+  db.projects.update(WMproject.id, WMproject).then(function () {});
 }
 
 var mindmap = {}
-var linkem = { start: 0, end: 0 };
+var linkem = {
+  start: '',
+  end: ''
+};
 var linkKey = -1
 
 DrawMindMapNav()
@@ -83,8 +86,12 @@ function DrawMindMap() {
 
     newnode.append("<div class='linker' style='display:none'><i class='fa fa-fw fa-link'></i></div>")
     newnode.append("<div class='trash' style='display:none'><i class='fa fa-fw fa-close'></i></div>")
-    $(newnode).css({ "top": i.top + "px" });
-    $(newnode).css({ "left": i.left + "px" });
+    $(newnode).css({
+      "top": i.top + "px"
+    });
+    $(newnode).css({
+      "left": i.left + "px"
+    });
     $("#mindmap_items").append(newnode)
 
   })
@@ -93,8 +100,9 @@ function DrawMindMap() {
     $("#" + CurrentMindmapItemKey).focus();
   }
   autosize($(".notes"))
-
+  $("#mindmap-hide-tools").show();
 }
+
 function redrawlines() {
   $("#mindmap_line").html('');
   $.each(mindmap.links, function (k, i) {
@@ -109,6 +117,7 @@ function redrawlines() {
     $("#mindmap_line").append($(newline));
   })
 }
+
 function uuID() {
   return Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
 }
@@ -180,7 +189,10 @@ $(document).on("click", ".mindmap-item", function (e) {
 $(document).off("click", "#mindmap_items").on("click", "#mindmap_items", function (e) {
   e.stopPropagation()
   CurrentMindmapItemKey = '';
-  linkem = { start: 0, end: 0 };
+  linkem = {
+    start: '',
+    end: ''
+  };
   DrawMindMap();
 })
 
@@ -208,7 +220,10 @@ $(document).off("click", ".linker").on("click", ".linker", function (e) {
 
 
       DrawMindMap();
-      linkem = { start: 0, end: 0 };
+      linkem = {
+        start: '',
+        end: ''
+      };
     } else {
       console.log("not linking to the same one")
     }
@@ -230,6 +245,22 @@ $("#add_mindmap_item").click(function () {
 
 var $dragging = null;
 $(document.body).off("mousemove").on("mousemove", function (e) {
+
+  if (linkem.start !== '') {
+    var relativeX = (e.pageX - $("#mindmap_items").offset().left + 10),
+      relativeY = (e.pageY - $("#mindmap_items").offset().top + 10);
+    $("#linktip").css({
+      "top": relativeY + "px",
+      "left": relativeX + "px"
+    });
+  } else {
+    $("#linktip").css({
+      "top": "-100px",
+      "left": "0px"
+    });
+  }
+
+
   if ($dragging) {
     $dragging.offset({
       top: e.pageY - 15,
@@ -310,7 +341,12 @@ function getElementProperty(el) {
   dx += el.position().left;
   dy += el.position().top;
 
-  return { top: dy, left: dx, width: width, height: height };
+  return {
+    top: dy,
+    left: dx,
+    width: width,
+    height: height
+  };
 };
 
 
@@ -346,13 +382,8 @@ $("#mindmap_items").keydown(function (e) {
       DrawMindMap()
       break;
 
-    default: return; // exit this handler for other keys
+    default:
+      return; // exit this handler for other keys
   }
   e.preventDefault(); // prevent the default action (scroll / move caret)
 });
-
-
-
-
-
-

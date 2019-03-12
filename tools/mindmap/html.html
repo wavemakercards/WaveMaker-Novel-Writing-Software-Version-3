@@ -165,8 +165,10 @@ div {
     }
 
     .mindmap-item>.trash:hover {
+        /*
         background-color: var(--interface-button-background-danger-hover);
         color: var(--interface-button-foreground-danger-hover);
+        */
     }
 
 
@@ -229,6 +231,39 @@ div {
         border-radius: 15px;
         z-index: 150;
     }
+
+    #linktip {
+        position: absolute;
+        display: inline;
+        background-color: var(--c9);
+        color: var(--c0);
+        padding: 5px;
+        font-size: 0.7em;
+        border-radius: 10px;
+        top: -100px;
+        /* just hide it */
+    }
+
+    #delete-current-mindmap {
+        position: absolute;
+        right: 0px;
+        width: 50px;
+        background-color: var(--interface-button-background-danger);
+        color: var(--interface-button-foreground-danger);
+    }
+
+    #mindmap-title {
+        border: 0px;
+        background-color: transparent;
+        padding: 10px;
+        color: var(--c0);
+        width: calc(100% - 100px);
+    }
+
+    #add_mindmap_item {
+        width: 50px;
+        ;
+    }
 </style>
 
 <div id="mindmap_line"></div>
@@ -236,5 +271,11 @@ div {
 
 
 <div id="mindmap_tools">
-    <button id="add_mindmap_item" class="btn btn-wavemaker"><i class="fa fa-fw fa-sticky-note"></i> Add Note</button>
+    <div id="mindmap-hide-tools" style="display:none">
+        <button id="add_mindmap_item" class="btn btn-wavemaker"><i class="fa fa-fw fa-plus"></i></button>
+        <input id="mindmap-title" value="">
+        <button class="btn btn-wavemaker" id="delete-current-mindmap"><i class="fa fa-trash fa-fw"></i></button>
+    </div>
 </div>
+
+<div id="linktip">Choose a note to link to</div>
