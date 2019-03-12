@@ -13,9 +13,9 @@ if (!WMproject.data.cards) {
 var editObject = {};
 
 dosave();
+
 function dosave() {
-  db.projects.update(WMproject.id, WMproject).then(function () {
-  });
+  db.projects.update(WMproject.id, WMproject).then(function () {});
 }
 
 var newCardObj = {};
@@ -46,7 +46,10 @@ $(document).off("click", ".CardManagerModalButton").on("click", ".CardManagerMod
     hashtags = newCardObj.tags;
     redrawHashtags();
     //$("#wikiImage").attr("src", placeholderImage);
-    $("#CardManagerModal").modal({ backdrop: 'static', keyboard: false });
+    $("#CardManagerModal").modal({
+      backdrop: 'static',
+      keyboard: false
+    });
   });
 
 $(document).off("click", ".card-edit-button").on("click", ".card-edit-button", function () {
@@ -61,7 +64,10 @@ $(document).off("click", ".card-edit-button").on("click", ".card-edit-button", f
   drawPreviewImages();
   hashtags = editObject.tags;
   redrawHashtags();
-  $("#CardManagerModal").modal({ backdrop: 'static', keyboard: false });
+  $("#CardManagerModal").modal({
+    backdrop: 'static',
+    keyboard: false
+  });
   autosize.update($("#CardContent"))
 });
 
@@ -151,7 +157,9 @@ function drawCards() {
     $.each(WMproject.data.cards, function (k, i) {
       var matchfound = 0;
       $.each(i.tags, function (kk, ii) {
-        if (ii.indexOf(query) !== -1) { matchfound = 1; }
+        if (ii.indexOf(query) !== -1) {
+          matchfound = 1;
+        }
         if (matchfound) {
           //// //console.log("Match", query, i);
         }
@@ -334,7 +342,9 @@ function drawCards() {
     var maxh = 0
     $.each($(".cardy"), function () {
       // //console.log($(this).height())
-      if (maxh < $(this).height()) { maxh = $(this).height() }
+      if (maxh < $(this).height()) {
+        maxh = $(this).height()
+      }
       //console.log(maxh)
     })
     //$(".cardy").height(maxh);
@@ -462,6 +472,7 @@ $(document).off("keyup", "#ht").on("keyup", "#ht", function (e) {
   }
 
 });
+
 function redrawHashtags() {
   $("#hashtagger").html('');
 
@@ -498,9 +509,3 @@ $(document).off("click", ".card-delete-button").on("click", ".card-delete-button
 $('#card-search').unbind().bind("keyup", function () {
   drawCards();
 });
-
-
-
-
-
-
