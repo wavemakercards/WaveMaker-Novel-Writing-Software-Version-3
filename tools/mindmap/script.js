@@ -341,8 +341,8 @@ $(document).off("blur", ".mindmap-item").on("blur", ".mindmap-item", function (e
   //store the dimensions here??
 
   $.each(mindmap.items, function (k, i) {
-    i.width = $("#" + i.id + ">.notes").width() + 20; // the + 50 is the 20 padding and 5px for border!!!
-    i.height = $("#" + i.id + ">.notes").height() + 20;
+    i.width = $("#" + i.id + ">.notes").width() + 30; // the + 30 is the 20 padding and 5px for border!!!
+    i.height = $("#" + i.id + ">.notes").height() + 30;
   })
 
   //  CurrentMindmapItemKey = "";
@@ -398,31 +398,43 @@ function ArrNoDupe(a) {
   return output;
 }
 
+var editingnote = false;
+
+
+$(document).off("focus", ".notes").on("focus", ".notes", function (e) {
+  editingnote = true;
+});
+
+$(document).off("blur", ".notes").on("blur", ".notes", function (e) {
+  editingnote = false;
+});
 
 $("#mindmap_items").keydown(function (e) {
-  switch (e.which) {
-    case 37: // left
-      mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].left = $("#" + CurrentMindmapItemKey).position().left - 10;
-      DrawMindMap()
-      break;
-    case 38: // up
-      mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].top = $("#" + CurrentMindmapItemKey).position().top - 10;
-      DrawMindMap()
-      break;
-    case 39: // right
-      mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].left = $("#" + CurrentMindmapItemKey).position().left + 10;
-      DrawMindMap()
-      break;
+  if (!editingnote) {
+    switch (e.which) {
+      case 37: // left
+        mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].left = $("#" + CurrentMindmapItemKey).position().left - 10;
+        DrawMindMap()
+        break;
+      case 38: // up
+        mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].top = $("#" + CurrentMindmapItemKey).position().top - 10;
+        DrawMindMap()
+        break;
+      case 39: // right
+        mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].left = $("#" + CurrentMindmapItemKey).position().left + 10;
+        DrawMindMap()
+        break;
 
-    case 40: // down
-      mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].top = $("#" + CurrentMindmapItemKey).position().top + 10;
-      DrawMindMap()
-      break;
+      case 40: // down
+        mindmap.items[$("#" + CurrentMindmapItemKey).data("key")].top = $("#" + CurrentMindmapItemKey).position().top + 10;
+        DrawMindMap()
+        break;
 
-    default:
-      return; // exit this handler for other keys
+      default:
+        return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
   }
-  e.preventDefault(); // prevent the default action (scroll / move caret)
 });
 
 
