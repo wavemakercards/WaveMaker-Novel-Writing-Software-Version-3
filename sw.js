@@ -1,11 +1,12 @@
 /*
-Verison 3.0.1
+Mod version number to force system wide update
 */
-var version = "?=_" + "3.0.1.3";
+var version = "?=_" + "3.0.1.4";
 console.log("Version ", version);
 versionTrigger = "?=_" + version;
 'use strict';
-importScripts('sw-toolbox.js'); toolbox.precache([
+importScripts('sw-toolbox.js');
+toolbox.precache([
     "index.html" + versionTrigger,
     "global/css/global.css" + versionTrigger,
     "global/js/init.js" + versionTrigger,
@@ -50,10 +51,15 @@ importScripts('sw-toolbox.js'); toolbox.precache([
     "tools/welcome/script.js" + versionTrigger,
     "tools/writer/html.html" + versionTrigger,
     "tools/writer/script.js" + versionTrigger,
+    "tools/mindmap/html.html" + versionTrigger,
+    "tools/mindmap/script.js" + versionTrigger,
     "templates/3act.json" + versionTrigger,
     "templates/bnp.json" + versionTrigger,
     "templates/ms.json" + versionTrigger
-]); toolbox.router.get('/*', toolbox.networkFirst, { networkTimeoutSeconds: 5 });
+]);
+toolbox.router.get('/*', toolbox.networkFirst, {
+    networkTimeoutSeconds: 5
+});
 
 /*
 //cachefirst version for live
