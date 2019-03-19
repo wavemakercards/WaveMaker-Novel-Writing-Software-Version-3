@@ -35,30 +35,30 @@
   --c9: #263238;
 
 
-   /* purple */
-   --c0: #EDE7F6;
-   --c1: #D1C4E9;
-   --c2: #B39DDB;
-   --c3: #9575CD;
-   --c4: #7E57C2;
-   --c5: #673AB7;
-   --c6: #5E35B1;
-   --c7: #512DA8;
-   --c8: #4527A0;
-   --c9: #311B92;
+  /* purple */
+  --c0: #EDE7F6;
+  --c1: #D1C4E9;
+  --c2: #B39DDB;
+  --c3: #9575CD;
+  --c4: #7E57C2;
+  --c5: #673AB7;
+  --c6: #5E35B1;
+  --c7: #512DA8;
+  --c8: #4527A0;
+  --c9: #311B92;
 
- /* Grays */
- --c0: #fafafa;
- --c1: #f5f5f5;
- --c2: #eeeeee;
- --c3: #e0e0e0;
- --c4: #bdbdbd;
- --c5: #9e9e9e;
- --c6: #757575;
- --c7: #616161;
- --c8: #424242;
- --c9: #212121;
-  
+  /* Grays */
+  --c0: #fafafa;
+  --c1: #f5f5f5;
+  --c2: #eeeeee;
+  --c3: #e0e0e0;
+  --c4: #bdbdbd;
+  --c5: #9e9e9e;
+  --c6: #757575;
+  --c7: #616161;
+  --c8: #424242;
+  --c9: #212121;
+
 
   --c0: #eceff1;
   --c1: #cfd8dc;
@@ -73,75 +73,81 @@
 
 
   --logo-top: var(--c2);
---logo-bottom : var(--c7);
+  --logo-bottom: var(--c7);
 
 
-  --main-background : var(--c3);
-  --main-foreground : var(--c9);
+  --main-background: var(--c3);
+  --main-foreground: var(--c9);
 
-  --interface-button-background : var(--c9);
-  --interface-button-foreground : var(--c0);
-  --interface-button-background-hover : var(--c7);
-  --interface-button-foreground-hover : var(--c0);
+  --interface-button-background: var(--c9);
+  --interface-button-foreground: var(--c0);
+  --interface-button-background-hover: var(--c7);
+  --interface-button-foreground-hover: var(--c0);
 
-  --interface-button-background-danger : #8c0000;
-  --interface-button-foreground-danger : var(--c0);
+  --interface-button-background-danger: #8c0000;
+  --interface-button-foreground-danger: var(--c0);
 
-  --interface-button-background-success : #116600;
-  --interface-button-foreground-success : var(--c0);
+  --interface-button-background-success: #116600;
+  --interface-button-foreground-success: var(--c0);
 
   --side-nav-bar-background: var(--c9);
   --side-nav-bar-foreground: var(--c0);
 
-  --side-nav-bar-button-background : var(--c9);
-  --side-nav-bar-button-foreground : var(--c0);
-  --side-nav-bar-button-background-hover : var(--c7);
-  --side-nav-bar-button-foreground-hover : var(--c0);
+  --side-nav-bar-button-background: var(--c9);
+  --side-nav-bar-button-foreground: var(--c0);
+  --side-nav-bar-button-background-hover: var(--c7);
+  --side-nav-bar-button-foreground-hover: var(--c0);
 
-  --side-tool-panel-background:var(--c7);
-  --side-tool-panel-foreground:var(--c0);
+  --side-tool-panel-background: var(--c7);
+  --side-tool-panel-foreground: var(--c0);
 
-  
+
   --system-font: "Quicksand", sans-serif;
   --editor-font: "Halant", serif;
-  --default-font-size:14px;
+
+  --custom-system-font: "";
+  --custom-editor-font: "";
+
+  --default-font-size: 14px;
+
+  --manuscriptAlign: "left";
+  --manuscriptFontSize: 1.3rem;
+  --manuscriptLineHeight: 1.7rem;
+  --manuscriptParaIndent: 20px;
+  --manuscriptMarginBottom: 20px;
+  --manuscriptPaperStyle: 800px;
+  --menu-indent-padding: 0px;
 
 
- 
- --manuscriptAlign: "left";
- --manuscriptFontSize: 1.3rem;
- --manuscriptLineHeight:1.7rem;
- --manuscriptParaIndent: 20px;
- --manuscriptMarginBottom : 20px;
- --manuscriptPaperStyle : 800px;
- --menu-indent-padding : 0px;
-
-
-/*
+  /*
 Setting General Interface Variables
 */
 
---base-foreground-color: #fff;
---base-background-color : #222;
+  --base-foreground-color: #fff;
+  --base-background-color: #222;
 
---system-font: "Quicksand", sans-serif;
+  --system-font: var(--custom-system-font:), "Quicksand", sans-serif;
 
 
---editor-font: "Halant", serif;
---editor-background-color: #fff;
---editor-foreground-color: #222;
+  --editor-font: var(--custom-editor-font:), "Halant", serif;
+  --editor-background-color: var(--c3);
+  --paper-background-color: var(--c0);
+  --paper-text-color: var(--c9);
 
---list-fg : var(--c0);
---list-bg : transparent;
---sub-list-fg : var(--c0);
---sub-list-bg : var(--c7);
+
+
+  --list-fg: var(--c0);
+  --list-bg: transparent;
+  --sub-list-fg: var(--c0);
+  --sub-list-bg: var(--c7);
 
 
 
 }
+
 body {
   position: absolute;
-  background-color: var(--main-background) ;
+  background-color: var(--main-background);
   color: var(--main-foreground);
   font-family: var(--system-font);
   top: 0px;
@@ -151,26 +157,29 @@ body {
   overflow: hidden;
 }
 
-div,p{
+div,
+p {
   overflow-wrap: break-word;
 }
 
-.form-control{
+.form-control {
   border-radius: 0px;
 }
+
 #install-alert {
   position: absolute;
-  width:100%;
+  width: 100%;
   top: 0px;
   right: 0px;
-  padding:2px;
+  padding: 2px;
   border-radius: 0px;
   text-align: center
 }
-#install-alert .close{
-  padding:5px;
-  width:50px;
-  
+
+#install-alert .close {
+  padding: 5px;
+  width: 50px;
+
 }
 
 .wavemaker-form {
@@ -182,86 +191,96 @@ div,p{
   border-bottom: 1px dashed var(--c0);
 }
 
-.btn{
-  border-radius:0px;
+.btn {
+  border-radius: 0px;
 }
 
-#manuscript, .ui-contextmenu{
+#manuscript,
+.ui-contextmenu {
   font-size: 0.8rem;
 }
 
-#mobilecheck{
-  position:fixed;
-  width:1px;
-  height:1px;
+#mobilecheck {
+  position: fixed;
+  width: 1px;
+  height: 1px;
   top: -10px;
-  display:block;
+  display: block;
 }
 
 .btn-wavemaker {
   color: var(--interface-button-foreground);
   background-color: var(--interface-button-background);
-  border:0px;
+  border: 0px;
   border-radius: 0px;
   box-shadow: none;
   font-size: 0.9rem;
   height: 50px;
 }
 
-.btn-wavemaker:hover, .btn-wavemaker:focus, .btn-wavemaker:active {
+.btn-wavemaker:hover,
+.btn-wavemaker:focus,
+.btn-wavemaker:active {
   color: var(--interface-button-foreground-hover);
   background-color: var(--interface-button-background-hover);
-  border:0px;
+  border: 0px;
   box-shadow: none;
 }
 
 .btn-wavemaker-danger {
   color: var(--interface-button-foreground-danger);
   background-color: var(--interface-button-background-danger);
-  border:0px;
+  border: 0px;
   border-radius: 0px;
   box-shadow: none;
   font-size: 0.9rem;
   height: 50px;
 }
-.btn-wavemaker-danger:hover, .btn-wavemaker-danger:focus, .btn-wavemaker-danger:active {
+
+.btn-wavemaker-danger:hover,
+.btn-wavemaker-danger:focus,
+.btn-wavemaker-danger:active {
   color: var(--interface-button-foreground-hover);
   background-color: var(--interface-button-background-hover);
-  border:0px;
+  border: 0px;
   box-shadow: none;
 }
 
 .btn-wavemaker-success {
   color: var(--interface-button-foreground-success);
   background-color: var(--interface-button-background-success);
-  border:0px;
+  border: 0px;
   border-radius: 0px;
   box-shadow: none;
   font-size: 0.9rem;
   height: 50px;
 }
 
-.btn-wavemaker-success:hover, .btn-wavemaker-success:focus, .btn-wavemaker-success:active {
+.btn-wavemaker-success:hover,
+.btn-wavemaker-success:focus,
+.btn-wavemaker-success:active {
   color: var(--interface-button-foreground-hover);
   background-color: var(--interface-button-background-hover);
-  border:0px;
+  border: 0px;
   box-shadow: none;
 }
 
 .btn-wavemaker-secondary {
   color: var(--interface-button-foreground-hover);
   background-color: var(--interface-button-background-hover);
-  border:0px;
+  border: 0px;
   border-radius: 0px;
   box-shadow: none;
   font-size: 0.9rem;
   height: 50px;
 }
 
-.btn-wavemaker-secondary:hover, .btn-wavemaker-secondary:focus, .btn-wavemaker-secondary:active {
+.btn-wavemaker-secondary:hover,
+.btn-wavemaker-secondary:focus,
+.btn-wavemaker-secondary:active {
   color: var(--interface-button-foreground);
   background-color: var(--interface-button-background);
-  border:0px;
+  border: 0px;
   box-shadow: none;
 }
 
@@ -273,102 +292,108 @@ div,p{
   right: 0px;
   bottom: 0px;
   overflow: hidden;
-  transition: all 0.5s ;
+  transition: all 0.5s;
 }
 
 .logo-top {
-    fill: var(--logo-top)
+  fill: var(--logo-top)
 }
 
 .logo-bottom {
-    fill: var(--logo-bottom)
+  fill: var(--logo-bottom)
 }
 
 .logo {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
   margin-top: 9px;
 }
 
-#ProjectHome{
-  position:relative;
-  width:50px;
-  height:50px;
-  background-color:var(--side-nav-bar-background);
-  color:var(--side-nav-bar-foreground);
-  font-size:1em;
-  padding-left:9px;
-  cursor:pointer;
-  overflow:none;
+#ProjectHome {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: var(--side-nav-bar-background);
+  color: var(--side-nav-bar-foreground);
+  font-size: 1em;
+  padding-left: 9px;
+  cursor: pointer;
+  overflow: none;
 }
-#ProjectHome .logotext{
-  position:absolute;
-  top:0px;
+
+#ProjectHome .logotext {
+  position: absolute;
+  top: 0px;
   width: 270px;
-  right:0px;
-  padding-top:13px;
+  right: 0px;
+  padding-top: 13px;
   padding-left: 6px;
 
 }
 
-#navigation-tool-bar{
-  position:absolute;
-  left:0px;
-  bottom:0px;
-  top:0px;
-  width:50px;
-  background-color:var(--side-nav-bar-background);
-  color:var(--side-nav-bar-foreground);
-  overflow:hidden;
+#navigation-tool-bar {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  width: 50px;
+  background-color: var(--side-nav-bar-background);
+  color: var(--side-nav-bar-foreground);
+  overflow: hidden;
 }
 
-#navlist{
-  margin:0;
-  padding:0;
-  list-style:none;
-}
-.navigation-tool-bar-button{
-  font-size:1.1rem;
-  background-color:var(--side-nav-bar-button-background);
-  color:var(--side-nav-bar-button-foreground);
-  border:0px;
-  padding:5px;
-  width:50px;
-  height:50px;
-  text-align:center;
- cursor:pointer;
-  outline:none;
+#navlist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.navigation-tool-bar-button:hover,.navigation-tool-bar-button:focus{
-  background-color:var(--side-nav-bar-button-background-hover);
-  color:var(--side-nav-bar-button-foreground-hover);
-  outline:none;
+.navigation-tool-bar-button {
+  font-size: 1.1rem;
+  background-color: var(--side-nav-bar-button-background);
+  color: var(--side-nav-bar-button-foreground);
+  border: 0px;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
 }
-.btn-50{
+
+.navigation-tool-bar-button:hover,
+.navigation-tool-bar-button:focus {
+  background-color: var(--side-nav-bar-button-background-hover);
+  color: var(--side-nav-bar-button-foreground-hover);
+  outline: none;
+}
+
+.btn-50 {
   position: sticky;
   display: inline-block;
-  width:50%;
-  margin:0px;
-}
-#navigation-side-nav{
-  position:absolute;
-  left:50px;
-  bottom:0px;
-  top:0px;
-  width:320px;
-  background-color:var(--c8);
-  transition: all 0.5s ;
+  width: 50%;
+  margin: 0px;
 }
 
-#manuscript{
-  position: absolute;;
-  top:100px;
-  left:0px;
-  right:0px;
-  bottom:0px;
+#navigation-side-nav {
+  position: absolute;
+  left: 50px;
+  bottom: 0px;
+  top: 0px;
+  width: 320px;
+  background-color: var(--c8);
+  transition: all 0.5s;
+}
 
-  overflow-y:scroll;
+#manuscript {
+  position: absolute;
+  ;
+  top: 100px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar-button {
@@ -391,18 +416,21 @@ div,p{
   width: 10px;
 }
 
-.sendtowriter{
-  position:fixed;
-  top:0px;
-  right:0px;
-  height:40px;
+.sendtowriter {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 40px;
   font-size: 0.8rem;
 }
-.sendtowriter>span{
-  display:none;
+
+.sendtowriter>span {
+  display: none;
 }
-.sendtowriter:hover>span,.sendtowriter:focus>span{
-  display:inline-block;
+
+.sendtowriter:hover>span,
+.sendtowriter:focus>span {
+  display: inline-block;
 }
 
 
@@ -416,98 +444,100 @@ div,p{
   line-height: 1;
   border-radius: 15px;
 }
+
 .smallButtons {
   color: #212121;
   border: 0px;
   background: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-#cardmanager{
-padding-top:60px;
-margin:0 auto;
-position:absolute;
-top:0px;
-left:0px;
-right:0px;
-bottom:0px;
+#cardmanager {
+  padding-top: 60px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
 
 
 
-.sortableCards{
-position: relative;
-list-style: none;
-margin: 0;
-padding:0;
-min-height: 100px;
+.sortableCards {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-height: 100px;
 }
 
-.sortableCards>li{
-margin-bottom:10px;
+.sortableCards>li {
+  margin-bottom: 10px;
   cursor: move;
 }
 
-.CardmanagerTitle{
-text-align: center;
-padding: 5px;
+.CardmanagerTitle {
+  text-align: center;
+  padding: 5px;
 }
 
-.noteCardAdd{
-position: absolute;
-right:0px;
-top:0px;
-border:0px;
-background: none;
+.noteCardAdd {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  border: 0px;
+  background: none;
 }
 
-#addCardsManagerChapter{
-position:fixed;
-top:0px !important;
-right:150px;
-width:150px !important;
-height: 50px !important;
-z-index:999999999;
+#addCardsManagerChapter {
+  position: fixed;
+  top: 0px !important;
+  right: 150px;
+  width: 150px !important;
+  height: 50px !important;
+  z-index: 999999999;
 }
 
-#toggleCompletedCardsCardEditor{
-position:fixed;
-top:0px !important;
-right:0px;
-width:150px !important;
-height: 50px !important;
-z-index:999999999;
+#toggleCompletedCardsCardEditor {
+  position: fixed;
+  top: 0px !important;
+  right: 0px;
+  width: 150px !important;
+  height: 50px !important;
+  z-index: 999999999;
 
-}
-
-
-.noteTextEditor{
-display: block;
-border:0px;
-outline:none;
-padding:10px;
-width: 100%;
 }
 
 
-
-#CardsColourPicker{
-position: absolute;
-left:5px;
-
-}
-#CardsColourPicker button{
-border:0px; 
-width:20px;
-height:20px;
-border:1px solid #000;
-margin: 1px;
-padding:0px;
+.noteTextEditor {
+  display: block;
+  border: 0px;
+  outline: none;
+  padding: 10px;
+  width: 100%;
 }
 
 
-.wmcard{
-color: #212121;
+
+#CardsColourPicker {
+  position: absolute;
+  left: 5px;
+
+}
+
+#CardsColourPicker button {
+  border: 0px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  margin: 1px;
+  padding: 0px;
+}
+
+
+.wmcard {
+  color: #212121;
   border: 1px solid #616161;
   background-color: #fafafa;
   padding: 15px;
@@ -515,47 +545,54 @@ color: #212121;
 }
 
 .wmcard-title {
-font-size: 1.3em;
+  font-size: 1.3em;
 }
 
 
 .wmcard {
   font-weight: bold;
-  }
+}
+
 .markAsDone {
   opacity: 0.4;
 }
 
-.cardsorter{
-  padding:10px;
+.cardsorter {
+  padding: 10px;
 }
 
-.color0{
-background-color  :#fff;
+.color0 {
+  background-color: #fff;
 }
-.color1{
-background-color: #f06292 !important;
+
+.color1 {
+  background-color: #f06292 !important;
 
 }
-.color2{
-background-color: #9575cd !important;
+
+.color2 {
+  background-color: #9575cd !important;
 
 }
-.color3{
-background-color: #4fc3f7 !important;
+
+.color3 {
+  background-color: #4fc3f7 !important;
 
 }
-.color4{
-background-color: #4db6ac !important;
+
+.color4 {
+  background-color: #4db6ac !important;
 
 }
-.color5{
+
+.color5 {
   background-color: #fff176 !important;
-  }
-  .color6{
-    background-color: #ff8a65 !important;
-  
-    }
+}
+
+.color6 {
+  background-color: #ff8a65 !important;
+
+}
 
 
 
@@ -566,57 +603,48 @@ background-color: #4db6ac !important;
 M E D I A  Q U E R I E S
 ####################################################
 */
- 
+
 /*
 ::::::::::::::::::::::::::::::::::::::::::::::::::::
 Bootstrap 4 breakpoints
 */
- 
+
 /* 
 Extra small devices (portrait phones, less than 576px) 
 No media query since this is the default in Bootstrap because it is "mobile first"
 */
- 
- 
+
+
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {  
- 
+@media (min-width: 576px) {}
 
-}
- 
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-@media (min-width: 768px) {  
-  #mobilecheck{
-    display:none;
-  }
-  
-  #notesPanel{
-    right:0px;
+@media (min-width: 768px) {
+  #mobilecheck {
+    display: none;
   }
 
-  #navigation-side-nav{
-    width:320px;
+  #notesPanel {
+    right: 0px;
+  }
+
+  #navigation-side-nav {
+    width: 320px;
   }
 }
- 
+
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
- 
-}
- 
+@media (min-width: 992px) {}
+
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {  
-    
-}
- 
- 
- 
+@media (min-width: 1200px) {}
+
+
+
 /*
 ::::::::::::::::::::::::::::::::::::::::::::::::::::
 Custom media queries
 */
- 
+
 /* Set width to make card deck cards 100% width */
-@media (max-width: 950px) { 
- 
-}
+@media (max-width: 950px) {}
