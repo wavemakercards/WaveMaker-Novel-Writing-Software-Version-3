@@ -1,0 +1,71 @@
+<style>
+   .result{
+       padding:10px;
+       margin:10px;
+       background-color: var(--c0);
+    max-height:200px;
+    overflow-y: auto;
+   }
+
+  #toolwelcome {
+        height: 50px;
+        background-color: var(--interface-button-background);
+        color: var(--interface-button-foreground);
+
+        position: sticky;
+    }
+
+    #searchpage {
+        position: absolute;
+        top: 50px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        padding: 10px;
+        overflow-y: auto;
+    }
+
+
+.quicklink{
+ display:block;
+ text-align: right;
+    width:100%;
+    height: 50px;
+    background: transparent;
+    border:0px;
+    cursor: pointer;
+}
+</style>
+
+        <div id="toolwelcome">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8">
+                            <input id="search_terms" class="wavemaker-form" placeholder='Type here to search' />
+                        </div>
+                        <div class="col-4">
+                            <button id="search_button" class="btn btn-wavemaker btn-block CardManagerModalButton"> <i
+                                    class="fa fa-fw fa-search"></i> (Beta)</button>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+            <div id="searchpage" >
+                <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                                             <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                        Hi, I'm just releasing this at the moment as there have been requests. I'm still developing, at the moment it only searches the Writer Tool and the planning board, and only for 1 term at a time .. for now!
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+
+                                    <div id="search_results"></div>
+                            </div>
+                        </div>
+                    </div>
+    
+   
+</div>
