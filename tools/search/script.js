@@ -38,17 +38,28 @@ if($("#search_terms").val()!==""){
    var result=$("<div class='result'></div>") 
 
 if(v.data.data){
+  result.append("<div class='result_location'>Found In Title</div>")
   result.append(v.data.title)
 }else{
+  if(v.data.title){
+  result.append("<div class='result_location'>Found In Note</div>")
+  result.append(v.data.title)
   result.append(v.data.content)
+  }else{
+    result.append("<div class='result_location'>Found In Content</div>")
+    result.append(v.data.content)
+  }
 }
 
-    quicklink=$("<button class='quicklink'>Jump To Section ></button>");
-    quicklink.data("target", v.target)
-    $("#search_results").append(quicklink)
 
 
     $("#search_results").append(result)
+
+
+
+    quicklink=$("<button class='quicklink'>Jump To Section <i class='fa fa-fw fa-chevron-right'></i></button>");
+    quicklink.data("target", v.target)
+    $("#search_results").append(quicklink)
     })
 }
   }else{
@@ -61,14 +72,14 @@ if(v.data.data){
 
 function Perform_Search(searchterms, searchobj, targetObj){
 
-  if(searchobj.icon){
+  if(searchobj.data){
     console.log("has a data subset so it's a node!!")
     targetObj=searchobj
   }
 
   $.each(searchobj, function(i,v){
       if(isArray(v) || isObject(v)){
-        Perform_Search(searchterms, v, searchobj) 
+        Perform_Search(searchterms, v, targetObj) 
       }else{
         if(isString(v)){
          if(v.toLowerCase().includes(searchterms.toLowerCase()) !== false){
@@ -83,7 +94,8 @@ function Perform_Search(searchterms, searchobj, targetObj){
 
 $(document).off("click", ".quicklink").on("click", ".quicklink", function(){
   console.log($(this).data())
-  WriterKey = $(this).data("target")._key
+  WriterKey = $(this).data("target").key
+  console.log("Search selected item ",WriterKey)
   loadtool("writer")
 })
 

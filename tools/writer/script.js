@@ -421,11 +421,12 @@ function drawtree() {
   });
 
   if (WriterKey !== '') {
+    console.log("Looking for item ", WriterKey)
     mynode = $("#manuscript").fancytree("getTree").getNodeByKey(WriterKey)
     CURRENTNODE = mynode;
     CURRENTLI = CURRENTNODE.li;
     $(".activeLInode").removeClass("activeLInode");
-    $(CURRENTLI).addClass("activeLInode");
+    $(CURRENTLI).addClass("activeLInode")
     drawEditor();
   }
 }

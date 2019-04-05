@@ -109,6 +109,7 @@ function nl2br (str, is_xhtml) {
 $.ajaxSetup({ cache: true });
 var IntitalCount = 0;
 function loadtool (toolname) {
+  console.log("Loading tool" , toolname)
   gatherStats();
   $("#wavemakerApp").load("tools/" + toolname + "/html.html", function () {
     // load and run the script
