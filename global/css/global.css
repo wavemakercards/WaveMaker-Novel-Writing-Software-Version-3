@@ -103,13 +103,12 @@
 
 
   --system-font: "Quicksand", sans-serif;
-  --editor-font: "Halant", serif;
+  --manuscriptFont: "Halant";
 
-  --custom-system-font: "";
-  --custom-editor-font: "";
+
 
   --default-font-size: 14px;
-
+  --manuscriptFont: "'Halant', serif";
   --manuscriptAlign: "left";
   --manuscriptFontSize: 1.3rem;
   --manuscriptLineHeight: 1.7rem;
@@ -129,7 +128,7 @@ Setting General Interface Variables
   --system-font: var(--custom-system-font:), "Quicksand", sans-serif;
 
 
-  --editor-font: var(--custom-editor-font:), "Halant", serif;
+
   --editor-background-color: var(--c3);
   --paper-background-color: var(--c0);
   --paper-text-color: var(--c9);

@@ -1,83 +1,228 @@
-<style>
-    /*
-    In this mode the css specific to the tool is included here - endeavour to use generic css wherever possible
-    */
-</style>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="context">Settings</h1>
-        </div>
+manuscriptData=WMproject.data.writer;
+var DocWordCount=0;
 
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="alert alert-success">
-                <div class="row">
-                    <div class="col-8">
-                        <input class="form-control" value="" id="settings_title">
+
+function wordcountManuscript(dta){
+    //console.log(dta)
+ if(dta.data){
+    DocWordCount=DocWordCount+countWords(dta.data.content);
+    if(dta.children !== undefined){
+        $.each(dta.children, function(k,v){
+        wordcountManuscript(v)
+        });
+    }
+    $("#ManuscriptWordCount").text(DocWordCount)
+}
+}
+
+<style>
+    .pl {
+        position: absolute;
+        top:0px;
+        bottom:0px;
+        display: block;
+        padding: 20px;
+        width:100%;
+        color: var(--c0);
+        background-color: var(--c9);
+        overflow-y: auto;
+
+    }
+
+    .manuscriptform {
+        border-top: 1px solid var(--c0);
+        border-bottom: 1px solid var(--c0);
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .manuscriptform label {
+        display: block;
+    }
+
+
+    .manuscriptform select {
+        display: inline-block;
+
+
+    }
+
+    .WordCountTotal {
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+    }
+
+    #ManuscriptWordCount {
+        background-color: var(--c7);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+ 
+
+    .welcome {
+        height: 50px;
+        font-size: 1.2rem;
+        background-color: var(--interface-button-background);
+        color: var(--interface-button-foreground);
+        padding: 10px;
+        text-align: center;
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+</style>
+<div class="welcome">Welcome to Wavemaker Version 3.0</div>
+<div class="pl">
+
+    <div class="container">
+            <div class="row justify-content-md-center">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <h6>Title of this project 
+                                </h6>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <button id="settings_title_save" class="btn btn-block  btn-success"><i class="fa fa-fw fa-caret-left"></i>
+            </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-12 ">
+                <div class="row ">
+                    <div class="col-12 col-md-8">
+                        <input class="wavemaker-form" value="" id="settings_title">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <button id="settings_title_save" class="btn btn-block  btn-wavemaker"><i class="fa fa-fw fa-save"></i>
                             Save new title</button>
                     </div>
                 </div>
-                <select id="bodyfont" class="form-control">
-                    <option value="'Quicksand', serif">Quicksand (default app)</option>
-                    <option value="'Halant', serif">Halant (default editor)</option>
-                    <option value="'Handlee', cursive">Handlee</option>
-                    <option value="'Bitter', serif">Bitter</option>
-                    <option value="'Open Sans', sans-serif">Open Sans</option>
-                    <option value="'Raleway', serif">Raleway</option>
-                    <option value="'Special Elite', cursive">Special Elite</option>
-                    <option value="'Vollkorn', cursive">Vollkorn</option>
-                </select>
+            </div>
+        </div>
 
-                <select id="fontsize" class="form-control">
-                    <option value="6px">6px</option>
-                    <option value="8px">8px</option>
-                    <option value="10px">10px</option>
-                    <option value="12px">12px</option>
-                    <option value="14px">14px</option>
-                    <option value="16px">16px</option>
-                    <option value="18px">18px</option>
-                </select>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                        Default checkbox
-                    </label>
+        <div class="row justify-content-md-center">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <label>Total Word Count for Manuscript <strong id="ManuscriptWordCount">0</strong> Words
+                        </label>
+                    </div>
                 </div>
             </div>
+
+
         </div>
-    </div>
 
 
-    <div class="row">
-        <div class="col-12">
-            <div class="alert alert-info">
-                Last Synchronised : <b>NEVER</b> <button id="synchronise" class="btn btn-sm btn-info"><i class="fa fa-fw fa-cloud-upload"></i>
-                    Synch to cloud</button>
+
+        <div class="row justify-content-md-center">
+            <div class="col-12">
+
+                <div class="manuscriptform">
+                    <strong>Manuscript Styling</strong>
+
+                    <div class="row">
+                            <div class="col-12 col-md-6"><label>Editor Font</label></div>
+                            <div class="col-12 col-md-6">
+                                    <select id="bodyfont" class="wavemaker-form">
+                                            <option value="'Quicksand', serif">Quicksand (default app)</option>
+                                            <option value="'Halant', serif">Halant (default editor)</option>
+                                            <option value="'Handlee', cursive">Handlee</option>
+                                            <option value="'Bitter', serif">Bitter</option>
+                                            <option value="'Open Sans', sans-serif">Open Sans</option>
+                                            <option value="'Raleway', serif">Raleway</option>
+                                            <option value="'Special Elite', cursive">Special Elite</option>
+                                            <option value="'Vollkorn', cursive">Vollkorn</option>
+                                        </select>
+        
+                            </div>
+
+                        
+                        <div class="col-12 col-md-6"><label>Alignment</label></div>
+                        <div class="col-12 col-md-6">
+                                <select id="manuscriptAlign" class="wavemaker-form">
+                                        <option value="left" selected>Align Left</option>
+                                        <option value="center">Align Center</option>
+                                        <option value="right">Align Right</option>
+                                        <option value="justify">Justify</option>
+                                    </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">  <label>Font size</label></div>
+                        <div class="col-12 col-md-6"><select id="manuscriptFontSize" class="wavemaker-form">
+                                <option value="0.8rem">Smallest</option>
+                                <option value="0.9rem">Small</option>
+                                <option value="1.3rem" selected>Standard</option>
+                                <option value="1.4rem">Big</option>
+                                <option value="1.5rem">Biggest</option>
+                            </select></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6"><label>Line Height</label></div>
+                        <div class="col-12 col-md-6"><select id="manuscriptLineHeight" class="wavemaker-form">
+                                <option value="1.7rem" selected>Standard Spacing</option>
+                                <option value="2rem">Double Spaced</option>
+                                <option value="2.5rem">2.5 Spaced</option>
+                                <option value="3rem">Triple Spaced</option>
+                            </select></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6"><label>Paragraph indentation </label></div>
+                        <div class="col-12 col-md-6">  <select id="manuscriptParaIndent" class="wavemaker-form">
+                                <option value="20px" selected>Yes</option>
+                                <option value="0px">no</option>
+                            </select></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6"> <label>Paragraph Spacing</label></div>
+                        <div class="col-12 col-md-6">    <select id="manuscriptMarginBottom" class="wavemaker-form">
+                                <option value="20px" selected>Standard Spacing</option>
+                                <option value="30px">Double Spaced</option>
+                                <option value="40px">2.5 Spaced</option>
+                                <option value="50px">Triple Spaced</option>
+                            </select>
+        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-12 col-md-6"> <label>Manuscript Page Style</label></div>
+                            <div class="col-12 col-md-6">    <select id="manuscriptPaperStyle" class="wavemaker-form">
+                                    <option value="800px" selected>Page Style</option>
+                                    <option value="100%">Full Width</option>
+                                </select>
+            </div>
+                        </div>
+
+                        
+
+                    
+                    
+                  
+                    
+                    <div class="row">
+                            <div class="col-12 text-right"><button id="ManuscriptSetStyle" class="btn btn-wavemaker "><i class="fa fa-fw fa-save"></i> Save Settings</button></div>
+                        
+                        </div>
+                    
+                    
+                    
+                  
+                   
+                
+
+                    
+
+                </div>
+
             </div>
         </div>
+
     </div>
 
-
-    <div class="row">
-        <div class="col-12">
-            <div class="alert alert-primary">
-                <button id="ExportProjectFile" class="btn btn-sm btn-primary"><i class="fa fa-download fa-fw"></i> Download
-                    .wmProj file</button>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-12">
-            <div class="alert alert-danger"><button id="deleteproject" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-fw"></i>
-                    Delete Project</button></div>
-        </div>
-    </div>
 </div>
+
+
+
