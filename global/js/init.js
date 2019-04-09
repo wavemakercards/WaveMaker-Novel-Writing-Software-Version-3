@@ -271,6 +271,21 @@ $(window).bind('keydown', function (event) {
   }
 });
 
+$(document).bind('keydown', ".texteditor", function (event) {
+  if (event.ctrlKey || event.metaKey) {
+    switch (String.fromCharCode(event.which).toLowerCase()) {
+      case 'b':
+      document.execCommand("bold");
+        event.preventDefault();
+        break;
+      case 'i':
+      document.execCommand("italic");
+          event.preventDefault();
+        break;
+    }
+  }
+});
+
 
 $(document).off("click", ".noteCardAdd").on("click", ".noteCardAdd", function () {
   selectedSection = $(this).parent().data("objTarget");
