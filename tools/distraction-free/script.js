@@ -35,8 +35,6 @@ function savedata() {
 
 }
 
-
-
 if(!CURRENTNODE){
 
   $("#navigation-holder").show()

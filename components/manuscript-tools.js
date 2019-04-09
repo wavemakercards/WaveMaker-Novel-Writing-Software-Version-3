@@ -27,6 +27,7 @@ $.each(manuscriptData, function(k,v){
 $(document).off("click","#ManuscriptSetStyle").on("click","#ManuscriptSetStyle", function(){
     if(!WMproject.data.settings.manuscript){
         WMproject.data.settings.manuscript = {};
+        WMproject.data.settings.manuscript.manuscriptFont="Halant";
       WMproject.data.settings.manuscript.manuscriptAlign="left";
       WMproject.data.settings.manuscript.manuscriptFontSize="1.3rem";
       WMproject.data.settings.manuscript.manuscriptLineHeight="1.7rem";
@@ -34,7 +35,7 @@ $(document).off("click","#ManuscriptSetStyle").on("click","#ManuscriptSetStyle",
       WMproject.data.settings.manuscript.manuscriptMarginBottom="20px";
       WMproject.data.settings.manuscript.manuscriptPaperStyle="800px";
       }
-       
+      WMproject.data.settings.manuscript.manuscriptFont=$("#manuscriptFont").val();  
       WMproject.data.settings.manuscript.manuscriptAlign=$("#manuscriptAlign").val();
       WMproject.data.settings.manuscript.manuscriptFontSize=$("#manuscriptFontSize").val();
       WMproject.data.settings.manuscript.manuscriptLineHeight=$("#manuscriptLineHeight").val();
@@ -42,6 +43,14 @@ $(document).off("click","#ManuscriptSetStyle").on("click","#ManuscriptSetStyle",
       WMproject.data.settings.manuscript.manuscriptMarginBottom=$("#manuscriptMarginBottom").val();
       WMproject.data.settings.manuscript.manuscriptPaperStyle=$("#manuscriptPaperStyle").val();
       
+        console.log("Loading Font", WMproject.data.settings.manuscript.manuscriptFont)
+      WebFont.load({
+        google: { 
+               families: [WMproject.data.settings.manuscript.manuscriptFont] 
+         } 
+      }); 
+
+
       swal("Changed!", "Settings Changed", "success")
       dosave();
       setManuscript()
