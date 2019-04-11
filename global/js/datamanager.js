@@ -2,9 +2,11 @@
 	|----------------------------|
 	| Declare your databse       |
 	|----------------------------|
-	*/
+  */
+
 var WMproject = {};
 var WMsettings = {};
+var IsGoogleDrive = false;
 const db = new Dexie("wavemaker");
 db.version(1).stores({
   settings: "++id,settings",
@@ -74,16 +76,16 @@ function exportDatabase(mode, showfeedback = false) {
 
     switch (mode) {
       case "gDriveNew":
-        //   console.log("New Google Drive Created");
+           console.log("New Google Drive Created");
         GDriveWrite(JSON.stringify(exportData))
         break;
       case "gDriveSave":
-        //  console.log("Saving Data to Google Drive");
+          console.log("Saving Data to Google Drive");
         GDriveWrite(JSON.stringify(exportData))
 
         break;
       default:
-        //    console.log("defaults to backup")
+            console.log("defaults to backup")
         downloadFile(JSON.stringify(exportData))
     }
   });
@@ -239,9 +241,28 @@ var SCOPES = 'https://www.googleapis.com/auth/drive.file';
 var SHOW_CREATE
 var CURRENT_FILE_OBJ
 
+function GoogleQuickSignIn(){
+  console.log("Attempting Quick Google drive login")
+    gapi.load('client:auth2', GoogleQuickSignIn2);
+}
 
+function GoogleQuickSignIn2(){
+  gapi.client.init({
+    apiKey: API_KEY,
+    clientId: CLIENT_ID,
+    discoveryDocs: DISCOVERY_DOCS,
+    scope: SCOPES
+  }).then(function () {
+    gapi.auth2.getAuthInstance().isSignedIn.listen(GoogleSigninStatus);
+    GoogleSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+  });
+}
 
+function GoogleQuickSignIn3(){
+swal("Connection Done", "You will need to click the button to trigger an upload.", "success");
+}
 function GoogleDrivehandleClientLoad() {
+ 
   $("#showGoogle").hide();
   $("#GoogleError").show();
   gapi.load('client:auth2', GoogleDriveInit);
@@ -272,20 +293,51 @@ function GoogleDriveInit() {
 }
 
 function GoogleSigninStatus(isSignedIn) {
+  console.log("GoogleSigninStatus", isSignedIn)
   if (isSignedIn) {
     //  console.log("Signed In")
     $('#authorize-button').hide();
     $('#signout-button').show();
     $("#okGoogle").show();
+    IsGoogleDrive = true;
     GDriveFileGet();
   } else {
     //  console.log("Signed Out")
     $('#authorize-button').show();
     $('#signout-button').hide();
     $("#okGoogle").hide();
+    IsGoogleDrive = false;
   }
-
 }
+
+
+$(document).off("click", "#SyncUpGdrive").on("click","#SyncUpGdrive",function () {
+  
+  if(IsGoogleDrive){
+  console.log("Database Upload sync triggered from new button")
+  $(this).html('<i class="fa fa-refresh fa-spin fa-fw">')
+  exportDatabase("gDriveSave", false);
+  }else{
+
+    swal({
+      title: "No Google Drive!!",
+      text: "Your google drive account is not linked. Do you want to connect it now?",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes Please!'
+    }).then((result) => {
+      if (result.value) {
+       
+    GoogleQuickSignIn()
+      }
+    })
+
+
+  }
+})
+
 
 function GDriveFileGet() {
   gapi.client.drive.files.list({
@@ -296,7 +348,7 @@ function GDriveFileGet() {
     var files = response.result.files;
     // get the first one found!
     if (files && files.length > 0) {
-      //    console.log("File exists - using first one found")
+      // console.log("File exists - using first one found")
       CURRENT_FILE_OBJ = files[0]
     } else {
       exportDatabase('gDriveNew');
@@ -373,8 +425,12 @@ function GDriveWrite(FILEDATA, callback) {
       } else {
         console.log("Data Created on GDrive");
       }
+        if($("#SyncUpGdrive").length){
+      $("#SyncUpGdrive").html('<i class="fa fa-fw fa-cloud-upload"></i>')
+    }else{
       $("#synchmsg").html("")
       swal("Uploaded!", "That has been Uploaded.", "success");
+    }
       CURRENT_FILE_OBJ = file;
     };
   }
