@@ -59,7 +59,7 @@ toolbox.precache([
     "templates/bnp.json" + versionTrigger,
     "templates/ms.json" + versionTrigger
 ]);
-toolbox.router.get('/*', toolbox.networkFirst, {
+toolbox.router.get('/*', toolbox.cacheFirst, {
     networkTimeoutSeconds: 5
 });
 
