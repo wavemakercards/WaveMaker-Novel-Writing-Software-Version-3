@@ -1,7 +1,7 @@
 /*
 Mod version number to force system wide update
 */
-var version = "?=_" + "3.0.1.5";
+var version = "?=_" + "3.0.1.6";
 console.log("Version ", version);
 versionTrigger = "?=_" + version;
 'use strict';
@@ -53,6 +53,8 @@ toolbox.precache([
     "tools/writer/script.js" + versionTrigger,
     "tools/mindmap/html.html" + versionTrigger,
     "tools/mindmap/script.js" + versionTrigger,
+    "tools/search/html.html" + versionTrigger,
+    "tools/search/script.js" + versionTrigger,
     "templates/3act.json" + versionTrigger,
     "templates/bnp.json" + versionTrigger,
     "templates/ms.json" + versionTrigger

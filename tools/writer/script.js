@@ -74,8 +74,8 @@ if (!WriterKey) {
     drawEditor();
   } else {
     d = new Date();
-    $("#editor").load("components/manuscript-tools.html?v=" + d.getTime(), function () {
-      $.getScript("components/manuscript-tools.js?t=" + d.getTime(), function () {
+    $("#editor").load("components/manuscript-tools.html", function () {
+      $.getScript("components/manuscript-tools.js", function () {
       });
     });
   }
