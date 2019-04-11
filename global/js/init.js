@@ -31,10 +31,8 @@ function deInitNav () {
 $(document).on("click", ".navtrigger", function () {
   action = $(this).data("action");
   $("#navigation-side-nav").html('')
-
   loadtool(action)
   showNavBar();
-
 })
 
 $(document).off("click", "#ProjectHome").on("click", "#ProjectHome", function () {
@@ -84,7 +82,6 @@ function hideNavBar () {
 }
 
 function loadNavBar () {
-  var d = new Date();
   navbar = $("<div id='navigation-holder'></div>");
   navbar.load("components/navigationbar.html", function () {
     $("body").append(navbar);
@@ -94,6 +91,7 @@ function loadNavBar () {
     } else {
       showNavBar()
     }
+
   });
 
 }
