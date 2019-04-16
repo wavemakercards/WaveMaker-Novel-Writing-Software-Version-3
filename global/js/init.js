@@ -56,6 +56,34 @@ $(document).off("click", "#ProjectHome").on("click", "#ProjectHome", function ()
 })
 
 
+$(document).off("click", "#SyncUpGdrive").on("click","#SyncUpGdrive",function () {
+  console.log("Attempting Quick Sync")
+  if(IsGoogleDrive){
+  console.log("Database Upload sync triggered from new button")
+  $(this).html('<i class="fa fa-refresh fa-spin fa-fw">')
+  exportDatabase("gDriveSave", false);
+  }else{
+
+    swal({
+      title: "No Google Drive!!",
+      text: "Your google drive account is not linked. Do you want to connect it now?",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes Please!'
+    }).then((result) => {
+      if (result.value) {
+       
+    GoogleQuickSignIn()
+      }
+    })
+
+
+  }
+})
+
+
 $(document).off('click', '#navigation-toggle').on('click', '#navigation-toggle', function () {
   if ($('#navigation-side-nav').data("visible")) {
     hideNavBar();

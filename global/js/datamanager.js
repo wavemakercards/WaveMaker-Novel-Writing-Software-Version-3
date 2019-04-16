@@ -310,35 +310,6 @@ function GoogleSigninStatus(isSignedIn) {
   }
 }
 
-
-$(document).off("click", "#SyncUpGdrive").on("click","#SyncUpGdrive",function () {
-  
-  if(IsGoogleDrive){
-  console.log("Database Upload sync triggered from new button")
-  $(this).html('<i class="fa fa-refresh fa-spin fa-fw">')
-  exportDatabase("gDriveSave", false);
-  }else{
-
-    swal({
-      title: "No Google Drive!!",
-      text: "Your google drive account is not linked. Do you want to connect it now?",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes Please!'
-    }).then((result) => {
-      if (result.value) {
-       
-    GoogleQuickSignIn()
-      }
-    })
-
-
-  }
-})
-
-
 function GDriveFileGet() {
   gapi.client.drive.files.list({
     'pageSize': 100,
