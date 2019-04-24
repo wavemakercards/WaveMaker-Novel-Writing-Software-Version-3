@@ -1,0 +1,890 @@
+{  
+    "title":"Save The Cat",
+    "data":{  
+       "writer":[  
+          {  
+             "expanded":true,
+             "icon":"fa fa-fw fa-file-o",
+             "key":"_1556096968",
+             "title":"Save the Cat!",
+             "data":{  
+                "content":"",
+                "notes":[  
+                   {  
+                      "title":"Note Card",
+                      "content":"This Template is based on the popular screenwriting book Save the Cat, by Blake Snyder, which I recommend you read.\n\nThis template I used the great resource at \n<a href=\"http://www.savannahgilbo.com/plotting-save-the-cat/\">http://www.savannahgilbo.com/plotting-save-the-cat/</a>\n\nGo take a look for more info.",
+                      "backgroundColor":""
+                   }
+                ]
+             },
+             "children":[  
+                {  
+                   "expanded":true,
+                   "icon":"fa fa-fw fa-file-o",
+                   "key":"_1556096346",
+                   "title":"Act 1",
+                   "data":{  
+                      "content":"",
+                      "notes":[  
+                         {  
+                            "title":"Note Card",
+                            "content":"First Act (20,000 words / 1,500-word scenes) = about 14 scenes",
+                            "backgroundColor":""
+                         }
+                      ]
+                   },
+                   "children":[  
+                      {  
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096211",
+                         "title":"Opening Image",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A single scene beat that shows a “before” snapshot of the protagonist and the flawed world that he or she lives in.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         }
+                      },
+                      {  
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096212",
+                         "title":"Theme Stated",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A single scene beat in which a statement is made by someone (other than the protagonist) that hints at what the protagonist will learn before the end of the story.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         }
+                      },
+                      {  
+                         "expanded":true,
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096214",
+                         "title":"Setup",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A multi-scene beat in which the reader gets to see what the protagonist’s life and the world are like–flaws and all. It’s also where important supporting characters and the protagonist’s initial goal (or the thing the protagonist thinks will fix his or her life) is introduced.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         },
+                         "children":[  
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095937",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095940",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095942",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095944",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095947",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            }
+                         ]
+                      },
+                      {  
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096069",
+                         "title":"Catalyst",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A single scene beat in which a life-changing event happens to the protagonist and catapults him or her into a new world or a new way of thinking. In other words, after this moment, there’s no going back to the “normal world” introduced in the setup.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         }
+                      },
+                      {  
+                         "expanded":true,
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096217",
+                         "title":"Debate",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":" A multi-scene beat where the protagonist debates what he or she will do next. Usually, there is some kind of question haunting them like, “should I do this?” or “should I do that?” The purpose of this beat is to show that the protagonist is reluctant to change for one reason or another.",
+                                  "backgroundColor":"",
+                                  "completed":false
+                               }
+                            ]
+                         },
+                         "children":[  
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095937",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095940",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095942",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095944",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095947",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            }
+                         ]
+                      },
+                      {  
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096087",
+                         "title":"Break Into 2",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A single scene beat in which the protagonist decides to accept the call to adventure, leave their comfort zone, try something new, or to venture into a new world or way of thinking. It’s the bridge between the beginning (Act 1) and middle (Act 2) of the story.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         }
+                      }
+                   ]
+                },
+                {  
+                   "expanded":true,
+                   "icon":"fa fa-fw fa-file-o",
+                   "key":"_1556096338",
+                   "title":"Act 2 - A",
+                   "data":{  
+                      "content":"",
+                      "notes":[  
+                         {  
+                            "title":"Note Card",
+                            "content":"Second Act (First Half) (20,000 words / 1,500-word scenes) = about 14 scenes",
+                            "backgroundColor":""
+                         }
+                      ]
+                   },
+                   "children":[  
+                      {  
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096277",
+                         "title":"B Story",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A single scene beat that introduces a new character or characters who will ultimately serve to help the hero learn the theme (or lesson) of the story. This character could be a love interest, a nemesis, a mentor, a family member, a friend, etc.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         }
+                      },
+                      {  
+                         "expanded":true,
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096383",
+                         "title":"Fun and Games",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A multi-scene beat where the reader gets to see the protagonist either shinning or floundering in their new world. In other words, they are either loving their new world or hating it.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         },
+                         "children":[  
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095937",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095940",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095942",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095944",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095947",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            }
+                         ]
+                      },
+                      {  
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096409",
+                         "title":"Midpoint",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A single scene beat where the fun and games section either culminates in a “false victory” (if your protagonist has been succeeding thus far) or a “false defeat” (if your protagonist has been floundering thus far) or a. In romance novels, this could be a kiss (or more), a declaration of love, or a marriage proposal. In a mystery or thriller, this could be a game-changing plot twist or a sudden ticking clock that ups the ante. This could even be a celebration or the first big public outing where the protagonist officially declares themselves a part of their new world. Whatever happens during this beat, it should raise the stakes and push the protagonist toward making a real change before moving forward.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         }
+                      }
+                   ]
+                },
+                {  
+                   "expanded":true,
+                   "icon":"fa fa-fw fa-file-o",
+                   "key":"_1556096410",
+                   "title":"Act 2 - B",
+                   "data":{  
+                      "content":"",
+                      "notes":[  
+                         {  
+                            "title":"Note Card",
+                            "content":"Second Act (Second Half) (20,000 words / 1,500-word scenes) = about 14 scenes",
+                            "backgroundColor":""
+                         }
+                      ]
+                   },
+                   "children":[  
+                      {  
+                         "expanded":true,
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096411",
+                         "title":"Bad Guys Close In",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"If the protagonist had a “false victory” at the Midpoint, this multi-scene beat would be a downward path where things get worse and worse for him or her. On the other hand, if the Midpoint was a “false defeat,” this section will be an upward path where things get better and better. Regardless of the path your protagonist takes during this multi-scene beat, his or her deep-rooted fear or false-belief (their internal bad guys) and the antagonist (external bad guys) are closing in.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         },
+                         "children":[  
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095937",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095940",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095942",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556096320",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095947",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556096323",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556096325",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556096328",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            }
+                         ]
+                      },
+                      {  
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096431",
+                         "title":"All is lost",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A single scene beat where something happens, that when combined with the threat of the bad guys closing in, pushes your protagonist to their lowest point.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         }
+                      },
+                      {  
+                         "expanded":true,
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096439",
+                         "title":"Dark night of the soul",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A multi-scene beat in which the protagonist takes time to process everything that’s happened so far. This is his or her darkest hour—the moment right before he or she figures out the solution to their big problem and learns the theme or life lesson of the story.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         },
+                         "children":[  
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095937",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095940",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095942",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095944",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            },
+                            {  
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556095947",
+                               "title":"Scene",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+ 
+                                  ]
+                               }
+                            }
+                         ]
+                      },
+                      {  
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096451",
+                         "title":"Break into 3",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A single scene beat where the protagonist realizes what he or she must do to fix not only the external story problems but more importantly, their internal problems as well.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         }
+                      }
+                   ]
+                },
+                {  
+                   "expanded":true,
+                   "icon":"fa fa-fw fa-file-o",
+                   "key":"_1556096533",
+                   "title":"Act 3",
+                   "data":{  
+                      "content":"",
+                      "notes":[  
+                         {  
+                            "title":"Note Card",
+                            "content":"Third Act (20,000 words / 1,500-word scenes) = about 14 scenes",
+                            "backgroundColor":""
+                         }
+                      ]
+                   },
+                   "children":[  
+                      {  
+                         "expanded":true,
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096950",
+                         "title":"Finale",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A multi-scene beat where the protagonist proves they have learned the story’s theme and acts on the plan he or she made in the Break Into Three scene. A great finale has five parts:",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         },
+                         "children":[  
+                            {  
+                               "expanded":true,
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556096949",
+                               "title":"Gathering the team",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+                                     {  
+                                        "title":"Note Card",
+                                        "content":"The protagonist rounds up his or her friends, and gathers the tools, weapons, and supplies needed to execute the plan.",
+                                        "backgroundColor":""
+                                     }
+                                  ]
+                               },
+                               "children":[  
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096584",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  },
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096587",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  },
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096589",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  }
+                               ]
+                            },
+                            {  
+                               "expanded":true,
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556096909",
+                               "title":"Executing the Plan",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+                                     {  
+                                        "title":"Note Card",
+                                        "content":"The protagonist (and his or her crew) execute the plan. Sometimes secondary characters are sacrificed here in order to force the protagonist to continue forward on their own.",
+                                        "backgroundColor":""
+                                     }
+                                  ]
+                               },
+                               "children":[  
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096592",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  },
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096595",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  },
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096596",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  }
+                               ]
+                            },
+                            {  
+                               "expanded":true,
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556096915",
+                               "title":"High Tower Surprise",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+                                     {  
+                                        "title":"Note Card",
+                                        "content":"The protagonist faces a twist or a surprise that forces him or her to prove their worth.",
+                                        "backgroundColor":""
+                                     }
+                                  ]
+                               },
+                               "children":[  
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096599",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  },
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096601",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  },
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096603",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  }
+                               ]
+                            },
+                            {  
+                               "expanded":true,
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556096925",
+                               "title":"Dig Deep Down",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+                                     {  
+                                        "title":"Note Card",
+                                        "content":"With no backup plan, the protagonist has to dig deep inside themselves to find the most important weapon of them all—the strength and courage to overcome their fear or false belief (internal antagonist) and face the antagonist or antagonistic force (external antagonist).",
+                                        "backgroundColor":""
+                                     }
+                                  ]
+                               },
+                               "children":[  
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096893",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  },
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096610",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  }
+                               ]
+                            },
+                            {  
+                               "expanded":true,
+                               "icon":"fa fa-fw fa-file-o",
+                               "key":"_1556096931",
+                               "title":"Execution of new  plan",
+                               "data":{  
+                                  "content":"",
+                                  "notes":[  
+                                     {  
+                                        "title":"Note Card",
+                                        "content":"After the protagonist overcomes their fear or false belief (internal antagonist), he or she takes action against the antagonist or antagonistic force (external antagonist) and is successful. (If you’re writing a story where the protagonist isn’t successful, make sure there’s a point to their failure.)",
+                                        "backgroundColor":""
+                                     }
+                                  ]
+                               },
+                               "children":[  
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096886",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  },
+                                  {  
+                                     "icon":"fa fa-fw fa-file-o",
+                                     "key":"_1556096616",
+                                     "title":"Scene",
+                                     "data":{  
+                                        "content":"",
+                                        "notes":[  
+ 
+                                        ]
+                                     }
+                                  }
+                               ]
+                            }
+                         ]
+                      },
+                      {  
+                         "icon":"fa fa-fw fa-file-o",
+                         "key":"_1556096941",
+                         "title":"Final Image",
+                         "data":{  
+                            "content":"",
+                            "notes":[  
+                               {  
+                                  "title":"Note Card",
+                                  "content":"A single scene beat that shows the reader an “after” snapshot of your protagonist’s life and how much he or she has changed since the beginning of the story.",
+                                  "backgroundColor":""
+                               }
+                            ]
+                         }
+                      }
+                   ]
+                }
+             ],
+             "mStyle":[  
+ 
+             ]
+          }
+       ],
+       "settings":{  
+          "manuscript":{  
+ 
+          }
+       }
+    }
+ }
