@@ -647,13 +647,17 @@ function drawEditor() {
         fix = caret - halfway;
         $(this).parent().scrollTop($(this).parent().scrollTop() + fix);
       }
-      CURRENTNODE.data.lastPos = $(this).parent().scrollTop() + caret - 100;
+      CURRENTNODE.data.lastPos = $(this).parent().scrollTop() + caret ;
+     // console.log("POsition",CURRENTNODE.data.lastPos)
       dosave();
     });
 
 
-
-  $("#editpane").scrollTop(CURRENTNODE.data.lastPos)
+    // this is flakey :/
+   // console.log("scrolling To", CURRENTNODE.data.lastPos )
+    if(CURRENTNODE.data.lastPos>0){
+      $("#editpane").scrollTop(CURRENTNODE.data.lastPos)
+    }
 
 
 

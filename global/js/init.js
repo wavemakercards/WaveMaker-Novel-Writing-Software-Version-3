@@ -268,13 +268,15 @@ $(document).off("focus", ".fancytree-edit-input").on("focus", ".fancytree-edit-i
 function disableF5(e) { if ((e.which || e.keyCode) == 116) {e.preventDefault();} };
 $(document).on("keydown", disableF5);
 */
-var changes = true;
+/*
+// No longer needed as if they close it so what! It saves
+
 window.onbeforeunload = function () {
   //swal("Hmmm", 'Saving "just happens" with wavemaker!', "success");;
   return false;
 
 }
-
+*/
 
 // catch ctrl s
 
