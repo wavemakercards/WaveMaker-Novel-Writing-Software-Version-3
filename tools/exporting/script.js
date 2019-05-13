@@ -45,6 +45,7 @@ $(document).off("click", "#ExportMarkdown").on("click", "#ExportMarkdown", funct
 
 var HTMLOutput = "";
 function getHtmlOutput(dta, lev) {
+  var htmlSceneDivider ="<p class='scene'>#</p>"
   //console.log(dta)
   if (dta.data) {
     html = markdown2html(dta.data.content);
@@ -52,7 +53,11 @@ function getHtmlOutput(dta, lev) {
       // HTMLOutput=HTMLOutput+"<div class='chaptername'>"+dta.title+"</div><div class='chapter'>";
       HTMLOutput = HTMLOutput + "<div class='chapter'>";
     }
-    HTMLOutput = HTMLOutput + html;
+    HTMLOutput = HTMLOutput + html  ;
+    if(html!=""){
+      HTMLOutput = HTMLOutput  +htmlSceneDivider
+    }   
+    
     if (dta.children !== undefined) {
       $.each(dta.children, function (k, v) {
         getHtmlOutput(v, 0)
@@ -103,7 +108,13 @@ $(document).off("click", "#ExportHTML").on("click", "#ExportHTML", function () {
     margin:0;
     margin-bottom:2rem
   }
-  
+  .scene{
+    text-indent:0px;
+    text-align:center;
+    line-height:2.5rem;
+    margin:0;
+    margin-bottom:2rem
+  }
   .chapter>p:first-of-type{
       text-indent:0px;
   }
@@ -145,8 +156,11 @@ function getRTFOutput(dta, lev) {
       if (RTFOutput !== "") { headhtml = headhtml + "<hr>"; }
       headhtml = headhtml + "<h1>" + dta.title + "</h1>";
     }
-    html = headhtml + html;
 
+    html = headhtml + html;
+    if(html!=""){
+      html = html  + "<h4>#</h4>"
+    }   
     RTFOutput = RTFOutput + convertHtmlToRtf(html);
     if (dta.children !== undefined) {
       $.each(dta.children, function (k, v) {
@@ -212,6 +226,7 @@ function convertHtmlToRtf(html) {
 
   // Start tags
   richText = richText.replace(/<(?:h1)(?:\s+[^>]*)?>/ig, "{\\fs36\\sl480\\slmult1\\qc\n");
+  richText = richText.replace(/<(?:h4)(?:\s+[^>]*)?>/ig, "{\\fs14\\sl480\\slmult1\\qc\n"); // for scene dividers
   richText = richText.replace(/<(?:h2)(?:\s+[^>]*)?>/ig, "{\\fs30\\sl480\\slmult1\n");
   richText = richText.replace(/<(?:h3)(?:\s+[^>]*)?>/ig, "{\\fs28\\sl480\\slmult1\n");
   richText = richText.replace(/<(?:b|strong)(?:\s+[^>]*)?>/ig, "{\\b\n");
@@ -231,7 +246,7 @@ function convertHtmlToRtf(html) {
   // End tags
   richText = richText.replace(/<\/(?:p|div|section|article)(?:\s+[^>]*)?>/ig, "\n\\par}\n");
   //deal with enditng of headings reset font
-  richText = richText.replace(/<\/(?:h1|h2|h3)(?:\s+[^>]*)?>/ig, "\\fs22\\par}");
+  richText = richText.replace(/<\/(?:h1|h2|h3|h4)(?:\s+[^>]*)?>/ig, "\\fs22\\par}");
   richText = richText.replace(/<\/(?:b|strong|i|em|u|ins|strike|del|sup|sub)(?:\s+[^>]*)?>/ig, "\n}");
 
   // Strip any other remaining HTML tags [but leave their contents]
