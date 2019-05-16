@@ -31,8 +31,7 @@
             <div class="col-12 col-md-6">
                 <div class="card">
                     <h2><i class="fa fa-fw fa-arrow-circle-o-down"></i> Export as Markdown</h2>
-                    <p>You can use markdown format for your export if you want. This is a very popular format that can
-                        be imported virtually anywhere</p>
+                    <p>You can use markdown format for your export if you want. </p>
                     <button class="btn btn-wavemaker" id="ExportMarkdown"><i
                             class="fa fa-fw fa-arrow-circle-o-down"></i> Export Markdown (.md)</button>
                 </div>
@@ -43,10 +42,10 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="card">
-                    <h2><i class="fa fa-fw fa-file-word-o"></i> Export as RTF </h2>
-                    <p>Rich Text Format - Exports into a manuscript format you can bring into word or google docs</p>
-                    <button class="btn btn-wavemaker" id="ExportRTF"><i class="fa fa-fw fa-file-word-o"></i> Export RTF
-                        (.rtf)</button>
+                    <h2><i class="fa fa-fw fa-file-word-o"></i> Export as Word (DocX) </h2>
+                    <p>Word Format - (This is Experimental)</p>
+                    <button class="btn btn-wavemaker" id="ExportWord"><i class="fa fa-fw fa-file-word-o"></i> Export to Word 
+                        (.docx)</button>
                 </div>
                 <hr>
             </div>
@@ -55,22 +54,39 @@
                 <div class="card">
 
                     <h2><i class="fa fa-fw fa-book"></i> Export as eBook </h2>
-                    <p>eBook Export - Coming Soon</p>
-                    <button class="btn btn-wavemaker" id="ExportEbook" disabled><i class="fa fa-fw fa-book"></i> Export
-                        Ebook</button>
+                    <p>eBook Export (This is Experimental)</p>
+                    <button class="btn btn-wavemaker" id="ExportEpub"><i class="fa fa-fw fa-book"></i> Export
+                        Ebook (.epub)</button>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <h2><i class="fa fa-fw fa-file-word-o"></i> Export as RTF </h2>
+                    <p>RTF Format - (Not Ideal)</p>
+                    <button class="btn btn-wavemaker" id="ExportRTF"><i class="fa fa-fw fa-file-word-o"></i> Export to RTF 
+                        (.rtf)</button>
+                </div>
+                <hr>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="card">
+
+                    <h2><i class="fa fa-fw fa-book"></i> Export Project  </h2>
+                    <p>Export just this project</p>
+                    <button class="btn btn-wavemaker" id="ExportProjectFile"><i class="fa fa-fw fa-download"></i> Export
+                        Project</button>
                 </div>
                 <hr>
             </div>
         </div>
 
 
-        <div class="row">
-            <div class="col-12 col-md-6 ">
-                <button id="ExportProjectFile" class="btn btn-sm btn-wavemaker-primary"><i
-                        class="fa fa-download fa-fw"></i> Download
-                    Project File</button>
-            </div>
-        </div>
+      
     </div>
 
 </div>

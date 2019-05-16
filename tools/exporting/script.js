@@ -130,7 +130,116 @@ $(document).off("click", "#ExportHTML").on("click", "#ExportHTML", function () {
   document.body.removeChild(element);
 });
 
+$(document).off("click", "#ExportWord").on("click", "#ExportWord", function () {
+  $.each(WMproject.data.writer, function (k, v) {
+    getHtmlOutput(v, 1);
+  })
 
+  HTMLOutput = `<style>
+  body{
+
+  }
+  .chapter{
+   page-break-after: always
+  margin-bottom:50px;
+  }
+  
+.chaptername{
+  text-align:center;
+}
+
+  p{
+    text-indent:40px;
+    line-height:2.5rem;
+    margin:0;
+    margin-bottom:2rem
+  }
+  .scene{
+    text-indent:0px;
+    text-align:center;
+    line-height:2.5rem;
+    margin:0;
+    margin-bottom:2rem
+  }
+  .chapter>p:first-of-type{
+      text-indent:0px;
+  }
+  </style>`+ HTMLOutput;
+
+
+  $.post("https://pandoc-mayasky76377487.codeanyapp.com/createDocx.php", {HTMLINPUT: HTMLOutput}, function(result){
+    console.log(result);
+
+    myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".docx";
+    var element = document.createElement('a');
+    element.setAttribute('href', result);
+    element.setAttribute('download', myfilename);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+
+
+  });
+})
+
+
+ExportEpub
+
+
+$(document).off("click", "#ExportEpub").on("click", "#ExportEpub", function () {
+  $.each(WMproject.data.writer, function (k, v) {
+    getHtmlOutput(v, 1);
+  })
+
+  HTMLOutput = `<style>
+  body{
+
+  }
+  .chapter{
+   page-break-after: always
+  margin-bottom:50px;
+  }
+  
+.chaptername{
+  text-align:center;
+}
+
+  p{
+    text-indent:40px;
+    line-height:2.5rem;
+    margin:0;
+    margin-bottom:2rem
+  }
+  .scene{
+    text-indent:0px;
+    text-align:center;
+    line-height:2.5rem;
+    margin:0;
+    margin-bottom:2rem
+  }
+  .chapter>p:first-of-type{
+      text-indent:0px;
+  }
+  </style>`+ HTMLOutput;
+
+
+  $.post("https://pandoc-mayasky76377487.codeanyapp.com/createEpub.php", {HTMLINPUT: HTMLOutput}, function(result){
+    console.log(result);
+
+    myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".epub3";
+    var element = document.createElement('a');
+    element.setAttribute('href', result);
+    element.setAttribute('download', myfilename);
+    element.setAttribute('target', "_blank");
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+
+
+  });
+})
 
 $(document).off("click", "#ExportProjectFile").on("click", "#ExportProjectFile", function () {
   myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".wmProx";
