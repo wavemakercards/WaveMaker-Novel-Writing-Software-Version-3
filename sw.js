@@ -55,6 +55,7 @@ toolbox.precache([
     "tools/mindmap/script.js" + versionTrigger,
     "tools/search/html.html" + versionTrigger,
     "tools/search/script.js" + versionTrigger,
+    "templates/savethecat.json" + versionTrigger,
     "templates/3act.json" + versionTrigger,
     "templates/bnp.json" + versionTrigger,
     "templates/ms.json" + versionTrigger
