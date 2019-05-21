@@ -21,7 +21,7 @@ function savedata() {
 var target = 150;
 
 var timer = 5 * 60;
-
+var timeoutElement
 
 
 $(function () {
@@ -34,7 +34,7 @@ $(function () {
       timer = $("#ds_settings").val() * 60
       target = $("#ds_settings").val() * 30
       $("#startform").fadeOut()
-      setTimeout(writetimer, 1000);
+      timeoutElement= setTimeout(writetimer, 1000);
       $('#challengeEditor').focus();
       document.getElementById("challengeEditor").onkeydown = checkKey;
     })
@@ -48,7 +48,7 @@ function writetimer() {
   } else {
     timer = timer - 1;
     $("#displayTimer").html(timer + " seconds left")
-    setTimeout(writetimer, 1000);
+    timeoutElement= setTimeout(writetimer, 1000);
   }
 }
 
@@ -143,8 +143,8 @@ function getwordcount(el) {
 
 
 
-function finish() {
-
+function finish() { 
+  clearTimeout(timeoutElement)
   html=markdown2html(nl2br($("#challengeEditor").val()));
 
   markdown= html2markdown(html)
