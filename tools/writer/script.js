@@ -656,7 +656,7 @@ function drawEditor() {
     // this is flakey :/
    // console.log("scrolling To", CURRENTNODE.data.lastPos )
     if(CURRENTNODE.data.lastPos>0){
-      $("#editpane").scrollTop(CURRENTNODE.data.lastPos)
+     // $("#editpane").scrollTop(CURRENTNODE.data.lastPos  -300)
     }
 
 
