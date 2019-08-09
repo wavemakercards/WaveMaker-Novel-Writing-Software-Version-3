@@ -122,7 +122,8 @@
 
 
     </script>
-
+    <!-- Insert this line above script imports  -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 
     <script src="https://apis.google.com/js/api.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
@@ -143,6 +144,9 @@
 
     <script src="global/js/datamanager.js"></script>
     <script src="global/js/init.js"></script>
+
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
 
 
 </body>
