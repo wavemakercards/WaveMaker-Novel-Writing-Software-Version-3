@@ -86,7 +86,7 @@ function DrawMindMap() {
     newnode.attr("id", i.id);
     newnode.data("key", k);
     newnode.data("uid", i.id);
-    newnode.append("<div class='handle'  style='display:none'><i class='fa fa-fw fa-arrows'></i></div>")
+    newnode.append("<div class='mindmapHandle'  style='display:none'><i class='fa fa-fw fa-arrows'></i></div>")
 
     if (i.type === "note") {
       nodecontent = $("<textarea rows='1' class='notes nodeitem' tabindex='1' style ='width:" + i.width + "px; height:" + i.height + "px;  ' >" + i.content + "</textarea>")
@@ -305,7 +305,7 @@ $(document.body).off("mousemove").on("mousemove", function (e) {
   }
 });
 
-$(document).off("mousedown", ".handle").on("mousedown", ".handle", function (e) {
+$(document).off("mousedown", ".mindmapHandle").on("mousedown", ".mindmapHandle", function (e) {
   $dragging = $(this).parent();
 });
 
@@ -323,7 +323,7 @@ $(document).off("mouseup").on("mouseup", function (e) {
 
 
 $(document).off("focus", ".mindmap-item").on("focus", ".mindmap-item", function (e) {
-  $(this).find(".handle").show();
+  $(this).find(".mindmapHandle").show();
   $(this).find(".linker").show();
   $(this).find(".trash").show();
   $(this).find(".edit").show();
@@ -333,7 +333,7 @@ $(document).off("focus", ".mindmap-item").on("focus", ".mindmap-item", function 
 });
 
 $(document).off("blur", ".mindmap-item").on("blur", ".mindmap-item", function (e) {
-  $(this).find(".handle").hide();
+  $(this).find(".mindmapHandle").hide();
   $(this).find(".linker").hide();
   $(this).find(".trash").hide();
   $(this).find(".edit").hide();
@@ -431,7 +431,7 @@ $("#mindmap_items").keydown(function (e) {
         break;
 
       default:
-        return; // exit this handler for other keys
+        return; // exit this mindmapHandler for other keys
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
   }
