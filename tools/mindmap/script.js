@@ -439,7 +439,7 @@ $("#mindmap_items").keydown(function (e) {
 
 
 
-$(".mindmap-title").off("keyup").on("keyup", function () {
+$(document).off("keyup", ".mindmap-title").on("keyup",".mindmap-title", function () {
   mindmap.title = $(this).val()
   console.log(mindmapkey)
   //  $("#mindmap-title-" + mindmapkey).text($(this).val())
