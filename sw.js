@@ -1,9 +1,9 @@
 /*
 Mod version number to force system wide update
 */
-var version = "?=_" + "3.0.2.7";
+var version = "3.0.2.8";
 console.log("Version ", version);
-versionTrigger = "?=_" + version;
+var versionTrigger = "?=_" + version;
 'use strict';
 importScripts('sw-toolbox.js');
 toolbox.precache([
