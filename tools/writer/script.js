@@ -806,6 +806,25 @@ $(document).off("click", "#add-sub-button").on("click", "#add-sub-button", funct
 });
 
 
+$(document).off("keydown").on("keydown", function (e) {
+ 
+  if(e.ctrlKey && e.shiftKey && e.altKey && e.which ===78 ){
+    e.preventDefault();
+    $("#manuscript").trigger("nodeCommand", { cmd: "addSibling" });
+    console.log('key code is: ' + e.which + ' ' + (e.ctrlKey ? 'Ctrl' : '') + ' ' +
+          (e.shiftKey ? 'Shift' : '') + ' ' + (e.altKey ? 'Alt' : ''));
+  }
+  if(e.ctrlKey &&  !e.shiftKey && e.altKey && e.which ===78 ){
+    e.preventDefault();
+    console.log('key code is: ' + e.which + ' ' + (e.ctrlKey ? 'Ctrl' : '') + ' ' +
+          (e.shiftKey ? 'Shift' : '') + ' ' + (e.altKey ? 'Alt' : ''));
+          $("#manuscript").trigger("nodeCommand", { cmd: "addChild" });
+  }
+
+});
+
+
+
 
 function ShowWordCount(counted) {
   var words = " Word";

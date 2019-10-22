@@ -1,0 +1,21 @@
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+
+<script>
+$(document).keydown(function(e) {
+    e.preventDefault();
+
+    if(e.ctrlKey && e.shiftKey && e.altKey && e.which ===78 ){
+      console.log('key code is: ' + e.which + ' ' + (e.ctrlKey ? 'Ctrl' : '') + ' ' +
+            (e.shiftKey ? 'Shift' : '') + ' ' + (e.altKey ? 'Alt' : ''));
+    }
+    if(e.ctrlKey &&  !e.shiftKey && e.altKey && e.which ===78 ){
+      console.log('key code is: ' + e.which + ' ' + (e.ctrlKey ? 'Ctrl' : '') + ' ' +
+            (e.shiftKey ? 'Shift' : '') + ' ' + (e.altKey ? 'Alt' : ''));
+    }
+
+});
+</script>
