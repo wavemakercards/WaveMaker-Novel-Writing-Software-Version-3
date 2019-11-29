@@ -1,600 +1,542 @@
 :root {
-
-  /* brown */
-  --c0: #efebe9;
-  --c1: #d7ccc8;
-  --c2: #eeeeee;
-  --c3: #bcaaa4;
-  --c4: #8d6e63;
-  --c5: #795548;
-  --c6: #6d4c41;
-  --c7: #5d4037;
-  --c8: #4e342e;
-  --c9: #3e2723;
-  /* Grays */
-  --c0: #fafafa;
-  --c1: #f5f5f5;
-  --c2: #eeeeee;
-  --c3: #e0e0e0;
-  --c4: #bdbdbd;
-  --c5: #9e9e9e;
-  --c6: #757575;
-  --c7: #616161;
-  --c8: #424242;
-  --c9: #212121;
-  /* bluegray */
-  --c0: #eceff1;
-  --c1: #cfd8dc;
-  --c2: #b0bec5;
-  --c3: #90a4ae;
-  --c4: #78909c;
-  --c5: #607d8b;
-  --c6: #546e7a;
-  --c7: #455a64;
-  --c8: #37474f;
-  --c9: #263238;
-
-
-  /* purple */
-  --c0: #EDE7F6;
-  --c1: #D1C4E9;
-  --c2: #B39DDB;
-  --c3: #9575CD;
-  --c4: #7E57C2;
-  --c5: #673AB7;
-  --c6: #5E35B1;
-  --c7: #512DA8;
-  --c8: #4527A0;
-  --c9: #311B92;
-
-  /* Grays */
-  --c0: #fafafa;
-  --c1: #f5f5f5;
-  --c2: #eeeeee;
-  --c3: #e0e0e0;
-  --c4: #bdbdbd;
-  --c5: #9e9e9e;
-  --c6: #757575;
-  --c7: #616161;
-  --c8: #424242;
-  --c9: #212121;
-
-
-  --c0: #eceff1;
-  --c1: #cfd8dc;
-  --c2: #b0bec5;
-  --c3: #90a4ae;
-  --c4: #78909c;
-  --c5: #607d8b;
-  --c6: #546e7a;
-  --c7: #455a64;
-  --c8: #37474f;
-  --c9: #263238;
-
-
-  --logo-top: var(--c2);
-  --logo-bottom: var(--c7);
-
-
-  --main-background: var(--c3);
-  --main-foreground: var(--c9);
-
-  --interface-button-background: var(--c9);
-  --interface-button-foreground: var(--c0);
-  --interface-button-background-hover: var(--c7);
-  --interface-button-foreground-hover: var(--c0);
-
-  --interface-button-background-danger: #8c0000;
-  --interface-button-foreground-danger: var(--c0);
-
-  --interface-button-background-success: #116600;
-  --interface-button-foreground-success: var(--c0);
-
-  --side-nav-bar-background: var(--c9);
-  --side-nav-bar-foreground: var(--c0);
-
-  --side-nav-bar-button-background: var(--c9);
-  --side-nav-bar-button-foreground: var(--c0);
-  --side-nav-bar-button-background-hover: var(--c7);
-  --side-nav-bar-button-foreground-hover: var(--c0);
-
-  --side-tool-panel-background: var(--c7);
-  --side-tool-panel-foreground: var(--c0);
-
-
-  --system-font: "Quicksand", sans-serif;
-  --manuscriptFont: "Halant";
-
-
-
-  --default-font-size: 14px;
-  --manuscriptFont: "'Halant', serif";
-  --manuscriptAlign: "left";
-  --manuscriptFontSize: 1.3rem;
-  --manuscriptLineHeight: 1.7rem;
-  --manuscriptParaIndent: 20px;
-  --manuscriptMarginBottom: 20px;
-  --manuscriptPaperStyle: 800px;
-  --menu-indent-padding: 0px;
-
-
-  /*
+    /* brown */
+    --c0: #efebe9;
+    --c1: #d7ccc8;
+    --c2: #eeeeee;
+    --c3: #bcaaa4;
+    --c4: #8d6e63;
+    --c5: #795548;
+    --c6: #6d4c41;
+    --c7: #5d4037;
+    --c8: #4e342e;
+    --c9: #3e2723;
+    /* Grays */
+    --c0: #fafafa;
+    --c1: #f5f5f5;
+    --c2: #eeeeee;
+    --c3: #e0e0e0;
+    --c4: #bdbdbd;
+    --c5: #9e9e9e;
+    --c6: #757575;
+    --c7: #616161;
+    --c8: #424242;
+    --c9: #212121;
+    /* bluegray */
+    --c0: #eceff1;
+    --c1: #cfd8dc;
+    --c2: #b0bec5;
+    --c3: #90a4ae;
+    --c4: #78909c;
+    --c5: #607d8b;
+    --c6: #546e7a;
+    --c7: #455a64;
+    --c8: #37474f;
+    --c9: #263238;
+    /* purple */
+    --c0: #EDE7F6;
+    --c1: #D1C4E9;
+    --c2: #B39DDB;
+    --c3: #9575CD;
+    --c4: #7E57C2;
+    --c5: #673AB7;
+    --c6: #5E35B1;
+    --c7: #512DA8;
+    --c8: #4527A0;
+    --c9: #311B92;
+    /* Grays */
+    --c0: #fafafa;
+    --c1: #f5f5f5;
+    --c2: #eeeeee;
+    --c3: #e0e0e0;
+    --c4: #bdbdbd;
+    --c5: #9e9e9e;
+    --c6: #757575;
+    --c7: #616161;
+    --c8: #424242;
+    --c9: #212121;
+    --c0: #eceff1;
+    --c1: #cfd8dc;
+    --c2: #b0bec5;
+    --c3: #90a4ae;
+    --c4: #78909c;
+    --c5: #607d8b;
+    --c6: #546e7a;
+    --c7: #455a64;
+    --c8: #37474f;
+    --c9: #263238;
+    --logo-top: var(--c2);
+    --logo-bottom: var(--c7);
+    --main-background: var(--c3);
+    --main-foreground: var(--c9);
+    --interface-button-background: var(--c9);
+    --interface-button-foreground: var(--c0);
+    --interface-button-background-hover: var(--c7);
+    --interface-button-foreground-hover: var(--c0);
+    --interface-button-background-danger: #8c0000;
+    --interface-button-foreground-danger: var(--c0);
+    --interface-button-background-success: #116600;
+    --interface-button-foreground-success: var(--c0);
+    --side-nav-bar-background: var(--c9);
+    --side-nav-bar-foreground: var(--c0);
+    --side-nav-bar-button-background: var(--c9);
+    --side-nav-bar-button-foreground: var(--c0);
+    --side-nav-bar-button-background-hover: var(--c7);
+    --side-nav-bar-button-foreground-hover: var(--c0);
+    --side-tool-panel-background: var(--c7);
+    --side-tool-panel-foreground: var(--c0);
+    --system-font: "Quicksand", sans-serif;
+    --manuscriptFont: "Halant";
+    --default-font-size: 14px;
+    --manuscriptFont: "'Halant', serif";
+    --manuscriptAlign: "left";
+    --manuscriptFontSize: 1.3rem;
+    --manuscriptLineHeight: 1.7rem;
+    --manuscriptParaIndent: 20px;
+    --manuscriptMarginBottom: 20px;
+    --manuscriptPaperStyle: 800px;
+    --menu-indent-padding: 0px;
+    /*
 Setting General Interface Variables
 */
-
-  --base-foreground-color: #fff;
-  --base-background-color: #222;
-
-  --system-font: var(--custom-system-font:), "Quicksand", sans-serif;
-
-
-
-  --editor-background-color: var(--c3);
-  --paper-background-color: var(--c0);
-  --paper-text-color: var(--c9);
-
-
-
-  --list-fg: var(--c0);
-  --list-bg: transparent;
-  --sub-list-fg: var(--c0);
-  --sub-list-bg: var(--c7);
-
-
-
+    --base-foreground-color: #fff;
+    --base-background-color: #222;
+    --system-font: var(--custom-system-font: ), "Quicksand", sans-serif;
+    --editor-background-color: var(--c3);
+    --paper-background-color: var(--c0);
+    --paper-text-color: var(--c9);
+    --list-fg: var(--c0);
+    --list-bg: transparent;
+    --sub-list-fg: var(--c0);
+    --sub-list-bg: var(--c7);
 }
 
 body {
-  position: absolute;
-  background-color: var(--main-background);
-  color: var(--main-foreground);
-  font-family: var(--system-font);
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  overflow: hidden;
+    position: absolute;
+    background-color: var(--main-background);
+    color: var(--main-foreground);
+    font-family: var(--system-font);
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
 }
 
 div,
 p {
-  overflow-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .form-control {
-  border-radius: 0px;
+    border-radius: 0px;
 }
 
 #install-alert {
-  position: absolute;
-  width: 100%;
-  top: 0px;
-  right: 0px;
-  padding: 2px;
-  border-radius: 0px;
-  text-align: center
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    right: 0px;
+    padding: 2px;
+    border-radius: 0px;
+    text-align: center
 }
 
 #install-alert .close {
-  padding: 5px;
-  width: 50px;
-
+    padding: 5px;
+    width: 50px;
 }
 
 .wavemaker-form {
-  width: 100%;
-  padding: 10px;
-  background-color: var(--c9);
-  color: var(--c0);
-  border: 0px;
-  border-bottom: 1px dashed var(--c0);
+    width: 100%;
+    padding: 10px;
+    background-color: var(--c9);
+    color: var(--c0);
+    border: 0px;
+    border-bottom: 1px dashed var(--c0);
 }
 
 .btn {
-  border-radius: 0px;
+    border-radius: 0px;
 }
 
 #manuscript,
 .ui-contextmenu {
-  font-size: 0.8rem;
+    font-size: 0.8rem;
 }
 
 #mobilecheck {
-  position: fixed;
-  width: 1px;
-  height: 1px;
-  top: -10px;
-  display: block;
+    position: fixed;
+    width: 1px;
+    height: 1px;
+    top: -10px;
+    display: block;
 }
 
 .btn-wavemaker {
-  color: var(--interface-button-foreground);
-  background-color: var(--interface-button-background);
-  border: 0px;
-  border-radius: 0px;
-  box-shadow: none;
-  font-size: 0.9rem;
-  height: 50px;
+    color: var(--interface-button-foreground);
+    background-color: var(--interface-button-background);
+    border: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 0.9rem;
+    height: 50px;
 }
 
 .btn-wavemaker:hover,
 .btn-wavemaker:focus,
 .btn-wavemaker:active {
-  color: var(--interface-button-foreground-hover);
-  background-color: var(--interface-button-background-hover);
-  border: 0px;
-  box-shadow: none;
+    color: var(--interface-button-foreground-hover);
+    background-color: var(--interface-button-background-hover);
+    border: 0px;
+    box-shadow: none;
 }
 
 .btn-wavemaker-danger {
-  color: var(--interface-button-foreground-danger);
-  background-color: var(--interface-button-background-danger);
-  border: 0px;
-  border-radius: 0px;
-  box-shadow: none;
-  font-size: 0.9rem;
-  height: 50px;
+    color: var(--interface-button-foreground-danger);
+    background-color: var(--interface-button-background-danger);
+    border: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 0.9rem;
+    height: 50px;
 }
 
 .btn-wavemaker-danger:hover,
 .btn-wavemaker-danger:focus,
 .btn-wavemaker-danger:active {
-  color: var(--interface-button-foreground-hover);
-  background-color: var(--interface-button-background-hover);
-  border: 0px;
-  box-shadow: none;
+    color: var(--interface-button-foreground-hover);
+    background-color: var(--interface-button-background-hover);
+    border: 0px;
+    box-shadow: none;
 }
 
 .btn-wavemaker-success {
-  color: var(--interface-button-foreground-success);
-  background-color: var(--interface-button-background-success);
-  border: 0px;
-  border-radius: 0px;
-  box-shadow: none;
-  font-size: 0.9rem;
-  height: 50px;
+    color: var(--interface-button-foreground-success);
+    background-color: var(--interface-button-background-success);
+    border: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 0.9rem;
+    height: 50px;
 }
 
 .btn-wavemaker-success:hover,
 .btn-wavemaker-success:focus,
 .btn-wavemaker-success:active {
-  color: var(--interface-button-foreground-hover);
-  background-color: var(--interface-button-background-hover);
-  border: 0px;
-  box-shadow: none;
+    color: var(--interface-button-foreground-hover);
+    background-color: var(--interface-button-background-hover);
+    border: 0px;
+    box-shadow: none;
 }
 
 .btn-wavemaker-secondary {
-  color: var(--interface-button-foreground-hover);
-  background-color: var(--interface-button-background-hover);
-  border: 0px;
-  border-radius: 0px;
-  box-shadow: none;
-  font-size: 0.9rem;
-  height: 50px;
+    color: var(--interface-button-foreground-hover);
+    background-color: var(--interface-button-background-hover);
+    border: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 0.9rem;
+    height: 50px;
 }
 
 .btn-wavemaker-secondary:hover,
 .btn-wavemaker-secondary:focus,
 .btn-wavemaker-secondary:active {
-  color: var(--interface-button-foreground);
-  background-color: var(--interface-button-background);
-  border: 0px;
-  box-shadow: none;
+    color: var(--interface-button-foreground);
+    background-color: var(--interface-button-background);
+    border: 0px;
+    box-shadow: none;
 }
 
-
 #wavemakerApp {
-  position: absolute;
-  top: 0px;
-  left: 50px;
-  right: 0px;
-  bottom: 0px;
-  overflow: hidden;
-  transition: all 0.5s;
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
+    transition: all 0.5s;
 }
 
 .logo-top {
-  fill: var(--logo-top)
+    fill: var(--logo-top)
 }
 
 .logo-bottom {
-  fill: var(--logo-bottom)
+    fill: var(--logo-bottom)
 }
 
 .logo {
-  width: 30px;
-  height: 30px;
-  margin-top: 9px;
+    width: 30px;
+    height: 30px;
+    margin-top: 9px;
 }
 
 #ProjectHome {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  background-color: var(--side-nav-bar-background);
-  color: var(--side-nav-bar-foreground);
-  font-size: 1em;
-  padding-left: 9px;
-  cursor: pointer;
-  overflow: none;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: var(--side-nav-bar-background);
+    color: var(--side-nav-bar-foreground);
+    font-size: 1em;
+    padding-left: 9px;
+    cursor: pointer;
+    overflow: none;
 }
 
 #ProjectHome .logotext {
-  position: absolute;
-  top: 0px;
-  width: 270px;
-  right: 0px;
-  padding-top: 13px;
-  padding-left: 6px;
-
+    position: absolute;
+    top: 0px;
+    width: 270px;
+    right: 0px;
+    padding-top: 13px;
+    padding-left: 6px;
 }
 
 #navigation-tool-bar {
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  top: 0px;
-  width: 50px;
-  background-color: var(--side-nav-bar-background);
-  color: var(--side-nav-bar-foreground);
-  overflow: hidden;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    top: 0px;
+    width: 50px;
+    background-color: var(--side-nav-bar-background);
+    color: var(--side-nav-bar-foreground);
+    overflow: hidden;
 }
 
 #navlist {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .navigation-tool-bar-button {
-  font-size: 1.1rem;
-  background-color: var(--side-nav-bar-button-background);
-  color: var(--side-nav-bar-button-foreground);
-  border: 0px;
-  padding: 5px;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
+    font-size: 1.1rem;
+    background-color: var(--side-nav-bar-button-background);
+    color: var(--side-nav-bar-button-foreground);
+    border: 0px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
 }
 
 .navigation-tool-bar-button:hover,
 .navigation-tool-bar-button:focus {
-  background-color: var(--side-nav-bar-button-background-hover);
-  color: var(--side-nav-bar-button-foreground-hover);
-  outline: none;
+    background-color: var(--side-nav-bar-button-background-hover);
+    color: var(--side-nav-bar-button-foreground-hover);
+    outline: none;
 }
 
 .btn-50 {
-  position: sticky;
-  display: inline-block;
-  width: 50%;
-  margin: 0px;
+    position: sticky;
+    display: inline-block;
+    width: 50%;
+    margin: 0px;
 }
 
 #navigation-side-nav {
-  position: absolute;
-  left: 50px;
-  bottom: 0px;
-  top: 0px;
-  width: 320px;
-  background-color: var(--c8);
-  transition: all 0.5s;
+    position: absolute;
+    left: 50px;
+    bottom: 0px;
+    top: 0px;
+    width: 320px;
+    background-color: var(--c8);
+    transition: all 0.5s;
 }
 
 #manuscript {
-  position: absolute;
-  ;
-  top: 100px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-
-  overflow-y: scroll;
+    position: absolute;
+    ;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    bottom: 50px;
+    overflow-y: scroll;
 }
 
 ::-webkit-scrollbar-button {
-  display: block;
-  height: 0px;
-  border-radius: 0px;
-  background-color: #000
+    display: block;
+    height: 0px;
+    border-radius: 0px;
+    background-color: #000
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--c5);
+    background-color: var(--c5);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--c9);
+    background-color: var(--c9);
 }
 
-
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 .sendtowriter {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  height: 40px;
-  font-size: 0.8rem;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 40px;
+    font-size: 0.8rem;
 }
 
 .sendtowriter>span {
-  display: none;
+    display: none;
 }
 
 .sendtowriter:hover>span,
 .sendtowriter:focus>span {
-  display: inline-block;
+    display: inline-block;
 }
 
-
-
 .btn-circle.btn-xs {
-  width: 15px;
-  height: 15px;
-  text-align: center;
-  padding: 0px 0;
-  font-size: 10px;
-  line-height: 1;
-  border-radius: 15px;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    padding: 0px 0;
+    font-size: 10px;
+    line-height: 1;
+    border-radius: 15px;
 }
 
 .smallButtons {
-  color: #212121;
-  border: 0px;
-  background: none;
-  cursor: pointer;
+    color: #212121;
+    border: 0px;
+    background: none;
+    cursor: pointer;
 }
 
 #cardmanager {
-  padding-top: 60px;
-  margin: 0 auto;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+    padding-top: 60px;
+    margin: 0 auto;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
 }
 
-
-
 .sortableCards {
-  position: relative;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  min-height: 100px;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-height: 100px;
 }
 
 .sortableCards>li {
-  margin-bottom: 10px;
-  cursor: move;
+    margin-bottom: 10px;
+    cursor: move;
 }
 
 .CardmanagerTitle {
-  text-align: center;
-  padding: 5px;
+    text-align: center;
+    padding: 5px;
 }
 
 .noteCardAdd {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  border: 0px;
-  background: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border: 0px;
+    background: none;
 }
 
 #addCardsManagerChapter {
-  position: fixed;
-  top: 0px !important;
-  right: 150px;
-  width: 150px !important;
-  height: 50px !important;
-  z-index: 999999999;
+    position: fixed;
+    top: 0px !important;
+    right: 150px;
+    width: 150px !important;
+    height: 50px !important;
+    z-index: 999999999;
 }
 
 #toggleCompletedCardsCardEditor {
-  position: fixed;
-  top: 0px !important;
-  right: 0px;
-  width: 150px !important;
-  height: 50px !important;
-  z-index: 999999999;
-
+    position: fixed;
+    top: 0px !important;
+    right: 0px;
+    width: 150px !important;
+    height: 50px !important;
+    z-index: 999999999;
 }
-
 
 .noteTextEditor {
-  display: block;
-  border: 0px;
-  outline: none;
-  padding: 10px;
-  width: 100%;
+    display: block;
+    border: 0px;
+    outline: none;
+    padding: 10px;
+    width: 100%;
 }
 
-
-
 #CardsColourPicker {
-  position: absolute;
-  left: 5px;
-
+    position: absolute;
+    left: 5px;
 }
 
 #CardsColourPicker button {
-  border: 0px;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #000;
-  margin: 1px;
-  padding: 0px;
+    border: 0px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    margin: 1px;
+    padding: 0px;
 }
 
-
 .wmcard {
-  color: #212121;
-  border: 1px solid #616161;
-  background-color: #fafafa;
-  padding: 15px;
-  font-size: 0.8em;
+    color: #212121;
+    border: 1px solid #616161;
+    background-color: #fafafa;
+    padding: 15px;
+    font-size: 0.8em;
 }
 
 .wmcard-title {
-  font-size: 1.3em;
+    font-size: 1.3em;
 }
 
-
 .wmcard {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .markAsDone {
-  opacity: 0.4;
+    opacity: 0.4;
 }
 
 .cardsorter {
-  padding: 10px;
+    padding: 10px;
 }
 
 .color0 {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 .color1 {
-  background-color: #f06292 !important;
-
+    background-color: #f06292 !important;
 }
 
 .color2 {
-  background-color: #9575cd !important;
-
+    background-color: #9575cd !important;
 }
 
 .color3 {
-  background-color: #4fc3f7 !important;
-
+    background-color: #4fc3f7 !important;
 }
 
 .color4 {
-  background-color: #4db6ac !important;
-
+    background-color: #4db6ac !important;
 }
 
 .color5 {
-  background-color: #fff176 !important;
+    background-color: #fff176 !important;
 }
 
 .color6 {
-  background-color: #ff8a65 !important;
-
+    background-color: #ff8a65 !important;
 }
-
-
-
 
 
 /*
@@ -603,10 +545,12 @@ M E D I A  Q U E R I E S
 ####################################################
 */
 
+
 /*
 ::::::::::::::::::::::::::::::::::::::::::::::::::::
 Bootstrap 4 breakpoints
 */
+
 
 /* 
 Extra small devices (portrait phones, less than 576px) 
@@ -615,29 +559,33 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
 
 /* Small devices (landscape phones, 576px and up) */
+
 @media (min-width: 576px) {}
 
+
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+
 @media (min-width: 768px) {
-  #mobilecheck {
-    display: none;
-  }
-
-  #notesPanel {
-    right: 0px;
-  }
-
-  #navigation-side-nav {
-    width: 320px;
-  }
+    #mobilecheck {
+        display: none;
+    }
+    #notesPanel {
+        right: 0px;
+    }
+    #navigation-side-nav {
+        width: 320px;
+    }
 }
 
+
 /* Large devices (desktops, 992px and up) */
+
 @media (min-width: 992px) {}
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
 
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {}
 
 
 /*
@@ -645,5 +593,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 Custom media queries
 */
 
+
 /* Set width to make card deck cards 100% width */
+
 @media (max-width: 950px) {}

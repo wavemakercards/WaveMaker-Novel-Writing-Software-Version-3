@@ -1,306 +1,305 @@
 <style>
-  #editorbuttons {
-    position: absolute;
-    width: 100%;
-    top: 0px;
-    background-color: var(--interface-button-background);
-    text-align: right;
-  }
-
-  .wysywig-btn {
-    width: 30px;
-    height: 50px;
-    background-color: var(--interface-button-background);
-    color: var(--interface-button-foreground);
-    border: 0px;
-    margin: 0px;
-    cursor: pointer;
-  }
-
-  .wysywig-btn:hover,
-  .wysywig-btn:focus,
-  .wysywig-btn:active {
-
-    background-color: var(--interface-button-background-hover);
-    color: var(--interface-button-foreground-hover);
-
-  }
-
-  #wordcount {
-    position: absolute;
-    bottom: 0px;
-    right: 40px;
-
-    font-size: 0.8em;
-    padding: 5px;
-    background-color: var(--interface-button-background-hover);
-    color: var(--interface-button-foreground-hover);
-    -webkit-border-radius: 5px 5px 0 0;
-    /*Safari, Chrome*/
-    -moz-border-radius: 5px 5px 0 0;
-    /*Firefox*/
-    border-radius: 5px 5px 0 0;
-  }
-
-
-  #editor {
-    position: absolute;
-    font-size: 0.8em;
-    top: 0px;
-    left: 0px;
-    right: 50px;
-    bottom: 0px;
-    transition: all 0.5s ease;
-  }
-
-
-  #nodeTitle {
-    position: fixed;
-    width: 100%;
-    height: 50px;
-    top: 50px;
-    padding-top: 8px;
-    padding-left: 10px;
-    background-color: var(--c6);
-    color: var(--interface-button-foreground-hover);
-    z-index: 1024;
-  }
-
-
-  #nodeTitle_input {
-    background-color: transparent;
-    border: 0px;
-    width: calc(100% - 40px);
-    color: var(--interface-button-foreground-hover);
-    padding: 5px;
-  }
-
-  #nodeText {
-    font-family: var(--manuscriptFont), serif;
-    margin: 0 auto;
-    margin-top: 0px;
-    background-color: var(--paper-background-color);
-    color: var(--paper-text-color);
-    padding: 30px;
-    outline: none;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=0, Color=#000000)";
-    /*IE 8*/
-    -moz-box-shadow: 0 5px 26px 2px rgba(0, 0, 0, 0.2);
-    /*FF 3.5+*/
-    -webkit-box-shadow: 0 5px 26px 2px rgba(0, 0, 0, 0.2);
-    /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
-    box-shadow: 0 5px 26px 2px rgba(0, 0, 0, 0.2);
-    /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
-    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Color=#000000);
-    /*IE 5.5-7*/
-    min-height: 1024px;
-    max-width: var(--manuscriptPaperStyle);
-    z-index: 1020;
-    padding-bottom: 100%;
-  }
-
-  #editpane {
-    padding: 10px;
-    position: absolute;
-    top: 100px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    overflow-y: scroll;
-    background-color: var(--editor-background-color);
-  }
-
-  #notesToggle {
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    border: 0px;
-    background-color: var(--side-nav-bar-button-background);
-    color: var(--side-nav-bar-button-foreground);
-    cursor: pointer;
-
-  }
-
-  #AddNote {
-    position: sticky;
-    top: 0px;
-
-  }
-
-  #notesToggle:hover {
-    background-color: var(--side-nav-bar-button-background-hover);
-    color: var(--side-nav-bar-button-foreground-hover);
-    outline: none;
-  }
-
-  #notesPanel {
-    position: absolute;
-    right: -270px;
-    width: 320px;
-    top: 0px;
-    bottom: 0px;
-    background-color: var(--c9);
-    padding-left: 50px;
-    overflow-y: auto;
-    transition: all 0.5s;
-  }
-
-  #side-btn-top {
-    padding-right: 10px;
-    background-color: var(--side-nav-bar-button-background);
-  }
-
-
-
-  .note-card {
-    position: relative;
-    background-color: var(--c0);
-    margin: 5px;
-    margin-top: 10px;
-    padding: 15px;
-    border-radius: 0px;
-    min-height: 100px;
-  }
-
-  .note-card>.note-content {
-    width: 100%;
-    background: transparent;
-    color: var(--c9);
-    border: 0px;
-    outline: 0px;
-    resize: none;
-  }
-
-  .note-card>.note-delete {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    background: none;
-    border: 0;
-    cursor: pointer;
-    font-size: 0.7em;
-    margin: 5px;
-  }
-
-  .note-card>.note-delete:hover {
-    background-color: var(--red-danger-bkg);
-    color: var(--red-danger-fg);
-  }
-
-
-
-  /* CSS For manuscript mode styling*/
-
-  .manuscript .texteditor {
-    font-size: var(--manuscriptFontSize)
-  }
-
-  .manuscript .texteditor p {
-    text-align: var(--manuscriptAlign);
-    text-indent: var(--manuscriptParaIndent);
-    line-height: var(--manuscriptLineHeight);
-  }
-
-  .manuscript .texteditor h1 {
-    text-align: center;
-  }
-
-  .manuscript .texteditor h2 {
-    text-align: left;
-  }
-
-  .manuscript .texteditor h3 {
-    text-align: left;
-  }
-
-  .manuscript .texteditor p {
-    margin-bottom: var(--manuscriptMarginBottom)
-  }
-
-  .manuscript .texteditor p:first-of-type {
-    text-indent: 0px;
-  }
-
-  .activeLInode>span {
-    font-weight: bold;
-    font-style: italic;
-  }
-
-  .activeLInode>.fancytree-node>.fancytree-icon::before,
-  .activeLInode>.fancytree-node>.fancytree-custom-icon::before {
-    font-family: FontAwesome;
-    content: "\f15c";
-  }
-
-  /*
+    #editorbuttons {
+        position: absolute;
+        width: 100%;
+        top: 0px;
+        background-color: var(--interface-button-background);
+        text-align: right;
+    }
+    
+    .wysywig-btn {
+        width: 30px;
+        height: 50px;
+        background-color: var(--interface-button-background);
+        color: var(--interface-button-foreground);
+        border: 0px;
+        margin: 0px;
+        cursor: pointer;
+    }
+    
+    .wysywig-btn:hover,
+    .wysywig-btn:focus,
+    .wysywig-btn:active {
+        background-color: var(--interface-button-background-hover);
+        color: var(--interface-button-foreground-hover);
+    }
+    
+    #wordcount {
+        position: absolute;
+        bottom: 0px;
+        right: 40px;
+        font-size: 0.8em;
+        padding: 5px;
+        background-color: var(--interface-button-background-hover);
+        color: var(--interface-button-foreground-hover);
+        -webkit-border-radius: 5px 5px 0 0;
+        /*Safari, Chrome*/
+        -moz-border-radius: 5px 5px 0 0;
+        /*Firefox*/
+        border-radius: 5px 5px 0 0;
+    }
+    
+    #editor {
+        position: absolute;
+        font-size: 0.8em;
+        top: 0px;
+        left: 0px;
+        right: 50px;
+        bottom: 0px;
+        transition: all 0.5s ease;
+    }
+    
+    #nodeTitle {
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        top: 50px;
+        padding-top: 8px;
+        padding-left: 10px;
+        background-color: var(--c6);
+        color: var(--interface-button-foreground-hover);
+        z-index: 1024;
+    }
+    
+    #nodeTitle_input {
+        background-color: transparent;
+        border: 0px;
+        width: calc(100% - 40px);
+        color: var(--interface-button-foreground-hover);
+        padding: 5px;
+    }
+    
+    #nodeText {
+        font-family: var(--manuscriptFont), serif;
+        margin: 0 auto;
+        margin-top: 0px;
+        background-color: var(--paper-background-color);
+        color: var(--paper-text-color);
+        padding: 30px;
+        outline: none;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=26, Direction=0, Color=#000000)";
+        /*IE 8*/
+        -moz-box-shadow: 0 5px 26px 2px rgba(0, 0, 0, 0.2);
+        /*FF 3.5+*/
+        -webkit-box-shadow: 0 5px 26px 2px rgba(0, 0, 0, 0.2);
+        /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+        box-shadow: 0 5px 26px 2px rgba(0, 0, 0, 0.2);
+        /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+        filter: progid: DXImageTransform.Microsoft.Shadow(Strength=26, Direction=135, Color=#000000);
+        /*IE 5.5-7*/
+        min-height: 1024px;
+        max-width: var(--manuscriptPaperStyle);
+        z-index: 1020;
+        padding-bottom: 100%;
+    }
+    
+    #editpane {
+        padding: 10px;
+        position: absolute;
+        top: 100px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        overflow-y: scroll;
+        background-color: var(--editor-background-color);
+    }
+    
+    #notesToggle {
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        border: 0px;
+        background-color: var(--side-nav-bar-button-background);
+        color: var(--side-nav-bar-button-foreground);
+        cursor: pointer;
+    }
+    
+    #AddNote {
+        position: sticky;
+        top: 0px;
+    }
+    
+    #notesToggle:hover {
+        background-color: var(--side-nav-bar-button-background-hover);
+        color: var(--side-nav-bar-button-foreground-hover);
+        outline: none;
+    }
+    
+    #notesPanel {
+        position: absolute;
+        right: -270px;
+        width: 320px;
+        top: 0px;
+        bottom: 0px;
+        background-color: var(--c9);
+        padding-left: 50px;
+        overflow-y: auto;
+        transition: all 0.5s;
+    }
+    
+    #side-btn-top {
+        padding-right: 10px;
+        background-color: var(--side-nav-bar-button-background);
+    }
+    
+    #side-btn-bottom {
+        padding-right: 10px;
+        background-color: var(--side-nav-bar-button-background);
+        position: fixed;
+        bottom: 0px;
+        width: 320px;
+    }
+    
+    .supportLink {
+        padding: 12px;
+        color: #fff !important;
+        background-color: green;
+        display: block;
+        height: 50px;
+        cursor: pointer;
+    }
+    
+    .supportLink:hover {
+        text-decoration: none;
+        background-color: goldenrod;
+    }
+    
+    .note-card {
+        position: relative;
+        background-color: var(--c0);
+        margin: 5px;
+        margin-top: 10px;
+        padding: 15px;
+        border-radius: 0px;
+        min-height: 100px;
+    }
+    
+    .note-card>.note-content {
+        width: 100%;
+        background: transparent;
+        color: var(--c9);
+        border: 0px;
+        outline: 0px;
+        resize: none;
+    }
+    
+    .note-card>.note-delete {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        font-size: 0.7em;
+        margin: 5px;
+    }
+    
+    .note-card>.note-delete:hover {
+        background-color: var(--red-danger-bkg);
+        color: var(--red-danger-fg);
+    }
+    /* CSS For manuscript mode styling*/
+    
+    .manuscript .texteditor {
+        font-size: var(--manuscriptFontSize)
+    }
+    
+    .manuscript .texteditor p {
+        text-align: var(--manuscriptAlign);
+        text-indent: var(--manuscriptParaIndent);
+        line-height: var(--manuscriptLineHeight);
+    }
+    
+    .manuscript .texteditor h1 {
+        text-align: center;
+    }
+    
+    .manuscript .texteditor h2 {
+        text-align: left;
+    }
+    
+    .manuscript .texteditor h3 {
+        text-align: left;
+    }
+    
+    .manuscript .texteditor p {
+        margin-bottom: var(--manuscriptMarginBottom)
+    }
+    
+    .manuscript .texteditor p:first-of-type {
+        text-indent: 0px;
+    }
+    
+    .activeLInode>span {
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    .activeLInode>.fancytree-node>.fancytree-icon::before,
+    .activeLInode>.fancytree-node>.fancytree-custom-icon::before {
+        font-family: FontAwesome;
+        content: "\f15c";
+    }
+    /*
 ####################################################
 M E D I A  Q U E R I E S
 ####################################################
 */
-
-  /*
+    /*
 ::::::::::::::::::::::::::::::::::::::::::::::::::::
 Bootstrap 4 breakpoints
 */
-
-  /* 
+    /* 
 Extra small devices (portrait phones, less than 576px) 
 No media query since this is the default in Bootstrap because it is "mobile first"
 */
-
-
-  /* Small devices (landscape phones, 576px and up) */
-  @media (min-width: 576px) {}
-
-  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-  @media (min-width: 768px) {
-    #nodeText {
-      padding-left: 10%;
-      padding-right: 10%;
-      padding-top: 10%;
+    /* Small devices (landscape phones, 576px and up) */
+    
+    @media (min-width: 576px) {}
+    /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+    
+    @media (min-width: 768px) {
+        #nodeText {
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 10%;
+        }
+        .wysywig-btn {
+            width: 50px;
+        }
     }
-
-    .wysywig-btn {
-      width: 50px;
+    /* Large devices (desktops, 992px and up) */
+    
+    @media (min-width: 992px) {
+        #nodeText {
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 10%;
+        }
     }
-  }
-
-  /* Large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
-    #nodeText {
-      padding-left: 10%;
-      padding-right: 10%;
-      padding-top: 10%;
+    /* Extra large devices (large desktops, 1200px and up) */
+    
+    @media (min-width: 1200px) {
+        #nodeText {
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 5%;
+        }
     }
-
-
-  }
-
-  /* Extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-    #nodeText {
-      padding-left: 5%;
-      padding-right: 5%;
-      padding-top: 5%;
-    }
-  }
-
-
-
-  /*
+    /*
 ::::::::::::::::::::::::::::::::::::::::::::::::::::
 Custom media queries
 */
-
-  /* Set width to make card deck cards 100% width */
-  @media (max-width: 950px) {}
+    /* Set width to make card deck cards 100% width */
+    
+    @media (max-width: 950px) {}
 </style>
 
 
 <div id="editor">
-  loading ...
+    loading ...
 </div>
 
 <div id="notesPanel" class="interfacehider">
@@ -308,12 +307,11 @@ Custom media queries
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="CardModal" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="CardTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <select id="CardType" class="form-control">
+<div class="modal fade" id="CardModal" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="CardTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <select id="CardType" class="form-control">
           <option value="Character Card">Character Card</option>
           <option value="Theme Card">Theme Card</option>
           <option value="Plot Card">Plot Card</option>
@@ -322,27 +320,27 @@ Custom media queries
           <option value="Location Card">Location Card</option>
           <option value="Note Card">Note Card</option>
         </select>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
-        <textarea id="NoteCardtext" class='noteTextEditor' placeholder='Make Your Note Here'></textarea>
-      </div>
-      <div class="modal-footer">
-        <input type="hidden" value="" id="cardColorCoice">
-        <div id="CardsColourPicker">
-          <button data-color="0" class="color0 CardsColourPickerButton"></button>
-          <button data-color="1" class="color1 CardsColourPickerButton"></button>
-          <button data-color="2" class="color2 CardsColourPickerButton"></button>
-          <button data-color="3" class="color3 CardsColourPickerButton"></button>
-          <button data-color="4" class="color4 CardsColourPickerButton"></button>
-          <button data-color="5" class="color5 CardsColourPickerButton"></button>
-          <button data-color="6" class="color6 CardsColourPickerButton"></button>
+            </div>
+            <div class="modal-body">
+                <textarea id="NoteCardtext" class='noteTextEditor' placeholder='Make Your Note Here'></textarea>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" value="" id="cardColorCoice">
+                <div id="CardsColourPicker">
+                    <button data-color="0" class="color0 CardsColourPickerButton"></button>
+                    <button data-color="1" class="color1 CardsColourPickerButton"></button>
+                    <button data-color="2" class="color2 CardsColourPickerButton"></button>
+                    <button data-color="3" class="color3 CardsColourPickerButton"></button>
+                    <button data-color="4" class="color4 CardsColourPickerButton"></button>
+                    <button data-color="5" class="color5 CardsColourPickerButton"></button>
+                    <button data-color="6" class="color6 CardsColourPickerButton"></button>
+                </div>
+                <button type="button" class="btn btn-secondary btn-circle circle-pill" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btn-circle circle-pill" id="saveCard">Save changes</button>
+            </div>
         </div>
-        <button type="button" class="btn btn-secondary btn-circle circle-pill" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-circle circle-pill" id="saveCard">Save changes</button>
-      </div>
     </div>
-  </div>
 </div>
