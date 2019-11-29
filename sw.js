@@ -1,7 +1,7 @@
 /*
 Mod version number to force system wide update
 */
-var version = "3.0.2.9";
+var version = "3.0.3.0";
 console.log("Version ", version);
 var versionTrigger = "?=_" + version;
 'use strict';

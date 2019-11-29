@@ -2,11 +2,12 @@
     /*
     In this mode the css specific to the tool is included here - endeavour to use generic css wherever possible
     */
+    
     body {
         background-color: var(--c9);
         color: var(--c0);
     }
-
+    
     #welcome {
         position: absolute;
         overflow-y: scroll;
@@ -15,7 +16,7 @@
         right: 0px;
         bottom: 0px;
     }
-
+    
     .ProjectSelectButton {
         background-color: var(--c5);
         color: var(--c0);
@@ -28,47 +29,41 @@
         cursor: pointer;
         word-wrap: break-word;
         white-space: normal;
-
     }
-
+    
     .ProjectSelectButton:hover {
         background-color: var(--c3);
         color: var(--c7);
-
-
     }
-
+    
     #GoogleDrivebuttons {
         text-align: center;
         margin: 10px;
     }
-
+    
     #CreateNewProjectModal .modal-content {
         color: var(--c0);
         background-color: var(--c8);
         border-radius: 0px;
-
     }
-
+    
     #ProjectNewTitle {
         border: 0px;
         color: var(--c9);
         background-color: var(--c0);
         border-radius: 0px;
-
     }
-
+    
     .close,
     .close:hover {
         color: var(--c0);
     }
-
+    
     .datafilepicker {
         padding: 0px;
         display: block;
-
     }
-
+    
     .datafilepicker input {
         border: 0px;
         background: var(--c9);
@@ -81,7 +76,7 @@
         height: 50px;
         cursor: pointer;
     }
-
+    
     .wm-sm {
         padding: 10px;
         height: auto;
@@ -89,40 +84,38 @@
         width: 100%;
         font-size: 0.7em;
     }
-
+    
     .datamanager {
         padding: 10px;
         background-color: var(--c7);
         color: var(--c0);
-
     }
-
+    
     .datamanager label {
         display: block;
         margin-top: 15px;
     }
-
+    
     .fade {
         background-color: var(--c9);
     }
-
+    
     .row {
         margin-bottom: 10px;
     }
-
+    
     #selectFiles {
         position: absolute;
         opacity: 0;
         ;
     }
-
+    
     #wmProjselectFiles {
         position: absolute;
         opacity: 0;
         ;
     }
-
-
+    
     .googleButton {
         padding: 0px;
         padding-left: 20px;
@@ -138,20 +131,18 @@
         right: 0px;
         cursor: pointer;
     }
-
+    
     .googleButton>img {
         width: 25px;
         height: 25px;
     }
-
+    
     .googleButton:hover {
         border: 3px solid #4885ed;
         ;
         background-color: #ccc;
     }
-
-
-
+    
     .GoogleDrivefileBtn {
         width: 100%;
         background-color: #fafafa;
@@ -159,13 +150,12 @@
         height: 150px;
         border: 0px;
     }
-
+    
     .GoogleDrivefileBtn:hover {
         background-color: #ccc;
         cursor: pointer;
     }
-
-
+    
     .logo {
         width: 100px;
         height: 100px;
@@ -191,9 +181,16 @@
                     </svg></h1>
                 <h1>wavemaker</h1>
                 <p>Novel Planning &amp; Writing Software</p>
-                <a href="https://wavemaker.co.uk/blog/wavemaker-version-3-is-live/" target="_blank"
-                    class="btn btn-primary "><i class="fa fa-fw fa-info-circle"></i> How to Video Guides </a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="https://wavemaker.co.uk/blog/wavemaker-version-3-is-live/" target="_blank" class="btn btn-primary "><i class="fa fa-fw fa-info-circle"></i> How to Video Guides </a>
 
+                    </div>
+                    <div class="col-md-6">
+                        <a href="https://wavemaker.co.uk/blog/supporting-wavemaker/" target="_blank" class="btn btn-success "><i class="fa fa-fw fa-thumbs-up"></i> Support Wavemaker </a>
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row justify-content-md-center">
@@ -221,19 +218,17 @@
 
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-8   text-left">
-                <button class="btn btn-block btn-wavemaker text-left" ><i
+                <button class="btn btn-block btn-wavemaker text-left"><i
                         class="fa fa-fw fa-database"></i>
                     Manage Your Projects</button>
-                <div class="datamanager" id="dataform" >
+                <div class="datamanager" id="dataform">
                     <div class="row">
                         <div class="col-12" style="font-size:0.7em">
                             <h6>How to handle data in this software</h6>
-                            <p>Wavemaker uses a locally stored browser based database to keep your projects in. So no
-                                logins are needed :) .The plus side is you control your data, the downside is YOU
-                                control your data ...</p>
+                            <p>Wavemaker uses a locally stored browser based database to keep your projects in. So no logins are needed :) .The plus side is you control your data, the downside is YOU control your data ...</p>
 
-                            <p>The best way to use this is to link to your Google Drive and Synchronise up to it
-                                regularly</p>
+                            <p>The best way to use this is to link to your Google Drive and Synchronise up to it regularly
+                            </p>
 
                             </p>
                         </div>
@@ -242,13 +237,10 @@
                     <div class="row justify-content-md-center" id="GoogleError">
                         <div class="col-12 col-md-8 ">
                             <div class="alert alert-info">
-                                <h3><img
-                                        src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDE5QzU4OTgyMzFBMTFFOTlFRDJCQUZBNUExNjY3OEUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDE5QzU4OTkyMzFBMTFFOTlFRDJCQUZBNUExNjY3OEUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MTlDNTg5NjIzMUExMUU5OUVEMkJBRkE1QTE2Njc4RSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0MTlDNTg5NzIzMUExMUU5OUVEMkJBRkE1QTE2Njc4RSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuDHf0cAAAR5SURBVHja5FdLSJRRFL7+jo4PVFwkaq0MAhe5yGrXphbRi3TZotpIkbgJEumhUCqaldAuKogWLdqEElSbgsCFjyIIJESFQsHHqKOO46gzjn3f7T/Dmd9fty66cLz/3Mc53/nOuedeM7a2tsxeNMfsUQt0dXX5TpCJjIwM28fjcVNdXX3+EFosFotwnI19MpmU9XmZmZnT6N/K2K6G0YzQLYbSKHEsKVUDAwPvy8rK7O9EIpEGTLesrKwIug96XNbp3qFhLDbZ2dlGf0ufm5vLvZ2hUMj09fXZMVEmvQiVQjpkv+hjTwEjqd4RWv2E3q2trV2MRCJnioqKzMjIiJmYmDDBYND4JSWNb2xsVG1ubjZoMN41lkkVo5TIGBctLy+3kloiJ9L+/v5/VDk75yWMt6AL+jEj3451G0r4Q74ppAuJ1Ly6unqY9MALU1BQYGZnZ83o6KgNgQAV4JITALoP67u5T/QJ2JT4UeFm6/6lpaUWQSmNgAYHB22mE6h3XnQgRPXQcVSM6nUWBLwy0WjUwDPbU0CVWVxcbF9fXw9QuT5ieXl5nDNDQ0OpWPuB5xj0dOoQig6G0pFMk2xjLNGOAcBV/vbGnkLjw8PDC1gzx32+lQmewvApSC3Z8Yo1LEIl9AI0NesiIIaFLoLDfBNCcXm3IkEdiPU9oVuHMi01aRxoziGTL/gtFuNInhCMv4TST1j/U4dDg6UOzB/B93VhVMTxxCAYDoefaWr9YgSDd4V2KG7SbOgMV8frCbpSzZ6jSh0TqxVygOhEkTZKD2D0G4y9sCgRFnqNJOzR672JBobysadbn31HJqGgDBXqpk4oP0Uw0saCgj5VRHAy2na7GNyKdglrqlMxllisrKw8wOS246MpBOpeGO0lI4WFhWZsbMzO42x/B5DnfmdaOcb97a4e4/APsvg4vK0TD/RtpSiOIemu0Wh5ebkpKSkxU1NTtoSymqHdwL4/3lKqwwTHTsNWLetEgKUPCfWYiOitH2VuRtcVFxfPytVIwCyhVMLLY3p6OllZWXmltLT0qzch9fECO49ycnL6AkB7EkpO6OOjN7o1m5sqcEPdgtcF+N52NU1OTsahKwo2wtBVjJAkvbcTfjuQg9B3NoAi8AXZ2QMDNfRaFgsQUjszM0MArWSEieU9OipP7Fp3zPFmOvcjF4YQ1je23kHZHQzWaISkhWGYn5+3dNJzYUBfpRqAlF5JSn29SsOdcBtHN+G4hn9BnupKJd7Nzc3Z80qPeJHsFD8NWlc5XcVA8Tt4/DlVMt1z1gGq47IJCcCEsceA3wTiHok0I14QO4GiEyhObWm12kU2g8mHElfGC/G33uozTcN+pdFrUMqt+6KkY68x9oMV0j4EtALQcB+Kf9MYvZXbSr8euFYSbCe6aVTXAFC8tLCw0OjWdrvfIX0UF2ECfT3jyoRicunnkNwsEjP9bNLPJ6n18kIBe43AENIxD+Tn53ufNh/Hx8cbgKoCDCxLTL0G9Ln3/gOgkjQXesLQ8UqexSl2/rv/nf4KMAAv2tTKy+9nKQAAAABJRU5ErkJggg==' />
-                                    Problem Detected</h3>
-                                <p>Your browser has had a problem connecting to
-                                    Google Drive.</p>
-                                <p>You probably have 3rd Party Cookies disabled - please enable them to allow this app
-                                    to talk to google drive!</p>
+                                <h3><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDE5QzU4OTgyMzFBMTFFOTlFRDJCQUZBNUExNjY3OEUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDE5QzU4OTkyMzFBMTFFOTlFRDJCQUZBNUExNjY3OEUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MTlDNTg5NjIzMUExMUU5OUVEMkJBRkE1QTE2Njc4RSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0MTlDNTg5NzIzMUExMUU5OUVEMkJBRkE1QTE2Njc4RSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuDHf0cAAAR5SURBVHja5FdLSJRRFL7+jo4PVFwkaq0MAhe5yGrXphbRi3TZotpIkbgJEumhUCqaldAuKogWLdqEElSbgsCFjyIIJESFQsHHqKOO46gzjn3f7T/Dmd9fty66cLz/3Mc53/nOuedeM7a2tsxeNMfsUQt0dXX5TpCJjIwM28fjcVNdXX3+EFosFotwnI19MpmU9XmZmZnT6N/K2K6G0YzQLYbSKHEsKVUDAwPvy8rK7O9EIpEGTLesrKwIug96XNbp3qFhLDbZ2dlGf0ufm5vLvZ2hUMj09fXZMVEmvQiVQjpkv+hjTwEjqd4RWv2E3q2trV2MRCJnioqKzMjIiJmYmDDBYND4JSWNb2xsVG1ubjZoMN41lkkVo5TIGBctLy+3kloiJ9L+/v5/VDk75yWMt6AL+jEj3451G0r4Q74ppAuJ1Ly6unqY9MALU1BQYGZnZ83o6KgNgQAV4JITALoP67u5T/QJ2JT4UeFm6/6lpaUWQSmNgAYHB22mE6h3XnQgRPXQcVSM6nUWBLwy0WjUwDPbU0CVWVxcbF9fXw9QuT5ieXl5nDNDQ0OpWPuB5xj0dOoQig6G0pFMk2xjLNGOAcBV/vbGnkLjw8PDC1gzx32+lQmewvApSC3Z8Yo1LEIl9AI0NesiIIaFLoLDfBNCcXm3IkEdiPU9oVuHMi01aRxoziGTL/gtFuNInhCMv4TST1j/U4dDg6UOzB/B93VhVMTxxCAYDoefaWr9YgSDd4V2KG7SbOgMV8frCbpSzZ6jSh0TqxVygOhEkTZKD2D0G4y9sCgRFnqNJOzR672JBobysadbn31HJqGgDBXqpk4oP0Uw0saCgj5VRHAy2na7GNyKdglrqlMxllisrKw8wOS246MpBOpeGO0lI4WFhWZsbMzO42x/B5DnfmdaOcb97a4e4/APsvg4vK0TD/RtpSiOIemu0Wh5ebkpKSkxU1NTtoSymqHdwL4/3lKqwwTHTsNWLetEgKUPCfWYiOitH2VuRtcVFxfPytVIwCyhVMLLY3p6OllZWXmltLT0qzch9fECO49ycnL6AkB7EkpO6OOjN7o1m5sqcEPdgtcF+N52NU1OTsahKwo2wtBVjJAkvbcTfjuQg9B3NoAi8AXZ2QMDNfRaFgsQUjszM0MArWSEieU9OipP7Fp3zPFmOvcjF4YQ1je23kHZHQzWaISkhWGYn5+3dNJzYUBfpRqAlF5JSn29SsOdcBtHN+G4hn9BnupKJd7Nzc3Z80qPeJHsFD8NWlc5XcVA8Tt4/DlVMt1z1gGq47IJCcCEsceA3wTiHok0I14QO4GiEyhObWm12kU2g8mHElfGC/G33uozTcN+pdFrUMqt+6KkY68x9oMV0j4EtALQcB+Kf9MYvZXbSr8euFYSbCe6aVTXAFC8tLCw0OjWdrvfIX0UF2ECfT3jyoRicunnkNwsEjP9bNLPJ6n18kIBe43AENIxD+Tn53ufNh/Hx8cbgKoCDCxLTL0G9Ln3/gOgkjQXesLQ8UqexSl2/rv/nf4KMAAv2tTKy+9nKQAAAABJRU5ErkJggg=='
+                                    /> Problem Detected</h3>
+                                <p>Your browser has had a problem connecting to Google Drive.</p>
+                                <p>You probably have 3rd Party Cookies disabled - please enable them to allow this app to talk to google drive!</p>
                             </div>
                         </div>
                     </div>
@@ -272,13 +264,11 @@
                             <div id="okGoogle" class="text-center">
                                 <div id="synchmsg"></div>
                                 <div style=" display: inline-block">
-                                    <button id="GdriveUp" class="btn btn-wavemaker-success wm-sm text-center "
-                                        style="width:120px;"><i class="fa fa-fw fa-cloud-upload"></i><BR>Sync
+                                    <button id="GdriveUp" class="btn btn-wavemaker-success wm-sm text-center " style="width:120px;"><i class="fa fa-fw fa-cloud-upload"></i><BR>Sync
                                         Up</button>
                                 </div>
                                 <div style=" display: inline-block">
-                                    <button id="GdriveDown" class="btn btn-wavemaker-danger wm-sm "
-                                        style="width:120px;"><i class="fa fa-fw fa-cloud-download"></i><BR>Sync
+                                    <button id="GdriveDown" class="btn btn-wavemaker-danger wm-sm " style="width:120px;"><i class="fa fa-fw fa-cloud-download"></i><BR>Sync
                                         Down</button>
 
                                 </div>
@@ -298,11 +288,8 @@
                         <div class="col-12 col-md-4">
 
                             <div id="wmProjfilepicker" class="datafilepicker">
-                                <input type="file" id="wmProjselectFiles" value="Select the file to Load"
-                                    class="form-control" />
-                                <div class="btn btn-wavemaker-success btn-block wm-sm"> <i
-                                        class="fa fa-fw fa-upload"></i>
-                                    Import a Project</div>
+                                <input type="file" id="wmProjselectFiles" value="Select the file to Load" class="form-control" />
+                                <div class="btn btn-wavemaker-success btn-block wm-sm"> <i class="fa fa-fw fa-upload"></i> Import a Project</div>
                             </div>
                         </div>
                     </div>
@@ -322,11 +309,8 @@
                         <div class="col-12 col-md-4">
 
                             <div id="filepicker" class="datafilepicker">
-                                <input type="file" id="selectFiles" value="Select the file to Load"
-                                    class="form-control" />
-                                <div class="btn btn-wavemaker-success btn-block wm-sm"> <i
-                                        class="fa fa-fw fa-upload"></i>
-                                    Upload Database</div>
+                                <input type="file" id="selectFiles" value="Select the file to Load" class="form-control" />
+                                <div class="btn btn-wavemaker-success btn-block wm-sm"> <i class="fa fa-fw fa-upload"></i> Upload Database</div>
                             </div>
 
 
@@ -355,7 +339,7 @@
                 </div>
             </div>
         </div>
-<!--
+        <!--
         <div class="row">
             <div
                 style="background-color: #fff; padding:10px; text-align: center; border-radius: 20px; width: 320px; margin: 0 auto;">
