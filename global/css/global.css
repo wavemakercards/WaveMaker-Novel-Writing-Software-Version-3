@@ -349,11 +349,11 @@ p {
 
 #manuscript {
     position: absolute;
-    ;
     top: 100px;
     left: 0px;
     right: 0px;
-    bottom: 50px;
+    bottom: 0px;
+    padding-bottom: 50px;
     overflow-y: scroll;
 }
 
