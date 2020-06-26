@@ -207,10 +207,21 @@ $(document).off("change", "#filepicker").on("change", "#filepicker", function ()
   myfilename = files[0].name
   var parts = myfilename.split(".")
   //console.log(parts[parts.length-1])
-  if ((parts[parts.length - 1].toLowerCase()) !== "wmdata") {
+  var isvalidfile = false
+  if ((parts[parts.length - 1].toLowerCase()) === "wmdata") {
+    isvalidfile = true
+  }
+
+  if ((parts[parts.length - 1].toLowerCase()) === "wavemakerdata") {
+    isvalidfile = true
+  }
+  
+  if(isvalidfile){
     swal("Problem!", "That is not a wmdata file sorry", "warning");
     return false
   }
+
+
   swal("Loading!", "Hi, Loading file now, please wait.", "success");
 
   var fr = new FileReader();
