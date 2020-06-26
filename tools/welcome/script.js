@@ -208,6 +208,8 @@ $(document).off("change", "#filepicker").on("change", "#filepicker", function ()
   var parts = myfilename.split(".")
   //console.log(parts[parts.length-1])
   var isvalidfile = false
+console.log("extension", parts[parts.length - 1].toLowerCase())
+
   if ((parts[parts.length - 1].toLowerCase()) === "wmdata") {
     isvalidfile = true
   }
@@ -215,8 +217,8 @@ $(document).off("change", "#filepicker").on("change", "#filepicker", function ()
   if ((parts[parts.length - 1].toLowerCase()) === "wavemakerdata") {
     isvalidfile = true
   }
-  
-  if(isvalidfile){
+
+  if(!isvalidfile){
     swal("Problem!", "That is not a wmdata file sorry", "warning");
     return false
   }
