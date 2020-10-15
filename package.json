@@ -1,0 +1,41 @@
+{
+  "name": "wavemaker-novel-writing-software-version-3",
+  "version": "3.0.0",
+  "description": "A Cross platform powerful wiriting tool Built with Jquery, Html, CSS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "cards.wavemaker",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "build/icon-512.png",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayasky76/WaveMaker-Novel-Writing-Software-Version-3.git"
+  },
+  "author": "mayasky76",
+  "bugs": {
+    "url": "https://github.com/mayasky76/WaveMaker-Novel-Writing-Software-Version-3/issues"
+  },
+  "homepage": "https://github.com/mayasky76/WaveMaker-Novel-Writing-Software-Version-3#readme",
+  "devDependencies": {
+    "electron": "^6.0.1",
+    "electron-builder": "^21.2.0"
+  },
+  "dependencies": {
+    "@exponent/electron-cookies": "^2.0.0"
+  }
+}
