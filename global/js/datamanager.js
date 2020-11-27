@@ -82,6 +82,10 @@ function exportDatabase(mode, showfeedback = false) {
       case "gDriveSave":
           console.log("Saving Data to Google Drive");
         GDriveWrite(JSON.stringify(exportData))
+        break;
+        case "gDriveSyncUp":
+          console.log("Saving Data to Google Drive");
+        GDriveWrite(JSON.stringify(exportData))
 
         break;
       default:
@@ -243,7 +247,7 @@ var CURRENT_FILE_OBJ
 
 function GoogleQuickSignIn(){
   console.log("Attempting Quick Google drive login")
-    gapi.load('client:auth2', GoogleQuickSignIn2);
+  gapi.load('client:auth2', GoogleQuickSignIn2)
 }
 
 function GoogleQuickSignIn2(){
@@ -262,13 +266,13 @@ function GoogleQuickSignIn3(){
 swal("Connection Done", "You will need to click the button to trigger an upload.", "success");
 }
 function GoogleDrivehandleClientLoad() {
- 
   $("#showGoogle").hide();
   $("#GoogleError").show();
   gapi.load('client:auth2', GoogleDriveInit);
 }
 
 function GoogleDriveInit() {
+  console.log("initialising Google Drive")
   gapi.client.init({
     apiKey: API_KEY,
     clientId: CLIENT_ID,
@@ -302,6 +306,7 @@ function GoogleSigninStatus(isSignedIn) {
     IsGoogleDrive = true;
     GDriveFileGet();
   } else {
+    DoAutoSave=false
     //  console.log("Signed Out")
     $('#authorize-button').show();
     $('#signout-button').hide();
@@ -396,12 +401,15 @@ function GDriveWrite(FILEDATA, callback) {
       } else {
         console.log("Data Created on GDrive");
       }
-        if($("#SyncUpGdrive").length){
+  if(ShowUploadFeedback){
+    if($("#SyncUpGdrive").length){
       $("#SyncUpGdrive").html('<i class="fa fa-fw fa-cloud-upload"></i>')
     }else{
       $("#synchmsg").html("")
       swal("Uploaded!", "That has been Uploaded.", "success");
     }
+  }
+  ShowUploadFeedback=true;
       CURRENT_FILE_OBJ = file;
     };
   }

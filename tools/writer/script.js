@@ -1,7 +1,7 @@
 // some sorting out of bits and bobs
 $('#navigation-toggle').show();
 
-
+autoSyncCall();
 
 
 

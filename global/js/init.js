@@ -76,6 +76,7 @@ $(document).off("click", "#SyncUpGdrive").on("click","#SyncUpGdrive",function ()
       if (result.value) {
        
     GoogleQuickSignIn()
+   
       }
     })
 

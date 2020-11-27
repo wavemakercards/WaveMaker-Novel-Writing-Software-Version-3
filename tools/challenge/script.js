@@ -1,7 +1,6 @@
 $('#navigation-toggle').hide();
 hideNavBar()
-
-
+autoSyncCall();
 
 if(!WMproject.state){
   WMproject.state={}

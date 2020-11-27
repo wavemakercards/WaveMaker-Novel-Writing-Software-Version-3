@@ -538,53 +538,7 @@ p {
     background-color: #ff8a65 !important;
 }
 
-/*
-potential for revealing text areas
-.card-description{
-    height: 200px;
-    overflow:hidden;
-    padding-bottom:50px;
-    border-bottom:0px;
-}
-.card-tags{
-    margin-top:10px;
-}
 
-.card-description:hover{
-    height:auto;
-    max-height:none;
-  cursor: pointer
-  }
-
-.wmcard-text{
-    max-height:50px;
-    overflow:hidden;
-  }
-  
-  .wmcard-text:hover{
-    max-height:none;
-  cursor: pointer
-  }
-  
-  .grideditabletextarea{
-    max-height:100px;
-    min-height:100px;
-    overflow: hidden;
-   background:
-          linear-gradient(white 30%, rgba(255,255,255,0)),
-          linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
-          radial-gradient(farthest-side at 50% 50%, rgba(0,0,0,.7), rgba(0,0,0,0)),
-          radial-gradient(farthest-side at 50% 50%, rgba(0,0,0,.7), rgba(0,0,0,0)) 0% 100%;
-    background-repeat: no-repeat;
-    background-color: white;
-    background-size: 100% 40px, 100% 40px, 100% 2px, 100% 2px;
-    background-attachment: local, local, scroll, scroll;
-  }
-  .grideditabletextarea:focus{
-    border:1px solid #ccc;
-    max-height:none
-  }
-*/
 /*
 ####################################################
 M E D I A  Q U E R I E S

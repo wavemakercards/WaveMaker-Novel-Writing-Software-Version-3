@@ -118,7 +118,7 @@
           });
         });
       });
-
+ 
 
 
     </script>
@@ -144,6 +144,59 @@
     <script src="global/js/datamanager.js"></script>
     <script src="global/js/init.js"></script>
 
+    <script>
+
+  var AutoSave;
+      var DoAutoSave = false;
+      var ShowUploadFeedback=true
+
+  AutoSave = setInterval(alertFunc, 300000); // 300000 v=5 mins
+
+  var CallDone = false
+
+
+
+
+function alertFunc() {
+  if(DoAutoSave){
+    console.log("Autosave Triggered!");
+    ShowUploadFeedback=false;
+    if(IsGoogleDrive){
+  exportDatabase("gDriveSyncUp", false);
+  }else{
+   alert("Your Google drive account appears to not be logged in - autosave will fail - return to the main menu and make sure your connection is there. Or turn OFF autosave by reloading this page and choosing not to turn on auto sync")
+   DoAutoSave = false
+   CallDone = false
+  }
+}
+}
+
+function autoSyncCall(){
+  if(!CallDone){
+    console.log(WMproject.state.tool +" Calling for sync")
+    swal({
+      title: "Turn On Auto Sync?",
+      html: "Auto Sync will upload to google drive automatically every five minutes. You will be asked this before each session. To disable it simply restart the app. <BR> (or reload the page)<BR><BR><a href='https://wavemaker.co.uk/blog/to-auto-sync-or-not-to-auto-sync/' class='btn  btn-xs' target='_blank'>How to use Auto-Sync</a>" ,
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes Please.",
+      cancelButtonText: "No Thanks."
+    }).then(result => {
+      if (result.value) {
+        DoAutoSave=true
+       // swal("Auto Sync Turned on!", "Coolio", "success");
+      }
+    });
+  CallDone=true
+  }
+
+}
+
+
+
+    </script>
 
 </body>
 
