@@ -233,6 +233,8 @@ function setManuscriptform () {
 
 function html2markdown (html) {
   var turndownService = new TurndownService();
+   html = html.replace("---", "&mdash;");
+   html = html.replace("--", "&ndash;");
   var markdown = turndownService.turndown(html);
   return markdown;
 }
