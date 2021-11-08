@@ -1,5 +1,5 @@
 $('#navigation-toggle').show();
-autoSyncCall();
+console.log("mmupdated")
 // this needs to be updated so that each tool can be reset - the only required entry is TOOL
 if (!WMproject.state) {
   WMproject.state = {}
@@ -119,7 +119,7 @@ function DrawMindMap() {
     $("#" + CurrentMindmapItemKey).focus();
   }
   autosize($(".notes"))
-  console.log("MINDMAP : ", mindmap)
+  //console.log("MINDMAP : ", mindmap)
   $("#mindmap-title").val(mindmap.title)
   $("#mindmap-hide-tools").show();
 
@@ -132,10 +132,14 @@ function redrawlines() {
     newline = $(newline)
     newline.attr("id", "Line" + k)
     newline.data("key", k);
+    $(newline).click(function(){
+      console.log("mm :",k,i)
+    })
     isLinked = CurrentMindmapItemKey
     if (isLinked == i.start) {
       newline.addClass("activelines");
     }
+
     $("#mindmap_line").append($(newline));
   })
 }

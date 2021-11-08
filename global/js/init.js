@@ -184,12 +184,18 @@ function gatherStats () {
 
 }
 
+
+
 function countWords (str) {
+  //console.log("counting");
   if (!str) {
     return 0;
   } else {
-    str = str.replace(/[^\w\s]|_/g, "")
-      .replace(/\s+/g, " ");
+    // this only seems to do english
+   // str = str.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+ // this is to try and make sure that the markdown has punctuation ONLY removed
+      str = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, " ");
+
 
     res = str.split(' ')
       .filter(function (n) { return n != '' })
@@ -197,8 +203,6 @@ function countWords (str) {
     return res;
   }
 }
-
-
 
 function setManuscript () {
 

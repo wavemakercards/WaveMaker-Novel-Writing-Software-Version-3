@@ -43,28 +43,26 @@ div {
 
     .connectingLines {
         position: absolute;
-        border: 2px solid #ccc;
+        height: 5px;
         background-color: #ccc;
-       
+
+    }
+    .connectingLines:hover{
+        background-color: #0f0;
         cursor: pointer;
+        z-index: 4;
     }
 
 
     .activelines {
-        border: 1px solid #f00;
+z-index: 5;
         background-color: #f00;
-     
     }
 
-    .connectingLines:hover {
-        position: absolute;
-        border: 4px solid #00f;
-        background-color: #00f;
-       
-    }
+
 
     .mindmap-item {
-      
+      z-index: 6;
         padding: 0px;
         position: absolute;
         outline: none;
@@ -236,6 +234,7 @@ div {
         right: 0px;
         bottom: 0px;
     }
+   
 
     #add_mindmap_item {
         /*
