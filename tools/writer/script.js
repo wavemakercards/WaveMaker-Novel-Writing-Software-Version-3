@@ -40,6 +40,18 @@ if (!WMproject.data.writer) {
 }
 
 
+/*
+Hack fix to make sure that the active:1 only appears once in the json as it seems to be being pulled in from the snowflake
+*/
+var fixstring = JSON.stringify(WMproject.data.writer);
+fixstring =fixstring.replace('"active":1','"active":9999999' )
+fixstring =fixstring.replaceAll('"active":1','"active":0' )
+fixstring =fixstring.replace('"active":9999999','"active":1' )
+WMproject.data.writer = JSON.parse(fixstring)
+console.log (WMproject.data.writer )
+
+
+
 $("#navigation-side-nav").html('');
 
 

@@ -234,9 +234,13 @@ function downloadFile(mydata) {
 
 
 
-// Client ID and API key from the Developer Console
+// Old Wavemaker Setup
 var CLIENT_ID = '196875539919-18arpm8l3es472u2pjpf1vi8qgj3rdtl.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyAuG0KiJEMyzQYEj6jFiWD476y6QxQY5V0';
+
+// New Wavemaker Setup
+var CLIENT_ID = '310390079188-6tds1tkk07469t7rc9shkd8mpdl6k4rn.apps.googleusercontent.com';
+var API_KEY = 'AIzaSyAntfHu1q6cAJK0qbezpMI3GEmp2U3vfSI';
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
 // Authorization scopes required by the API; multiple scopes can be
