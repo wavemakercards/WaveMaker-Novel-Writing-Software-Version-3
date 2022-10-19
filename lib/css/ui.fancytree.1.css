@@ -200,10 +200,15 @@ div.fancytree-drag-helper span.fancytree-dnd-modifier {
   border: none;
   font-weight: bolder;
 }
+/*
+This is that odd fix for the dissapearing menu
+*/
 #fancytree-drop-marker {
+  /*
   width: 2em;
   position: absolute;
   margin: 0;
+  */
 }
 #fancytree-drop-marker.fancytree-drop-after,
 #fancytree-drop-marker.fancytree-drop-before {
