@@ -233,6 +233,10 @@ function downloadFile(mydata) {
 // Client ID and API key from the Developer Console
 var CLIENT_ID = '196875539919-18arpm8l3es472u2pjpf1vi8qgj3rdtl.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyAuG0KiJEMyzQYEj6jFiWD476y6QxQY5V0';
+
+var CLIENT_ID = '451112835343-69m1fvc1skg12pl9hq0rtnnuhic7eikg.apps.googleusercontent.com';
+var API_KEY = 'AIzaSyAq4C0VCC3I88n7GdW1VilDmcZdYle-UoU';
+
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
 // Authorization scopes required by the API; multiple scopes can be

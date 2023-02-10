@@ -32,8 +32,8 @@
   },
   "homepage": "https://github.com/mayasky76/WaveMaker-Novel-Writing-Software-Version-3#readme",
   "devDependencies": {
-    "electron": "^6.0.1",
-    "electron-builder": "^21.2.0"
+    "electron": "^23.0.0",
+    "electron-builder": "^23.6.0"
   },
   "dependencies": {
     "@exponent/electron-cookies": "^2.0.0"
