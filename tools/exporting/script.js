@@ -16,13 +16,21 @@ function savedata() {
 }
 
 var markDownOutput = "";
-function getMarkDown(dta) {
+function getMarkDown(dta, depth = 0) {
+  let hashes = "######"
   //console.log(dta)
   if (dta.data) {
+    /*
+    console.log(depth)
+    console.log(hashes.slice(0, depth + 1), dta.title)
+    console.log(dta.data.content)
+    */
+    markDownOutput = markDownOutput + '\n\n';
+    markDownOutput = markDownOutput + hashes.slice(0, depth + 1) + ' ' + dta.title + '\n\n';
     markDownOutput = markDownOutput + dta.data.content;
     if (dta.children !== undefined) {
       $.each(dta.children, function (k, v) {
-        getMarkDown(v)
+        getMarkDown(v, depth + 1)
       });
     }
   }
@@ -45,7 +53,7 @@ $(document).off("click", "#ExportMarkdown").on("click", "#ExportMarkdown", funct
 
 var HTMLOutput = "";
 function getHtmlOutput(dta, lev) {
-  var htmlSceneDivider ="<p class='scene'>#</p>"
+  var htmlSceneDivider = "<p class='scene'>#</p>"
   //console.log(dta)
   if (dta.data) {
     html = markdown2html(dta.data.content);
@@ -53,11 +61,11 @@ function getHtmlOutput(dta, lev) {
       // HTMLOutput=HTMLOutput+"<div class='chaptername'>"+dta.title+"</div><div class='chapter'>";
       HTMLOutput = HTMLOutput + "<div class='chapter'>";
     }
-    HTMLOutput = HTMLOutput + html  ;
-    if(html!=""){
-      HTMLOutput = HTMLOutput  +htmlSceneDivider
-    }   
-    
+    HTMLOutput = HTMLOutput + html;
+    if (html != "") {
+      HTMLOutput = HTMLOutput + htmlSceneDivider
+    }
+
     if (dta.children !== undefined) {
       $.each(dta.children, function (k, v) {
         getHtmlOutput(v, 0)
@@ -167,7 +175,7 @@ $(document).off("click", "#ExportWord").on("click", "#ExportWord", function () {
   </style>`+ HTMLOutput;
 
 
-  $.post("https://pandoc-mayasky76377487.codeanyapp.com/createDocx.php", {HTMLINPUT: HTMLOutput}, function(result){
+  $.post("https://pandoc-mayasky76377487.codeanyapp.com/createDocx.php", { HTMLINPUT: HTMLOutput }, function (result) {
     console.log(result);
 
     myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".docx";
@@ -224,7 +232,7 @@ $(document).off("click", "#ExportEpub").on("click", "#ExportEpub", function () {
   </style>`+ HTMLOutput;
 
 
-  $.post("https://pandoc-mayasky76377487.codeanyapp.com/createEpub.php", {HTMLINPUT: HTMLOutput}, function(result){
+  $.post("https://pandoc-mayasky76377487.codeanyapp.com/createEpub.php", { HTMLINPUT: HTMLOutput }, function (result) {
     console.log(result);
 
     myfilename = WMproject.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + ".epub3";
@@ -267,9 +275,9 @@ function getRTFOutput(dta, lev) {
     }
 
     html = headhtml + html;
-    if(html!=""){
-      html = html  + "<h4>#</h4>"
-    }   
+    if (html != "") {
+      html = html + "<h4>#</h4>"
+    }
     RTFOutput = RTFOutput + convertHtmlToRtf(html);
     if (dta.children !== undefined) {
       $.each(dta.children, function (k, v) {

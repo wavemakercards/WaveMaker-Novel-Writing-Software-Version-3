@@ -30,7 +30,7 @@
   <link href="lib/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
   <link href="lib/css/ui.fancytree.1.css" rel="stylesheet" />
   <link href="lib/css/jquery-ui.css" rel="stylesheet" />
-  
+
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="lib/css/animate.css" />
   <link rel="stylesheet" href="global/css/global.css" />
@@ -60,148 +60,182 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-</div>
-    <script>
+  </div>
+  <script>
 
 
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("sw.js").then(function (reg) {
-          console.log("register", reg);
-        }).catch(function (err) {
-          console.log("err", err);
-        });
-      }
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js").then(function (reg) {
+        console.log("register", reg);
+      }).catch(function (err) {
+        console.log("err", err);
+      });
+    }
 
-      if (window.matchMedia('(display-mode: standalone)').matches) {
-        console.log("This is running as standalone.");
-      } else {
-        console.log("This is running as webapp.");
-      }
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      console.log("This is running as standalone.");
+    } else {
+      console.log("This is running as webapp.");
+    }
 
-      try {
-        localStorage.setItem("localstoragetest", "Hello World!");
-        console.log("storage OK")
-      } catch (e) {
-        console.log("Hello")
-        console.log("Your browser is not letting wavemaker store locally")
-        console.log("We need localstorage to keep your data in.... otherwise it's pointless")
-        console.log("thanks, Iain")
-        alert("You need to enable Local Storage for wavemaker to work")
-      }
+    try {
+      localStorage.setItem("localstoragetest", "Hello World!");
+      console.log("storage OK")
+    } catch (e) {
+      console.log("Hello")
+      console.log("Your browser is not letting wavemaker store locally")
+      console.log("We need localstorage to keep your data in.... otherwise it's pointless")
+      console.log("thanks, Iain")
+      alert("You need to enable Local Storage for wavemaker to work")
+    }
 
-      let deferredPrompt;
-      const installAlert = document.getElementById('install-alert');
-      const installBtn = document.getElementById('install-button');
-      installAlert.style.display = 'none';
+    let deferredPrompt;
+    const installAlert = document.getElementById('install-alert');
+    const installBtn = document.getElementById('install-button');
+    installAlert.style.display = 'none';
 
-      window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
-        e.preventDefault();
-        // Stash the event so it can be triggered later.
-        deferredPrompt = e;
-        // Update UI to notify the user they can add to home screen
-        installAlert.style.display = 'block';
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI to notify the user they can add to home screen
+      installAlert.style.display = 'block';
 
-        installBtn.addEventListener('click', (e) => {
-          // hide our user interface that shows our A2HS button
-          installAlert.style.display = 'none';
-          // Show the prompt
-          deferredPrompt.prompt();
-          // Wait for the user to respond to the prompt
-          deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-              // console.log('User accepted the A2HS prompt');
-            } else {
-              //  console.log('User dismissed the A2HS prompt');
-            }
-            deferredPrompt = null;
-          });
+      installBtn.addEventListener('click', (e) => {
+        // hide our user interface that shows our A2HS button
+        installAlert.style.display = 'none';
+        // Show the prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            // console.log('User accepted the A2HS prompt');
+          } else {
+            //  console.log('User dismissed the A2HS prompt');
+          }
+          deferredPrompt = null;
         });
       });
- 
-
-
-    </script>
-
-
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
-    <!-- Bootstrap core JavaScript s -->
-    <script src="lib/js/autosize.js"></script>
-    
-      <script src="lib/js/jquery-3.3.1.min.js"></script> 
-      <script src="lib/js/jquery-ui.min.js"></script>
-
-    <script src="lib/js/tether.min.js"></script>
-    <script src="lib/js/bootstrap.min.js"></script>
-    <script src="lib/js/sweetalert2.all.js"></script>
-    <script src="lib/js/dexie.js"></script>
-    <script src="lib/js/split.min.js"></script>
-
-    <script src="lib/js/jquery.fancytree-all-deps.js"></script> 
-        <script src="lib/js/jquery.ui-contextmenu.min.js"></script>
-
-    <script src="lib/js/turndown.js"></script>
-    <script src="lib/js/showdown.min.js"></script>
-    <script src="lib/js/hammer.min.js"></script>
-
-    <script src="global/js/datamanager.js"></script>
-    <script src="global/js/init.js"></script>
-
-    <script>
-
-  var AutoSave;
-      var DoAutoSave = false;
-      var ShowUploadFeedback=true
-
-  AutoSave = setInterval(alertFunc, 300000); // 300000 v=5 mins
-
-  var CallDone = false
-
-
-
-
-function alertFunc() {
-  if(DoAutoSave){
-    console.log("Autosave Triggered!");
-    ShowUploadFeedback=false;
-    if(IsGoogleDrive){
-  exportDatabase("gDriveSyncUp", false);
-  }else{
-   alert("Your Google drive account appears to not be logged in - autosave will fail - return to the main menu and make sure your connection is there. Or turn OFF autosave by reloading this page and choosing not to turn on auto sync")
-   DoAutoSave = false
-   CallDone = false
-  }
-}
-}
-
-function autoSyncCall(){
-  if(!CallDone){
-    console.log(WMproject.state.tool +" Calling for sync")
-    swal({
-      title: "Turn On Auto Sync?",
-      html: "Auto Sync will upload to google drive automatically every five minutes. You will be asked this before each session. To disable it simply restart the app. <BR> (or reload the page)<BR><BR><a href='https://wavemaker.co.uk/blog/to-auto-sync-or-not-to-auto-sync/' class='btn  btn-xs' target='_blank'>How to use Auto-Sync</a>" ,
-      type: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes Please.",
-      cancelButtonText: "No Thanks."
-    }).then(result => {
-      if (result.value) {
-        DoAutoSave=true
-       // swal("Auto Sync Turned on!", "Coolio", "success");
-      }
     });
-  CallDone=true
-  }
-
-}
 
 
 
-    </script>
+  </script>
 
+
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+  <!-- Bootstrap core JavaScript s -->
+  <script src="lib/js/autosize.js"></script>
+
+  <script src="lib/js/jquery-3.3.1.min.js"></script>
+  <script src="lib/js/jquery-ui.min.js"></script>
+
+  <script src="lib/js/tether.min.js"></script>
+  <script src="lib/js/bootstrap.min.js"></script>
+  <script src="lib/js/sweetalert2.all.js"></script>
+  <script src="lib/js/dexie.js"></script>
+  <script src="lib/js/split.min.js"></script>
+
+  <script src="lib/js/jquery.fancytree-all-deps.js"></script>
+  <script src="lib/js/jquery.ui-contextmenu.min.js"></script>
+
+  <script src="lib/js/turndown.js"></script>
+  <script src="lib/js/showdown.min.js"></script>
+  <script src="lib/js/hammer.min.js"></script>
+
+  <script src="global/js/datamanager.js"></script>
+  <script src="global/js/init.js"></script>
+
+  <script>
+
+    var AutoSave;
+    var DoAutoSave = false;
+    var ShowUploadFeedback = true
+
+    AutoSave = setInterval(alertFunc, 300000); // 300000 v=5 mins
+
+    var CallDone = false
+
+
+
+
+    function alertFunc() {
+      if (DoAutoSave) {
+        console.log("Autosave Triggered!");
+        ShowUploadFeedback = false;
+        if (IsGoogleDrive) {
+          exportDatabase("gDriveSyncUp", false);
+        } else {
+          alert("Your Google drive account appears to not be logged in - autosave will fail - return to the main menu and make sure your connection is there. Or turn OFF autosave by reloading this page and choosing not to turn on auto sync")
+          DoAutoSave = false
+          CallDone = false
+        }
+      }
+    }
+
+    function autoSyncCall() {
+      if (!CallDone) {
+        console.log(WMproject.state.tool + " Calling for sync")
+        swal({
+          title: "Turn On Auto Sync?",
+          html: "Auto Sync will upload to google drive automatically every five minutes. You will be asked this before each session. To disable it simply restart the app. <BR> (or reload the page)<BR><BR><a href='https://wavemaker.co.uk/blog/to-auto-sync-or-not-to-auto-sync/' class='btn  btn-xs' target='_blank'>How to use Auto-Sync</a>",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes Please.",
+          cancelButtonText: "No Thanks."
+        }).then(result => {
+          if (result.value) {
+            DoAutoSave = true
+            // swal("Auto Sync Turned on!", "Coolio", "success");
+          }
+        });
+        CallDone = true
+      }
+
+    }
+
+
+
+  </script>
+
+  <style>
+    #v4alert {
+      position: fixed;
+      right: 10px;
+      padding: 20px;
+      bottom: 10px;
+      background-color: lightcoral;
+      z-index: 9999999999999999;
+      display: none;
+      font-size: 1.5em;
+    }
+  </style>
+
+  <div id="v4alert">
+
+    <button id="hidealert" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <p>
+      Wavemaker Version 4 is now Available
+    </p>
+    <a href="https://wavemakercards.com/" target="_blank" class="btn btn-primary">Click here to try it out</a>
+
+  </div>
+  <script>
+    if (!localStorage.getItem("wmv4alert")) {
+      $("#v4alert").show()
+    }
+    $("#hidealert").click(() => {
+      localStorage.setItem("wmv4alert", "true");
+      $("#v4alert").hide()
+    })
+
+  </script>
 </body>
 
 </html>
