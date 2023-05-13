@@ -18,16 +18,18 @@ function savedata() {
 var markDownOutput = "";
 function getMarkDown(dta, depth = 0) {
   let hashes = "######"
-  //console.log(dta)
-  if (dta.data) {
-    /*
+  if (dta) {
     console.log(depth)
     console.log(hashes.slice(0, depth + 1), dta.title)
-    console.log(dta.data.content)
-    */
+    if (dta.data) {
+      console.log(dta.data.content)
+    }
     markDownOutput = markDownOutput + '\n\n';
     markDownOutput = markDownOutput + hashes.slice(0, depth + 1) + ' ' + dta.title + '\n\n';
-    markDownOutput = markDownOutput + dta.data.content;
+    if (dta.data) {
+      markDownOutput = markDownOutput + dta.data.content;
+    }
+    console.log(dta.children)
     if (dta.children !== undefined) {
       $.each(dta.children, function (k, v) {
         getMarkDown(v, depth + 1)
@@ -37,6 +39,7 @@ function getMarkDown(dta, depth = 0) {
 }
 $(document).off("click", "#ExportMarkdown").on("click", "#ExportMarkdown", function () {
   $.each(WMproject.data.writer, function (k, v) {
+    console.log("V", v)
     getMarkDown(v);
   })
 
@@ -55,8 +58,11 @@ var HTMLOutput = "";
 function getHtmlOutput(dta, lev) {
   var htmlSceneDivider = "<p class='scene'>#</p>"
   //console.log(dta)
-  if (dta.data) {
-    html = markdown2html(dta.data.content);
+  var html = ''
+  if (dta) {
+    if (dta.data) {
+      html = markdown2html(dta.data.content);
+    }
     if (lev == 1) {
       // HTMLOutput=HTMLOutput+"<div class='chaptername'>"+dta.title+"</div><div class='chapter'>";
       HTMLOutput = HTMLOutput + "<div class='chapter'>";
@@ -265,8 +271,12 @@ $(document).off("click", "#ExportProjectFile").on("click", "#ExportProjectFile",
 var RTFOutput = "";
 function getRTFOutput(dta, lev) {
   //console.log(dta)
-  if (dta.data) {
-    var html = markdown2html(dta.data.content);
+  if (dta) {
+    var html = ''
+
+    if (dta.data) {
+      html = markdown2html(dta.data.content);
+    }
     var headhtml = "";
     if (lev == 1) {
       // HTMLOutput=HTMLOutput+"<div class='chaptername'>"+dta.title+"</div><div class='chapter'>";
