@@ -848,3 +848,12 @@ function ShowWordCount(counted) {
 }
 
 setManuscript();
+
+//Context Menu on swipe
+let writerchapters = document.querySelectorAll('.fancytree-node')
+writerchapters.forEach((chapter) => {
+  let hammertime = new Hammer(chapter)
+  hammertime.on('swipe', () => {
+    $(chapter).trigger('contextmenu')
+  })
+})
